@@ -1,1 +1,0 @@
-[[Titan|TitanName]] is a [[virtual graph database|VirtualGraphDatabase]], that is, a full-featured [graph database](http://en.wikipedia.org/wiki/Graph_database) that supports different [[storage backends|StorageBackends]] as persistence layers. 
