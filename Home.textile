@@ -1,1 +1,1 @@
-Titan is a virtual graph database, that is, a full-featured graph database:http://en.wikipedia.org/wiki/Graph_database that supports different storage backends as persistence layers. 
+Titan is a virtual graph database, that is, a full-featured "graph database":http://en.wikipedia.org/wiki/Graph_database that supports different storage backends as persistence layers. 
