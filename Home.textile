@@ -3,7 +3,7 @@ Titan is a virtual graph database, that is, a full-featured "graph database":htt
 ==<hr/>==
 
 * Introduction
-* [Getting Started]
+* [[Getting Started]]
 * Blueprints Connectivity
   ** Using Gremlin
   ** Using Rexster
