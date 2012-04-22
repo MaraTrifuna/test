@@ -1,0 +1,7 @@
+Each entity in Titan is assigned a unique id. The last bits of the entity id determine its type:
+* If the last bit is 1, then the id denotes an edge
+* If the last two bits are 00, then the id denotes a vertex
+* If the last two bits are 10, then the id denotes an edge type
+  ** If the last three bits are 010, then the id denotes a property type
+  ** If the last three bits are 110, then the id denotes a relationship type
+
