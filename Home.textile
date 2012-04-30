@@ -18,7 +18,3 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 ==<hr/>==
 
 The documentation in this wiki is respective of the current master branch, not the latest release. Please refer to the @doc@ directory of a release for release-specific documentation.
-
-==<hr/>==
-
-If you are interested in contributing to Titan, please check out the [[Developer Center]] for development related documentation.
