@@ -10,9 +10,10 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 ** Gremlin Traversals
 * Advanced Concepts
 ** Graph Configurations
-** Persistence Layer Connectivity
+** Storage Layer Connectivity
 *** Using Cassandra
 *** Using HBase
+*** [[Extending Support]]
 
 ==<hr/>==
 
