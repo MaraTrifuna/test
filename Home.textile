@@ -1,14 +1,18 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|height=250px]]
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|height=225px]]
 
-Titan is a virtual graph database, that is, a full-featured "graph database":http://en.wikipedia.org/wiki/Graph_database that supports different storage backends as persistence layers. 
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for representing and processing massive-scale graphs over a cluster of machines. Various distributed persistence engines can be tailored to work with Titan, however, "Cassandra":http://cassandra.apache.org/ and "HBase":http://hbase.apache.org/ connectors are natively supported. Finally, Titan is a native "Blueprints":http://blueprints.tinkerpop.com-enabled graph database and as such, supports the full "TinkerPop":http://tinkerpop.com stack of technologies. 
 
 ==<hr/>==
 
 * Introduction
-* [[Getting Started]]
-* Blueprints Connectivity
-  ** Using Gremlin
-  ** Using Rexster
+* Basic Concepts
+** [[Getting Started]]
+** Gremlin Traversals
+* Advanced Concepts
+** Graph Configurations
+** Persistence Layer Connectivity
+*** Using Cassandra
+*** Using HBase
 
 ==<hr/>==
 
