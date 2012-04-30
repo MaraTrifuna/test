@@ -1,5 +1,0 @@
-The development center contains documentation relevant for the development activities surrounding Titan.
-
-Developer Notes:
-* [[Initial Titan import]]
-* [[ID Format Scheme]]
