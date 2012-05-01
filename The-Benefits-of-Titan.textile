@@ -1,21 +1,29 @@
-Titan was designed to support the processing of massive-scale graphs that can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Note that many of these benefits are a ramification of the underlying storage layer.
+Titan was designed to support the processing of graphs so large that they can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Qualities that are inherited from the underlying storage layer are discussed in their respective sections.
 
 h2. General Titan Benefits
 
-* Supports graphs of "infinite" size via the addition of more machines to the cluster.
+* Support for "infinite" sized graphs via the addition of machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
-* Numerous graph-level configurations provide knobs for tuning performance within a clustered environment.
-* Micro-indices facilitate intelligent vertex-level querying and avoids the infamous super node problem.
-* Provides an extremely optimized disk representation to allow for efficient use of storage and speed of access.
+* Numerous graph-level configurations provide knobs for tuning performance.
+* Micro-indices facilitate intelligent vertex-level querying to alleviate issues with the infamous super node problem.
+* Provides an optimized disk representation to allow for efficient use of storage and speed of access.
+* Data replication amongst the cluster ensures data is protected during machine failures.
+* Support for top-down, user prescribed graph partitioning algorithm.
+
 
 h2. Benefits of Titan over Cassandra
 
-!http://cassandra.apache.org/media/img/cassandra_logo.png!
+!http://cassandra.apache.org/media/img/cassandra_logo.png!:http://cassandra.apache.org/
 
 * Continuously available with no single point of failure.
 * No read/write bottlenecks to the graph as there is no master/slave architecture.
 * Elastic scalability allows for the introduction and removal of machines.
+* Caching layer ensures that continuously accessed data is available in memory.
+* Increase the size of the cache by adding more machines to the cluster.
 
 h2. Benefits of Titan over HBase
 
-!http://hbase.apache.org/images/hbase_logo.png!
+!http://hbase.apache.org/images/hbase_logo.png!:http://hbase.apache.org/
+
+* Tight integration with the Hadoop ecosystem.
+* Native support for strong consistency.
