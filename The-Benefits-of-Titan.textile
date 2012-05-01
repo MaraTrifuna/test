@@ -1,4 +1,4 @@
-Titan was designed to support the processing of massive-scale graphs that can not fit within the storage and computational capacities of a single machine. Beyond this foundational benefit, the following list itemizes various Titan benefits. Many of these benefits are a ramification of the underlying storage layer.
+Titan was designed to support the processing of massive-scale graphs that can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Note that many of these benefits are a ramification of the underlying storage layer.
 
 * Supports graphs of "infinite" size via the addition of more machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
