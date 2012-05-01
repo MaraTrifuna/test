@@ -7,3 +7,7 @@ Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen
 h2. Installing Titan
 
 h2. Connecting to Titan with Gremlin
+
+Hercules, son of Jupiter and Alcmene, bore super human strength. During his life, Hercules participated in 12 tasks that were demanded of him by King Merceles.
+
+|!http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg/301px-Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg!<br>*Nemean*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hercules_slaying_the_Hydra.jpg/320px-Hercules_slaying_the_Hydra.jpg!*Hydra*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cerberus-Blake.jpeg/320px-Cerberus-Blake.jpeg!<br>*Cerberus*|
