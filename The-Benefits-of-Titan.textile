@@ -2,6 +2,8 @@ Titan is designed to support the processing of graphs so large that they can not
 
 h2. General Titan Benefits
 
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-kneeling.png|width=125px|align=left|float]] 
+
 * Support for "infinite" sized graphs via the addition of machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
 * Numerous graph-level configurations provide knobs for tuning performance.
