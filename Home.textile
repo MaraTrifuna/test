@@ -5,7 +5,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 ==<hr/>==
 
 * Introduction
-* Basic Concepts
+** The Benefits of Titan
 ** [[Getting Started]]
 * Intermediate Concepts
 ** Blueprints Interface
