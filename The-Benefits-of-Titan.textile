@@ -1,10 +1,17 @@
 Titan was designed to support the processing of massive-scale graphs that can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Note that many of these benefits are a ramification of the underlying storage layer.
 
+h2. General Titan Benefits
+
 * Supports graphs of "infinite" size via the addition of more machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
 * Numerous graph-level configurations provide knobs for tuning performance within a clustered environment.
 * Micro-indices facilitate intelligent vertex-level querying and avoids the infamous super node problem.
+* Provides an extremely optimized disk representation to allow for efficient use of storage and speed of access.
+
+h2. Benefits of Titan over Cassandra
+
 * Continuously available with no single point of failure when using Cassandra.
 * No read/write bottlenecks to the graph as there is no master/slave architecture when using Cassandra.
-* Provides an extremely optimized disk representation to allow for efficient use of storage and speed of access.
 * Elastic scalability allows for the introduction and removal of machines when using Cassandra.
+
+h2. Benefits of Titan over HBase
