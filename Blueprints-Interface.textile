@@ -1,0 +1,14 @@
+!https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-logo.png!:http://blueprints.tinkerpop.com
+
+"Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases. In many ways, Blueprints can be likened to the "JDBC":http://en.wikipedia.org/wiki/Java_Database_Connectivity of the relational database community. Note that any technologies written to work with the Blueprints API can take advantage of a Blueprints-enabled graph database. Example technologies include the tools in the "TinkerPop":http://tinkerpop.com stack.
+
+h2. Introduction to @TitanGraph@
+
+When a graph database vendor supports Blueprints, they typically expose both their native API as well as their Blueprints implementation. In this way, Blueprints usually serves as a wrapper to an underlying native API. With Titan, no such wrapping exists. Titan natively implements the Blueprints API.
+
+```java
+TitanGraph graph = new TitanGraph("localhost");
+Vertex jupiter = graph.addVertex(null);
+Vertex juno = graph.addVertex(null);
+```
+
