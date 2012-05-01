@@ -17,6 +17,6 @@ bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be 
 
 h2. Connecting to Titan with Gremlin
 
-Hercules, son of Jupiter and Alcmene, bore super human strength. To atone for the slaying of his children and wife, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Hercules was appointed 12 labors.
-
 |!http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg/301px-Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg!<br>*Nemean*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hercules_slaying_the_Hydra.jpg/320px-Hercules_slaying_the_Hydra.jpg!*Hydra*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cerberus-Blake.jpeg/320px-Cerberus-Blake.jpeg!<br>*Cerberus*|
+
+bq. Hercules, son of Jupiter and Alcmene, bore super human strength. To atone for the slaying of his children and wife, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Hercules was appointed 12 labors.
