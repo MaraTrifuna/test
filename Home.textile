@@ -1,6 +1,6 @@
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|height=225px]]
 
-Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for representing and processing massive-scale graphs over a cluster of machines. Distributed storage systems can be tailored to support Titan, however, "Cassandra":http://cassandra.apache.org/ and "HBase":http://hbase.apache.org/ connectors are provided. Finally, Titan is a native "Blueprints":http://blueprints.tinkerpop.com-enabled graph database and as such, supports it supports the full "TinkerPop":http://tinkerpop.com stack of technologies. 
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for representing and processing massive-scale "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) over a cluster of machines. Any storage system can be tailored to work with Titan, however, "Cassandra":http://cassandra.apache.org/ and "HBase":http://hbase.apache.org/ connectors are provided. Finally, Titan is a native "Blueprints":http://blueprints.tinkerpop.com-enabled graph database and as such, supports it supports the full "TinkerPop":http://tinkerpop.com stack of technologies. 
 
 ==<hr/>==
 
