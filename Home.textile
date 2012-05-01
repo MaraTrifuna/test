@@ -17,6 +17,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 *** Using Cassandra
 *** Using HBase
 *** [[Extending Support]]
+** Benchmarks
 
 ==<hr/>==
 
