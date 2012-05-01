@@ -1,5 +1,1 @@
 In order to get going with Titan, it is necessary to...
-
-h2. Installing Cassandra
-
-h2. Loading a Toy Graph Dataset
