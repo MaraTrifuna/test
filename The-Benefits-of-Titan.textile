@@ -10,8 +10,12 @@ h2. General Titan Benefits
 
 h2. Benefits of Titan over Cassandra
 
-* Continuously available with no single point of failure when using Cassandra.
-* No read/write bottlenecks to the graph as there is no master/slave architecture when using Cassandra.
-* Elastic scalability allows for the introduction and removal of machines when using Cassandra.
+!http://cassandra.apache.org/media/img/cassandra_logo.png!
+
+* Continuously available with no single point of failure.
+* No read/write bottlenecks to the graph as there is no master/slave architecture.
+* Elastic scalability allows for the introduction and removal of machines.
 
 h2. Benefits of Titan over HBase
+
+!http://hbase.apache.org/images/hbase_logo.png!
