@@ -6,6 +6,7 @@ h2. General Titan Benefits
 
 * Support for "infinite" sized graphs via the addition of machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
+* Native support for the graph traversal language Gremlin.
 * Numerous graph-level configurations provide knobs for tuning performance.
 * Micro-indices facilitate intelligent vertex-level querying to alleviate issues with the infamous super node problem.
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
