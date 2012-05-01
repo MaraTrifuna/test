@@ -1,8 +1,5 @@
 Titan is designed to support the processing of graphs so large that they can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
 
-table{border:1px solid black}.
-|!http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/8646_-_St_Petersburg_-_Hermitage_-_Jupiter2.jpg/180px-8646_-_St_Petersburg_-_Hermitage_-_Jupiter2.jpg!|
-
 h2. General Titan Benefits
 
 * Support for "infinite" sized graphs via the addition of machines to the cluster.
