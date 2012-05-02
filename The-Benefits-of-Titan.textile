@@ -1,4 +1,4 @@
-Titan is designed to support the processing of graphs so large that they can not fit within the storage and computational capacities of a single machine. Beyond this foundational feature, the following list itemizes various other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
+Titan is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. This is Titan's foundational benefit. The following list itemizes various other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
 
 h2. General Titan Benefits
 
