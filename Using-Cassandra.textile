@@ -2,8 +2,20 @@
 
 Cassandra is a Dynamo BigTable implementation...
 
-h2. Using in Embedded Mode
+h2. Deploying on Managed Machines
 
-h2. Using Local Server Mode
+h3. Using in Embedded Mode
 
-h2. Using on Amazon EC2
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-embedded.png!
+
+h3. Using Local Server Mode
+
+h3. Using Remote Server Mode
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra.png!
+
+h2. Using Remote Server Mode with Rexster
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/rexster-titan-cassandra.png!
+
+h2. Deploying on Amazon EC2
