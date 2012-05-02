@@ -1,3 +1,5 @@
+!http://cassandra.apache.org/media/img/cassandra_logo.png!:http://cassandra.apache.org/
+
 Cassandra is a Dynamo BigTable implementation...
 
 h2. Using in Embedded Mode
