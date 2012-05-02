@@ -11,7 +11,7 @@ h2. General Titan Benefits
 * Micro-indices facilitate intelligent vertex-level querying to alleviate issues with the infamous super node problem.
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
 * Data replication amongst the cluster ensures data is protected during machine failures.
-* Support for top-down, user prescribed graph partitioning algorithm.
+* Support for top-down, user prescribed graph partitioning algorithms.
 
 
 h2. Benefits of Titan over Cassandra
