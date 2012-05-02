@@ -49,4 +49,6 @@ http://rexster.titan.machine2/mygraph/tp/gremlin?script=g.v(1).out('follows').ou
 
 h2. Deploying on Amazon EC2
 
-!http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!
+!http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!:http://aws.amazon.com/ec2/
+
+"Amazon EC2":http://aws.amazon.com/ec2/ is a cloud computing service...
