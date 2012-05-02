@@ -1,0 +1,3 @@
+!http://hbase.apache.org/images/hbase_logo.png!:http://hbase.apache.org/
+
+HBase is ...
