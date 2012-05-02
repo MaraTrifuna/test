@@ -1,3 +1,9 @@
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-globe.png|width=150px|align=left|float]]
+
+The Blueprints API provides the methods needed to query and manipulate the graph. For configuring the graph, there are Titan-specific methods. This section will outline the various methods off of @TitanGraph@ that are useful for tailoring the graph's representation to meet developer needs.
+
+<br/><br/><br/>
+
 h2. Edge Schema Configurations
 
 @EdgeLabelConstructor TitanGraph.createEdgeLabel()@
