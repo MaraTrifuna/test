@@ -36,7 +36,7 @@ When the graph needs to scale beyond the confines of a single machine, then Cass
 Graph graph = new TitanGraph(new CassandraIPScan(...))
 ```
 
-h2. Using Remote Server Mode with Rexster
+h3. Using Remote Server Mode with Rexster
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/rexster-titan-cassandra.png!
 
@@ -48,3 +48,5 @@ http://rexster.titan.machine2/mygraph/tp/gremlin?script=g.v(1).out('follows').ou
 ```
 
 h2. Deploying on Amazon EC2
+
+!http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!
