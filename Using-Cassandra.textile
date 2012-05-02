@@ -42,4 +42,8 @@ h2. Using Remote Server Mode with Rexster
 
 Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
 
+```text
+http://rexster.titan.machine1/mygraph/tp/gremlin?g.v(1).out('follows').out('created')
+```
+
 h2. Deploying on Amazon EC2
