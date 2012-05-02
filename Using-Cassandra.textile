@@ -1,0 +1,7 @@
+Cassandra is a Dynamo BigTable implementation...
+
+h2. Using in Embedded Mode
+
+h2. Using Local Server Mode
+
+h2. Using on Amazon EC2
