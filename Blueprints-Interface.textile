@@ -12,3 +12,17 @@ Vertex jupiter = graph.addVertex(null);
 Vertex juno = graph.addVertex(null);
 ```
 
+h2. Vertex Edge Queries
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/super-node.png!
+
+Blueprints supports the notion of "edge queries" which can be understood as a query of the edges directly adjacent to a vertex. An example edge query is provided below:
+
+```java
+Iterable<Vertex> results = jupiter.query().label("knows").has("since",2011).has("stars",5).vertices()
+```
+
+bq. Find all the people that Jupiter greatly admires who he has known since the year 2011.
+
+The benefit of an edge query is that it reduces the amount of data that needs to be pulled off the disk and filtered in-memory. This is important when considering extremely branch graphs or graphs with "hot spots" called hubs or super-nodes. In these situations, it is imperative to reduce the search space to only that which is required for the particular query. Given the diagrammed graph above, if no restrictions are given to the query (e.g. @jupiter.query().vertices()@), then 5 vertices are returned. However, given the query in the block of code above, only 1 vertex is returned. In this way, intelligent filtering provide various performance benefits and reduces the CPU processing footprint of the end application.
+
