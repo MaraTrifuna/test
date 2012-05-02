@@ -4,18 +4,42 @@ Cassandra is a Dynamo BigTable implementation...
 
 h2. Deploying on Managed Machines
 
+The following sections outline the various ways in which Titan can be used in concert with Cassandra.
+
 h3. Using in Embedded Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-embedded.png!
 
+Cassandra can be run in embedded mode where the application has direct access to the Cassandra instance within the same Java Virtual Machine (JVM). The diagram above demonstrates how Titan and Cassandra directly communicate with each other via Java method invocations. Finally, the end application directly communicates with Titan. For graph application that do not need to scale beyond the confines of a single machine, significant speed improvements are realized as all components are communicating via direct JVM references.
+
+```java
+Graph graph = new TitanGraph("/tmp/titan");
+```
+
 h3. Using Local Server Mode
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-local.png!
+
+Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket.
+
+```java
+Graph graph = new TitanGraph("localhost");
+```
 
 h3. Using Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra.png!
 
+When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan with the same JVM as Titan.
+
+```java
+Graph graph = new TitanGraph(new CassandraIPScan(...))
+```
+
 h2. Using Remote Server Mode with Rexster
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/rexster-titan-cassandra.png!
+
+Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
 
 h2. Deploying on Amazon EC2
