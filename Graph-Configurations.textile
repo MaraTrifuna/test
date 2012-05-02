@@ -1,0 +1,13 @@
+h2. Edge Schema Configurations
+
+@EdgeLabelConstructor TitanGraph.createEdgeLabel()@
+
+|_. method    |_. description |
+| @EdgeLabelConstructor.functional(boolean)@ | does something |
+| @EdgeLabelConstructor.dataType(Class)@ | blah |
+| @EdgeLabelConstructor.withIndex(boolean)@ | more stuff |
+| @EdgeLabelConstructor.makeKeyed(boolean)@ | you got it |
+
+h2. Storage Configurations
+
+@TitanGraph.setStorageConfiguration()@                                                                                       
