@@ -1,0 +1,48 @@
+!https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-logo.png!:http://rexster.tinkerpop.com
+
+"Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed form most major web browsers.
+
+h2. Configuring Rexster
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<rexster>
+  <rexster-server-port>8182</rexster-server-port>
+  <rexster-server-host>0.0.0.0</rexster-server-host>
+  <rexster-shutdown-port>8183</rexster-shutdown-port>
+  <rexster-shutdown-host>127.0.0.1</rexster-shutdown-host>
+  <rexpro-server-port>8184</rexpro-server-port>
+  <rexpro-session-max-idle>1790000</rexpro-session-max-idle>
+  <rexpro-session-check-interval>3000000</rexpro-session-check-interval>
+  <base-uri>http://localhost</base-uri>
+  <web-root>public</web-root>
+  <character-set>UTF-8</character-set>
+  <security>
+    <authentication>
+        <type>default</type>
+        <configuration>
+          <users>
+            <user>
+              <username>rexster</username>
+              <password>rexster</password>
+            </user>
+          </users>
+        </configuration>
+    </authentication>
+  </security>
+  <graphs>
+    <graph>
+      <graph-name>gratefulgraph</graph-name>
+      <graph-type>com.tinkerpop.rexster.config.TinkerGraphGraphConfiguration</graph-type>
+      <graph-location>data/graph-example-2.xml</graph-location>
+      <graph-read-only>false</graph-read-only>
+      <extensions>
+        <allows>
+          <allow>tp:frames</allow>
+        </allows>
+      </extensions>
+    </graph>
+    ...
+  </graphs>
+</rexster>
+```
