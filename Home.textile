@@ -8,7 +8,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 ** [[Getting Started]]
 * Intermediate Concepts
 ** [[Blueprints Interface]]
-*** Graph Configurations (*cheat sheet*)
+*** [[Graph Configurations]] (*cheat sheet*)
 ** Gremlin Graph Traversals
 ** Rexster Graph Server
 * Advanced Concepts
