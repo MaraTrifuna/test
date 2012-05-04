@@ -4,13 +4,18 @@
 
 h2. Introduction to @TitanGraph@
 
-When a graph database vendor supports Blueprints, they typically expose both their native API as well as their Blueprints implementation. In this way, Blueprints usually serves as a wrapper to an underlying native API. With Titan, no such wrapping exists. Titan natively implements the Blueprints API.
+When a graph database vendor supports Blueprints, they typically expose both their native API as well as their Blueprints implementation. In this way, Blueprints usually serves as a wrapper to an underlying native API. With Titan, no such wrapping exists. Titan natively implements the Blueprints API and serves as the sole means of accessing the graph.
 
 ```java
 TitanGraph graph = new TitanGraph("localhost");
 Vertex jupiter = graph.addVertex(null);
+jupiter.setProperty("name", "Jupiter");
 Vertex juno = graph.addVertex(null);
+juno.setProperty("name", "Juno");
+Edge marriedTo = graph.addEdge(null, jupiter, juno, "marriedTo");
 ```
+
+In the code example above, two vertices were created named "Jupiter" and "Juno." Finally, these two vertices were joined in holy matrimony via a @marriedTo@ edge.
 
 h2. Vertex Edge Queries
 
@@ -24,5 +29,5 @@ Iterable<Vertex> results = jupiter.query().label("knows").has("since",2011).has(
 
 bq. Find all the people that Jupiter greatly admires who he has known since the year 2011.
 
-The benefit of an edge query is that it reduces the amount of data that needs to be pulled off the disk and filtered in-memory. This is important when considering extremely branch graphs or graphs with "hot spots" called hubs or super-nodes. In these situations, it is imperative to reduce the search space to only that which is required for the particular query. Given the diagrammed graph above, if no restrictions are given to the query (e.g. @jupiter.query().vertices()@), then 5 vertices are returned. However, given the query in the block of code above, only 1 vertex is returned. In this way, intelligent filtering provide various performance benefits and reduces the CPU processing footprint of the end application.
+The benefit of an edge query is that it reduces the amount of data that needs to be pulled off the disk and filtered in-memory. This is important when considering extremely branch graphs or graphs with "hot spots" called hubs or super-nodes. In these situations, it is imperative to reduce the search space to only that which is required for the particular query. Given the diagrammed graph above, if no restrictions are given to the query (e.g. @jupiter.query().vertices()@), then 5 vertices are returned. However, given the query in the block of code above, only 1 vertex is returned. In this way, intelligent filtering provide various performance benefits and reduces the processing and memory footprint required of the consuming application.
 
