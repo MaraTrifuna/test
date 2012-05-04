@@ -1,4 +1,4 @@
-It is possible to extend Titan to support other storage layers. This page describes the mechanisms to make this possible.
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|align=left|float]] It is possible to extend Titan to support other storage layers. This page describes what is required to do this.
 
 h2. Titan's ID System
 
