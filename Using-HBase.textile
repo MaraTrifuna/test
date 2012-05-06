@@ -1,3 +1,20 @@
 !http://hbase.apache.org/images/hbase_logo.png!:http://hbase.apache.org/
 
-HBase is ...
+HBase is a BigTable implementation built on Hadoop and HDFS.
+
+Titan can store graph data in HBase as an alternative to [[Cassandra|Using Cassandra]].
+
+h2. Testing Titan's HBase Adapter (for Developers)
+
+Titan's HBase backend tests currently assume the existence of a running, locally-available HBase instance with an essentially default configuration.  These tests will fail otherwise.  Here are the steps to start a testing HBase instance on a development machine and run the relevant tests.
+
+The assumption of an externally-started HBase instance will likely be removed as development on the Titan HBase adapter continues.
+
+* Download and extract a stable HBase from [[http://www.apache.org/dyn/closer.cgi/hbase/stable/]].
+* Start HBase.  In 0.92.1, the stable version as of this writing, the startup command on OS X or Linux is @hbase-0.92.1/bin/start-hbase.sh@.
+* Clone Titan.
+<pre>git@github.com:thinkaurelius/titan.git
+cd titan</pre>
+* Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
+<pre>mvn clean test -Dtest=HBaseKeyColumnValueTest
+mvn clean test -Dtest=HBaseGraphDBTest</pre>
