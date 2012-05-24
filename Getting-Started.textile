@@ -53,9 +53,6 @@ gremlin> hercules.out('battled').map
 ==>{name=nemean, type=monster}
 ==>{name=hydra, type=monster}
 ==>{name=cerberus, type=monster}
-gremlin> hercules.outE('battled').has('time',T.gt,1).name
-==>null
-==>null
 gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 ==>hydra
 ==>cerberus
