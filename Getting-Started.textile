@@ -23,7 +23,7 @@ bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be 
 h2. Connecting to Titan with Gremlin
 
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
-"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. With Gremlin, it is possible to both read and write to the graph. For a more in-depth review of Gremlin and Titan, please see the respective [[Gremlin Graph Traversals]] section of this documentation. For now, some simple Gremlin examples are provided to demonstrate how to interact with Titan via a "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. an interactive shell). All the examples are with respect to the _Graph of the Gods_ diagrammed above.
+"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. With Gremlin, it is possible to both read and write to the graph. For a more in-depth review of Gremlin and Titan, please see the respective [[Gremlin Graph Traversals]] section of this documentation. For now, some simple Gremlin examples are provided to demonstrate how to interact with Titan via a "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. an interactive shell). All the examples are with respect to the _Graph of the Gods_ diagrammed above and using Titan in embedded mode.
 
 
 ```text
