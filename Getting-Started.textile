@@ -40,11 +40,18 @@ gremlin> saturn.in('father').in('father').name
 ==>hercules
 ```
 
-bq. "Hercules":http://en.wikipedia.org/wiki/Hercules, son of Jupiter and "Alcmene":http://en.wikipedia.org/wiki/Alcmene, bore super human strength. To atone for the slaying of his children and wife, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Hercules was appointed 12 labors.
+bq. "Hercules":http://en.wikipedia.org/wiki/Hercules, son of Jupiter and "Alcmene":http://en.wikipedia.org/wiki/Alcmene, bore super human strength. Hercules was a "demigod":http://en.wikipedia.org/wiki/Demigod because his father was a god and his mother was a human. In a fit of madness caused by the jealous goddess "Juno":http://en.wikipedia.org/wiki/Juno_(mythology), Hercules killed his wife and children. To atone for the slaying, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Eurystheus appointed Hercules to 12 labors.
 
 |!http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg/301px-Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg!<br>*Nemean*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hercules_slaying_the_Hydra.jpg/320px-Hercules_slaying_the_Hydra.jpg!*Hydra*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cerberus-Blake.jpeg/320px-Cerberus-Blake.jpeg!<br>*Cerberus*|
 
 ```text
+gremlin> hercules = saturn.in('father').loop(1){it.loops < 3}.next()
+==>v[7]
+gremlin> hecules.out('father','mother').type
+==>god
+==>human
+gremlin> hercules.type
+==>demigod
 gremlin> hercules.out('battled')
 ==>v[9]
 ==>v[10]
