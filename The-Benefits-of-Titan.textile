@@ -14,7 +14,7 @@ h2. General Titan Benefits
 * Support for top-down, user prescribed graph partitioning algorithms.
 
 
-h2. Benefits of Titan running on Cassandra
+h2. Benefits of Titan with Cassandra
 
 !http://cassandra.apache.org/media/img/cassandra_logo.png!:http://cassandra.apache.org/
 
@@ -24,7 +24,7 @@ h2. Benefits of Titan running on Cassandra
 * Caching layer ensures that continuously accessed data is available in memory.
 * Increase the size of the cache by adding more machines to the cluster.
 
-h2. Benefits of Titan running on HBase
+h2. Benefits of Titan with HBase
 
 !http://hbase.apache.org/images/hbase_logo.png!:http://hbase.apache.org/
 
