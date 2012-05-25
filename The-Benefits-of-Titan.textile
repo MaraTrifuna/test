@@ -1,4 +1,4 @@
-Titan is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. This is Titan's foundational benefit. The following list itemizes various other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
+Titan is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. This is Titan's foundational benefit. The following list itemizes other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
 
 h2. General Titan Benefits
 
@@ -14,7 +14,7 @@ h2. General Titan Benefits
 * Support for top-down, user prescribed graph partitioning algorithms.
 
 
-h2. Benefits of Titan over Cassandra
+h2. Benefits of Titan running on Cassandra
 
 !http://cassandra.apache.org/media/img/cassandra_logo.png!:http://cassandra.apache.org/
 
@@ -24,7 +24,7 @@ h2. Benefits of Titan over Cassandra
 * Caching layer ensures that continuously accessed data is available in memory.
 * Increase the size of the cache by adding more machines to the cluster.
 
-h2. Benefits of Titan over HBase
+h2. Benefits of Titan running on HBase
 
 !http://hbase.apache.org/images/hbase_logo.png!:http://hbase.apache.org/
 
