@@ -1,0 +1,1 @@
+In Titan, edge lables and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance.
