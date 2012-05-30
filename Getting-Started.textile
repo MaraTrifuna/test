@@ -36,21 +36,20 @@ h2. Connecting to Titan with Gremlin
 
 
 ```text
-gremlin> import com.thinkaurelius.titan.core.TitanFactory;
-...
-==>import com.tinkerpop.gremlin.Tokens.T
-==>import com.tinkerpop.gremlin.groovy.*
-==>import com.thinkaurelius.titan.core.TitanFactory;
-gremlin> g = new TitanGraph()
-==>titangraph[true]
+gremlin> g = TitanFactory.open('/tmp/titan')              
+==>standardtitangraph[berkeleyje]
+gremlin> g.createKeyIndex('name', Vertex.class)
+==>null
+gremlin> g.stopTransaction(SUCCESS)
+==>null
 gremlin> g.loadGraphML('data/graph-of-the-gods.xml')
 ==>null
-gremlin> saturn = g.getVertices('name','saturn').iterator().next()
-==>v[0]
+gremlin> saturn = g.V('name','saturn').next()
+==>v[20]
 gremlin> saturn.map()
 ==>name=saturn
 ==>type=titan
-gremlin> saturn.in('father').in('father').name                    
+gremlin> saturn.in('father').in('father').name
 ==>hercules
 ```
 
