@@ -18,7 +18,6 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 ** Storage Layer Connectivity
 *** [[Using Cassandra]]
 *** [[Using HBase]]
-*** [[Extending Support]]
 ** Benchmarks
 * Release Notes
 
