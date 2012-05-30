@@ -8,14 +8,23 @@ This page will make use of the following toy graph deployed with Titan. The toy 
 
 h2. Installing Titan
 
-Titan can be installed by downloading a distribution from the "Downloads":https://github.com/thinkaurelius/titan/downloads section or by importing Titan into a larger "Maven":http://maven.apache.org/ project. 
+Titan can be installed by downloading a distribution from the "Downloads":https://github.com/thinkaurelius/titan/downloads section.
 
-```xml
-<dependency>
-  <groupId>com.thinkaurelius</groupId>
-  <artifactId>titan</artifactId>
-  <version>??</version>
-</dependency>
+```bash
+$ unzip titan-0.1-SNAPSHOT.zip
+Archive:  titan-0.1-SNAPSHOT.zip
+   creating: titan-0.1-SNAPSHOT/
+  inflating: titan-0.1-SNAPSHOT/pom.xml  
+   creating: titan-0.1-SNAPSHOT/src/
+   creating: titan-0.1-SNAPSHOT/src/assembly/
+...
+$ cd titan-0.1-SNAPSHOT
+$ ./gremlin.sh 
+
+         \,,,/
+         (o o)
+-----oOOo-(_)-oOOo-----
+gremlin>
 ```
 
 bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
@@ -27,6 +36,11 @@ h2. Connecting to Titan with Gremlin
 
 
 ```text
+gremlin> import com.thinkaurelius.titan.core.TitanFactory;
+...
+==>import com.tinkerpop.gremlin.Tokens.T
+==>import com.tinkerpop.gremlin.groovy.*
+==>import com.thinkaurelius.titan.core.TitanFactory;
 gremlin> g = new TitanGraph()
 ==>titangraph[true]
 gremlin> g.loadGraphML('data/graph-of-the-gods.xml')
