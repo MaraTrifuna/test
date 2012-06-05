@@ -8,7 +8,6 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 * Introduction
 ** [[The Benefits of Titan]]
 ** [[Getting Started]]
-**** [[Building Titan]]
 * Intermediate Concepts
 ** [[Blueprints Interface]]
 *** [[Type Configuration]] (*cheat sheet*)
