@@ -10,7 +10,7 @@ h2. Downloading and Running Titan
 
 Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section. Once downloaded and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Commands can now be issued to Titan.
 
-```bash
+```text
 $ unzip titan-0.1-SNAPSHOT.zip
 Archive:  titan-0.1-SNAPSHOT.zip
    creating: titan-0.1-SNAPSHOT/
@@ -29,7 +29,7 @@ gremlin>
 
 bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
 
-h2. Connecting to Titan with Gremlin
+h2. Loading Data Into Titan
 
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
 "Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. With Gremlin, it is possible to both read and write to the graph. Some simple Gremlin examples are provided to demonstrate how to interact with Titan via the Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. an interactive shell). All the examples are with respect to the _Graph of the Gods_ diagrammed above and using Titan in embedded mode.
@@ -69,18 +69,38 @@ gremlin> saturn.in('father').in('father').name
 ==>hercules
 ```
 
+h2. Graph Traversal Examples
+
 bq. "Hercules":http://en.wikipedia.org/wiki/Hercules, son of Jupiter and "Alcmene":http://en.wikipedia.org/wiki/Alcmene, bore super human strength. Hercules was a "demigod":http://en.wikipedia.org/wiki/Demigod because his father was a god and his mother was a human. In a fit of madness caused by the jealous goddess "Juno":http://en.wikipedia.org/wiki/Juno_(mythology), Hercules killed his wife and children. To atone for the slaying, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Eurystheus appointed Hercules to 12 labors.
 
 |!http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg/301px-Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg!<br>*Nemean*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hercules_slaying_the_Hydra.jpg/320px-Hercules_slaying_the_Hydra.jpg!*Hydra*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cerberus-Blake.jpeg/320px-Cerberus-Blake.jpeg!<br>*Cerberus*|
 
+In the previous section, it was demonstrated that Saturns' childs' child was Hercules. This can be expressed using a @loop@. In essence, Hercules is the vertex that is 2-steps away from Saturn along the @in('father')@ path.
+
 ```text
 gremlin> hercules = saturn.in('father').loop(1){it.loops < 3}.next()
 ==>v[24]
+```
+
+Hercules is a demigod. To prove that Hercules is half human and half god, his parent's origins must be examined. Thus, it is possible to traverse from the Hercules vertex to his mother and father. Finally, it is possible to determine the @type@ of each of them -- yielding "god" and "human."
+
+```text
+gremlin> hercules.out('father','mother')
+==>v[16]
+==>v[44]
+gremlin> hercules.out('father','mother').name
+==>jupiter
+==>alcmene
 gremlin> hercules.out('father','mother').type
 ==>god
 ==>human
 gremlin> hercules.type
 ==>demigod
+```
+
+The examples thus far have been with respect to the genetic lines of the various actors in the Roman pantheon. However, the "property graph data model":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model is expressive enough to represent multiple types of things and multiple types of relationships. In this way, _The Graph of the Gods_ can also identify Hercules' various heroic exploits.
+
+```text
 gremlin> hercules.out('battled')
 ==>v[40]
 ==>v[12]
