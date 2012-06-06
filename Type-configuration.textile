@@ -27,12 +27,12 @@ Labels and keys are automatically created when their name is first used. However
 | indexed() | Configures the key to be indexed which allows vertices to be retrieved by key-value pair via @getVertices(key,value)@ | Key | not indexed | TitanKey.hasIndex() |
 | dataType(Class) | Configures the data type of this key. Property instances for this key will only accept attribute values that are instances of this class. Every property key must have its data type configured. Setting the data type to Object.class allows any type of attribute but comes at the expense of longer serialization because class information
 is stored with the attribute value. See "Graph Configuration":Graph-Configuration for more information on how to define custom attribute data types. | Key | - | TitanKey.getDataType() |
-| primaryKey(TitanType...) | Configures the composite primary key for this type. | Label | none | - |
-| signature(TitanType...) | Configures the signature of this type. | Label | none | - |
+| primaryKey(TitanType...) | Configures the composite primary key for this type. | Label | empty | - |
+| signature(TitanType...) | Configures the signature of this type. | Label | empty | - |
 | makeEdgeLabel() | Creates an edge label according to the configuration of this TypeMaker. | Label | - | - |
 | makePropertyKey() | Creates a property key according to the configuration of this TypeMaker. | Key | - | - |
 
-
+Below are some examples of creating labels and keys using @TypeMaker@.
 
 h3. Functional Types
  
@@ -68,6 +68,28 @@ Once the type group is defined, we assign the _father_, _mother_, and _brother_ 
 
 h3. Primary Keys and Signatures
 
+Specifying the primary key of a labels allows edges with this label to be efficiently retrieved in the order of the key. Titan builds vertex-centric indexes for each label according to the primary key definition which can significantly speed up queries.
+
+```java
+TitanKey time = g.makeType().name("time").dataType(Integer.class).functional().makePropertyKey();
+TitanLabel battled = g.makeType().name("battled").primaryKey(time).makeEdgeLabel();
+```
+
+In this example, the functional property key time is defined with data type @Integer@. This property key is then used as the primary key for the _battled_ edge label. Hence, _battled_ edges will be sorted by time and battles that happened in a certain time range can be queried for more efficiently. Moreover, _battled_ edges are stored more compactly on disk.
+
+Note, that @TitanTypes@ used in the primary key must be either functional property keys or functional, simple, unidirected edge lables.
+
+If one is not interested in configuring the order of edges but only wants to benefit from the storage efficiencies introduced by primary keys, one can alternatively configure the signature of a label. Specifying the signature of a label tells the graph database to _expect_ that edges with this label always have or are likely to have an incident property or unidirected edge of the type included in the signature. This allows the graph database to store such edges more compactly and retrieve them more quickly.
+
+```java
+TitanKey time = g.makeType().name("time").dataType(Integer.class).functional().makePropertyKey();
+TitanLabel battled = g.makeType().name("battled").signature(time).makeEdgeLabel();
+```
+
+This example is almost identical to the primary key example above with the only difference that _time_ is configured to be part of the signature.
+
+If a type is used in the primary key, it cannot be part of the signature.
+As before, @TitanTypes@ used in the signature must be either functional property keys or functional, simple, unidirected edge lables.
 
 
 
