@@ -1,32 +1,82 @@
 !https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-logo.png!:http://blueprints.tinkerpop.com
 
-"Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases. In many ways, Blueprints can be likened to the "JDBC":http://en.wikipedia.org/wiki/Java_Database_Connectivity of the relational database community. Note that any technologies written to work with the Blueprints API can take advantage of a Blueprints-enabled graph database. Example technologies include the tools in the "TinkerPop":http://tinkerpop.com stack.
+"Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases. In many ways, Blueprints can be likened to the "JDBC":http://en.wikipedia.org/wiki/Java_Database_Connectivity of the relational database community. Note that any technologies written to work with the Blueprints API can take advantage of a Blueprints-enabled graph database. Example technologies include the open-source products in the "TinkerPop":http://tinkerpop.com stack.
 
 h2. Introduction to TitanGraph
 
 When a graph database vendor supports Blueprints, they typically expose both their native API as well as their Blueprints implementation. In this way, Blueprints usually serves as a wrapper to an underlying native API. With Titan, no such wrapping exists. Titan natively implements the Blueprints API and serves as the sole means of accessing the graph.
 
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/juno-married.png!
+
 ```java
-TitanGraph graph = new TitanGraph("localhost");
-Vertex jupiter = graph.addVertex(null);
-jupiter.setProperty("name", "jupiter");
-Vertex juno = graph.addVertex(null);
+TitanGraph g = TitanFactory.open("/tmp/titan")
+Vertex juno = g.addVertex(null);
 juno.setProperty("name", "juno");
-Edge marriedTo = graph.addEdge(null, jupiter, juno, "marriedTo");
+Vertex jupiter = g.addVertex(null);
+jupiter.setProperty("name", "jupiter");
+Edge married = g.addEdge(null, juno, jupiter, "married");
 ```
 
-In the code example above, two vertices were created named "Jupiter" and "Juno." These two vertices were joined in holy matrimony via a @marriedTo@ edge.
+In the code example above, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge.
 
 h2. Vertex Queries
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/super-node.png!
 
-Blueprints supports the notion of "vertex-centric queries":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query which can be understood as a query of the elements directly connected to a vertex (i.e. incident edges or adjacent vertices). An example vertex query is provided below:
-
 ```java
-Iterable<Vertex> results = jupiter.query().label("knows").has("since",2011).has("stars",5).vertices()
+Vertex turnus = g.addVertex(null);
+turnus.setProperty("name", "turnus");
+Vertex hercules = g.addVertex(null);
+hercules.setProperty("name", "hercules")
+Vertex dido = g.addVertex(null);
+dido.setProperty("name", "dido");
+Vertex troy = g.addVertex(null);
+troy.setProperty("name", "troy");
+Vertex jupiter = g.addVertex(null);
+jupiter.setProperty("name", "jupiter");
+
+Edge edge = g.addEdge(null, juno, turnus, "knows");
+edge.setProperty("since",2010);
+edge.setProperty("stars",5);
+edge = g.addEdge(null, juno, hercules, "knows");
+edge.setProperty("since",2011);
+edge.setProperty("stars",1);
+edge = g.addEdge(null, juno, dido, "knows");
+edge.setProperty("since", 2011);
+edge.setProperty("stars", 5);
+g.addEdge(null, juno, troy, "likes").setProperty("stars",5);
 ```
 
-bq. Find all the people that Jupiter greatly admires who he has known since the year 2011.
+Blueprints supports the notion of "vertex-centric queries":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query which can be understood as a query of the elements directly connected to a vertex (i.e. incident edges or adjacent vertices). An example vertex query is provided below:
 
-The benefit of a vertex query is that it reduces the amount of data that needs to be pulled off the disk and filtered in-memory. This is important when considering extremely branchy graphs or graphs with "hot spots" called hubs or super-nodes. In these situations, it is imperative to reduce the search space to only that which is required for the particular query. Given the diagrammed graph above, if no restrictions are given to the query (e.g. @jupiter.query().vertices()@), then 5 vertices are returned. However, given the query in the block of code above, only 1 vertex is returned. In this way, intelligent filtering provide various performance benefits and reduces the processing and memory footprint required of the consuming application.
+bq. Find all the people that Juno greatly admires who she has known since the year 2011.
+
+```java
+Iterable<Vertex> results = juno.query().labels("knows").has("since",2011).has("stars",5).vertices()
+```
+
+The benefit of a vertex query is that it reduces the amount of data that needs to be pulled off the disk and filtered in-memory. This is important when considering extremely branchy graphs or graphs with "hot spots" called hubs or super-nodes. In these situations, it is imperative to reduce the search space to only that which is required for the particular query. Given the diagrammed graph above, if no restrictions are given to the query (e.g. @juno.query().vertices()@), then 5 vertices are returned. 
+
+```java
+for(Vertex vertex : juno.query().vertices()) { 
+  System.out.println(vertex.getProperty("name")) 
+}
+
+// System.out
+hercules
+turnus
+jupiter
+dido
+troy
+```
+
+However, given the query in the block of code above, only 1 vertex is returned -- the Dido vertex. In this way, intelligent filtering provide various performance benefits and reduces the processing and memory footprint required of the consuming application.
+
+```text
+for(Vertex vertex : juno.query().labels("knows").has("since",2011).has("stars",5).vertices()) {
+  System.out.println(vertex.getProperty("name"));
+}
+
+// System.out
+dido
+```
