@@ -1,4 +1,4 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/building-titan.png|width=325px]]
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/building-titan.png!
 
 To build Titan you need "git":http://git-scm.com/ and "Maven":http://maven.apache.org/.
 
