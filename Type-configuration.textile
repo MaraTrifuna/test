@@ -44,8 +44,29 @@ Since edges and properties of functional labels and keys must be unique per vert
 
 h3. Type Groups
 
-h3. Primary Keys and Signatures
+Titan allows types to be grouped and to retrieve all edges or properties for a type group. For example, in the graph of gods we have _father_, _mother_, and _brother_ labels. If we want to retrieve all family members of a vertex, we could do
 
+```java
+v.getVertices(OUT,"father","mother","brother")
+```
+
+However, this becomes cumbersome as more family labels like _sister_, _uncle_, etc are added. Moreover, each edge label requires and independent index retrieval. In the example above, the database index is accessed three times. Instead, a family type group can group all these labels together.
+
+```java
+TypeGroup family = TypeGroup.of(2,"family");
+TitanLabel father = g.makeType().name("father").group(family).makeEdgeLabel();
+TitanLabel mother = g.makeType().name("mother").group(family).makeEdgeLabel();
+TitanLabel brother = g.makeType().name("brother").group(family).makeEdgeLabel();
+// Load data...
+
+TitanVertex jupiter = (TitanVertex)g.getVertices("name","jupiter").iterator().next();
+jupiter.query().group(family).vertices();
+```
+
+In this example, a _family_ type group is defined with id 2. Type groups are uniquely identified by their id and NOT their name. That is, two type groups with the same id are considered equivalent. @TypeGroup.DEFAULT_GROUP@ has id=1 and therefore custom type groups should use ids larger than 1. The maximum id is 126.
+Once the type group is defined, we assign the _father_, _mother_, and _brother_ labels to this group. Now, all family members of Jupiter can be retrieved in one database operation by specifying the group via @TitanQuery.group()@.
+
+h3. Primary Keys and Signatures
 
 
 
