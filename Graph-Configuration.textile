@@ -1,4 +1,4 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan_configuration.gif|width=200px|align=left|float]]
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-configuration.png|width=200px|align=left|float]]
 
 This page summarizes Titan's configurations options. To configure a @TitanGraph@ invoke the @TitanFactory.open()@ method with a "commons configuration":http://commons.apache.org/configuration/ object or the file name of a properties configuration file. The @TitanFactory@ will return a @TitanGraph@ according to the configuration.
 
