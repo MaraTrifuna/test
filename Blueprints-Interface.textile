@@ -4,8 +4,6 @@
 
 h2. Introduction to TitanGraph
 
-When a graph database vendor supports Blueprints, they typically expose both their native API as well as their Blueprints implementation. In this way, Blueprints usually serves as a wrapper to an underlying native API. With Titan, no such wrapping exists. Titan natively implements the Blueprints API and serves as the sole means of accessing the graph.
-
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/juno-married.png!
 
 ```java
@@ -20,6 +18,8 @@ Edge married = g.addEdge(null, juno, jupiter, "married");
 In the code example above, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge.
 
 h2. Vertex Queries
+
+Continuing with the example above, more vertices are created that are connected to by Juno.
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/super-node.png!
 
@@ -47,7 +47,7 @@ edge.setProperty("stars", 5);
 g.addEdge(null, juno, troy, "likes").setProperty("stars",5);
 ```
 
-Blueprints supports the notion of "vertex-centric queries":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query which can be understood as a query of the elements directly connected to a vertex (i.e. incident edges or adjacent vertices). An example vertex query is provided below:
+Blueprints (and Titan) supports the notion of "vertex-centric queries":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query which can be understood as a query of the elements directly connected to a vertex (i.e. incident edges or adjacent vertices). An example vertex query is provided below:
 
 bq. Find all the people that Juno greatly admires who she has known since the year 2011.
 
@@ -70,9 +70,9 @@ dido
 troy
 ```
 
-However, given the query in the block of code above, only 1 vertex is returned -- the Dido vertex. In this way, intelligent filtering provide various performance benefits and reduces the processing and memory footprint required of the consuming application.
+However, given the query in the block of code above, only 1 vertex is returned -- the Dido vertex. In this way, intelligent filtering provides performance benefits by reducing the processing and memory footprint required of the consuming application.
 
-```text
+```java
 for(Vertex vertex : juno.query().labels("knows").has("since",2011).has("stars",5).vertices()) {
   System.out.println(vertex.getProperty("name"));
 }
