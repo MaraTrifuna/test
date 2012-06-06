@@ -8,7 +8,7 @@ The following sections outline the various ways in which Titan can be used in co
 
 h3. Using in Embedded Mode
 
-* THIS IS NOT CORRECT -- THIS IS MARKO STUB *
+*THIS IS NOT CORRECT -- THIS IS MARKO STUB*
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-embedded.png!
 
