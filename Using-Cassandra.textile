@@ -8,6 +8,8 @@ The following sections outline the various ways in which Titan can be used in co
 
 h3. Using in Embedded Mode
 
+* THIS IS NOT CORRECT -- THIS IS MARKO STUB *
+
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-embedded.png!
 
 Cassandra can be run in embedded mode where the application has direct access to the Cassandra instance within the same Java Virtual Machine (JVM). The diagram above demonstrates how Titan and Cassandra directly communicate with each other via Java method invocations. Finally, the end application directly communicates with Titan. For graph application that do not need to scale beyond the confines of a single machine, significant speed improvements are realized as all components are communicating via direct JVM references.
