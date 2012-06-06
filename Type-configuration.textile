@@ -19,10 +19,19 @@ Labels and keys are automatically created when their name is first used. However
 | functional() | Configures the type to be functional and acquires locks to ensure consistency | Label and Key | not functional | TitanType.isFunctional() |
 | functional(boolean) | Configures the type to be functional. The boolean argument configures whether locks should be acquired when modifying an edge or property of this type | Label and Key | not functional | TitanType.isFunctional() |
 | simple() | Configures the type to be simple, which means that the edges of this type do not allow properties to be set and invoking @setProperty()@ on such an edge will throw an exception. Simple edges can be stored and retrieved more efficiently. | Label | not simple | TitanType.isSimple() |
-| group(TypeGroup) | Assigns the type to the specified @TypeGroup@ which allows grouping of edges for efficient retrieval. | Label and Key | @TypeGroup.DEFAULT_GROUP@ | TitanType.getGroup() |
-| directed() | Configures the type for directed edges, i.e. from out-vertex to in-vertex. | Label | directed | TitanLabel.isDirected() | 
+| group(TypeGroup) | Assigns the type to the specified @TypeGroup@ which allows grouping of edges for efficient retrieval. | Label and Key | @DEFAULT_GROUP@ | TitanType.getGroup() |
+| directed() | Configures the type for directed edges, i.e. from out-vertex to in-vertex. | Label | directed | TitanLabel.isDirected() |
 | undirected() | Configures the type for undirected edges, i.e. there is no order between out- and in-vertices | Label | directed | TitanLabel.isUndirected() |
 | unidirected() | Configures the type for unidirected edges, i.e. edges that can only be traversed from out-vertex to in-vertex. Unidirected edges can be stored more efficiently | Label | directed | TitanLabel.isUnidirected() |
+| unique() | Configures the key to be unique which means that each property value for this key is uniquely assigned to one vertex. For example, _name_ is unique, because each name uniquely identifies one god. Acquires locks to ensure uniqueness and requires the key to be indexed. | Key | not unique | TitanKey.isUnique() |
+| indexed() | Configures the key to be indexed which allows vertices to be retrieved by key-value pair via @getVertices(key,value)@ | Key | not indexed | TitanKey.hasIndex() |
+| dataType(Class) | Configures the data type of this key. Property instances for this key will only accept attribute values that are instances of this class. Every property key must have its data type configured. Setting the data type to Object.class allows any type of attribute but comes at the expense of longer serialization because class information
+is stored with the attribute value. See "Graph Configuration":Graph-Configuration for more information on how to define custom attribute data types. | Key | - | TitanKey.getDataType() |
+| primaryKey(TitanType...) | Configures the composite primary key for this type. | Label | none | - |
+| signature(TitanType...) | Configures the signature of this type. | Label | none | - |
+| makeEdgeLabel() | Creates an edge label according to the configuration of this TypeMaker. | Label | - | - |
+| makePropertyKey() | Creates a property key according to the configuration of this TypeMaker. | Key | - | - |
+
 
 
 h3. Functional Types
@@ -35,7 +44,7 @@ Since edges and properties of functional labels and keys must be unique per vert
 
 h3. Type Groups
 
-h3. Examples
+h3. Primary Keys and Signatures
 
 
 
