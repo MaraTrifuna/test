@@ -15,7 +15,7 @@ jupiter.setProperty("name", "jupiter");
 Edge married = g.addEdge(null, juno, jupiter, "married");
 ```
 
-In the code example above, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge.
+In the code example above, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge. Please review the "Blueprints Core API":http://tinkerpop.com/docs/javadocs/blueprints/2.0.0/com/tinkerpop/blueprints/package-summary.html for a review of the Blueprint's methods available.
 
 h2. Vertex Queries
 
