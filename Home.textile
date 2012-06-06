@@ -24,6 +24,8 @@ Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
 *** [[Using HBase]]
 *** [[Building Titan]]
 ** Benchmarks
+** Examples
+*** [[Generating Artifical Natural Graphs]]
 * Release Notes
 
 ==<hr/>==
