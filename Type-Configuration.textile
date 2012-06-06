@@ -100,4 +100,10 @@ This example is almost identical to the primary key example above with the only 
 If a type is used in the primary key, it cannot be part of the signature.
 As before, @TitanTypes@ used in the signature must be either functional property keys or functional, simple, unidirected edge lables.
 
+h2. Default Type Creation
 
+Titan will create edge labels and property keys the first time they are referenced by name using a default configuration unless they have been previously configured using @TypeMaker@ as discussed above.
+
+By default, property keys are configured to be functional but non-locking with @Object.class@ as the data type. Note, that it is more efficient to define an appropriate data type via @TypeMaker@. Hence, property keys don't have an index by default. To create an indexed key with this default configuration, invoke @Graph.createKeyIndex("name",Vertex.class)@ before the property key is being used.
+
+Edge labels are created according to the default configuration shown in the table above.
