@@ -25,7 +25,7 @@ Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
 *** [[Building Titan]]
 ** Benchmarks
 ** Examples
-*** [[Generating Artifical Natural Graphs]]
+*** [[Generating Artificial Natural Graphs]]
 * Release Notes
 
 ==<hr/>==
