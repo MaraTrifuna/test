@@ -36,10 +36,10 @@ These configuration options modify the persistence behavior of Titan independent
 
 h2. Distributed Locking and ID Management Configuration
 
-When Titan used in distributed mode over multiple machines, locking may be required to ensure consistency of certain operations. In particular, locking is required when allocating id blocks for id assignment to individual @TitanGraph@ instances. Locking is also required for certain key type configuration as described in "Type Configuration":Type-configuration. These options control how locks are acquired.
+When Titan is used in distributed mode over multiple machines, locking may be required to ensure consistency of certain operations. In particular, locking is required when allocating id blocks for id assignment to individual @TitanGraph@ instances. Locking is also required for certain key type configuration as described in "Type Configuration":Type-configuration. These options control how locks are acquired.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| storage.machine-id | A unique identifier for the machine running the @TitanGraph@ instance. It must be ensured that no other machine accessing the storage backend can have the same identifier. | String | Machine IP | Yes |
+| storage.machine-id | A unique identifier for the machine running the @TitanGraph@ instance. Ensures that no other machine accessing the storage backend can have the same identifier. | String | Machine IP | Yes |
 | storage.machine-id-appendix | A locally unique identifier for a particular @TitanGraph@ instance. This only needs to be configured when multiple @TitanGraph@ instances are running on the same machine. A unique machine specific appendix guarantees a globally unique identifier. | short integer | 0 | Yes |
 | storage.lock-wait-time | The number of milliseconds the system waits for a lock application to be acknowledged by the storage backend. Also, the time waited at the end of all lock applications before verifying that the applications were successful. This value should be a small multiple of the average consistent write time. | positive integer | 100 | No |
 | storage.lock-retries | Number of times the system attempts to acquire a lock before giving up and throwing an exception. | positive integer | 3 | Yes |
@@ -48,12 +48,11 @@ When Titan used in distributed mode over multiple machines, locking may be requi
 | storage.idauthority-retries | Number of times the system attempts to acquire a unique id block before giving up and throwing an exception. | positive integer | 3 | Yes |
 | storage.idauthority-block-size | Size of the block to be acquired. Larger block sizes require fewer block applications but also leave a larger fraction of the id pool occupied and potentially lost. For write heavy applications, larger block sizes should be chosen. | positive integer | 100,000 | No* |
 
-If the _modifiable_ column has a _No*_ this means that the option cannot be adjusted while Titan instances are running. To change the option, all Titan instances must be shut down and the value must be changed across the entire cluster be starting instances again.
-Also note, that while all configuration options mentioned on this page must be identical for all Titan instances running in the same cluster, the _storage.machine-id_ and _storage.machine-id-appendix_ must be configured uniquely for each Titan instance individually unless the default values are chosen.
+If the _modifiable_ column has a _No*_ this means that the option cannot be adjusted while Titan instances are running. To change the option, all Titan instances must be shutdown and the value must be changed across the entire cluster be starting instances again. Also note, that while all configuration options mentioned on this page must be identical for all Titan instances running in the same cluster, the _storage.machine-id_ and _storage.machine-id-appendix_ must be configured uniquely for each Titan instance individually unless the default values are chosen.
 
 h2. Attribute and Serializer Configuration
 
-Titan supports a number of classes for attribute values on properties. Titan efficiently serializes numbers, primitive arrays, Date, ArrayList and HashMap. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
+Titan supports a number of classes for attribute values on properties. Titan efficiently serializes numbers, primitive arrays, @Date@, @ArrayList@ and @HashMap@. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | attributes.allow-all | If enabled, arbitrary objects can be used as attributes on properties otherwise only pre-configured and configured attributes are allowed | _true_ or _false_ | _true_ | No |
