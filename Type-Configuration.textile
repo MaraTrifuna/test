@@ -1,9 +1,14 @@
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-configuration.png|width=200px|align=left|float]]
+
 In Titan, edge lables and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance. Types are uniquely identified by their name and are themselves vertices in the graph. Type vertices can be retrieved by their name.
+
 ```java
 TitanGraph graph = ...
 TitanType name = graph.getType("name");
 ```
+
 A @TitanType@ is either a @TitanLabel@ (for edges) or a @TitanKey@ (for properties) which means either @TitanType.isEdgeLabel()@ or @TitanType.isPropertyKey()@ is true and we can cast it to the particular subtype.
+
 ```java
 TitanType name = graph.getType("name");
 if (name.isPropertyKey()) 
@@ -11,6 +16,7 @@ if (name.isPropertyKey())
 else 
   TitanLabel namelabel = (TitanLabel)name;
 ```
+
 Most methods in Titan are overloaded to allow either the type name or the type object as argument.
 
 h2. Type Creation
@@ -93,6 +99,5 @@ This example is almost identical to the primary key example above with the only 
 
 If a type is used in the primary key, it cannot be part of the signature.
 As before, @TitanTypes@ used in the signature must be either functional property keys or functional, simple, unidirected edge lables.
-
 
 
