@@ -8,7 +8,7 @@ The following sections outline the various ways in which Titan can be used in co
 
 h3. Using Local Server Mode
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-local.png!
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-local.png!
 
 Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket. Running Titan over Cassandra requires the following setup steps:
 
@@ -26,7 +26,7 @@ TitanGraph g = TitanFactory.open(conf);
 
 h3. Using Remote Server Mode
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra.png!
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
 
 When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
 
@@ -41,7 +41,7 @@ TitanGraph g = TitanFactory.open(conf);
 
 h3. Using Remote Server Mode with Rexster
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/rexster-titan-cassandra.png!
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-rexster.png!
 
 Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
 
