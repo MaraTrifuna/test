@@ -14,11 +14,12 @@ Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
 ** [[Getting Started]]
 * Intermediate Concepts
 ** [[Blueprints Interface]]
-*** [[Type Configuration]] (*cheat sheet*)
-*** [[Graph Configuration]] (*cheat sheet*)
 ** [[Gremlin Graph Traversals]]
 ** [[Rexster Graph Server]]
 * Advanced Concepts
+** Titan Configurations
+*** [[Graph Configuration]] (*cheat sheet*)
+*** [[Type Configuration]] (*cheat sheet*)
 ** Storage Layer Connectivity
 *** [[Using Cassandra]]
 *** [[Using HBase]]
