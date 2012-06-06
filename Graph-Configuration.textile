@@ -17,8 +17,7 @@ It is very important to note that some configuration options should *NEVER* be m
 
 h2. Storage Configuration
 
-Titan leverages various storage backends for persistence. Use the following options to configure one of the pre-defined storage backends or your own.
-Particular storage backends may provide or require additional configuration options. For more information on how to configure a @TitanGraph@ over "Cassandra":Using-Cassandra or "HBase":Using-HBase please review the respective wiki pages.
+Titan leverages various storage backends for persistence. Use the following options to configure one of the pre-defined storage backends or your own. Particular storage backends may provide or require additional configuration options. For more information on how to configure a @TitanGraph@ over "Cassandra":Using-Cassandra or "HBase":Using-HBase please review the respective wiki pages.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | storage.backend | Full class name of the @StorageManager@ implementation defining the storage backend to be used for persistence or one of the following pre-defined storage backends: *cassandra*, *hbase*, *local* | Class name or pre-defined short-hand | *local* | no |
