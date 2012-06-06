@@ -62,7 +62,7 @@ Titan supports a number of classes for attribute values on properties. Titan eff
 To configure a custom attribute class with a custom serializer, follow these steps:
 
 # Implement a custom @AttributeSerializer@ for the custom attribute class
-# Add the following configuration options where <X> is the custom attribute id that must be larger than all attribute ids for already configured custom attributes:
+# Add the following configuration options where [X] is the custom attribute id that must be larger than all attribute ids for already configured custom attributes:
 ## @attributes.attribute[X] = [Full attribute class name]
 ## @attributes.serializer[X] = [Full serializer class name]
 
@@ -72,6 +72,5 @@ attributes.attribute10 = com.example.SpecialInt
 attributes.serializer10 = com.example.SpecialIntSerializer
 ```
 
-h2. Default Configuration
 
                                                                          
