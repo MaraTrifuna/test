@@ -40,10 +40,15 @@ h3. Using Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra.png!
 
-When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan with the same JVM as Titan.
+When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
+
+For example, suppose we have a running Cassandra cluster where one of the machines has the IP address 77.77.77.77, then connecting Titan with the cluster is accomplished as follows:
 
 ```java
-Graph graph = new TitanGraph(new CassandraIPScan(...))
+Configuration conf = new BaseConfiguration();
+conf.setProperty("storage.backend","cassandra");
+conf.setProperty("storage.hostname","77.77.77.77");
+TitanGraph g = TitanFactory.open(conf);
 ```
 
 h3. Using Remote Server Mode with Rexster
