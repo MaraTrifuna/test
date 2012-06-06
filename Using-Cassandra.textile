@@ -20,10 +20,20 @@ h3. Using Local Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-cassandra-local.png!
 
-Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket.
+Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket. Running Titan over Cassandra requires the following setup steps:
+
+# "Download":http://cassandra.apache.org/download/, unpack, and "setup":http://wiki.apache.org/cassandra/GettingStarted Cassandra on your local machine.
+# Start Cassandra by invoking @bin/cassandra -f@ on the command line in the directory where Cassandra was unpacked. Ensure that Cassandra started successfully.
+
+Now, you can create a Cassandra TitanGraph as follows:
+
+
 
 ```java
-Graph graph = new TitanGraph("localhost");
+        Configuration conf = new BaseConfiguration();
+        conf.setProperty("storage.backend","cassandra");
+        conf.setProperty("storage.hostname","127.0.0.1");
+        TitanGraph g = TitanFactory.open(conf);
 ```
 
 h3. Using Remote Server Mode
