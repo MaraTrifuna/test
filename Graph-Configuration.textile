@@ -63,8 +63,8 @@ To configure a custom attribute class with a custom serializer, follow these ste
 
 # Implement a custom @AttributeSerializer@ for the custom attribute class
 # Add the following configuration options where [X] is the custom attribute id that must be larger than all attribute ids for already configured custom attributes:
-## @attributes.attribute[X] = [Full attribute class name]
-## @attributes.serializer[X] = [Full serializer class name]
+## @attributes.attribute[X] = [Full attribute class name]@
+## @attributes.serializer[X] = [Full serializer class name]@
 
 For example, suppose we want to register a special integer attribute class called @SpecialInt@ and have implemented a custom serializer @SpecialIntSerializer@ that implements @AttributeSerializer@. We already have 9 custom attributes configured in the configuration file, so we would add the following lines
 ```
