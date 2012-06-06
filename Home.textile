@@ -3,6 +3,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 <a href="https://github.com/thinkaurelius/titan/downloads">[[https://github.com/thinkaurelius/titan/raw/master/doc/images/download-button.png|align=right|float]]</a>
 
+Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
+
 ==<hr/>==
 
 * Introduction
