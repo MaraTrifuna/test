@@ -30,10 +30,10 @@ Now, you can create a Cassandra TitanGraph as follows:
 
 
 ```java
-        Configuration conf = new BaseConfiguration();
-        conf.setProperty("storage.backend","cassandra");
-        conf.setProperty("storage.hostname","127.0.0.1");
-        TitanGraph g = TitanFactory.open(conf);
+Configuration conf = new BaseConfiguration();
+conf.setProperty("storage.backend","cassandra");
+conf.setProperty("storage.hostname","127.0.0.1");
+TitanGraph g = TitanFactory.open(conf);
 ```
 
 h3. Using Remote Server Mode
