@@ -1,5 +1,6 @@
 In Titan, edge lables and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance. Types are uniquely identified by their name and are themselves vertices in the graph. Type vertices can be retrieved by their name.
 ```java
+TitanGraph graph = ...
 TitanType name = graph.getType("name");
 ```
 A @TitanType@ is either a @TitanLabel@ (for edges) or a @TitanKey@ (for properties) which means either @TitanType.isEdgeLabel()@ or @TitanType.isPropertyKey()@ is true and we can cast it to the particular subtype.
