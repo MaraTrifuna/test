@@ -34,14 +34,9 @@ h2. Loading Data Into Titan
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
 "Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. With Gremlin, it is possible to both read and write to the graph. Some simple Gremlin examples are provided to demonstrate how to interact with Titan via the Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. an interactive shell). All the examples are with respect to the _Graph of the Gods_ diagrammed above and using Titan in embedded mode.
 
-First, it is important to import the @TitanFactory@ class. @TitanFactory@ provides methods to create various Titan instances (e.g. embedded, distributed, etc.). Second, a local embedded instance of Titan can be created using the @TitanFactory.open(String directory)@ method. A Titan database has been created.
+@TitanFactory@ provides methods to create various Titan instances (e.g. embedded, distributed, etc.). A local embedded instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local embedded mode is sufficient.
 
 ```text
-gremlin> import com.thinkaurelius.titan.core.TitanFactory;
-...
-==>import com.tinkerpop.gremlin.Tokens.T
-==>import com.tinkerpop.gremlin.groovy.*
-==>import com.thinkaurelius.titan.core.TitanFactory;
 gremlin> g = TitanFactory.open('/tmp/titan')              
 ==>standardtitangraph[local]
 ```
