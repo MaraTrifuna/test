@@ -1,1 +1,43 @@
-In Titan, edge lables and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance.
+In Titan, edge lables and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance. Types are uniquely identified by their name and are themselves vertices in the graph. Type vertices can be retrieved by their name.
+```java
+TitanType name = graph.getType("name");
+```
+A @TitanType@ is either a @TitanLabel@ (for edges) or a @TitanKey@ (for properties) which means either @TitanType.isEdgeLabel()@ or @TitanType.isPropertyKey()@ is true and we can cast it to the particular subtype.
+```java
+TitanType name = graph.getType("name");
+if (name.isPropertyKey()) TitanKey namekey = (TitanKey)name;
+else TitanLabel namelabel = (TitanLabel)name;
+```
+Most methods in Titan are overloaded to allow either the type name or the type object as argument.
+
+h2. Type Creation
+
+Labels and keys are automatically created when their name is first used. However, types can also be created and configured explicitly by the user through a @TypeMaker@ instance returned by @TitanGraph.makeType()@. The @TypeMaker@ provides the following type configuration options.
+
+|_. Method |_. Description |_. Applies to |_. Default |_. Inspection Method |
+| name(String) | Defines the name of the type. *Must be unique across all types. Required.* | Label and Key | - | TitanType.getName() |
+| functional() | Configures the type to be functional and acquires locks to ensure consistency | Label and Key | not functional | TitanType.isFunctional() |
+| functional(boolean) | Configures the type to be functional. The boolean argument configures whether locks should be acquired when modifying an edge or property of this type | Label and Key | not functional | TitanType.isFunctional() |
+| simple() | Configures the type to be simple, which means that the edges of this type do not allow properties to be set and invoking @setProperty()@ on such an edge will throw an exception. Simple edges can be stored and retrieved more efficiently. | Label | not simple | TitanType.isSimple() |
+| group(TypeGroup) | Assigns the type to the specified @TypeGroup@ which allows grouping of edges for efficient retrieval. | Label and Key | @TypeGroup.DEFAULT_GROUP@ | TitanType.getGroup() |
+| directed() | Configures the type for directed edges, i.e. from out-vertex to in-vertex. | Label | directed | TitanLabel.isDirected() | 
+| undirected() | Configures the type for undirected edges, i.e. there is no order between out- and in-vertices | Label | directed | TitanLabel.isUndirected() |
+| unidirected() | Configures the type for unidirected edges, i.e. edges that can only be traversed from out-vertex to in-vertex. Unidirected edges can be stored more efficiently | Label | directed | TitanLabel.isUnidirected() |
+
+
+h3. Functional Types
+ 
+A type is functional, if there is at most one edge or property of this type per vertex. Specifically, this means:
+* A property key is functional, if a vertex has at most one value associated with the key. _name_ is an example of a functional property key since each god has one name.
+* An edge lable is functional, if a vertex has at most one outgoing edge for that label. _father_ is an exmaple of a functional edge label, since each god has at most one father.
+
+Since edges and properties of functional labels and keys must be unique per vertex, inconsistencies could arise when two @TitanGraph@ instances try to update the same functional edge or property concurrently, since one may overwrite the change of the other. To avoid such inconsistencies, Titan will acquire locks on functional edges and properties by default. Acquiring locks, however, can be very expensive depending on the storage backend. In cases where concurrent modifications can be excluded or blind overwrites are acceptable, a functional @TitanType@ can be configured to _not_ acquire locks using @TypeMaker.functional(false)@. This configuration options should be used with care and only if the extra performance gain is needed.
+
+h3. Type Groups
+
+h3. Examples
+
+
+
+
+
