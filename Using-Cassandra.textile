@@ -166,3 +166,4 @@ You may add additional configuration options found on this page or under "Graph 
 gremlin> g = TitanFactory.open('titan.properties')              
 ==>standardtitangraph[cassandra]
 ```
+You have successfully connected this Titan instance to the Cassandra cluster and can start to operate on the graph.
