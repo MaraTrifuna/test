@@ -24,7 +24,7 @@ h2. Deploying on Amazon EC2
 
 "Amazon EC2":http://aws.amazon.com/ec2/ is a cloud computing service.
 
-The following steps use Whirr to start a four-node HBase cluster on EC2 and run a basic Titan test case against it.
+The following first launch a four-node HBase cluster on EC2 via [[Whirr|http://whirr.apache.org/]], then run a basic Titan test case using the cluster.
 
 * Whirr's current stable version, 0.7.1, sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  Login to a machine with a public IP or create and login to a micro instance on EC2 before running the following commands.
 * <pre>export AWS_ACCESS_KEY_ID=...</pre>
@@ -32,7 +32,7 @@ The following steps use Whirr to start a four-node HBase cluster on EC2 and run 
 * <pre>curl -O [[http://www.apache.org/dist/whirr/whirr-0.7.1/whirr-0.7.1.tar.gz]]</pre>
 * <pre>tar zxf whirr-0.7.1.tar.gz; cd whirr-0.7.1</pre>
 * <pre>ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr</pre>
-* (download attached hbase-ec2-0.92.1.properties to the recipes/ directory)
+* <pre>curl -O [[https://github.com/downloads/thinkaurelius/titan/hbase-ec2-0.92.1.properties]]</pre>
 * <pre>bin/whirr launch-cluster --config recipes/hbase-ec2-0.92.1.properties --private-key-file ~/.ssh/id_rsa_whirr</pre>
 * run a simple health check on the hbase-master node (this should print "imok"): <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
 * login into the first node created, the hbase-master node:
