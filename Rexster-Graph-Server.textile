@@ -2,9 +2,22 @@
 
 "Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
 
-This page explains how to configure Rexster to use a Titan graph database.
+h2. Benefits of Rexster
+
+The following is a list of the "benefits of using Rexster":https://github.com/tinkerpop/rexster/wiki/The-Benefits-of-Rexster.
+
+[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png|width=434px]] [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png|width=450px]]
+
+* "JSON-based REST interface":https://github.com/tinkerpop/rexster/wiki/Mapping-a-URI-to-JSON ensures language agnostic connectivity to Titan.
+** See "BulbFlow":http://bulbflow.com/ for a Python connector.
+* HTML/JavaScript "graphical user interface":https://github.com/tinkerpop/rexster/wiki/The-Dog-House for graph administration and visualization.
+* Extend with more REST endpoints by adding "Rexster Kibbles":https://github.com/tinkerpop/rexster/wiki/Creating-an-Extension.
+* Remote Gremlin traversals via the "Gremlin extensions":https://github.com/tinkerpop/rexster/wiki/Gremlin-Extension and the "Rexster console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console.
+* "Security support":https://github.com/tinkerpop/rexster/wiki/Rexster-Security via user authentification.
 
 h2. Configuring Rexster
+
+This section explains how to configure Rexster to use a Titan graph database. An example @rexster.xml@ file is provided below (see "Rexster Configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -52,4 +65,4 @@ h2. Configuring Rexster
 </rexster>
 ```
 
-To use Rexster with Titan, you need to add the Titan jar files to the Rexster @ext@ extension folder and specify the graph type as shown above. Rexster's _graph-location_ option is equivalent to Titan's _storage.directory_. All other Titan specific configurations are subsumed under _properties_. In the example above, the backend and the buffer size are configured. Any of the "Titan configurations":Graph-Configuration can be used here.
+To use Rexster with Titan, you need to add the Titan @jar@ files to the Rexster @ext@ extension folder and specify the graph type as shown above. Rexster's _graph-location_ option is equivalent to Titan's _storage.directory_. All other Titan specific configurations are subsumed under _properties_. In the example above, the backend and the buffer size are configured. Any of the "Titan configurations":Graph-Configuration can be used here. For more information on configuring Rexster, please see the "Rexster configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration documentation.
