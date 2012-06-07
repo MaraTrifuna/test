@@ -89,4 +89,9 @@ h2. Deploying on Amazon EC2
 
 !http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!:http://aws.amazon.com/ec2/
 
-"Amazon EC2":http://aws.amazon.com/ec2/ is a cloud computing service...
+bq. "Amazon EC2":http://aws.amazon.com/ec2/  is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
+
+Follow these steps to setup a Cassandra cluster on EC2 and deploy Titan over Cassandra.
+
+h3. Setup Cassandra Cluster
+
