@@ -32,7 +32,7 @@ The following commands first launch a four-node HBase cluster on EC2 via [[Whirr
 * <pre>curl -O [[http://www.apache.org/dist/whirr/whirr-0.7.1/whirr-0.7.1.tar.gz]]</pre>
 * <pre>tar zxf whirr-0.7.1.tar.gz; cd whirr-0.7.1</pre>
 * <pre>ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr</pre>
-* <pre>curl -O [[https://github.com/downloads/thinkaurelius/titan/hbase-ec2-0.92.1.properties]]</pre>
+* <pre>cd recipes && curl -O [[https://github.com/downloads/thinkaurelius/titan/hbase-ec2-0.92.1.properties]] ; cd -</pre>
 * <pre>bin/whirr launch-cluster --config recipes/hbase-ec2-0.92.1.properties --private-key-file ~/.ssh/id_rsa_whirr</pre>
 * run a simple health check on the hbase-master node (this should print "imok"): <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
 * login into the first node created, the hbase-master node:
