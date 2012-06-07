@@ -6,7 +6,7 @@ h2. The Benefits of Rexster
 
 The following is a list of the "benefits of using Rexster":https://github.com/tinkerpop/rexster/wiki/The-Benefits-of-Rexster.
 
-[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png|width=434px]] [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png|width=450px]]
+<a href="https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png">[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png|width=434px]]</a><a href="https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png">[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png|width=450px]]</a>
 
 * "JSON-based REST interface":https://github.com/tinkerpop/rexster/wiki/Mapping-a-URI-to-JSON ensures language agnostic connectivity to Titan.
 ** See "BulbFlow":http://bulbflow.com/ for a Python connector.
