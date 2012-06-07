@@ -6,7 +6,7 @@ h2. Deploying on Managed Machines
 
 The following sections outline the various ways in which Titan can be used in concert with Cassandra.
 
-h3. Using Local Server Mode
+h3. Local Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-local.png!
 
@@ -24,7 +24,7 @@ conf.setProperty("storage.hostname","127.0.0.1");
 TitanGraph g = TitanFactory.open(conf);
 ```
 
-h3. Using Remote Server Mode
+h3. Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
 
@@ -39,7 +39,7 @@ conf.setProperty("storage.hostname","77.77.77.77");
 TitanGraph g = TitanFactory.open(conf);
 ```
 
-h3. Using Remote Server Mode with Rexster
+h3. Remote Server Mode with Rexster
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-rexster.png!
 
@@ -106,7 +106,7 @@ don't want to open all unprivileged ports among security group members, then at 
 
 h4. Launch DataStax Cassandra AMI
 
-* "Launch the DataStax AMI":https://aws.amazon.com/amis/datastax-auto-clustering-ami-2-2 in your desired zone from  
+* "Launch the DataStax AMI":https://aws.amazon.com/amis/datastax-auto-clustering-ami-2-2 in your desired zone 
 
 * On the Instance Details page of the Request Instances Wizard, set "Number of Instances" to your desired number of Cassandra nodes. Set "Instance Type" to at least m1.large. We recommend m1.large.
 
@@ -141,3 +141,28 @@ h4. Verify Successful Instance Launch
 * Run the Cassandra nodetool @nodetool -h 127.0.0.1 ring@ to inspect the state of the Cassandra token ring.  You should see as many nodes in this command's output as instances launched in the previous steps.
 
 Note, that the AMI takes a few minutes to configure each instance. A shell prompt will appear upon successful configuration when you SSH into the instance.
+
+h3. Launch Titan Instances
+
+Launch additional EC2 instances to run Titan which are either configured in _Remote Server Mode_ or _Remote Server Mode with Rexster_ as described above. You only need to note the IP address of one of the Cassandra cluster instances and configure it as the host name. The particular EC2 instance to run and the particular configuration depends on your use case. 
+
+h4. Example Titan Instance on Amazon Linux AMI
+
+* Launch the "Amazon Linux AMI":https://aws.amazon.com/amis/amazon-linux-ami-ebs-backed-64-bit in the same zone of the Cassandra cluster. Choose your desired EC2 instance type depending on the amount of resources you need. Use the default configuration options and select the same Key Pair and Security Group as for the Cassandra cluster configured in the previous step.
+
+* SSH into the newly created instance via @ssh -i [your-private-key].pem ec2-user@[public-dns-name-of-the-instance]@. You may have to wait a little for the instance to launch.
+
+* "Download":https://github.com/thinkaurelius/titan/downloads the current Titan distribution with @wget@ and unpack the archive locally to the home directory. Start the gremlin shell to verify that Titan runs successfully. For more information on how to unpack Titan and start the gremlin shell, please refer to the "Getting Started guide":Getting-Started.
+
+* Create a configuration file with @vi titan.properties@ and add the following lines
+```text
+storage.backend = cassandra
+storage.hostname = [IP-address-of-one-Cassandra-EC2-instance]
+```
+You may add additional configuration options found on this page or under "Graph Configuration":Graph-Configuration.
+
+* Start the gremlin shell again and type the following:
+```text
+gremlin> g = TitanFactory.open('titan.properties')              
+==>standardtitangraph[cassandra]
+```
