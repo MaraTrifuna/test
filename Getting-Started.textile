@@ -8,7 +8,11 @@ The examples in this section make extensive use of a toy graph distributed with 
 
 h2. Downloading and Running Titan
 
-Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Commands can now be issued to Titan.
+bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
+
+Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Commands can now be issued to Titan. 
+
+
 
 ```text
 $ unzip titan-0.1-SNAPSHOT.zip
@@ -27,7 +31,17 @@ $ ./gremlin.sh
 gremlin>
 ```
 
-bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
+The Gremlin terminal is Groovy shell and as such, it is possible to issue Java statements in a real-time, interactive fashion.
+
+```text
+gremlin> 100-10
+==>90
+gremlin> "Titan:" + " The Rise of Big Graph Data"
+==>Titan: The Rise of Big Graph Data
+gremlin> [name:'aurelius',vocation:['philosopher','emperor']]
+==>name=aurelius
+==>vocation=[philosopher, emperor]
+```
 
 h2. Loading Data Into Titan
 
