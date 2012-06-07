@@ -91,7 +91,53 @@ h2. Deploying on Amazon EC2
 
 bq. "Amazon EC2":http://aws.amazon.com/ec2/  is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
 
-Follow these steps to setup a Cassandra cluster on EC2 and deploy Titan over Cassandra.
+Follow these steps to setup a Cassandra cluster on EC2 and deploy Titan over Cassandra. To follow these instructions, you need an Amazon AWS account with established authentication credentials and some basic knowledge of AWS and EC2.
 
 h3. Setup Cassandra Cluster
 
+These instructions for configuring and launching the DataStax Cassandra Community Edition AMI are based on the excellent "documentation from DataStax":http://www.datastax.com/docs/datastax_enterprise2.0/ami/install_dse_ami and focus on aspects relevant for a Titan deployment.
+
+h4. Setting up Security Group
+
+* Navigate to the EC2 Console Dashboard, then click on _Security Groups_ under _Network & Security_.
+
+* Create a new security group. Click Inbound.  Set the "Create a new rule" dropdown menu to "Custom TCP rule".  Add a rule for port 22 from source 0.0.0.0/0.  Add a rule for ports 1024-65535 from the security group members.  If you
+don't want to open all unprivileged ports among security group members, then at least open 7000, 7199, and 9160 among security group members.  Tip: the "Source" dropdown will autocomplete security group identifiers once "sg" is typed in the box, so you needn't have the exact value ready beforehand.
+
+h4. Launch DataStax Cassandra AMI
+
+* "Launch the DataStax AMI":https://aws.amazon.com/amis/datastax-auto-clustering-ami-2-2 in your desired zone from  
+
+* On the Instance Details page of the Request Instances Wizard, set "Number of Instances" to your desired number of Cassandra nodes. Set "Instance Type" to at least m1.large. We recommend m1.large.
+
+* On the Advanced Instance Options page of the Request Instances Wizard, set the "as text" radio button under "User Data", then fill this into the text box: 
+
+```text
+--clustername [cassandra-cluster-name]
+--totalnodes [number-of-instances]
+--version community 
+--opscenter no
+```
+[number-of-instances] in this configuration must match the number of EC2 instances configured on the previous wizard page. [cassandra-cluster-name] can be any string used for identification. For example:
+
+```text
+--clustername titan
+--totalnodes 4
+--version community 
+--opscenter no
+```
+* On the Tags page of the Request Instances Wizard you can apply any desired configurations. These tags exist only at the EC2 administrative level and have no effect on the Cassandra daemons' configuration or operation.
+
+* On the Create Key Pair page of the Request Instances Wizard, either select an existing key pair or create a new one.  The PEM file containing the private half of the selected key pair will be required to connect to these instances.
+
+* On the Configure Firewall page of the Request Instances Wizard, select the security group created earlier.
+
+* Review and launch instances on the final wizard page.
+
+h4. Verify Successful Instance Launch
+
+* SSH into any Cassandra instance node: @ssh -i [your-private-key].pem ubuntu@[public-dns-name-of-any-cassandra-instance]@
+
+* Run the Cassandra nodetool @nodetool -h 127.0.0.1 ring@ to inspect the state of the Cassandra token ring.  You should see as many nodes in this command's output as instances launched in the previous steps.
+
+Note, that the AMI takes a few minutes to configure each instance. A shell prompt will appear upon successful configuration when you SSH into the instance.
