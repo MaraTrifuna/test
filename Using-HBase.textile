@@ -36,7 +36,8 @@ The configuration described below puts one HBase master server in charge of thre
 * <pre>ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr</pre>
 * <pre>cd recipes && curl -O [[https://github.com/downloads/thinkaurelius/titan/hbase-ec2-0.92.1.properties]] ; cd -</pre>
 * <pre>bin/whirr launch-cluster --config recipes/hbase-ec2-0.92.1.properties --private-key-file ~/.ssh/id_rsa_whirr</pre>
-* run a simple health check on the hbase-master node (this should print "imok"): <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
+* run a simple health check on the hbase-master node (this should print "imok"):
+  <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
 * login into the first node created, the hbase-master node:
   <pre>ssh -i ~/.ssh/id_rsa_whirr \
        -o "UserKnownHostsFile /dev/null" \
