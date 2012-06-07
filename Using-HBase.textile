@@ -38,3 +38,7 @@ cd titan</pre>
 * Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
 <pre>mvn clean test -Dtest=HBaseKeyColumnValueTest
 mvn clean test -Dtest=HBaseGraphDBTest</pre>
+
+h2. Disclaimer
+
+The Titan HBase adapter is still experimental and not fully performance optimized. Additionally, HBase deserializes entire rows which leads to Titan performance degradation on super nodes.
