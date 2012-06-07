@@ -36,8 +36,8 @@ The assumption of an externally-started HBase instance will likely be removed as
 <pre>git@github.com:thinkaurelius/titan.git
 cd titan</pre>
 * Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
-<pre>mvn clean test -Dtest=HBaseKeyColumnValueTest
-mvn clean test -Dtest=HBaseGraphDBTest</pre>
+<pre>mvn clean test -Dtest=ExternalHBaseKeyColumnValueTest
+mvn clean test -Dtest=ExternalHBaseGraphDBTest</pre>
 
 h2. Disclaimer
 
