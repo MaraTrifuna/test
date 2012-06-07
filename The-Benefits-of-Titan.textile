@@ -8,10 +8,9 @@ h2. General Titan Benefits
 * Native support for the popular property graph data model exposed by Blueprints.
 * Native support for the graph traversal language Gremlin.
 * Numerous graph-level configurations provide knobs for tuning performance.
-* Micro-indices facilitate intelligent vertex-level querying to alleviate issues with the infamous super node problem.
+* Vertex-centric indices provide vertex-level querying to alleviate issues with the infamous super node problem.
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
-* Data replication amongst the cluster ensures data is protected during machine failures.
-* Support for top-down, user prescribed graph partitioning algorithms.
+* Support for top-down, user prescribed graph partitioning algorithms (*COMING SOON*)
 
 
 h2. Benefits of Titan with Cassandra
@@ -33,4 +32,4 @@ h2. Benefits of Titan with HBase
 * Linear and modular scalability.
 * Strictly consistent reads and writes.
 * Convenient base classes for backing Hadoop MapReduce jobs with HBase tables.
-* Support for exporting metrics via JMX
+* Support for exporting metrics via JMX.
