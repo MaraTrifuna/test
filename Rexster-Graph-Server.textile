@@ -2,6 +2,8 @@
 
 "Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
 
+This page explains how to configure Rexster to use a Titan graph database.
+
 h2. Configuring Rexster
 
 ```xml
@@ -32,17 +34,22 @@ h2. Configuring Rexster
   </security>
   <graphs>
     <graph>
-      <graph-name>gratefulgraph</graph-name>
-      <graph-type>com.tinkerpop.rexster.config.TinkerGraphGraphConfiguration</graph-type>
-      <graph-location>data/graph-example-2.xml</graph-location>
+      <graph-name>titanexample</graph-name>
+      <graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration</graph-type>
+      <graph-location>db/titan</graph-location>
       <graph-read-only>false</graph-read-only>
+      <properties>
+            <storage.backend>local</storage.backend>
+            <buffer-size>100</buffer-size>
+      </properties>
       <extensions>
         <allows>
           <allow>tp:frames</allow>
         </allows>
       </extensions>
     </graph>
-    ...
   </graphs>
 </rexster>
 ```
+
+To use Rexster with Titan, you need to add the Titan jar files to the Rexster @ext@ extension folder and specify the graph type as shown above. Rexster's _graph-location_ option is equivalent to Titan's _storage.directory_. All other Titan specific configurations are subsumed under _properties_. In the example above, the backend and the buffer size are configured. Any of the "Titan configurations":Graph-Configuration can be used here.
