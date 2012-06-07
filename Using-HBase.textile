@@ -26,7 +26,7 @@ h2. Deploying on Amazon EC2
 
 The following commands first launch a four-node HBase cluster on EC2 via [[Whirr|http://whirr.apache.org/]], then run a basic Titan test case using the cluster.
 
-This configuration has one HBase master server in charge of three HBase regionservers.  Titan connects only to the master, which in turn communicates with the others.
+The configuration described below puts one HBase master server in charge of three HBase regionservers.  Titan connects only to the master, which in turn communicates with the others.
 
 * Whirr's current stable version, 0.7.1, sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  Login to a machine with a public IP or create and login to a micro instance on EC2 before running the following commands.
 * <pre>export AWS_ACCESS_KEY_ID=...</pre>
