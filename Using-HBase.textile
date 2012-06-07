@@ -39,10 +39,7 @@ The configuration described below puts one HBase master server in charge of thre
 * run a simple health check on the hbase-master node (this should print "imok"):
   <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
 * login into the first node created, the hbase-master node:
-  <pre>ssh -i ~/.ssh/id_rsa_whirr \
-       -o "UserKnownHostsFile /dev/null" \
-       -o StrictHostKeyChecking=no \
-       `grep hbase-master ~/.whirr/hbase-0.92.1/instances | awk '{print $3}'`</pre>
+  <pre>ssh -i ~/.ssh/id_rsa_whirr -o "UserKnownHostsFile /dev/null" -o StrictHostKeyChecking=no `grep hbase-master ~/.whirr/hbase-0.92.1/instances | awk '{print $3}'`</pre>
 * <pre>sudo apt-get install git-core maven2</pre>
 * <pre>git clone 'git@github.com:thinkaurelius/titan.git'</pre>
 * <pre>cd titan</pre>
