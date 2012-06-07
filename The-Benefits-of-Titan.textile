@@ -12,6 +12,7 @@ h2. General Titan Benefits
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
 * Support for top-down, user prescribed graph partitioning algorithms (*COMING SOON*)
 
+<br/>
 
 h2. Benefits of Titan with Cassandra
 
