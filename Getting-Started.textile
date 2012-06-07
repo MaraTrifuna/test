@@ -2,17 +2,19 @@ bq. In the beginning, there existed two deities known as "Uranus":http://en.wiki
 
 |!http://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/8646_-_St_Petersburg_-_Hermitage_-_Jupiter2.jpg/180px-8646_-_St_Petersburg_-_Hermitage_-_Jupiter2.jpg!<br/>*Jupiter* |!http://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sousse_neptune.jpg/282px-Sousse_neptune.jpg!<br/>*Neptune*|!http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Henryk_Siemiradzki_010.jpeg/320px-Henryk_Siemiradzki_010.jpeg!<br/>*Pluto*|
 
+h2. The Graph of the Gods
+
 The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon. The _The Graph of the Gods_ "GraphML":http://graphml.graphdrawing.org/ file is available at "this location":https://github.com/thinkaurelius/titan/blob/master/data/graph-of-the-gods.xml.
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png|align=center]]
 
 h2. Downloading and Running Titan
 
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|align=right|float|width=115px]]
+
 bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
 
-Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Commands can now be issued to Titan. 
-
-
+Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section of the project repository. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Note that the Gremlin shell is distributed with Titan and differs slightly from the Gremlin distribution in that is comes preloaded with Titan-specific @imports@ and helper methods.
 
 ```text
 $ unzip titan-0.1-SNAPSHOT.zip
@@ -31,7 +33,7 @@ $ ./gremlin.sh
 gremlin>
 ```
 
-The Gremlin terminal is Groovy shell and as such, it is possible to issue Java statements in a real-time, interactive fashion.
+The Gremlin terminal is "Groovy":http://groovy.codehaus.org/ shell and as such, it is possible to issue Java statements in a real-time, interactive fashion.
 
 ```text
 gremlin> 100-10
