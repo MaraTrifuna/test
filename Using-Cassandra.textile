@@ -50,6 +50,26 @@ http://rexster.titan.machine1/mygraph/vertices/1
 http://rexster.titan.machine2/mygraph/tp/gremlin?script=g.v(1).out('follows').out('created')
 ```
 
+In this case, each Rexster server would be configured to connect to the Cassandra cluster. The following shows the graph specific fragment of the Rexster configuration. Refer to the "Rexster configuration page":Rexster-Graph-Server for a complete example.
+
+```xml
+    <graph>
+      <graph-name>mygraph</graph-name>
+      <graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration</graph-type>
+      <graph-location></graph-location>
+      <graph-read-only>false</graph-read-only>
+      <properties>
+            <storage.backend>cassandra</storage.backend>
+            <storage.hostname>77.77.77.77</storage.hostname>
+      </properties>
+      <extensions>
+        <allows>
+          <allow>tp:gremlin</allow>
+        </allows>
+      </extensions>
+    </graph>
+```
+
 h2. Cassandra Specific Configuration
 
 In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following Cassandra specific Titan configuration options:
