@@ -87,6 +87,8 @@ h3. Vertex and Edge Iteration
 
 Titan does not support global vertex or edge iteration. @Graph.getVertices()@ returns an @Iterable@ over only those vertices that are currently loaded in the enclosing transaction. Likewise, @Graph.getEdges()@ returns an @Iterable@ over only those edges which are incident on vertices currently loaded in the enclosing transaction. Unless the entire graph is loaded in the current transaction, this means that @Graph.getVertices()@ and @Graph.getEdges()@ return a (possibly empty) subset of the graph. This deviation from the Blueprints API was introduced to avoid OutOfMemoryExceptions that inevitably happen when attempting to load a huge graph into memory. Global graph operations over Titan graph are handled through Hadoop.
 
+This limitation extends to all auxiliary Blueprints functionality that relies on vertex or edge iteration such as graph exporting.
+
 h3. Edge Retrieval
 
 Edges cannot be retrieved by their id in Titan. Only vertices can be retrieved by id.
