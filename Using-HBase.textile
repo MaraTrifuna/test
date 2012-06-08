@@ -10,43 +10,42 @@ h3. Local Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-local.png!
 
-Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket. Running Titan over Cassandra requires the following setup steps:
+HBase can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and HBase communicate with one another via a @localhost@ socket. Running Titan over HBase requires the following setup steps:
 
 * Download and extract a stable HBase from [[http://www.apache.org/dyn/closer.cgi/hbase/stable/]].
-* Start HBase.  In 0.92.1, the stable version as of this writing, the startup command on OS X or Linux is @hbase-0.92.1/bin/start-hbase.sh@.
-* Clone Titan.
-<pre>git@github.com:thinkaurelius/titan.git
-cd titan</pre>
-* Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
-<pre>mvn clean test -Dtest=ExternalHBaseKeyColumnValueTest
-mvn clean test -Dtest=ExternalHBaseGraphDBTest</pre>
+* Start HBase by invoking the @start-hbase.sh@ script in the _bin_ directory inside the extracted HBase directory. To stop HBase, use @stop-hbase.sh@.
 
-# "Download":http://cassandra.apache.org/download/, unpack, and "setup":http://wiki.apache.org/cassandra/GettingStarted Cassandra on your local machine.
-# Start Cassandra by invoking @bin/cassandra -f@ on the command line in the directory where Cassandra was unpacked. Ensure that Cassandra started successfully.
+```text
+$ ./start-hbase.sh 
+starting master, logging to ../logs/hbase-master-machine-name.local.out
+```
 
-Now, you can create a Cassandra TitanGraph as follows:
+Now, you can create an HBase TitanGraph as follows:
 
 ```java
 Configuration conf = new BaseConfiguration();
-conf.setProperty("storage.backend","cassandra");
-conf.setProperty("storage.hostname","127.0.0.1");
+conf.setProperty("storage.backend","hbase");
 TitanGraph g = TitanFactory.open(conf);
 ```
+
+Note, that you do not need to specify a hostname since a localhost connection is attempted by default.
 
 h3. Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
 
-When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
+When the graph needs to scale beyond the confines of a single machine, then HBase and Titan are logically separated into different machines. In this model, the HBase cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the HBase cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
 
-For example, suppose we have a running Cassandra cluster where one of the machines has the IP address 77.77.77.77, then connecting Titan with the cluster is accomplished as follows:
+For example, suppose we have a running HBase cluster with two machines at IP address 77.77.77.77 and 77.77.77.78, then connecting Titan with the cluster is accomplished as follows:
 
 ```java
 Configuration conf = new BaseConfiguration();
-conf.setProperty("storage.backend","cassandra");
-conf.setProperty("storage.hostname","77.77.77.77");
+conf.setProperty("storage.backend","hbase");
+conf.setProperty("storage.hostname","77.77.77.77,77.77.77.78");
 TitanGraph g = TitanFactory.open(conf);
 ```
+
+_storage.hostname_ accepts a comma separated list of IP addresses and hostname for any subset of machines in the HBase cluster Titan should connect to.
 
 h3. Remote Server Mode with Rexster
 
@@ -59,7 +58,7 @@ http://rexster.titan.machine1/mygraph/vertices/1
 http://rexster.titan.machine2/mygraph/tp/gremlin?script=g.v(1).out('follows').out('created')
 ```
 
-In this case, each Rexster server would be configured to connect to the Cassandra cluster. The following shows the graph specific fragment of the Rexster configuration. Refer to the "Rexster configuration page":Rexster-Graph-Server for a complete example.
+In this case, each Rexster server would be configured to connect to the HBase cluster. The following shows the graph specific fragment of the Rexster configuration. Refer to the "Rexster configuration page":Rexster-Graph-Server for a complete example.
 
 ```xml
     <graph>
@@ -69,7 +68,7 @@ In this case, each Rexster server would be configured to connect to the Cassandr
       <graph-read-only>false</graph-read-only>
       <properties>
             <storage.backend>hbase</storage.backend>
-            <storage.hostname>77.77.77.77,77.77.77.76</storage.hostname>
+            <storage.hostname>77.77.77.77,77.77.77.78</storage.hostname>
       </properties>
       <extensions>
         <allows>
@@ -79,7 +78,7 @@ In this case, each Rexster server would be configured to connect to the Cassandr
     </graph>
 ```
 
-h2. Cassandra Specific Configuration
+h2. HBase Specific Configuration
 
 In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following HBase specific Titan configuration options:
 
