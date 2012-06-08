@@ -59,8 +59,8 @@ In this case, each Rexster server would be configured to connect to the Cassandr
       <graph-location></graph-location>
       <graph-read-only>false</graph-read-only>
       <properties>
-            <storage.backend>cassandra</storage.backend>
-            <storage.hostname>77.77.77.77</storage.hostname>
+            <storage.backend>hbase</storage.backend>
+            <storage.hostname>77.77.77.77,77.77.77.76</storage.hostname>
       </properties>
       <extensions>
         <allows>
@@ -72,18 +72,14 @@ In this case, each Rexster server would be configured to connect to the Cassandr
 
 h2. Cassandra Specific Configuration
 
-In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following Cassandra specific Titan configuration options:
+In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following HBase specific Titan configuration options:
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| storage.keyspace | Name of the keyspace in which to store the Titan specific column families | String | titan | No |
-| storage.hostname | IP address or hostname of the Cassandra cluster node that this Titan instance connects to | IP address or hostname | - | Yes |
-| storage.port | Port on which to connect to Cassandra cluster node | Integer | 9160 | Yes |
-| storage.thrift-timeout | Default time out in milliseconds after which to fail a connection attempt with a Cassandra node | Integer | 10000 | Yes |
-| storage.read-consistency-level | Cassandra consistency level for read operations | - | QUORUM | Yes |
-| storage.write-consistency-level | Cassandra consistency level for write operations | - | QUORUM | Yes |
-| storage.replication-factor | The replication factor to use. The higher the replication factor, the more robust the graph database is to machine failure at the expense of data duplication. *The default value should be overwritten for production system to ensure robustness. A value of 3 is recommended.* | Integer | 1 | No |
+| storage.tablename | Name of the HBase table in which to store the Titan specific column families | String | titan | No |
+| storage.hostname | Comma separated list of IP addresses or hostnames of the HBase cluster nodes that this Titan instance connects to | IP addresses or hostnames. Leave empty to connect to localhost. | - | Yes |
+| storage.port | Port on which to connect to HBase cluster nodes. Leave empty to use default port. | Integer | - | Yes |
 
-For more information on Cassandra consistency levels and acceptable values, please refer to the "Cassandra documentation":http://wiki.apache.org/cassandra/API. In general, higher levels are more consistent and robust but have higher latency.
+Please refer to the "HBase configuration documentation":http://hbase.apache.org/book/config.files.html for more HBase configuration options and their description. By prefixing the respective HBase configuration option with _storage.hbase-config_ in the Titan configuration it will be passed on to HBase at initialization time. This allows arbitrary HBase configuration options to be configured through Titan.
 
 h2. Deploying on Amazon EC2
 
@@ -91,7 +87,7 @@ h2. Deploying on Amazon EC2
 
 bq. "Amazon EC2":http://aws.amazon.com/ec2/  is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
 
-Follow these steps to setup a Cassandra cluster on EC2 and deploy Titan over Cassandra. To follow these instructions, you need an Amazon AWS account with established authentication credentials and some basic knowledge of AWS and EC2.
+Follow these steps to setup an HBase cluster on EC2 and deploy Titan over HBase. To follow these instructions, you need an Amazon AWS account with established authentication credentials and some basic knowledge of AWS and EC2.
 
 The following commands first launch a four-node HBase cluster on EC2 via [[Whirr|http://whirr.apache.org/]], then run a basic Titan test case using the cluster.
 
