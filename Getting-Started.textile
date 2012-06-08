@@ -33,7 +33,7 @@ $ ./gremlin.sh
 gremlin>
 ```
 
-The Gremlin terminal is "Groovy":http://groovy.codehaus.org/ shell. Groovy is a superset of Java that has various shorthand notations that make interactive programming easier. The basic examples below demonstrate dealing with numbers, strings, and maps.
+The Gremlin terminal is "Groovy":http://groovy.codehaus.org/ shell. Groovy is a superset of Java that has various shorthand notations that make interactive programming easier. The basic examples below demonstrate handling numbers, strings, and maps.
 
 ```text
 gremlin> 100-10
@@ -48,16 +48,14 @@ gremlin> [name:'aurelius',vocation:['philosopher','emperor']]
 h2. Loading Data Into Titan
 
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
-"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. With Gremlin, it is possible to both read and write to the graph. Some simple Gremlin examples are provided to demonstrate how to interact with Titan via the Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. an interactive shell). All the examples are with respect to the _Graph of the Gods_ diagrammed above and using Titan in embedded mode.
-
-@TitanFactory@ provides methods to create various Titan instances (e.g. embedded, distributed, etc.). A local embedded instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local embedded mode is sufficient.
+"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. The example below will load _The Graph of the Gods_ into Titan. @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local mode is sufficient. Other pages in the documentation demonstrate distributed Titan [[using Cassandra]] and [[using HBase]]. 
 
 ```text
 gremlin> g = TitanFactory.open('/tmp/titan')              
 ==>standardtitangraph[local]
 ```
 
-The created Titan database is empty. In order for Titan to be useful, data should be loaded. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. That is, all vertices with the property @name@ are indexed by their respective name value.
+The created Titan database is empty and ready to be loaded with data. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. This will ensure that all vertices with the property @name@ are indexed by their respective name value. With a key index on @name@, looking up a vertex by its name takes @log(n)@ time.
 
 ```text
 gremlin> g.createKeyIndex('name', Vertex.class)
@@ -66,7 +64,7 @@ gremlin> g.stopTransaction(SUCCESS)
 ==>null
 ```
 
-The following snippet loads _The Graph of the Gods_ dataset which comes packaged with Titan. Given that there is an index on @name@ property, the Saturn vertex can be retrieved. The property map (i.e. the key/value pairs of Saturn) can be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" The result is Hercules.
+The following snippet loads _The Graph of the Gods_ dataset which comes packaged with Titan in the @data/@ directory. Given that there is an index on @name@ property, the Saturn vertex can be retrieved. The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules.
 
 ```text
 gremlin> g.loadGraphML('data/graph-of-the-gods.xml')
@@ -82,18 +80,18 @@ gremlin> saturn.in('father').in('father').name
 
 h2. Graph Traversal Examples
 
-bq. "Hercules":http://en.wikipedia.org/wiki/Hercules, son of Jupiter and "Alcmene":http://en.wikipedia.org/wiki/Alcmene, bore super human strength. Hercules was a "demigod":http://en.wikipedia.org/wiki/Demigod because his father was a god and his mother was a human. In a fit of madness caused by the jealous goddess "Juno":http://en.wikipedia.org/wiki/Juno_(mythology), Hercules killed his wife and children. To atone for the slaying, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Eurystheus appointed Hercules to 12 labors.
+bq. "Hercules":http://en.wikipedia.org/wiki/Hercules, son of Jupiter and "Alcmene":http://en.wikipedia.org/wiki/Alcmene, bore super human strength. Hercules was a "demigod":http://en.wikipedia.org/wiki/Demigod because his father was a god and his mother was a human. "Juno":http://en.wikipedia.org/wiki/Juno_(mythology), wife of Jupiter, was furious with Jupiter's infidelity. In revenge, she blinded Hercules with temporary insanity and caused him to kill his wife and children. To atone for the slaying, Hercules was ordered by the "Oracle of Delphi":http://en.wikipedia.org/wiki/Oracle_at_Delphi to serve "Eurystheus":http://en.wikipedia.org/wiki/Eurystheus. Eurystheus appointed Hercules to 12 labors.
 
 |!http://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg/301px-Mosaico_Trabajos_H%C3%A9rcules_%28M.A.N._Madrid%29_01.jpg!<br>*Nemean*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hercules_slaying_the_Hydra.jpg/320px-Hercules_slaying_the_Hydra.jpg!*Hydra*|!http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Cerberus-Blake.jpeg/320px-Cerberus-Blake.jpeg!<br>*Cerberus*|
 
-In the previous section, it was demonstrated that Saturns' childs' child was Hercules. This can be expressed using a @loop@. In essence, Hercules is the vertex that is 2-steps away from Saturn along the @in('father')@ path.
+In the previous section, it was demonstrated that Saturns' grandchild was Hercules. This can be expressed using a @loop@. In essence, Hercules is the vertex that is 2-steps away from Saturn along the @in('father')@ path.
 
 ```text
 gremlin> hercules = saturn.in('father').loop(1){it.loops < 3}.next()
 ==>v[24]
 ```
 
-Hercules is a demigod. To prove that Hercules is half human and half god, his parent's origins must be examined. Thus, it is possible to traverse from the Hercules vertex to his mother and father. Finally, it is possible to determine the @type@ of each of them -- yielding "god" and "human."
+Hercules is a demigod. To prove that Hercules is half human and half god, his parent's origins must be examined. It is possible to traverse from the Hercules vertex to his mother and father. Finally, it is possible to determine the @type@ of each of them -- yielding "god" and "human."
 
 ```text
 gremlin> hercules.out('father','mother')
@@ -109,7 +107,7 @@ gremlin> hercules.type
 ==>demigod
 ```
 
-The examples thus far have been with respect to the genetic lines of the various actors in the Roman pantheon. However, the "property graph data model":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model is expressive enough to represent multiple types of things and multiple types of relationships. In this way, _The Graph of the Gods_ can also identify Hercules' various heroic exploits.
+The examples thus far have been with respect to the genetic lines of the various actors in the Roman pantheon. However, the "property graph data model":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model is expressive enough to represent multiple types of things and relationships. In this way, _The Graph of the Gods_ can also identify Hercules' various heroic exploits --- his famous 12 labors.
 
 ```text
 gremlin> hercules.out('battled')
@@ -124,3 +122,7 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 ==>hydra
 ==>cerberus
 ```
+
+h2. Moving Forward with Titan
+
+This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process).
