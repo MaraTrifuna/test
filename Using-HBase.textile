@@ -12,6 +12,15 @@ h3. Local Server Mode
 
 Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket. Running Titan over Cassandra requires the following setup steps:
 
+* Download and extract a stable HBase from [[http://www.apache.org/dyn/closer.cgi/hbase/stable/]].
+* Start HBase.  In 0.92.1, the stable version as of this writing, the startup command on OS X or Linux is @hbase-0.92.1/bin/start-hbase.sh@.
+* Clone Titan.
+<pre>git@github.com:thinkaurelius/titan.git
+cd titan</pre>
+* Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
+<pre>mvn clean test -Dtest=ExternalHBaseKeyColumnValueTest
+mvn clean test -Dtest=ExternalHBaseGraphDBTest</pre>
+
 # "Download":http://cassandra.apache.org/download/, unpack, and "setup":http://wiki.apache.org/cassandra/GettingStarted Cassandra on your local machine.
 # Start Cassandra by invoking @bin/cassandra -f@ on the command line in the directory where Cassandra was unpacked. Ensure that Cassandra started successfully.
 
@@ -110,21 +119,7 @@ The configuration described below puts one HBase master server in charge of thre
 * <pre>cd titan</pre>
 * <pre>mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion</pre>
 
-h2. Testing Titan's HBase Adapter (for Developers)
-
-Titan's HBase backend tests currently assume the existence of a running, locally-available HBase instance with an essentially default configuration.  These tests will fail otherwise.  Here are the steps to start a testing HBase instance on a development machine and run the relevant tests.
-
-The assumption of an externally-started HBase instance will likely be removed as development on the Titan HBase adapter continues.
-
-* Download and extract a stable HBase from [[http://www.apache.org/dyn/closer.cgi/hbase/stable/]].
-* Start HBase.  In 0.92.1, the stable version as of this writing, the startup command on OS X or Linux is @hbase-0.92.1/bin/start-hbase.sh@.
-* Clone Titan.
-<pre>git@github.com:thinkaurelius/titan.git
-cd titan</pre>
-* Run the HBase tests.  On a machine with the @mvn@ command-line Maven client installed,
-<pre>mvn clean test -Dtest=ExternalHBaseKeyColumnValueTest
-mvn clean test -Dtest=ExternalHBaseGraphDBTest</pre>
 
 h2. Disclaimer
 
-The Titan HBase adapter is still experimental and not fully performance optimized. Additionally, HBase deserializes entire rows which leads to Titan performance degradation on super nodes.
+The Titan HBase adapter is still experimental and not fully performance optimized. Hence, the performance of Titan over HBase will likely be suboptimal as we keep improving the adapter.
