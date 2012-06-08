@@ -6,23 +6,92 @@ h2. Deploying on Managed Machines
 
 The following sections outline the various ways in which Titan can be used in concert with HBase.
 
-h3. Using Local Server Mode
+h3. Local Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-local.png!
 
-h3. Using Remote Server Mode
+Cassandra can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and Cassandra communicate with one another via a @localhost@ socket. Running Titan over Cassandra requires the following setup steps:
+
+# "Download":http://cassandra.apache.org/download/, unpack, and "setup":http://wiki.apache.org/cassandra/GettingStarted Cassandra on your local machine.
+# Start Cassandra by invoking @bin/cassandra -f@ on the command line in the directory where Cassandra was unpacked. Ensure that Cassandra started successfully.
+
+Now, you can create a Cassandra TitanGraph as follows:
+
+```java
+Configuration conf = new BaseConfiguration();
+conf.setProperty("storage.backend","cassandra");
+conf.setProperty("storage.hostname","127.0.0.1");
+TitanGraph g = TitanFactory.open(conf);
+```
+
+h3. Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
 
-h3. Using Remote Server Mode with Rexster
+When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
+
+For example, suppose we have a running Cassandra cluster where one of the machines has the IP address 77.77.77.77, then connecting Titan with the cluster is accomplished as follows:
+
+```java
+Configuration conf = new BaseConfiguration();
+conf.setProperty("storage.backend","cassandra");
+conf.setProperty("storage.hostname","77.77.77.77");
+TitanGraph g = TitanFactory.open(conf);
+```
+
+h3. Remote Server Mode with Rexster
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-rexster.png!
+
+Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
+
+```text
+http://rexster.titan.machine1/mygraph/vertices/1
+http://rexster.titan.machine2/mygraph/tp/gremlin?script=g.v(1).out('follows').out('created')
+```
+
+In this case, each Rexster server would be configured to connect to the Cassandra cluster. The following shows the graph specific fragment of the Rexster configuration. Refer to the "Rexster configuration page":Rexster-Graph-Server for a complete example.
+
+```xml
+    <graph>
+      <graph-name>mygraph</graph-name>
+      <graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration</graph-type>
+      <graph-location></graph-location>
+      <graph-read-only>false</graph-read-only>
+      <properties>
+            <storage.backend>cassandra</storage.backend>
+            <storage.hostname>77.77.77.77</storage.hostname>
+      </properties>
+      <extensions>
+        <allows>
+          <allow>tp:gremlin</allow>
+        </allows>
+      </extensions>
+    </graph>
+```
+
+h2. Cassandra Specific Configuration
+
+In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following Cassandra specific Titan configuration options:
+
+|_. Option |_. Description |_. Value |_. Default |_. Modifiable |
+| storage.keyspace | Name of the keyspace in which to store the Titan specific column families | String | titan | No |
+| storage.hostname | IP address or hostname of the Cassandra cluster node that this Titan instance connects to | IP address or hostname | - | Yes |
+| storage.port | Port on which to connect to Cassandra cluster node | Integer | 9160 | Yes |
+| storage.thrift-timeout | Default time out in milliseconds after which to fail a connection attempt with a Cassandra node | Integer | 10000 | Yes |
+| storage.read-consistency-level | Cassandra consistency level for read operations | - | QUORUM | Yes |
+| storage.write-consistency-level | Cassandra consistency level for write operations | - | QUORUM | Yes |
+| storage.replication-factor | The replication factor to use. The higher the replication factor, the more robust the graph database is to machine failure at the expense of data duplication. *The default value should be overwritten for production system to ensure robustness. A value of 3 is recommended.* | Integer | 1 | No |
+
+For more information on Cassandra consistency levels and acceptable values, please refer to the "Cassandra documentation":http://wiki.apache.org/cassandra/API. In general, higher levels are more consistent and robust but have higher latency.
 
 h2. Deploying on Amazon EC2
 
 !http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!:http://aws.amazon.com/ec2/
 
-"Amazon EC2":http://aws.amazon.com/ec2/ is a cloud computing service.
+bq. "Amazon EC2":http://aws.amazon.com/ec2/  is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
+
+Follow these steps to setup a Cassandra cluster on EC2 and deploy Titan over Cassandra. To follow these instructions, you need an Amazon AWS account with established authentication credentials and some basic knowledge of AWS and EC2.
 
 The following commands first launch a four-node HBase cluster on EC2 via [[Whirr|http://whirr.apache.org/]], then run a basic Titan test case using the cluster.
 
