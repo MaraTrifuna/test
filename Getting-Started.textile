@@ -125,4 +125,9 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 
 h2. Moving Forward with Titan
 
-This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process).
+This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). The remainder of this documentation discusses more in-depth examples and configurations for using Titan. For more information on other aspects of Titan, please see the following projects.
+
+  * "Blueprints":http://blueprints.tinkerpop.com - The property graph model interface implemented by Titan which provides various utilities to aid developers.
+  * "Gremlin":http://gremlin.tinkerpop.com - A graph traversal language for expressing complex walks through a graph.
+  * "Frames":http://frames.tinkerpop.com - An graph-to-object mapper for rendering Java objects from graph data.
+  * "Rexster":http://rexster.tinkerpop.com - A graph server for exposing the graph via REST along with various HTML-based GUI tools for managing the graph.
