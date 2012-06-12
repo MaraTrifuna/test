@@ -12,9 +12,8 @@ h2. General Titan Benefits
 * Vertex-centric indices provide vertex-level querying to alleviate issues with the infamous super node problem.
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
 * Open source under the liberal Apache 2 license.
-* Support for top-down, user prescribed graph partitioning algorithms (*COMING SOON*)
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 h2. Benefits of Titan with Cassandra
 
