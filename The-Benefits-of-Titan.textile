@@ -31,7 +31,7 @@ h2. Benefits of Titan with HBase
 
 * Tight integration with the Hadoop ecosystem.
 * Native support for strong consistency.
-* Linear and modular scalability.
+* Linear scalability with the addition of more machines.
 * Strictly consistent reads and writes.
 * Convenient base classes for backing Hadoop MapReduce jobs with HBase tables.
 * Support for exporting metrics via JMX.
