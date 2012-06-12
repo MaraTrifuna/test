@@ -17,14 +17,14 @@ bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be 
 Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/downloads section of the project repository. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. Note that the Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. interactive shell) is distributed with Titan and differs slightly from the Gremlin distribution in that is comes preloaded with Titan-specific @imports@ and helper methods.
 
 ```text
-$ unzip titan-0.1-SNAPSHOT.zip
-Archive:  titan-0.1-SNAPSHOT.zip
-   creating: titan-0.1-SNAPSHOT/
-  inflating: titan-0.1-SNAPSHOT/pom.xml  
-   creating: titan-0.1-SNAPSHOT/src/
-   creating: titan-0.1-SNAPSHOT/src/assembly/
+$ unzip titan.zip
+Archive:  titan.zip
+   creating: titan/
+  inflating: titan/pom.xml  
+   creating: titan/src/
+   creating: titan/src/assembly/
 ...
-$ cd titan-0.1-SNAPSHOT
+$ cd titan
 $ ./gremlin.sh 
 
          \,,,/
