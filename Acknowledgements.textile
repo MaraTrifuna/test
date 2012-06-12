@@ -8,7 +8,7 @@ h2. People
 # Dan LaRocque: Lead developer with special focus on Titan's use in hosted computing environments (e.g. EC2).
 # "Marko A. Rodriguez":http://markorodriguez.com: TinkerPop support, testing, and documentation.
 # "Stephen Mallette":http://stephen.genoprime.com/: TinkerPop support, testing, and documentation.
-# "Ketrina Yim":http://www.ketrinayim.com/ Creator of the Titan logo.
+# "Ketrina Yim":http://www.ketrinayim.com/: Created the Titan logo.
 
 h2. Organizations
 
