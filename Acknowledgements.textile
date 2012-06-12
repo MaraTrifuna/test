@@ -1,0 +1,16 @@
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|width=400px]]
+
+Titan is an ongoing effort by various developers, contributors, and organizations. Along with this explicit list of contributors, Titan is also possible because of the excellent open source products that compose Titan. Please see a list of these projects in the Titan "pom.xml":https://github.com/thinkaurelius/titan/blob/master/pom.xml.
+
+h2. People
+
+# "Matthias Broecheler":http://matthiasb.com/: Founder and primary developer and theorist.
+# "Dan LaRocque": Lead developer with special focus on Titan's use in hosted computing environments (e.g. EC2).
+# "Marko A. Rodriguez":http://markorodriguez.com: TinkerPop support, testing, and documentation.
+# "Stephen Mallette":http://stephen.genoprime.com/: TinkerPop support, testing, and documentation.
+# "Ketrina Yim":http://www.ketrinayim.com/ Creator of the Titan logo.
+
+h2. Organizations
+
+# "Aurelius":http://thinkaurelius.com: Provides development team and maintains the Titan codebase.
+# "Pearson":http://www.pearson.com/: Use case development, customer feedback, and early adopter.
