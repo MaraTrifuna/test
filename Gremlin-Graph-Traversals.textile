@@ -17,4 +17,4 @@ The example above has 4 chained functions: @out@, @in@, @except@, and @property@
   # @except: U -> U@
   # @property: V -> U@
 
-When chaining together functions, the incoming type must match the outgoing type, where @U@ matches anything. Thus, the "co-battled" is correct.
+When chaining together functions, the incoming type must match the outgoing type, where @U@ matches anything. Thus, the "co-battled/ally" traversal above is correct.
