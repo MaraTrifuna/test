@@ -49,7 +49,9 @@ Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
 *** [[Generating Artificial Natural Graphs]]
 ** [[Building Titan]]
 ** [[Titan Pitfalls]]
+* [[Acknowledgements]]
 * Release Notes
+
 
 ==<hr/>==
 
