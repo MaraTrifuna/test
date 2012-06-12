@@ -52,7 +52,7 @@ h2. Loading Data Into Titan
 
 ```text
 gremlin> g = TitanFactory.open('/tmp/titan')              
-==>standardtitangraph[local]
+==>titangraph[local:/tmp/titan]
 ```
 
 The created Titan database is empty and ready to be loaded with data. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. This will ensure that all vertices with the property @name@ are indexed by their respective name value. With a key index on @name@, looking up a vertex by its name takes @log(n)@ time.
