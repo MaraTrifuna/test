@@ -25,7 +25,7 @@ Edge e = graph.addEdge(a, b, "battled");
 e.setProperty("time", 12);
 ```
 
-Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
+Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/snapshot
 
 Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
 
