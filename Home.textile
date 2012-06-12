@@ -15,6 +15,16 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 <small>SNAPSHOTs available through "Sonatype repository":https://oss.sonatype.org/content/repositories/snapshots/com/thinkaurelius/titan/.
 Stable releases available through Apache central repository.</small>
 
+```java
+Graph graph = TitanFactory.open("/tmp/local-titan")
+Vertex a = graph.addVertex();
+Vertex b = graph.addVertex();
+a.setProperty("name", "hercules");
+b.setProperty("name", "cerberus");
+Edge e = graph.addEdge(a, b, "battled");
+e.setProperty("time", 12);
+```
+
 Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
 
 Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
