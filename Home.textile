@@ -5,6 +5,16 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 <br/><br/><br/><br/><br/><br/>
 
+```xml
+<dependency>
+   <groupId>com.thinkaurelius</groupId>
+   <artifactId>titan</artifactId>
+   <version>0.1-SNAPSHOT</version>
+</dependency>
+```
+<small>SNAPSHOTs available through "Sonatype repository":https://oss.sonatype.org/content/repositories/snapshots/com/thinkaurelius/titan/.
+Stable releases available through Apache central repository.</small>
+
 Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/
 
 Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
