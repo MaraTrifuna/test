@@ -123,6 +123,39 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 ==>cerberus
 ```
 
+h2. More Complex Graph Traversal Examples
+
+[[http://upload.wikimedia.org/wikipedia/commons/9/93/Agostino_Carracci_01.jpg|width=200px]]
+
+The Gremlin traversals below provide more examples over _The Graph of the Gods_. The explanation of each traversal is provided in the prior line as a @//@ comment. 
+
+```text
+gremlin> pluto = g.V('name','pluto').next()
+==>v[4]
+gremlin> // who are pluto's cohabitants?
+gremlin> pluto.out('lives').in('lives').name                
+==>cerberus
+==>pluto
+gremlin> // pluto can't be his own cohabitant
+gremlin> pluto.out('lives').in('lives').except([pluto]).name
+==>cerberus
+```
+
+```text
+gremlin> // where do pluto's brothers live?
+gremlin> pluto.out('brother').out('lives').name
+==>sky
+==>sea
+gremlin> // which brother lives in which place?
+gremlin> pluto.out('brother').as('god').out('lives').as('place').select
+==>[god:v[16], place:v[36]]
+==>[god:v[8], place:v[32]]
+gremlin> // what is the name of the brother and the name of the place?
+gremlin> pluto.out('brother').as('god').out('lives').as('place').select{it.name}
+==>[god:jupiter, place:sky]
+==>[god:neptune, place:sea]
+```
+
 h2. Moving Forward with Titan
 
 This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). The remainder of this documentation discusses more in-depth examples and configurations for using Titan. For more information on other aspects of Titan, please see the following projects.
