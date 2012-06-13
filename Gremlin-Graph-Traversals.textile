@@ -32,11 +32,11 @@ conf.setProperty("storage.hostname","127.0.0.1");
 To make this easier, there are two configuration files in the @bin/@ directory: @cassandra.local@ and @hbase.local@. These can be used as such:
 
 ```java
-TitanFactory.open('bin/cassandra.local')
+TitanFactory.open("bin/cassandra.local")
 ```
 
 or
 
 ```java
-TitanFactory.open('bin/hbase.local')
+TitanFactory.open("bin/hbase.local")
 ```
