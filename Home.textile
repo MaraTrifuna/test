@@ -35,9 +35,9 @@ Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
 ** [[The Benefits of Titan]]
 ** [[Getting Started]]
 * Intermediate Concepts
-** [[Blueprints Interface]]
-** [[Gremlin Graph Traversals]]
-** [[Rexster Graph Server]]
+** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
+** [[Gremlin Graph Traversals]] (*"full documentation":http://gremlin.tinkerpop.com*)
+** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
 * Advanced Concepts
 ** Titan Configurations
 *** [[Graph Configuration]] (*cheat sheet*)
