@@ -10,9 +10,9 @@ The first thing to do is to connect to a Cassandra cluster with Titan. In the ex
 
 ```text
 conf = new BaseConfiguration()
-conf.setProperty("storage.backend","cassandra")
-conf.setProperty("storage.hostname","127.0.0.1")
-conf.setProperty("storage.batch-loading","true");
+conf.setProperty('storage.backend','cassandra')
+conf.setProperty('storage.hostname','127.0.0.1')
+conf.setProperty('storage.batch-loading','true');
 g = TitanFactory.open(conf)
 ```
 
