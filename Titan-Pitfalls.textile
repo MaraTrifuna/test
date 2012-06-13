@@ -4,7 +4,7 @@
 
 h2. Key Index Must Be Created Prior to Key Being Used
 
-Before is a key is use as a vertex property, a key index must be created for it if indexing is desired. This pitfall will be fixed in a future release.
+Before a key is used as a vertex property, a key index must be created for it if indexing is desired. This pitfall will be fixed in a future release.
 
 h2. Unable to Drop Key Indices
 
