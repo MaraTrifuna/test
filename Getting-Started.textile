@@ -25,7 +25,7 @@ Archive:  titan.zip
    creating: titan/src/assembly/
 ...
 $ cd titan
-$ ./gremlin.sh 
+$ bin/gremlin.sh 
 
          \,,,/
          (o o)
