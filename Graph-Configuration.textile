@@ -2,7 +2,7 @@
 
 This page summarizes Titan's configurations options. To configure a @TitanGraph@ invoke the @TitanFactory.open()@ method with a "commons configuration":http://commons.apache.org/configuration/ object or the file name of a properties configuration file. The @TitanFactory@ will return a @TitanGraph@ according to the configuration.
 
-The following example opens a @TitanGraph@ with the configured storage directory.
+The following example opens a @TitanGraph@ with the configured local storage directory.
 ```java
 Configuration conf = new BaseConfiguration();
 conf.setProperty("storage.directory","/tmp/titan");
