@@ -87,7 +87,7 @@ h2. Deviations from Blueprints Interface
 
 h3. Vertex and Edge Iteration
 
-Titan does not support global vertex or edge iteration. @Graph.getVertices()@ returns an @Iterable@ over only those vertices that are currently loaded in the enclosing transaction. Likewise, @Graph.getEdges()@ returns an @Iterable@ over only those edges which are incident on vertices currently loaded in the enclosing transaction. Unless the entire graph is loaded in the current transaction, this means that @Graph.getVertices()@ and @Graph.getEdges()@ return a (possibly empty) subset of the graph. This deviation from the Blueprints API was introduced to avoid OutOfMemoryExceptions that inevitably happen when attempting to load a huge graph into memory. Global graph operations over Titan graph are handled through Hadoop.
+Titan does not support global vertex or edge iteration. @Graph.getVertices()@ returns an @Iterable@ over only those vertices that are currently loaded in the enclosing transaction. Likewise, @Graph.getEdges()@ returns an @Iterable@ over only those edges which are incident on vertices currently loaded in the enclosing transaction. Unless the entire graph is loaded in the current transaction, this means that @Graph.getVertices()@ and @Graph.getEdges()@ return a (possibly empty) subset of the graph. This deviation from the Blueprints API was introduced to avoid @OutOfMemoryExceptions@ that inevitably happen when attempting to load a huge graph into memory. Global graph operations over Titan graph are handled through "Hadoop":http://hadoop.apache.org/.
 
 This limitation extends to all auxiliary Blueprints functionality that relies on vertex or edge iteration such as graph exporting.
 
@@ -97,11 +97,8 @@ Edges cannot be retrieved by their id in Titan. Only vertices can be retrieved b
 
 h3. Key Index Modifications
 
-Key indices must be defined before that key is being used. In other words, the first reference to the key name must be inside the @Graph.createKeyIndex()@ method. If the key has been previously used, creating a key index for that key after the fact will throw an exception. Once a key index has been created it cannot be dropped. These limitations are temporary.
-
-Titan only supports vertex key indices, i.e. @Graph.createKeyIndex("name",Vertex.class)@.
+Key indices must be defined before that key is being used. In other words, the first reference to the key name must be inside the @Graph.createKeyIndex()@ method. If the key has been previously used, creating a key index for that key after the fact will throw an exception. Once a key index has been created it cannot be dropped. These limitations are temporary. Finally, Titan only supports vertex key indices, i.e. @Graph.createKeyIndex("name",Vertex.class)@.
 
 h3. Transactional Scope
 
-Titan strictly enforces the transactional scope, which means that elements created within a transaction are invalid once that transaction is stopped. Operations on invalid elements - other than @getId()@ - may cause an exception. This is done to ensure that operations are not executed on out-of-date elements which could lead to inconsistencies.
-This is not a deviation from the Blueprints transactional semantic but important to note for users of other graph database frameworks.
+Titan strictly enforces the transactional scope, which means that elements created within a transaction are invalid once that transaction is stopped. Operations on invalid elements - other than @getId()@ - may cause an exception. This is done to ensure that operations are not executed on out-of-date elements which could lead to inconsistencies. This is not a deviation from the Blueprints transactional semantic but important to note for users of other graph database frameworks.
