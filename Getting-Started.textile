@@ -125,11 +125,13 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 
 h2. More Complex Graph Traversal Examples
 
-[[http://upload.wikimedia.org/wikipedia/commons/9/93/Agostino_Carracci_01.jpg|width=225px]]
+[[http://upload.wikimedia.org/wikipedia/commons/9/93/Agostino_Carracci_01.jpg|width=225px|float|alight=left]]
 
 bq. In the depths of Tartarus lives Pluto. His relationship with Hercules was strained by the fact that Hercules battled his pet, Cerberus. However, Hercules is his nephew -- how should he make Hercules pay for his insolence?
 
 The Gremlin traversals below provide more examples over _The Graph of the Gods_. The explanation of each traversal is provided in the prior line as a @//@ comment. 
+
+<br/><br/>
 
 h3. Coinhabitors of Tartarus
 
