@@ -18,3 +18,25 @@ The example above has 4 chained functions: @out@, @in@, @except@, and @property@
   # @property: V -> U@
 
 When chaining together functions, the incoming type must match the outgoing type, where @U@ matches anything. Thus, the "co-battled/ally" traversal above is correct.
+
+h2. Helper Configuration Files for Easy Local Connectivity
+
+When working with Gremlin against a local instance of [[HBase|Using HBase]] or [[Cassandra|Using Cassandra]], the following behavior is constantly repeated. 
+
+```java
+conf = new BaseConfiguration();
+conf.setProperty("storage.backend","cassandra");
+conf.setProperty("storage.hostname","127.0.0.1");
+```
+
+To make this easier, there are two configuration files in the @bin/@ directory: @cassandra.local@ and @hbase.local@. These can be used as such:
+
+```java
+TitanFactory.open('bin/cassandra.local')
+```
+
+or
+
+```java
+TitanFactory.open('bin/hbase.local')
+```
