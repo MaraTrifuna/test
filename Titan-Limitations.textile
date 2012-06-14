@@ -15,3 +15,7 @@ Once an index has been created for a key, it can never be removed. This pitfall 
 h3. Types Can Not Be Changed Once Created
 
 This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations can not be changed. This pitfall will be fixed in a future release.
+
+h3. Batch Loading Speed
+
+Titan provides a batch loading mode that can be enabled through the "configuration":Graph-Configuration. However, this batch mode only facilitates faster loading into the storage backend, it does not use storage backend specific batch loading techniques that prepare the data in memory for disk storage. As such, batch loading in Titan is currently slower than batch loading modes provided by single machine databases.
