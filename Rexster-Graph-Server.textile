@@ -67,6 +67,9 @@ This section explains how to configure Rexster to use a Titan graph database. An
 ```
 
 [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|float=right|width=100px]]
-To use Rexster with Titan, you need to add the Titan @jar@ files to the Rexster @ext@ extension folder and specify the graph type as shown above. Rexster's _graph-location_ option is equivalent to Titan's _storage.directory_. All other Titan specific configurations are subsumed under _properties_. In the example above, the backend and the buffer size are configured. Any of the "Titan configurations":Graph-Configuration can be used here. For more information on configuring Rexster, please see the "Rexster configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration documentation.
+There are two ways to configure Rexster for use with Titan:
 
-<br/>
+# If building Titan from source, copy the @target/titan-0.1-SNAPSHOT-jar-with-dependencies.jar@ to the Rexster @ext@ directory.
+# If using the Titan zipped distribution download, copy all jar files in the @lib@ directory to the Rexster @ext@ directory.
+
+Once that is done, specify the graph type as shown above. Rexster's _graph-location_ option is equivalent to Titan's _storage.directory_. All other Titan specific configurations are subsumed under _properties_. In the example above, the backend and the buffer size are configured. Any of the "Titan configurations":Graph-Configuration can be used here. For more information on configuring Rexster, please see the "Rexster configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration documentation.
