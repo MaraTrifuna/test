@@ -5,7 +5,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 <br/><br/><br/><br/><br/><br/>
 
-While this project is ramping up, please use the Gremlin users group at "http://groups.google.com/group/gremlin-users":http://groups.google.com/group/gremlin-users for Titan related discussions.
+While the Titan project is getting on its way, please use the Gremlin users group at "http://groups.google.com/group/gremlin-users":http://groups.google.com/group/gremlin-users for all Titan related discussions.
 
 ```xml
 <dependency>
