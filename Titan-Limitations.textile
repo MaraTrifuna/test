@@ -2,6 +2,12 @@
 
 <br/><br/><br/><br/>
 
+h2. Design Limitations
+
+h3. Global Graph Operations
+
+Titan is a scalable OLTP graph database focused on handling a large number of concurrent transactions against a single graph. Titan does not support global graph operations, like retrieving all vertices or edges, because such work loads cannot be reasonably handled within the context of a single transaction. We are working on a Hadoop adapter to process such OLAP work loads.
+
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
