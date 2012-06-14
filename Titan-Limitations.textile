@@ -1,15 +1,17 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|float|align=left]] There are various "gotchas" that one should be aware of when using Titan. Some of these pitfalls are necessary design choices and others are issues that will be rectified as Titan development continues.
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|float|align=left]] There are various limitations and "gotchas" that one should be aware of when using Titan. Some of these limitations are necessary design choices and others are issues that will be rectified as Titan development continues.
 
 <br/><br/><br/><br/>
 
-h2. Key Index Must Be Created Prior to Key Being Used
+h2. Temporary Limitations
+
+h3. Key Index Must Be Created Prior to Key Being Used
 
 Before a key is used as a vertex property, a key index must be created for it if indexing is desired. This pitfall will be fixed in a future release.
 
-h2. Unable to Drop Key Indices
+h3. Unable to Drop Key Indices
 
 Once an index has been created for a key, it can never be removed. This pitfall will be fixed in a future release.
 
-h2. Types Can Not Be Changed Once Created
+h3. Types Can Not Be Changed Once Created
 
 This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations can not be changed. This pitfall will be fixed in a future release.
