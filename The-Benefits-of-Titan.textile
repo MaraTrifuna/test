@@ -4,7 +4,8 @@ h2. General Titan Benefits
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-kneeling.png|width=150px|align=left|float]] 
 
-* Support for "infinite" sized graphs via the addition of machines to the cluster.
+* Support for an "infinite" sized graph via the addition of machines to the cluster.
+* Support for an "unlimited" number of concurrent transactions via the addition of machines to the cluster.
 * Native support for the popular property graph data model exposed by Blueprints.
 * Native support for the graph traversal language Gremlin.
 * Easy integration with the Rexster graph server for programming language agnostic connectivity.
@@ -13,7 +14,7 @@ h2. General Titan Benefits
 * Provides an optimized disk representation to allow for efficient use of storage and speed of access.
 * Open source under the liberal Apache 2 license.
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 
 h2. Benefits of Titan with Cassandra
 
