@@ -12,8 +12,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
    <version>0.1-SNAPSHOT</version>
 </dependency>
 ```
-<small>SNAPSHOTs available through "Sonatype repository":https://oss.sonatype.org/content/repositories/snapshots/com/thinkaurelius/titan/.
-Stable releases available through Apache central repository.</small>
+<small>SNAPSHOTs are available through the "Sonatype repository":https://oss.sonatype.org/content/repositories/snapshots/com/thinkaurelius/titan/.
+Stable releases are available through Apache's Central Repository.</small>
 
 ```java
 Graph graph = TitanFactory.open("/tmp/local-titan")
