@@ -119,8 +119,8 @@ gremlin> hercules.out('battled').map
 ==>{name=hydra, type=monster}
 ==>{name=cerberus, type=monster}
 gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
-==>hydra
 ==>cerberus
+==>hydra
 ```
 
 h2. More Complex Graph Traversal Examples
