@@ -27,7 +27,7 @@ e.setProperty("time", 12);
 
 Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/snapshot
 
-Titan: The Rise of Big Graph Data (*Introduction to Graphs and Titan*)
+"Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data (*Introduction to Graphs and Titan*)
 
 ==<hr/>==
 
