@@ -172,3 +172,19 @@ This section presented some basic examples of how to create a local Titan instan
   * "Gremlin":http://gremlin.tinkerpop.com - A graph traversal language for expressing complex walks through a graph.
   * "Frames":http://frames.tinkerpop.com - An graph-to-object mapper for rendering Java objects from graph data.
   * "Rexster":http://rexster.tinkerpop.com - A graph server for exposing the graph via REST along with various HTML-based GUI tools for managing the graph.
+
+Finally, for developing against a Titan SNAPSHOT version, be sure to add the following repository to the @pom.xml@. For stable releases, not repository is required as stable releases are pushed to "Apache's Central Repository":http://search.maven.org/.
+
+```xml
+<repository>
+  <id>sonatype-nexus-snapshots</id>
+  <name>Sonatype Nexus Snapshots</name>
+  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  <releases>
+    <enabled>false</enabled>
+  </releases>
+  <snapshots>
+    <enabled>true</enabled>
+  </snapshots>
+</repository>
+```
