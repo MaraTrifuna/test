@@ -46,6 +46,4 @@ When using a database, the "CAP theorem":http://en.wikipedia.org/wiki/CAP_theore
 
 bq. "Despite your best efforts, your system will experience enough faults that it will have to make a choice between reducing yield (i.e., stop answering requests) and reducing harvest (i.e., giving answers based on incomplete data). This decision should be based on business requirements." - "Coda Hale":http://codahale.com/you-cant-sacrifice-partition-tolerance
 
-HBase gives preference to consistency at the expense of yield, i.e. the probability of completing a request.
-
-Cassandra gives preference to availability at the expense of harvest, i.e. the completeness of the answer to the query (data available/complete data).
+HBase gives preference to consistency at the expense of yield, i.e. the probability of completing a request. Cassandra gives preference to availability at the expense of harvest, i.e. the completeness of the answer to the query (data available/complete data).
