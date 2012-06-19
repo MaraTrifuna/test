@@ -1,4 +1,6 @@
-Titan is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. This is Titan's foundational benefit. The following list itemizes other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections.
+Titan is designed to support the processing of graphs so large that they require storage and computational capacities beyond what a single machine can provide. This is Titan's foundational benefit. The following list itemizes other Titan benefits. Features that are inherited from the underlying storage layer are discussed in their respective sections. When developing and using databases, the "CAP theorem":http://en.wikipedia.org/wiki/CAP_theorem should be thoroughly considered (C=Consistency, A=Availability, P=Partitionability). Titan is deployed supporting 3 backends: "Cassandra":http://cassandra.apache.org/, "HBase":http://hbase.apache.org/, and "BerkeleyDB":http://www.oracle.com/technetwork/products/berkeleydb/. Their tradeoffs with respect to the CAP theorem are represented in the diagram below. Note that BerkeleyDB is a non-distributed database and as such, is typically only used with Titan for testing and exploring.
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-captheorem.png!
 
 h2. General Titan Benefits
 
