@@ -44,7 +44,7 @@ Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/snapsho
 ** Titan Configurations
 *** [[Graph Configuration]] (*cheat sheet*)
 *** [[Type Configuration]] (*cheat sheet*)
-** Storage Layer Connectivity
+** [[Storage Layer Connectivity]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
 ** Examples
