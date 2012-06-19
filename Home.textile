@@ -1,9 +1,6 @@
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|width=425px|align=left|float]] 
 Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for processing large-scale "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The pluggable storage architecture allows for any database to be configured to work with Titan. However, this distribution provides connectivity to both "Cassandra":http://cassandra.apache.org/ and "HBase":http://hbase.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
 
-
-<a href="https://travis-ci.org/thinkaurelius/titan">[[https://secure.travis-ci.org/thinkaurelius/titan.png|align=right|float]]</a>
-
 <a href="https://github.com/thinkaurelius/titan/downloads">[[https://github.com/thinkaurelius/titan/raw/master/doc/images/download-button.png|align=right|float]]</a>
 
 <br/><br/><br/><br/><br/><br/>
@@ -33,6 +30,8 @@ e.setProperty("time", 12);
 Titan JavaDoc: "0.1-alpha":http://thinkaurelius.github.com/titan/javadoc/snapshot
 
 "Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data (*Introduction to Graphs and Titan*)
+
+!https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan
 
 ==<hr/>==
 
