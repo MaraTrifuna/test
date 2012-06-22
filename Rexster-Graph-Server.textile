@@ -16,6 +16,24 @@ The following is a list of the "benefits of using Rexster":https://github.com/ti
 * Remote Gremlin traversals via the "Gremlin extensions":https://github.com/tinkerpop/rexster/wiki/Gremlin-Extension and the "Rexster console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console.
 * "Security support":https://github.com/tinkerpop/rexster/wiki/Rexster-Security via user authentification.
 
+h2. Installing Rexster
+
+Before using Rexster with Titan, it must for be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
+
+```bash
+$ curl -L https://github.com/downloads/tinkerpop/rexster/rexster-server-2.0.0.zip > rexster-server-2.0.0.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current ...
+...
+$ unzip rexster-server-2.0.0.zip
+Archive:  rexster-server-2.0.0.zip
+   creating: rexster-server-2.0.0/
+...
+$ cd rexster-server-2.0.0
+$ ./rexster-server.sh --start
+```
+
+Use @CNTRL-C@ to kill the server. Now that Rexster is downloaded and working, it is necessary to configure Rexster to work with Titan.
+
 h2. Configuring Rexster
 
 This section explains how to configure Rexster to use a Titan graph database. An example @rexster.xml@ file is provided below (see "Rexster Configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration).
