@@ -16,7 +16,7 @@ HBase can be run as a standalone database on the same local host as Titan and th
 * Start HBase by invoking the @start-hbase.sh@ script in the _bin_ directory inside the extracted HBase directory. To stop HBase, use @stop-hbase.sh@.
 
 ```text
-$ ./start-hbase.sh 
+$ ./bin/start-hbase.sh 
 starting master, logging to ../logs/hbase-master-machine-name.local.out
 ```
 
