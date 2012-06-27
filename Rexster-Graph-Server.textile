@@ -87,7 +87,7 @@ This section explains how to configure Rexster to use a Titan graph database. An
 [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|float=right|width=100px]]
 There are two ways to configure Rexster for use with Titan:
 
-# If building Titan from source, copy the @target/titan-0.1-SNAPSHOT-jar-with-dependencies.jar@ to the Rexster @ext@ directory.
+# If building Titan from source, copy the @target/titan-0.1-SNAPSHOT-jar-with-dependencies.jar@ to the Rexster @./rexster-server/target/rexster-server-${VERSION}/ext@ directory.
 # If using the Titan zipped distribution download, copy all jar files in the @lib@ directory to the Rexster @ext@ directory.
 
 *NOTE*: Future releases (beyond the 0.1-alpha) will have a much more efficient/easier packaging model.
