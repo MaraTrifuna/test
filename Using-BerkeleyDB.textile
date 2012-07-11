@@ -4,7 +4,7 @@ bq. Berkeley DB enables the development of custom data management solutions, wit
 
 h2. Running Titan in Single Machine Mode
 
-Titan's primary intended use is for multi-machine graph environments. However, to address all aspects of the CAP Theorem, Titan provides connectivity to BerkeleyDB. The most simple way to get a Titan/BerekleyDB instance going is to point Titan to a local directory.
+Titan was primary developed to be used for multi-machine, distributed graph storage and processing. However, to address all aspects of the "CAP Theorem":http://en.wikipedia.org/wiki/CAP_theorem (see the final section of [[The Benefits of Titan]]), Titan provides out-of-the-box connectivity to BerkeleyDB. The simplest way to get Titan/BerekleyDB running is to point Titan to a local directory.
 
 ```java
 TitanGraph graph = TitanFactory.open("/tmp/graph")
@@ -24,4 +24,4 @@ TitanGraph graph = TitanFactory.open(conf);
 
 h2. The Size of the Graph
 
-Titan/BerkeleyDB has been tested at ranges in the 100s of millions of edges and the 10s of millions of vertices with solid performance. Please feel free to add information to this section for other graphs being processed using Titan/BerkeleyDB.
+Titan/BerkeleyDB has been tested at ranges in the 100s of millions of edges and the 10s of millions of vertices consistent performance. Please feel free to add information to this section for other graphs being processed using Titan/BerkeleyDB.
