@@ -22,6 +22,8 @@ conf.setProperty("storage.cache_percentage", 60)
 TitanGraph graph = TitanFactory.open(conf);
 ```
 
+Titan/BerkeleyDB has all the properties of a Titan graph database in that it can handle multiple concurrent transactions.
+
 h2. The Size of the Graph
 
-Titan/BerkeleyDB has been tested at ranges in the 100s of millions of edges and the 10s of millions of vertices consistent performance. Please feel free to add information to this section for other graphs being processed using Titan/BerkeleyDB.
+Titan/BerkeleyDB has been tested at ranges in the 100s of millions of edges and the 10s of millions of vertices with consistent performance. Please feel free to add information to this section for other larger graphs being processed using Titan/BerkeleyDB.
