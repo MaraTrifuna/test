@@ -7,7 +7,7 @@ h2. Running Titan in Single Machine Mode
 Titan's primary intended use is for multi-machine graph environments. However, to address all aspects of the CAP Theorem, Titan provides connectivity to BerkeleyDB. The most simple way to get a Titan/BerekleyDB instance going is to point Titan to a local directory.
 
 ```java
-TitanGraph graph = TitanFactory.open('/tmp/graph')
+TitanGraph graph = TitanFactory.open("/tmp/graph")
 ```
 
 If the directory doesn't exist, then a new directory is created with an empty graph. If the directory already exists, then the graph data stored in that directory is loaded.
@@ -16,10 +16,10 @@ Titan/BerkeleyDB can also make use of a @Configuration@ object.
 
 ```java
 Configuration conf = new BaseConfiguration();
-conf.setProperty('storage.directory', '/tmp/graph')
-conf.setProperty('storage.backend','local')
-conf.setProperty('storage.cache_percentage', 60)
-TitanGraph g = TitanFactory.open(conf);
+conf.setProperty("storage.directory", "/tmp/graph")
+conf.setProperty("storage.backend", "local")
+conf.setProperty("storage.cache_percentage", 60)
+TitanGraph graph = TitanFactory.open(conf);
 ```
 
 h2. The Size of the Graph
