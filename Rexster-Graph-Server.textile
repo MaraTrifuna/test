@@ -83,6 +83,7 @@ This section explains how to configure Rexster to use a Titan graph database. An
   </graphs>
 </rexster>
 ```
+*NOTE*: The graph-location value @db/titan@ refers to the graph created in the "Getting Started":https://github.com/thinkaurelius/titan/wiki/Getting-Started page. The only difference is that the files have been moved from @/tmp/titan@.
 
 [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|float=right|width=100px]]
 There are three ways to configure Rexster for use with Titan:
