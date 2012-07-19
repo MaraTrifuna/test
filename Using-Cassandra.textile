@@ -148,7 +148,7 @@ Launch additional EC2 instances to run Titan which are either configured in _Rem
 
 h4. Example Titan Instance on Amazon Linux AMI
 
-* Launch the "Amazon Linux AMI":https://aws.amazon.com/amis/amazon-linux-ami-ebs-backed-64-bit in the same zone of the Cassandra cluster. Choose your desired EC2 instance type depending on the amount of resources you need. Use the default configuration options and select the same Key Pair and Security Group as for the Cassandra cluster configured in the previous step.
+* Launch the "Amazon Linux AMI":http://aws.amazon.com/amazon-linux-ami in the same zone of the Cassandra cluster. Choose your desired EC2 instance type depending on the amount of resources you need. Use the default configuration options and select the same Key Pair and Security Group as for the Cassandra cluster configured in the previous step.
 
 * SSH into the newly created instance via @ssh -i [your-private-key].pem ec2-user@[public-dns-name-of-the-instance]@. You may have to wait a little for the instance to launch.
 
