@@ -21,14 +21,14 @@ h2. Downloading and Starting Rexster
 Before using Rexster with Titan, it must for be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
 
 ```bash
-$ curl -L https://github.com/downloads/tinkerpop/rexster/rexster-server-2.0.0.zip > rexster-server-2.0.0.zip
+$ curl -L https://github.com/downloads/tinkerpop/rexster/rexster-server-x.y.z.zip > rexster-server-x.y.z.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current ...
 ...
-$ unzip rexster-server-2.0.0.zip
-Archive:  rexster-server-2.0.0.zip
-   creating: rexster-server-2.0.0/
+$ unzip rexster-server-x.y.z.zip
+Archive:  rexster-server-x.y.z.zip
+   creating: rexster-server-x.y.z/
 ...
-$ cd rexster-server-2.0.0
+$ cd rexster-server-x.y.z
 $ ./rexster-server.sh --start
 ```
 
