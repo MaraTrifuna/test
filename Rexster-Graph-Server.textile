@@ -1,6 +1,6 @@
 !https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-logo.png!:http://rexster.tinkerpop.com
 
-"Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
+"Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
 
 h2. The Benefits of Rexster
 
