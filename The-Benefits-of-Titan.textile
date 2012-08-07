@@ -25,6 +25,7 @@ h2. Benefits of Titan with Cassandra
 * Elastic scalability allows for the introduction and removal of machines.
 * Caching layer ensures that continuously accessed data is available in memory.
 * Increase the size of the cache by adding more machines to the cluster.
+* Open source under the liberal Apache 2 license.
 
 h2. Benefits of Titan with HBase
 
@@ -36,6 +37,7 @@ h2. Benefits of Titan with HBase
 * Strictly consistent reads and writes.
 * Convenient base classes for backing Hadoop MapReduce jobs with HBase tables.
 * Support for exporting metrics via JMX.
+* Open source under the liberal Apache 2 license.
 
 h2. Titan and the CAP Theorem
 
