@@ -107,3 +107,5 @@ Titan will create edge labels and property keys the first time they are referenc
 By default, property keys are configured to be functional but non-locking with @Object.class@ as the data type. Note, that it is more efficient to define an appropriate data type via @TypeMaker@. Hence, property keys don't have an index by default. To create an indexed key with this default configuration, invoke @Graph.createKeyIndex("name",Vertex.class)@ before the property key is being used.
 
 Edge labels are created according to the default configuration shown in the table above.
+
+The default type creation behavior is configured via the @autotype@ configuration option. By default, it uses the configuration value @blueprints@ which creates types automatically as described above. To disable automatic type creation, set @autotype=none@. Setting the option to none requires that all types are explicitly created and will throw an @IllegalArgumentException@ each time a non-existent type is referenced which is useful to avoid type name typos. 
