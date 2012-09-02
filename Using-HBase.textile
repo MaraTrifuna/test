@@ -107,7 +107,8 @@ The configuration described below puts one HBase master server in charge of thre
 * <pre>curl -O [[http://www.apache.org/dist/whirr/whirr-0.7.1/whirr-0.7.1.tar.gz]]</pre>
 * <pre>tar zxf whirr-0.7.1.tar.gz; cd whirr-0.7.1</pre>
 * <pre>ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr</pre>
-* <pre>cd recipes && curl -O [[https://github.com/downloads/thinkaurelius/titan/hbase-ec2-0.92.1.properties]] ; cd -</pre>
+* copy hbase-ec2-0.92.1.properties from the config subdirectory of the titan source tree to whirr-0.7.1/recipes
+
 * <pre>bin/whirr launch-cluster --config recipes/hbase-ec2-0.92.1.properties --private-key-file ~/.ssh/id_rsa_whirr</pre>
 * run a simple health check on the hbase-master node (this should print "imok"):
   <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
