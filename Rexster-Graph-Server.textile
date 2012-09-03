@@ -11,7 +11,7 @@ The following is a list of the "benefits of using Rexster":https://github.com/ti
 * "JSON-based REST interface":https://github.com/tinkerpop/rexster/wiki/Mapping-a-URI-to-JSON ensures language agnostic connectivity to Titan.
 ** See "Bulbs":http://bulbflow.com/ for a Python connector.
 * HTML/JavaScript "graphical user interface":https://github.com/tinkerpop/rexster/wiki/The-Dog-House for graph administration and visualization.
-* Extend with more REST endpoints by adding "kibbles":https://github.com/tinkerpop/rexster/wiki/Creating-an-Extension to Rexster.
+* Extend with more RESTful endpoints by adding "kibbles":https://github.com/tinkerpop/rexster/wiki/Creating-an-Extension to Rexster.
 ** See "Rexster-Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles provided by TinkerPop.
 * Remote Gremlin traversals via the "Gremlin extensions":https://github.com/tinkerpop/rexster/wiki/Gremlin-Extension and the "Rexster console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console.
 * "Security support":https://github.com/tinkerpop/rexster/wiki/Rexster-Security via user authentification.
@@ -32,7 +32,7 @@ $ cd rexster-server-x.y.z
 $ ./rexster-server.sh --start
 ```
 
-Use @CNTRL-C@ to kill the server. Now that Rexster is downloaded and working, it is necessary to configure Rexster to work with Titan.
+Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and working, it is necessary to configure Rexster to work with Titan (see Rexster's "Getting Started":https://github.com/tinkerpop/rexster/wiki/Getting-Started page).
 
 h2. Configuring Rexster
 
