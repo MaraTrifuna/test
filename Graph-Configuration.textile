@@ -31,8 +31,10 @@ h2. Persistence Configuration
 These configuration options modify the persistence behavior of Titan independent of the configured storage backend.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| buffer-size | Buffers graph mutations locally up to the specified number before persisting them against the storage backend. Set to 0 to disable buffering. Buffering is disabled automatically if the storage backend does not support buffered mutations. | non-negative integer | 1024 | yes |
+| buffer-size | Buffers graph mutations locally up to the specified number before persisting them against the storage backend. Set to 0 to disable buffering. Buffering is disabled automatically if the storage backend does not support buffered mutations. | >0 | 1024 | yes |
 | flush-ids | If flush ids is enabled, vertices and edges are assigned ids immediately upon creation. If not, then ids are only assigned when the transaction is committed. | _true_ or _false_ | _true_ | yes |
+| persist-attempts | Number of times to attempt persisting a committed transaction in case of temporary failures in the storage backend | >0 | 3 | yes |
+| persist-wait-time | Time to wait in milliseconds between persistence attempts | >0 | 250 | yes |
 
 h2. Distributed Locking and ID Management Configuration
 
