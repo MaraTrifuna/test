@@ -1,6 +1,9 @@
 !https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-logo.png!:http://blueprints.tinkerpop.com
 
-"Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases. In many ways, Blueprints can be likened to the "JDBC":http://en.wikipedia.org/wiki/Java_Database_Connectivity of the relational database community. Note that any technologies written to work with the Blueprints API can take advantage of a Blueprints-enabled graph database. Example technologies include the open-source products in the "TinkerPop":http://tinkerpop.com stack.
+Titan natively implements the Blueprints API which means that Blueprints is the core interface for Titan. "Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases that expose a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model data model. By implementing Blueprints natively, Titan delivers two benefits: 
+
+# Any technology written against the Blueprints API works efficiently and seamlessly on Titan. This includes all open-source products in the [[TinkerPop graph stack]]. 
+# Any application written for Titan can be migrated to another Blueprints enabled graph database, so there is no vendor lock-in. 
 
 h2. Introduction to TitanGraph
 
@@ -15,7 +18,8 @@ jupiter.setProperty("name", "jupiter");
 Edge married = g.addEdge(null, juno, jupiter, "married");
 ```
 
-In the code example above, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge. Please review the "Blueprints Core API":http://tinkerpop.com/docs/javadocs/blueprints/2.0.0/com/tinkerpop/blueprints/package-summary.html for a review of the Blueprints methods available.
+A @TitanGraph@ is opened through the @TitanFactory@. The @TitanFactory.open()@ method accepts either a local directory or a configuration file or an Apache configuration object containing a [[Titan Graph Configuration|Graph Configuration]]. 
+In the code example above, a directory is used which opens a local Titan instance storing data at that location. Then, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge. Please review the "Blueprints Core API":http://tinkerpop.com/docs/javadocs/blueprints/2.1.0/com/tinkerpop/blueprints/package-summary.html for a complete listing of all the Blueprints methods available.
 
 h2. Vertex Queries
 
@@ -81,24 +85,11 @@ for(Vertex vertex : juno.query().labels("knows").has("since",2011).has("stars",5
 dido
 ```
 
-h2. Deviations from Blueprints Interface
+h2. Next steps
 
-[[https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-character-2.png|width=100px]]
+[[https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-character-2.png|width=100px|align=right|float]]
 
-h3. Vertex and Edge Iteration
+* Read the "Blueprints Manual":https://github.com/tinkerpop/blueprints/wiki/ or the "Blueprints Core API JavaDoc":http://tinkerpop.com/docs/javadocs/blueprints/2.1.0/com/tinkerpop/blueprints/package-summary.html for a complete documentation of the Blueprints interface.
+* Read about [[Transaction Handling]] for accessing a Titan graph concurrently or in a multi-user environment.
+* Learn about the [[Gremlin Query Language]] to query Titan graphs.
 
-Titan does not support global vertex or edge iteration. @Graph.getVertices()@ returns an @Iterable@ over only those vertices that are currently loaded in the enclosing transaction. Likewise, @Graph.getEdges()@ returns an @Iterable@ over only those edges which are incident on vertices currently loaded in the enclosing transaction. Unless the entire graph is loaded in the current transaction, this means that @Graph.getVertices()@ and @Graph.getEdges()@ return a (possibly empty) subset of the graph. This deviation from the Blueprints API was introduced to avoid @OutOfMemoryExceptions@ that inevitably happen when attempting to load a huge graph into memory. Global graph operations over Titan graph are handled through "Hadoop":http://hadoop.apache.org/.
-
-This limitation extends to all auxiliary Blueprints functionality that relies on vertex or edge iteration such as graph exporting.
-
-h3. Edge Retrieval
-
-Edges cannot be retrieved by their id in Titan. Only vertices can be retrieved by id.
-
-h3. Key Index Modifications
-
-Key indices must be defined before that key is being used. In other words, the first reference to the key name must be inside the @Graph.createKeyIndex()@ method. If the key has been previously used, creating a key index for that key after the fact will throw an exception. Once a key index has been created it cannot be dropped. These limitations are temporary. Finally, Titan only supports vertex key indices, i.e. @Graph.createKeyIndex("name",Vertex.class)@.
-
-h3. Transactional Scope
-
-Titan strictly enforces the transactional scope, which means that elements created within a transaction are invalid once that transaction is stopped. Operations on invalid elements - other than @getId()@ - may cause an exception. This is done to ensure that operations are not executed on out-of-date elements which could lead to inconsistencies. This is not a deviation from the Blueprints transactional semantic but important to note for users of other graph database frameworks.
