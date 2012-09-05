@@ -2,7 +2,7 @@ Titan is designed to support the processing of graphs so large that they require
 
 h2. General Titan Benefits
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-kneeling.png|width=150px|align=left|float]] 
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-kneeling.png|width=150px|align=right|float]] 
 
 * Support for an "infinite" sized graph via the addition of machines to the cluster.
 * Support for an "unlimited" number of concurrent transactions via the addition of machines to the cluster.
