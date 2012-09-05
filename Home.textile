@@ -28,45 +28,31 @@ h2. Titan Manual
 ** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 ** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 ** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
-
-* Titan Storage Backends
-** [[Storage Backend Overview]]: How to choose a storage backend for Titan
+* Storage Backends
+** [[Storage Backend Overview]]
 ** [[Using BerkeleyDB]]
 ** [[Using Cassandra]]
 ** [[Using HBase]]
-
+* Type Management
+** [[Data Modeling and Type Definition]]
+** [[Type Definition Overview]] (*cheat sheet*)
+* Transactions
+** [[Transaction Handling]]
 * Titan Configuration & Tuning
-** [[Graph Configuration]] (*cheat sheet*): Lists all Titan configuration options
-** [[Locking System]]: How to use and tune Titan's locking system
-
-* Titan Type Management
-** [[Data Modeling and Type Management]]: Explains the concept and benefits of Titan types
-** [[Type Definition Overview]] (*cheat sheet*): Lists all type definition methods
-
+** [[Graph Configuration]] (*cheat sheet*)
+** [[Locking System]]
+* Advanced
+** [[Building Titan]]
+** [[Titan Limitations]]
+** "Titan Public API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
-
-* [[Titan Limitations]]
-* "Titan API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot: Complete documentation of the public Titan API
-
-* Release Notes: Check out what changed with each release
-** [[Titan 0.1]]: Increased stability & robustness
-** [[All releases|Release Notes]]
-
-* [[Titan Material]]: Video, slides, posters and lectures on Titan
+** [[Titan Presentations]]
+* [[Release Notes]]
+** [[Titan 0.1]]
 * [[Acknowledgements]]
 
-
-
-
-h2. Advanced Titan Topics
-
-* [[Building Titan]]: How to build Titan and use the most current version in your project
-
-
 !https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan
-
-
 
 ==<hr/>==
 
