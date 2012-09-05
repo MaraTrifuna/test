@@ -6,7 +6,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 <br/><br/><br/><br/><br/>
 
 Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users.
-For commercial Titan support, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph database experts at "Aurelius":http://www.thinkaurelius.com.
+For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph experts at "Aurelius":http://www.thinkaurelius.com.
 
 
 ```xml
