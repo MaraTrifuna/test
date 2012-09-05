@@ -35,6 +35,7 @@ h2. Complete Guide to Titan
 *** [[Generating Artificial Natural Graphs]]
 ** [[Building Titan]]
 ** [[Titan Limitations]]
+* [Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
 * Release Notes
 
@@ -52,11 +53,6 @@ h2. Advanced Titan Topics
 
 * [[Building Titan]]: How to build Titan and use the most current version in your project
 
-
-
-"Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data (*Introduction to Graphs and Titan*)
-"Titan: A Highly Scalable, Distributed Graph Database":http://thinkaurelius.github.com/titan/doc/titan-stress-poster.pdf (*Introducing and Stress Testing Titan*)
-"Titan Provides Real-Time Big Graph Data":http://thinkaurelius.com/2012/08/06/titan-provides-real-time-big-graph-data/ (*A Thorough Benchmark of Titan*)
 
 !https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan
 
