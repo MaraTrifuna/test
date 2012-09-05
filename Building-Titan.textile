@@ -12,7 +12,7 @@ To use the most current version of Titan, you can depend on snapshot releases. N
 
 ```xml
 <dependency>
-   <groupId>com.thinkaurelius</groupId>
+   <groupId>com.thinkaurelius.titan</groupId>
    <artifactId>titan</artifactId>
    <version>X.Y.Z-SNAPSHOT</version>
 </dependency>
