@@ -48,14 +48,14 @@ gremlin> [name:'aurelius',vocation:['philosopher','emperor']]
 h2. Loading Data Into Titan
 
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
-"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. The example below will load _The Graph of the Gods_ into Titan. @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local mode is sufficient. Other pages in the documentation demonstrate distributed Titan [[using Cassandra]] and [[using HBase]]. 
+"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. The example below will load _The Graph of the Gods_ into Titan. @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local, single machine instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local mode is sufficient. Other pages in the documentation demonstrate distributing Titan across multiple machines, for instance [[using Cassandra]] or [[using HBase]]. Refer to the [[storage backend overview]] on how to choose the optimal persistence mode.
 
 ```text
 gremlin> g = TitanFactory.open('/tmp/titan')              
 ==>titangraph[local:/tmp/titan]
 ```
 
-The created Titan database is empty and ready to be loaded with data. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. This will ensure that all vertices with the property @name@ are indexed by their respective name value. With a key index on @name@, looking up a vertex by its name takes @log(n)@ time.
+The created Titan database is empty and ready to be loaded with data. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. This will ensure that all vertices with the property @name@ are indexed by their respective name value. With a key index on @name@, looking up a vertex by its name takes @O(1)@ or @O(log(n))@ time depending on the [[storage backend | Storage Backend Overview]].
 
 ```text
 gremlin> g.createKeyIndex('name', Vertex.class)
@@ -166,25 +166,9 @@ gremlin> pluto.out('brother').as('god').out('lives').as('place').select{it.name}
 
 h2. Moving Forward with Titan
 
-This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). The remainder of this documentation discusses more in-depth examples and configurations for using Titan. For more information on other aspects of Titan, please see the following projects.
+This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). The remainder of "this documentation":https://github.com/thinkaurelius/titan/wiki discusses more in-depth examples and configurations for using Titan. For more information on other aspects of Titan, please see the following projects.
 
   * "Blueprints":http://blueprints.tinkerpop.com - The property graph model interface implemented by Titan which provides various utilities to aid developers.
   * "Gremlin":http://gremlin.tinkerpop.com - A graph traversal language for expressing complex walks through a graph.
   * "Frames":http://frames.tinkerpop.com - An graph-to-object mapper for rendering Java objects from graph data.
   * "Rexster":http://rexster.tinkerpop.com - A graph server for exposing the graph via REST along with various HTML-based GUI tools for managing the graph.
-
-Finally, for developing against a Titan SNAPSHOT version, be sure to add the following repository to the @pom.xml@. For stable releases, no repository is required as stable releases are deployed to "Apache's Central Repository":http://search.maven.org/.
-
-```xml
-<repository>
-  <id>sonatype-nexus-snapshots</id>
-  <name>Sonatype Nexus Snapshots</name>
-  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-  <releases>
-    <enabled>false</enabled>
-  </releases>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-</repository>
-```
