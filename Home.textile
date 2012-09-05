@@ -24,24 +24,28 @@ h2. Titan Manual
 ** [[Getting Started]]
 ** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE
 ** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data
-* Native TinkerPop Integration
-** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
-** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
-** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
-* Storage Backends
-** [[Storage Backend Overview]]
-** [[Using BerkeleyDB]]
-** [[Using Cassandra]]
-** [[Using HBase]]
-* Type Management
-** [[Data Modeling and Type Definition]]
-** [[Type Definition Overview]] (*cheat sheet*)
-* Transactions
-** [[Transaction Handling]]
-* Titan Configuration & Tuning
-** [[Graph Configuration]] (*cheat sheet*)
-** [[Locking System]]
-* Advanced
+* Using Titan
+** Basic Titan Interfaces
+*** [[Core Interface | Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
+*** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
+*** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
+** Transactions
+*** [[Transaction Handling]]
+*** [[Multi-Threaded Transactions]]
+* Managing Titan
+** Storage Backends
+*** [[Storage Backend Overview]]
+*** [[Using BerkeleyDB]]
+*** [[Using Cassandra]]
+*** [[Using HBase]]
+** Type Management
+*** [[Data Modeling and Type Definition]]
+*** [[Type Definition Overview]] (*cheat sheet*)
+** Titan Configuration & Tuning
+*** [[Graph Configuration]] (*cheat sheet*)
+*** [[Locking System]]
+*** [[Batch Loading]]
+* Advanced Titan Topics
 ** [[Building Titan]]
 ** [[Titan Limitations]]
 ** "Titan Public API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot
