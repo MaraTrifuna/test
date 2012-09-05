@@ -35,7 +35,7 @@ h2. Complete Guide to Titan
 *** [[Generating Artificial Natural Graphs]]
 ** [[Building Titan]]
 ** [[Titan Limitations]]
-* [Titan Material]]: Video, slides, posters and lectures on Titan
+* [[Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
 * Release Notes
 
