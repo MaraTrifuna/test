@@ -36,8 +36,9 @@ h2. Complete Guide to Titan
 ** [[Building Titan]]
 ** [[Titan Limitations]]
 * [[Titan Material]]: Video, slides, posters and lectures on Titan
+* Release Notes: Check out what changed with each release
+** [[Titan 0.1]]: Increased stability & robustness
 * [[Acknowledgements]]
-* Release Notes
 
 h2. Support for Titan
 
