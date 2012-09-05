@@ -35,9 +35,9 @@ h2. Complete Guide to Titan
 *** [[Generating Artificial Natural Graphs]]
 ** [[Building Titan]]
 ** [[Titan Limitations]]
-* [[Titan Material]]: Video, slides, posters and lectures on Titan
-* Release Notes: Check out what changed with each release
+* [[Release Notes]]: Check out what changed with each release
 ** [[Titan 0.1]]: Increased stability & robustness
+* [[Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
 
 h2. Support for Titan
