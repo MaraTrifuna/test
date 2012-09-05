@@ -33,6 +33,7 @@ h2. Titan Manual
 ** Transactions
 *** [[Transaction Handling]]
 *** [[Multi-Threaded Transactions]]
+** [[Titan Gotchas and Limitations | Titan Limitations]]
 * Managing Titan
 ** Storage Backends
 *** [[Storage Backend Overview]]
