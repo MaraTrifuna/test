@@ -40,3 +40,8 @@ or
 ```java
 TitanFactory.open("bin/hbase.local")
 ```
+
+h2. Next Steps
+
+* Read the "Gremlin Manual":http://gremlin.tinkerpop.com to learn more about this expressive query language.
+* Learn about the [[Rexster Graph Server]] that exposes any Titan graph through a RESTful interface.
