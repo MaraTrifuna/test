@@ -31,12 +31,13 @@ h2. Complete Guide to Titan
 *** [[Using BerkeleyDB]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
-** Examples
+** *Examples*
 *** [[Generating Artificial Natural Graphs]]
 ** [[Building Titan]]
 ** [[Titan Limitations]]
-* [[Release Notes]]: Check out what changed with each release
+* Release Notes: Check out what changed with each release
 ** [[Titan 0.1]]: Increased stability & robustness
+** [[All releases|Release Notes]]
 * [[Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
 
