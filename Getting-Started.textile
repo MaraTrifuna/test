@@ -166,7 +166,11 @@ gremlin> pluto.out('brother').as('god').out('lives').as('place').select{it.name}
 
 h2. Moving Forward with Titan
 
-This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). The remainder of "this documentation":https://github.com/thinkaurelius/titan/wiki discusses more in-depth examples and configurations for using Titan. For more information on other aspects of Titan, please see the following projects.
+This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). 
+The remainder of "this documentation":https://github.com/thinkaurelius/titan/wiki discusses more in-depth examples and configurations for using Titan. Next, we recommend to learn more about [[Titan's storage backends | Storage Backend Overview]].
+
+
+For more information on other aspects of Titan, please see the following projects.
 
   * "Blueprints":http://blueprints.tinkerpop.com - The property graph model interface implemented by Titan which provides various utilities to aid developers.
   * "Gremlin":http://gremlin.tinkerpop.com - A graph traversal language for expressing complex walks through a graph.
