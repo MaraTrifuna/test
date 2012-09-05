@@ -3,21 +3,28 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 <a href="https://github.com/thinkaurelius/titan/downloads">[[https://github.com/thinkaurelius/titan/raw/master/doc/images/download-button.png|align=right|float]]</a>
 
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
-h2. Titan Beginner's Guide
+Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users.
+For commercial Titan support, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph database experts at "Aurelius":http://www.thinkaurelius.com.
 
-If you are new to Titan, the following pages will get you started quickly. If you are new to graph databases in general, we recommend you read a "brief primer on graph databases":http://markorodriguez.com/2011/04/30/putting-and-getting-data-from-a-database/.
 
-* [[Getting Started]]: A simple step-by-step guide to setting up and using Titan
-* [[The Benefits of Titan]]: Why you should consider using the Titan graph database
-* [[Depending on Titan]]: How to use Titan in your projects
+```xml
+<dependency>
+   <groupId>com.thinkaurelius.titan</groupId>
+   <artifactId>titan</artifactId>
+   <version>0.1.0</version>
+</dependency>
+```
 
-For more introductory information, watch the "Big Graph Data with Titan":http://www.youtube.com/watch?v=ZkAYA4Kd8JE&feature=youtu.be video or read the comprehensive "Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data presentation.
+h2. Titan Manual
 
-h2. Complete Guide to Titan
-
-* Titan and TinkerPop Ecosystem
+* Introduction
+** [[The Benefits of Titan]]
+** [[Getting Started]]
+** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE
+** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data
+* Native TinkerPop Integration
 ** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 ** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 ** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
@@ -48,13 +55,6 @@ h2. Complete Guide to Titan
 
 * [[Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
-
-h2. Support for Titan
-
-If you cannot find an answer to your question in the Titan documentation, please direct it to the Aurelius "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs. 
-For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users.
-
-For commercial Titan support, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph database experts at "Aurelius":http://www.thinkaurelius.com who are actively contributing to and sponsoring Titan development.
 
 
 
