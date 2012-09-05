@@ -29,6 +29,7 @@ h2. Titan Manual
 *** [[Core Interface | Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 *** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 *** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
+*** [[TinkerPop Graph Stack]]
 ** Transactions
 *** [[Transaction Handling]]
 *** [[Multi-Threaded Transactions]]
