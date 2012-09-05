@@ -13,7 +13,7 @@ If you are new to Titan, the following pages will get you started quickly. If yo
 * [[The Benefits of Titan]]: Why you should consider using the Titan graph database
 * [[Depending on Titan]]: How to use Titan in your projects
 
-For more introductory information, watch the "Big Graph Data with Titan":http://www.youtube.com/watch?v=ZkAYA4Kd8JE&feature=youtu.be video or read the comprehensive "Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data presentation which includes an introduction to graphs, graph algorithms and Titan.
+For more introductory information, watch the "Big Graph Data with Titan":http://www.youtube.com/watch?v=ZkAYA4Kd8JE&feature=youtu.be video or read the comprehensive "Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data presentation.
 
 h2. Complete Guide to Titan
 
