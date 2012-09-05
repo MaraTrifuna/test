@@ -29,10 +29,12 @@ h2. Complete Guide to Titan
 ** [[Using HBase]]
 
 * Titan Configuration & Tuning
-** [[Graph Configuration]] (*cheat sheet*)
+** [[Graph Configuration]] (*cheat sheet*): Lists all Titan configuration options
+** [[Locking System]]: How to use and tune Titan's locking system
 
 * Titan Type Management
-** [[Type Configuration]] (*cheat sheet*)
+** [[Data Modeling and Type Management]]: Explains the concept and benefits of Titan types
+** [[Type Definition Overview]] (*cheat sheet*): Lists all type definition methods
 
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
