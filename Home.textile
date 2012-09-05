@@ -22,8 +22,8 @@ h2. Titan Manual
 * Introduction
 ** [[The Benefits of Titan]]
 ** [[Getting Started]]
-** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE
-** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data
+** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE _(external)_
+** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data _(external )_
 * Using Titan
 ** Basic Titan Interfaces
 *** [[Core Interface | Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
@@ -39,7 +39,8 @@ h2. Titan Manual
 *** [[Using Cassandra]]
 *** [[Using HBase]]
 ** Type Management
-*** [[Data Modeling and Type Definition]]
+*** [[Defining Property Keys]]
+*** [[Defining Edge Labels]]
 *** [[Type Definition Overview]] (*cheat sheet*)
 ** Titan Configuration & Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
