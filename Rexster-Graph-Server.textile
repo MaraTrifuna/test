@@ -1,6 +1,6 @@
 !https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-logo.png!:http://rexster.tinkerpop.com
 
-"Rexster":http://rexster.tinkerpop.com exposes any Blueprints-enabled graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
+"Rexster":http://rexster.tinkerpop.com exposes any Titan graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
 
 h2. The Benefits of Rexster
 
@@ -68,7 +68,7 @@ This section explains how to configure Rexster to use a Titan graph database. An
     <graph>
       <graph-name>titanexample</graph-name>
       <graph-type>com.thinkaurelius.titan.tinkerpop.rexster.TitanGraphConfiguration</graph-type>
-      <graph-location>db/titan</graph-location>
+      <graph-location>tmp/titan</graph-location>
       <graph-read-only>false</graph-read-only>
       <properties>
             <storage.backend>local</storage.backend>
@@ -83,9 +83,8 @@ This section explains how to configure Rexster to use a Titan graph database. An
   </graphs>
 </rexster>
 ```
-*NOTE*: The graph-location value @db/titan@ refers to the graph created in the "Getting Started":https://github.com/thinkaurelius/titan/wiki/Getting-Started page. The only difference is that the files have been moved from @/tmp/titan@.
 
-[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|float=right|width=100px]]
+[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|align=right|float|width=100px]]
 There are three ways to configure Rexster for use with Titan:
 
 # If building Titan and Rexster from source, copy the @target/titan-x.y-jar-with-dependencies.jar@ to the Rexster @./rexster-server/src/main/ext@ directory and then do @mvn clean install@ on Rexster.
@@ -101,5 +100,4 @@ h2. REST API Limitations
 Rexster has a rich "API":https://github.com/tinkerpop/rexster/wiki/Basic-REST-API for working with Blueprints Graph implementations, but there are some limitations to consider when using Rexster with Titan.  These limitations are driven by the [[limitations|Blueprints Interface]] in the Titan Blueprints implementation.
 
 * The POST of an edge cannot be done with an identifier.  In other words, do this: @http://localhost/graphs/titan/edges@ and _not_ this @http://localhost/graphs/titan/edges/1234@.
-* PUT/DELETE of an existing edge is not supported.
 * All operations on the @indices@ resource are not supported.  This resource refers to manual indices.  Key indices are supported.
