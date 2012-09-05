@@ -17,27 +17,33 @@ For more introductory information, watch the "Big Graph Data with Titan":http://
 
 h2. Complete Guide to Titan
 
-* Intermediate Concepts
+* Titan and TinkerPop Ecosystem
 ** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
-** [[Gremlin Graph Traversals]] (*"full documentation":http://gremlin.tinkerpop.com*)
+** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 ** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
-* "Titan API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot: Documentation of the entire public Titan API
 
-* Advanced Concepts
-** Titan Configurations
-*** [[Graph Configuration]] (*cheat sheet*)
-*** [[Type Configuration]] (*cheat sheet*)
-** Storage Layer Connectivity
-*** [[Using BerkeleyDB]]
-*** [[Using Cassandra]]
-*** [[Using HBase]]
-** *Examples*
-*** [[Generating Artificial Natural Graphs]]
-** [[Building Titan]]
-** [[Titan Limitations]]
+* Titan Storage Backends
+** [[Storage Backend Overview]]: How to choose a storage backend for Titan
+** [[Using BerkeleyDB]]
+** [[Using Cassandra]]
+** [[Using HBase]]
+
+* Titan Configuration & Tuning
+** [[Graph Configuration]] (*cheat sheet*)
+
+* Titan Type Management
+** [[Type Configuration]] (*cheat sheet*)
+
+* Titan Tutorials
+** [[Generating Artificial Natural Graphs]]
+
+* [[Titan Limitations]]
+* "Titan API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot: Complete documentation of the public Titan API
+
 * Release Notes: Check out what changed with each release
 ** [[Titan 0.1]]: Increased stability & robustness
 ** [[All releases|Release Notes]]
+
 * [[Titan Material]]: Video, slides, posters and lectures on Titan
 * [[Acknowledgements]]
 
