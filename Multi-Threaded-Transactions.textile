@@ -19,4 +19,5 @@ Titan relies on optimized concurrent data structures to support hundreds of conc
 
 h2. Next steps
 
-* Read more about "Blueprint's ThreadedTransactionalGraph":https://github.com/tinkerpop/blueprints/wiki/Graph-Transactions
+* Read more about "Blueprint's ThreadedTransactionalGraph":https://github.com/tinkerpop/blueprints/wiki/Graph-Transactions.
+* Read about default [[Transaction Handling]].
