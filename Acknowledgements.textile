@@ -1,6 +1,6 @@
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|width=400px]]
 
-Titan is an ongoing effort by various developers, contributors, and organizations. Along with this explicit list of contributors, please also refer to the special thanks for individual contributions to each release in the [[release notes]. Titan would not be possible without the excellent open source products that compose Titan. Please see a list of these projects in the Titan "pom.xml":https://github.com/thinkaurelius/titan/blob/master/pom.xml.
+Titan is an ongoing effort by various developers, contributors, and organizations. Along with this explicit list of contributors, please also refer to the special thanks for individual contributions to each release in the [[release notes]]. Titan would not be possible without the excellent open source products that compose Titan. Please see a list of these projects in the Titan "pom.xml":https://github.com/thinkaurelius/titan/blob/master/pom.xml.
 
 h2. People
 
