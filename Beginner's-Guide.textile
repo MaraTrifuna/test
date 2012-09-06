@@ -1,3 +1,6 @@
+[[http://thinkaurelius.github.com/titan/images/titan-logo2.png
+|width=150px|align=right|float]]
+
 The Beginner's Guide is a list of recommended pages to help Titan newcomers navigate the [[Titan manual|Home]]. Start with the first page and work your way through. Skip familiar topics.
 
 # "Brief Primer on Graph Databases":http://markorodriguez.com/2011/04/30/putting-and-getting-data-from-a-database/: Introduction to graph databases in particular and databases in general
