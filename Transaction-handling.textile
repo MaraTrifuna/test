@@ -39,7 +39,7 @@ try {
 } catch (TitanException e) {
     //Recover, retry, or return error message
 }
-```java
+```
 
 The example above demonstrates a simplified user signup implementation where @name@ is the name of the user who wishes to register. First, it is checked whether a user with that name already exists. If not, a new user vertex is created and the name assigned. Finally, the transaction is committed.
 
