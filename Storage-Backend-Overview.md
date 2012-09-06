@@ -1,1 +1,0 @@
-Titan persists data in a storage backend.
