@@ -24,7 +24,7 @@ Once an index has been created for a key, it can never be removed.
 
 h3. Types Can Not Be Changed Once Created
 
-This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations can not be changed. 
+This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations cannot be changed. 
 
 h3. Batch Loading Speed
 
