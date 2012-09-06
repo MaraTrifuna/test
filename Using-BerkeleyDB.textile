@@ -1,4 +1,6 @@
-<a href="http://www.oracle.com/technetwork/products/berkeleydb">[[http://sepp.oetiker.ch/subversion-1.4.4-rp/images/Oracle_BerkeleyDB_clr.bmp|width=300px]]</a>
+<a href="http://www.oracle.com/technetwork/products/berkeleydb">[[http://sepp.oetiker.ch/subversion-1.4.4-rp/images/Oracle_BerkeleyDB_clr.bmp|width=300px|align=left|float]]</a>
+
+The "Oracle BerkeleyDB":http://www.oracle.com/technetwork/products/berkeleydb storage backend runs in the same JVM as Titan and provides local persistence on a single machine. Hence, the BerkeleyDB storage backend requires that all of the graph data fits on the local disk and all of the frequently accessed graph elements fit into main memory. This imposes a practical limitation of graphs with 10-100s million vertices on commodity hardware. However, for graphs of that size the BerkeleyDB storage backend exhibits high performance because all data can be accessed locally within the same JVM.
 
 bq. Berkeley DB enables the development of custom data management solutions, without the overhead traditionally associated with such custom projects. Berkeley DB provides a collection of well-proven building-block technologies that can be configured to address any application need from the hand-held device to the datacenter, from a local storage solution to a world-wide distributed one, from kilobytes to petabytes. -- "BerkeleyDB Homepage":http://www.oracle.com/technetwork/products/berkeleydb
 
