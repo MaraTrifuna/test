@@ -24,8 +24,6 @@ TitanGraph graph = TitanFactory.open("/tmp/graph")
 
 This has the same effect as the configuration above, with the only difference that it will create the directory in case it does not already exist where the configuration above would raise an exception.
 
-Titan was primary developed to be used for multi-machine, distributed graph storage and processing. However, to address all aspects of the "CAP Theorem":http://en.wikipedia.org/wiki/CAP_theorem (see the final section of [[The Benefits of Titan]]), Titan provides out-of-the-box connectivity to BerkeleyDB. The simplest way to get Titan/BerekleyDB running is to point Titan to a local directory.
-
 h2. BerkeleyDB Specific Configuration
 
 In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following BerkeleyDB specific Titan configuration options:
@@ -36,3 +34,7 @@ In addition to the general "Titan Graph Configuration":Graph-Configuration, ther
 
 
 h2. Ideal Use Case
+
+The BerkeleyDB storage backend is best suited for small to medium size graphs with up to 100 million vertices on commodity hardware. For graphs of that size, it will likely deliver higher performance than the distributed storage backends. Note, that BerkeleyDB is also limited in the number of concurrent requests it can handle efficiently because it runs on a single machine. Hence, it is not well suited for applications with many concurrent users mutating the graph, even if that graph is small to medium size.
+
+Since BerkeleyDB runs in the same JVM as Titan, this storage backend is ideally suited for unit testing of application code using Titan.
