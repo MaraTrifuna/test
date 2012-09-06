@@ -8,6 +8,10 @@ h3. Global Graph Operations
 
 Titan only supports iteration over all vertices and edges for local storage backends. For distributed storage backends, such iteration will likely cause @OutOfMemoryException@ and is therefore disabled. Use Faunus (coming soon) to implement global graph operations on distributed Titan graphs.
 
+h3. Transactional Scope
+
+Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
+
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
@@ -27,9 +31,3 @@ h3. Batch Loading Speed
 Titan provides a batch loading mode that can be enabled through the "configuration":Graph-Configuration. However, this batch mode only facilitates faster loading into the storage backend, it does not use storage backend specific batch loading techniques that prepare the data in memory for disk storage. As such, batch loading in Titan is currently slower than batch loading modes provided by single machine databases.
 
 Another limitation related to batch loading is the failure to load millions of edges into a single vertex at once or in a short time of period. Such _supernode loading_ can fail for some storage backends. This limitation also applies to dense index entries. For more information, please refer to "the ticket":https://github.com/thinkaurelius/titan/issues/11
-
-h2. Gotchas
-
-h3. Transactional Scope
-
-Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
