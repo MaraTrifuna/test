@@ -168,7 +168,7 @@ h2. Next Steps
 
 This section presented some basic examples of how to create a local Titan instance, load it with data represented in GraphML, and traverse that data using Gremlin. In essence, a graph database is all about representing some world model (structure) and traversing it to solve problems (process). 
 
-The remainder of "this documentation":https://github.com/thinkaurelius/titan/wiki discusses more in-depth examples and configurations for using Titan. Specifically,
+The remainder of [[this documentation|Home]] discusses more in-depth examples and configurations for using Titan. Specifically,
 
 * Learn more about [[Titan's core interface | Blueprints Interface]]
 * Read about choosing a [[Titan storage backend | Storage Backend Overview]]
