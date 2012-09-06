@@ -41,13 +41,9 @@ h2. Titan Manual
 *** [[Using Cassandra]]
 *** [[Using HBase]]
 ** Type Management
-*** [[Defining Property Keys]]
-*** [[Defining Edge Labels]]
 *** [[Type Definition Overview]] (*cheat sheet*)
 ** Titan Configuration & Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
-*** [[Locking System]]
-*** [[Batch Loading]]
 * Advanced Titan Topics
 ** [[Building Titan]]
 ** [[Titan Limitations]]
