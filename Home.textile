@@ -20,6 +20,7 @@ For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a
 h2. Titan Manual
 
 * Introduction
+** [[Beginner's Guide]]
 ** [[The Benefits of Titan]]
 ** [[Getting Started]]
 ** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE _(external)_
