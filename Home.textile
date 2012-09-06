@@ -46,7 +46,6 @@ h2. Titan Manual
 *** [[Graph Configuration]] (*cheat sheet*)
 * Advanced Titan Topics
 ** [[Building Titan]]
-** [[Titan Limitations]]
 ** "Titan Public API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/snapshot
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
