@@ -26,8 +26,8 @@ h2. Titan Manual
 ** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE _(external)_
 ** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data _(external)_
 * Using Titan
-** Basic Titan Interfaces
-*** [[Core Interface | Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
+** Basic Titan Interfaces ("JavaDoc":http://thinkaurelius.github.com/titan/javadoc/current)
+*** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 *** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 *** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
 *** [[TinkerPop Graph Stack]]
@@ -47,7 +47,6 @@ h2. Titan Manual
 *** [[Graph Configuration]] (*cheat sheet*)
 * Advanced Titan Topics
 ** [[Building Titan]]
-** "Titan Public API JavaDoc":http://thinkaurelius.github.com/titan/javadoc/current
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
