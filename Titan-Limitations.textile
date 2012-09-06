@@ -6,7 +6,7 @@ h2. Design Limitations
 
 h3. Global Graph Operations
 
-Titan only supports iteration over all vertices and edges for local storage backends. For distributed storage backends, such iteration will likely cause @OutOfMemoryException@ and is therefore disabled. Use Faunus (coming soon) to implement global graph operations on distributed Titan graphs.
+Titan only supports iteration over all vertices and edges for local storage backends. For distributed storage backends, such iteration will likely cause @OutOfMemoryException@ and is therefore disabled. Use "Faunus":http://thinkaurelius.github.com/faunus/ (coming soon) to implement global graph operations on distributed Titan graphs.
 
 h3. Transactional Scope
 
