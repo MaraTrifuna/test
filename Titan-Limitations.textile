@@ -6,21 +6,21 @@ h2. Design Limitations
 
 h3. Global Graph Operations
 
-Titan is a scalable OLTP graph database focused on handling a large number of concurrent transactions against a single graph. Titan does not support global graph operations, like retrieving all vertices or edges, because such work loads cannot be reasonably handled within the context of a single transaction. We are working on a Hadoop adapter to process such OLAP work loads.
+Titan only supports iteration over all vertices and edges for local storage backends. For distributed storage backends, such iteration will likely cause @OutOfMemoryException@ and is therefore disabled. Use Faunus (coming soon) to implement global graph operations on distributed Titan graphs.
 
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
 
-Before a key is used as a vertex property, a key index must be created for it if indexing is desired. This pitfall will be fixed in a future release.
+To index vertices by key, the respective key index must be created before the key is first used in a vertex property. Read more about creating [[vertex indexes|Blueprints Interface]].
 
 h3. Unable to Drop Key Indices
 
-Once an index has been created for a key, it can never be removed. This pitfall will be fixed in a future release.
+Once an index has been created for a key, it can never be removed. 
 
 h3. Types Can Not Be Changed Once Created
 
-This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations can not be changed. This pitfall will be fixed in a future release.
+This pitfall constrains the graph schema. While the graph schema can be extended, previous declarations can not be changed. 
 
 h3. Batch Loading Speed
 
@@ -28,10 +28,8 @@ Titan provides a batch loading mode that can be enabled through the "configurati
 
 Another limitation related to batch loading is the failure to load millions of edges into a single vertex at once or in a short time of period. Such _supernode loading_ can fail for some storage backends. This limitation also applies to dense index entries. For more information, please refer to "the ticket":https://github.com/thinkaurelius/titan/issues/11
 
-h3. Key Index Modifications
-
-Key indices must be defined before that key is being used. In other words, the first reference to the key name must be inside the @Graph.createKeyIndex()@ method. If the key has been previously used, creating a key index for that key after the fact will throw an exception. Once a key index has been created it cannot be dropped. These limitations are temporary. Finally, Titan only supports vertex key indices, i.e. @Graph.createKeyIndex("name",Vertex.class)@.
+h2. Gotchas
 
 h3. Transactional Scope
 
-Titan strictly enforces the transactional scope, which means that elements created within a transaction are invalid once that transaction is stopped. Operations on invalid elements - other than @getId()@ - may cause an exception. This is done to ensure that operations are not executed on out-of-date elements which could lead to inconsistencies. This is not a deviation from the Blueprints transactional semantic but important to note for users of other graph database frameworks.
+Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
