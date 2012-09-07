@@ -1,8 +1,25 @@
 !https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-logo.png!
 
-Titan supports the standard Gremlin graph query language for complex graph retrieval and mutation operations.  "Gremlin":http://gremlin.tinkerpop.com is a functional language whereby traversal operators are chained together to form path-like expressions. Data (e.g. a vertex) is inserted into the "left" of the function chain and data (e.g. property values) is emitted from the "right" of the function chain. This section of documentation will only briefly overview Gremlin. For more complete documentation on Gremlin, please see the "online documentation":http://gremlin.tinkerpop.com. Moreover, the examples are with respects to Gremlin-Groovy and note that there are other "JVM language implementations of Gremlin":https://github.com/tinkerpop/gremlin/wiki/JVM-Language-Implementations.
+Titan supports the standard "Gremlin":http://gremlin.tinkerpop.com graph query language for complex graph traversal and mutation operations. Gremlin is a "functional language":http://en.wikipedia.org/wiki/Functional_programming whereby traversal operators are chained together to form path-like expressions. For example, "from Hercules, traverse to his father and then his father's father and return the the grandfather's name." 
+
+This section of documentation will only briefly overview Gremlin. For more complete documentation on Gremlin, please see the "online documentation":http://gremlin.tinkerpop.com. Moreover, the examples are with respects to Gremlin-Groovy and note that there are other "JVM language implementations":https://github.com/tinkerpop/gremlin/wiki/JVM-Language-Implementations of Gremlin.
 
 h2. Traversing using Functions
+
+When working with Gremlin, it is important to realize the query as a chain of operations/functions that are read from left to right. A simple grandfather query is provided below over the _Graph of the Gods_ "dataset":https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png.
+
+```text
+gremlin> g.V('name','hercules').out('father').out('father').name
+==>saturn
+```
+
+The query above can be read:
+  # @g@: for the current graph.
+  # @V('name','hercules')@: get all vertices with name property "hercules" (there is only one).
+  # @out('father')@: traverse out going father edge's from the "hercules" vertex.
+  # @out('father')@: traverse out going father edges's from "hercules" father vertex.
+  # @name@: get the name property of the "hercules" vertex's grandfather.
+
 
 The example below returns the name of all the people that have battled the same monsters as Hercules who themselves are not Hercules (i.e. "co-battlers" or perhaps, "allies").
 
