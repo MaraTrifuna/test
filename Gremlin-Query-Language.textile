@@ -46,7 +46,7 @@ gremlin> g.V('name','hercules').out('father').out('father').name
 ==>saturn
 ```
 
-Note this more complex, related traversal that show the entire father family tree branch of Hercules. This more complicated traversal is provided into order to demonstrate the flexibility and expressivity of the language. A competent grasp of Gremlin provides the Titan user the ability to fluently navigate the underlying graph structure.
+Note this more complex, related traversal that shows the entire father family tree branch of Hercules. This more complicated traversal is provided into order to demonstrate the flexibility and expressivity of the language. A competent grasp of Gremlin provides the Titan user the ability to fluently navigate the underlying graph structure.
 
 ```text
 gremlin> g.V('name','hercules').out('father').loop(1){true}{true}.name
