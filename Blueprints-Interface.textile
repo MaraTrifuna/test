@@ -111,4 +111,4 @@ h2. Next steps
 
 * Read the "Blueprints Manual":https://github.com/tinkerpop/blueprints/wiki/ or the "Blueprints Core API JavaDoc":http://tinkerpop.com/docs/javadocs/blueprints/2.1.0/com/tinkerpop/blueprints/package-summary.html for a complete documentation of the Blueprints interface.
 * Read about [[Transaction Handling]] for accessing a Titan graph concurrently or in a multi-user environment.
-* Learn about the [[Gremlin Query Language]] to query Titan graphs.
+* Learn about the [[Gremlin Query Language]] to query and manipulate graphs in a concise short-hand manner.
