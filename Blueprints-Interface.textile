@@ -86,7 +86,7 @@ for(Vertex vertex : juno.query().labels("knows").has("since",2011).has("stars",5
 dido
 ```
 
-h2. Vertex Indexes
+h2. Vertex Indices
 
 In the section above, we demonstrated how vertices can be retrieved by following edges in the graph using vertex-centric queries. Vertices can also be retrieved via property indexes. 
 
