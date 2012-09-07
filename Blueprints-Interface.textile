@@ -18,8 +18,9 @@ jupiter.setProperty("name", "jupiter");
 Edge married = g.addEdge(null, juno, jupiter, "married");
 ```
 
-A @TitanGraph@ is opened through the @TitanFactory@. The @TitanFactory.open()@ method accepts either a local directory or a configuration file or an Apache configuration object containing a [[Titan Graph Configuration|Graph Configuration]]. 
-In the code example above, a directory is used which opens a local Titan instance storing data at that location. Then, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge. Please review the "Blueprints Core API":http://tinkerpop.com/docs/javadocs/blueprints/2.1.0/com/tinkerpop/blueprints/package-summary.html for a complete listing of all the Blueprints methods available.
+A @TitanGraph@ implements Blueprints' @Graph@ interface. A @TitanGraph@ is created via the @TitanFactory@. The @TitanFactory.open()@ method accepts either a local directory or a configuration file or an Apache configuration object containing a [[Titan Graph Configuration|Graph Configuration]]. In the code example above, a directory is used which opens a local Titan instance storing data at that location. Then, two vertices were created named "jupiter" and "juno." These two vertices were joined in holy matrimony via a @married@ edge. 
+
+Please review the "Blueprints Core API":http://tinkerpop.com/docs/javadocs/blueprints/2.1.0/com/tinkerpop/blueprints/package-summary.html for a complete listing of all the Blueprints methods available.
 
 h2. Vertex Queries
 
@@ -99,7 +100,7 @@ juno = g.getVertices("name","juno").iterator().next();
 
 In the example above, we first create a vertex index for the property key @name@. Property indexes have to be explicitly created, so that Titan knows what needs to be indexed. Next, we create the vertex "juno" and set its name as before. Since we set the property @name@, the juno vertex is now indexed. We can retrieve it from the index using the @getVertices(String,Object)@ method, which returns an iterable over all vertices that have a matching property.
 
-Read more about "Blueprints Indexes":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices and note the following [[Titan specific limitations|Titan Limitations]]: 
+Read more about "Blueprints indices":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices and note the following [[Titan specific limitations|Titan Limitations]]: 
 
 * Key Indexes need to be created before the key is first used.
 * Titan does not support edge indexes.
