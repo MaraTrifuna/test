@@ -16,9 +16,43 @@ gremlin> g.V('name','hercules').out('father').out('father').name
 The query above can be read:
   # @g@: for the current graph.
   # @V('name','hercules')@: get all vertices with name property "hercules" (there is only one).
-  # @out('father')@: traverse out going father edge's from the "hercules" vertex.
-  # @out('father')@: traverse out going father edges's from "hercules" father vertex.
+  # @out('father')@: traverse outgoing father edge's from Hercules.
+  # @out('father')@: traverse outgoing father edge's from Hercule's father's vertex (i.e. Jupiter).
   # @name@: get the name property of the "hercules" vertex's grandfather.
+
+Each step can be decomposed and its results demonstrated. This style of building up a traversal/query is useful when constructing larger, complex query chains.
+
+```text
+gremlin> g                                                            
+==>titangraph[cassandrathrift:127.0.0.1]
+gremlin> g.V('name','hercules')
+==>v[24]
+gremlin> g.V('name','hercules').out('father')
+==>v[16]
+gremlin> g.V('name','hercules').out('father').out('father')
+==>v[20]
+gremlin> g.V('name','hercules').out('father').out('father').name
+==>saturn
+```
+
+For a sanity check, it is usually good to look at the properties of each return, not the assigned long id.
+
+```text
+gremlin> g.V('name','hercules').name                            
+==>hercules
+gremlin> g.V('name','hercules').out('father').name              
+==>jupiter
+gremlin> g.V('name','hercules').out('father').out('father').name
+==>saturn
+```
+
+Note this more complex, related traversal that show the entire father family tree branch of Hercules. This more complicated traversal is provided into order to demonstrate the flexibility and expressivity of the language. A competent grasp of Gremlin provides the Titan user the ability to fluently navigate the underlying graph structure.
+
+```text
+gremlin> g.V('name','hercules').out('father').loop(1){true}{true}.name
+==>jupiter
+==>saturn
+```
 
 Some self-explanatory traversals are provided below to provide a flavor of how to navigate a graph with Gremlin.
 
@@ -40,7 +74,7 @@ gremlin> hercules.out("battled").map
 
 h2. Traversing with Functions
 
-Each _step_ (denoted by a separating @.@) is a function that operates on the objects emitted from the previous step. By simply changing a step or order of the steps, different traversal semantics are enacted. The example below returns the name of all the people that have battled the same monsters as Hercules who themselves are not Hercules (i.e. "co-battlers" or perhaps, "allies"). Given that _The Graph of the Gods_ only has one battler (Hercules), another battler (for the sake of example) is added to the graph with Gremlin.
+Each _step_ (denoted by a separating @.@) is a function that operates on the objects emitted from the previous step. There are numerous steps in the Gremlin language (see "Gremlin Steps":https://github.com/tinkerpop/gremlin/wiki/Gremlin-Steps). By simply changing a step or order of the steps, different traversal semantics are enacted. The example below returns the name of all the people that have battled the same monsters as Hercules who themselves are not Hercules (i.e. "co-battlers" or perhaps, "allies"). Given that _The Graph of the Gods_ only has one battler (Hercules), another battler (for the sake of example) is added to the graph with Gremlin.
 
 ```text
 gremlin> theseus = g.addVertex([name:'theseus',type:'human'])
