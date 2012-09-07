@@ -44,6 +44,7 @@ h2. Titan Manual
 *** [[Type Definition Overview]] (*cheat sheet*)
 ** Configuration and Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
+*** [[Locking System]]
 * Advanced Topics
 ** [[Building Titan]]
 * Titan Tutorials
