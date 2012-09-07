@@ -88,7 +88,7 @@ dido
 
 h2. Vertex Indices
 
-In the section above, we demonstrated how vertices can be retrieved by following edges in the graph using vertex-centric queries. Vertices can also be retrieved via property indexes. 
+In the section above, we demonstrated how vertices can be retrieved by following edges in the graph using vertex-centric queries. Vertices can also be retrieved via property indices. 
 
 ```java
 TitanGraph g = TitanFactory.open("/tmp/titan");
@@ -98,12 +98,12 @@ juno.setProperty("name", "juno");
 juno = g.getVertices("name","juno").iterator().next();
 ```
 
-In the example above, we first create a vertex index for the property key @name@. Property indexes have to be explicitly created, so that Titan knows what needs to be indexed. Next, we create the vertex "juno" and set its name as before. Since we set the property @name@, the juno vertex is now indexed. We can retrieve it from the index using the @getVertices(String,Object)@ method, which returns an iterable over all vertices that have a matching property.
+In the example above, we first create a vertex index for the property key @name@. Property indices have to be explicitly created, so that Titan knows what needs to be indexed. Next, we create the vertex "juno" and set its name as before. Since we set the property @name@, the juno vertex is now indexed. We can retrieve it from the index using the @getVertices(String,Object)@ method, which returns an iterable over all vertices that have a matching property.
 
 Read more about "Blueprints indices":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices and note the following [[Titan specific limitations|Titan Limitations]]: 
 
-* Key Indexes need to be created before the key is first used.
-* Titan does not support edge indexes.
+* Key indices need to be created before the key is first used.
+* Titan does not support edge indices.
 
 h2. Next steps
 
