@@ -79,5 +79,11 @@ attributes.attribute10 = com.example.SpecialInt
 attributes.serializer10 = com.example.SpecialIntSerializer
 ```
 
+h2. Next Steps
 
+This page lists all the _common_ configuration options for Titan. Each storage backend has additional configuration options which are listed on the following pages:
+
+* [[Cassandra Configuration | Using Cassandra]]
+* [[HBase Configuration | Using HBase]]
+* [[BerkeleyDB Configuration | Using BerkeleyDB]]
                                                                          
