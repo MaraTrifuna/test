@@ -85,11 +85,26 @@ This section explains how to configure Rexster to use a Titan graph database. An
 ```
 
 [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-character-2.png|align=right|float|width=100px]]
-There are three ways to configure Rexster for use with Titan:
 
-# If building Titan and Rexster from source, copy the @target/titan-x.y-jar-with-dependencies.jar@ to the Rexster @./rexster-server/src/main/ext@ directory and then do @mvn clean install@ on Rexster.
-# If building Titan from source and using Rexster distribution, copy the @target/titan-x.y-jar-with-dependencies.jar@ to the Rexster @./rexster-server/target/rexster-server-${VERSION}/ext@ directory.
-# If using the Titan zipped distribution download, copy all jar files in the @lib@ directory to the Rexster @./rexster-server/target/rexster-server-${VERSION}/ext@ directory.
+Rexster needs to have Titan and its related library dependencies made available to it.  Rexster has an @ext@ directory where "extensions":https://github.com/tinkerpop/rexster/wiki/Extensions and other related libraries can be put on Rexster's path for "deployment":https://github.com/tinkerpop/rexster/wiki/Deploying-an-Extension.  All files in the root of that directory and sub-directories will be added to Rexster's classpath.
+
+To add Titan to Rexster, first make a directory as in:
+
+```text
+mkdir REXSTER_HOME/ext/titan
+```
+
+Then, if building Titan from source:
+
+```text
+cp TITAN_HOME/target/titan-x.y.z-standalone/lib/*.* ~/jvm/rexster-server-x.y.z/ext/titan
+```
+
+or, if using the Titan zipped distribution download:
+
+```text
+cp TITAN_HOME/lib/*.* ~/jvm/rexster-server-x.y.z/ext/titan
+```
 
 *NOTE*: Future releases (beyond the 0.1) will have a much more efficient/easier packaging model.
 
