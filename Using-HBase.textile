@@ -112,7 +112,7 @@ tar -xzf whirr-0.8.0.tar.gz && cd whirr-0.8.0
 # Generate an SSH keypair with which Whirr will deploy and manage instances
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr
 # Download a Whirr recipe for deploying HBase 0.94.1 with hadoop-core 1.0.3
-pushd recipes && wget 'https://raw.github.com/thinkaurelius/titan/master/config/whirr-hbase.properties' ; popd recipes
+pushd recipes && wget 'https://raw.github.com/thinkaurelius/titan/master/config/whirr-hbase.properties' ; popd
 bin/whirr launch-cluster --config recipes/whirr-hbase.properties --private-key-file ~/.ssh/id_rsa_whirr
 # Run a superficial health check on the hbase-master node (this should print "imok")
 echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-testing/instances | head -1) 2181; echo
