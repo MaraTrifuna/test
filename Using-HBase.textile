@@ -127,5 +127,29 @@ tar -xzf apache-maven-3.0.4-bin.tar.gz
 sudo apt-get install git-core
 # Clone Titan
 git clone 'git://github.com/thinkaurelius/titan.git' && cd titan
-# Run a HBase-backed test
+# Run a HBase-backed test of Titan
+#
+# This test should produce pages of output ending in something like this:
+#
+# -------------------------------------------------------
+#  T E S T S
+# -------------------------------------------------------
+# Running com.thinkaurelius.titan.graphdb.hbase.ExternalHBaseGraphPerformanceTest
+# Starting trial 1/1
+# 10000
+# 20000
+# 30000
+# 40000
+# 50000
+
 ~/apache-maven-3.0.4/bin/mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion
+# Check on hadoop 
+hadoop version # Should print 1.0.3
+# List the hadoop root; should print something like:
+#
+# Found 4 items
+# drwxr-xr-x   - hadoop supergroup          0 2012-09-20 00:20 /hadoop
+# drwxr-xr-x   - hadoop supergroup          0 2012-09-20 00:42 /hbase
+# drwxrwxrwx   - hadoop supergroup          0 2012-09-20 00:20 /tmp
+# drwxrwxrwx   - hadoop supergroup          0 2012-09-20 00:20 /user
+hadoop fs -ls /
