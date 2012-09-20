@@ -141,7 +141,15 @@ git clone 'git://github.com/thinkaurelius/titan.git' && cd titan
 # 30000
 # 40000
 # 50000
-
+# Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 303.659 sec
+#
+# Results :
+#
+# Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+#
+# [INFO] ------------------------------------------------------------------------
+# [INFO] BUILD SUCCESS
+# [INFO] ------------------------------------------------------------------------
 ~/apache-maven-3.0.4/bin/mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion
 # Check on hadoop 
 hadoop version # Should print 1.0.3
