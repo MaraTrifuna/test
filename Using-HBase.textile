@@ -126,6 +126,6 @@ tar -xzf apache-maven-3.0.4-bin.tar.gz
 # Install git
 sudo apt-get install git-core
 # Clone Titan
-git clone 'git@github.com:thinkaurelius/titan.git' && cd titan
+git clone 'git://github.com/thinkaurelius/titan.git' && cd titan
 # Run a HBase-backed test
 ~/apache-maven-3.0.4/bin/mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion
