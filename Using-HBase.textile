@@ -101,7 +101,7 @@ The following commands first launch a four-node HBase cluster on EC2 via [[Whirr
 
 The configuration described below puts one HBase master server in charge of three HBase regionservers.  The master will be the sole member of the Zookeeper quorum by which Titan connects to HBase.
 
-Whirr 0.7.1 sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  For this reason, it's recommended to use at least Whirr 0.7.2.  Whirr 0.8.0 was used to test the following commands on a t1.micro instance running Amazon Linux 2012.03.  These commands may need tweaking to get the desired results in a different runtime environment.
+Whirr 0.7.1 sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  For this reason, it's recommended to use at least Whirr 0.7.2.  Whirr 0.8.0 was used to test the following commands on a t1.micro instance running Amazon Linux 2012.03.  These commands might need tweaking to produce the intended results on environments besides a t1.micro instance running Amazon Linux 2012.03.
 
 bc. # These commands were executed on a t1.micro instance running Amazon Linux 2012.03 x86_64.
 # The AMI identifier for Amazon Linux 2012.03 x86_64 is ami-aecd60c7.
