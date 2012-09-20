@@ -101,20 +101,28 @@ The following commands first launch a four-node HBase cluster on EC2 via [[Whirr
 
 The configuration described below puts one HBase master server in charge of three HBase regionservers.  The master will be the sole member of the Zookeeper quorum by which Titan connects to HBase.
 
-* Whirr's current stable version, 0.7.1, sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  Login to a machine with a public IP or create and login to a micro instance on EC2 before running the following commands.
-* <pre>export AWS_ACCESS_KEY_ID=...</pre>
-* <pre>export AWS_SECRET_ACCESS_KEY=...</pre>
-* <pre>curl -O [[http://www.apache.org/dist/whirr/whirr-0.7.1/whirr-0.7.1.tar.gz]]</pre>
-* <pre>tar zxf whirr-0.7.1.tar.gz; cd whirr-0.7.1</pre>
-* <pre>ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr</pre>
-* copy hbase-ec2-0.92.1.properties from the config subdirectory of the titan source tree to whirr-0.7.1/recipes
+Whirr 0.7.1 sometimes fails when run on a machine behind a NAT ([[WHIRR-459|https://issues.apache.org/jira/browse/WHIRR-459]]).  For this reason, it's recommended to use at least Whirr 0.7.2.  Whirr 0.8.0 was used to test the following commands on a t1.micro instance running Amazon Linux 2012.03.  These commands may need tweaking to get the desired results in a different runtime environment.
 
-* <pre>bin/whirr launch-cluster --config recipes/hbase-ec2-0.92.1.properties --private-key-file ~/.ssh/id_rsa_whirr</pre>
-* run a simple health check on the hbase-master node (this should print "imok"):
-  <pre>echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-0.92.1/instances | head -1) 2181; echo</pre>  
-* login into the first node created, the hbase-master node:
-  <pre>ssh -i ~/.ssh/id_rsa_whirr -o "UserKnownHostsFile /dev/null" -o StrictHostKeyChecking=no `grep hbase-master ~/.whirr/hbase-0.92.1/instances | awk '{print $3}'`</pre>
-* <pre>sudo apt-get install git-core maven2</pre>
-* <pre>git clone 'git@github.com:thinkaurelius/titan.git'</pre>
-* <pre>cd titan</pre>
-* <pre>mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion</pre>
+bc. # These commands were executed on a t1.micro instance running Amazon Linux 2012.03 x86_64.
+# The AMI identifier for Amazon Linux 2012.03 x86_64 is ami-aecd60c7.
+export AWS_ACCESS_KEY_ID=... # Set your Access Key here
+export AWS_SECRET_ACCESS_KEY=... # Set your Secret Key here
+curl -O [[http://www.apache.org/dist/whirr/whirr-0.8.0/whirr-0.8.0.tar.gz]]
+tar -xzf whirr-0.8.0.tar.gz && cd whirr-0.8.0
+# Generate an SSH keypair with which Whirr will deploy and manage instances
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa_whirr
+# Download a Whirr recipe for deploying HBase 0.94.1 with hadoop-core 1.0.3
+pushd recipes && wget 'https://raw.github.com/thinkaurelius/titan/master/config/whirr-hbase.properties' ; popd recipes
+bin/whirr launch-cluster --config recipes/whirr-hbase.properties --private-key-file ~/.ssh/id_rsa_whirr
+# Run a superficial health check on the hbase-master node (this should print "imok")
+echo "ruok" | nc $(awk '{print $3}' ~/.whirr/hbase-testing/instances | head -1) 2181; echo
+# Login to the HBase master node to run the remaining commands
+ssh -i ~/.ssh/id_rsa_whirr -o "UserKnownHostsFile /dev/null" -o StrictHostKeyChecking=no `grep hbase-master ~/.whirr/hbase-testing/instances | awk '{print $3}'`
+# Maven 2 is available through the package manager, but an incompatibility
+# with surefire 2.12 makes it a pain to use; here we download Maven 3 without
+# the OS package manager
+wget 'http://archive.apache.org/dist/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz'
+tar -xzf apache-maven-3.0.4-bin.tar.gz
+git clone 'git@github.com:thinkaurelius/titan.git' && cd titan
+# Run an HBase-backed test
+~/apache-maven-3.0.4/bin/mvn test -Dtest=ExternalHBaseGraphPerformanceTest#unlabeledEdgeInsertion
