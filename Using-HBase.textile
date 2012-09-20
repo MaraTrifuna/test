@@ -125,7 +125,7 @@ ssh -i ~/.ssh/id_rsa_whirr -o "UserKnownHostsFile /dev/null" -o StrictHostKeyChe
 wget 'http://archive.apache.org/dist/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz'
 tar -xzf apache-maven-3.0.4-bin.tar.gz
 # Install git
-sudo apt-get install git-core
+sudo apt-get install -y git-core
 # Clone Titan
 git clone 'git://github.com/thinkaurelius/titan.git' && cd titan
 # Run a HBase-backed test of Titan
