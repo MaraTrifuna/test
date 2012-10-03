@@ -36,7 +36,9 @@ Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and working, it 
 
 h2. Configuring Rexster
 
-This section explains how to configure Rexster to use a Titan graph database. These instructions assume that the a graph has been created in Titan as described in the "Loading Data Into Titan" section of the [[Getting Started]] page. 
+This section explains how to configure Rexster to use a Titan graph database. 
+
+_PREREQUISITE:_ These instructions assume that a graph has been created in Titan as described in the "Loading Data Into Titan" section of the [[Getting Started]] page. 
 
 Edit the @REXSTER_HOME/rexster.xml@ and include the Titan configuration portion in the @graphs@ section (see "Rexster Configuration":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration).
 
