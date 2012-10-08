@@ -81,7 +81,7 @@ In addition to the general "Titan Graph Configuration":Graph-Configuration, ther
 | storage.thrift-timeout | Default time out in milliseconds after which to fail a connection attempt with a Cassandra node | Integer | 10000 | Yes |
 | storage.read-consistency-level | Cassandra consistency level for read operations | - | QUORUM | Yes |
 | storage.write-consistency-level | Cassandra consistency level for write operations | - | QUORUM | Yes |
-| storage.replication-factor | The replication factor to use. The higher the replication factor, the more robust the graph database is to machine failure at the expense of data duplication. *The default value should be overwritten for production system to ensure robustness. A value of 3 is recommended.* | Integer | 1 | No |
+| storage.replication-factor | The replication factor to use. The higher the replication factor, the more robust the graph database is to machine failure at the expense of data duplication. *The default value should be overwritten for production system to ensure robustness. A value of 3 is recommended.* This replication factor can only be set when the keyspace is initially created. _On an existing keyspace, this value is ignored._ | Integer | 1 | No |
 
 For more information on Cassandra consistency levels and acceptable values, please refer to the "Cassandra documentation":http://wiki.apache.org/cassandra/API. In general, higher levels are more consistent and robust but have higher latency.
 
