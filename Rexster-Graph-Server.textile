@@ -81,13 +81,13 @@ mkdir REXSTER_HOME/ext/titan
 Then, if building Titan from source:
 
 ```text
-cp TITAN_HOME/target/titan-x.y.z-standalone/lib/*.* REXSTER_HOME/rexster-server-x.y.z/ext/titan
+cp TITAN_HOME/target/titan-x.y.z-standalone/lib/*.* REXSTER_HOME/ext/titan
 ```
 
 or, if using the Titan zipped distribution download:
 
 ```text
-cp TITAN_HOME/lib/*.* REXSTER_HOME/rexster-server-x.y.z/ext/titan
+cp TITAN_HOME/lib/*.* REXSTER_HOME/ext/titan
 ```
 
 *NOTE*: Future releases (beyond the 0.1) will have a much more efficient/easier packaging model.
