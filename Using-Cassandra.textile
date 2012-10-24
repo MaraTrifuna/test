@@ -24,6 +24,8 @@ conf.setProperty("storage.hostname","127.0.0.1");
 TitanGraph g = TitanFactory.open(conf);
 ```
 
+In the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration.
+
 h3. Remote Server Mode
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
@@ -38,6 +40,8 @@ conf.setProperty("storage.backend","cassandra");
 conf.setProperty("storage.hostname","77.77.77.77");
 TitanGraph g = TitanFactory.open(conf);
 ```
+
+In the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration.
 
 h3. Remote Server Mode with Rexster
 
