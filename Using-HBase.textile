@@ -28,7 +28,7 @@ conf.setProperty("storage.backend","hbase");
 TitanGraph g = TitanFactory.open(conf);
 ```
 
-Note, that you do not need to specify a hostname since a localhost connection is attempted by default.
+Note, that you do not need to specify a hostname since a localhost connection is attempted by default. Also, in the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration.
 
 h3. Remote Server Mode
 
@@ -45,7 +45,7 @@ conf.setProperty("storage.hostname","77.77.77.77,77.77.77.78");
 TitanGraph g = TitanFactory.open(conf);
 ```
 
-_storage.hostname_ accepts a comma separated list of IP addresses and hostname for any subset of machines in the HBase cluster Titan should connect to.
+_storage.hostname_ accepts a comma separated list of IP addresses and hostname for any subset of machines in the HBase cluster Titan should connect to. Also, in the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration.
 
 h3. Remote Server Mode with Rexster
 
