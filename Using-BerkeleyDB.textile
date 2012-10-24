@@ -16,6 +16,8 @@ conf.setProperty("storage.backend", "local");
 TitanGraph graph = TitanFactory.open(conf);
 ```
 
+In the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration. 
+
 Currently, BerkeleyDB is the default local storage backend. So, we can use the TitanFactory helper method to open the same graph database.
 
 ```java
