@@ -162,3 +162,42 @@ hadoop version # Should print 1.0.3
 # drwxrwxrwx   - hadoop supergroup          0 2012-09-20 00:20 /tmp
 # drwxrwxrwx   - hadoop supergroup          0 2012-09-20 00:20 /user
 hadoop fs -ls /
+
+h2. Tips and Tricks for Managing an HBase Cluster
+
+The HBase shell on the master server can be used to get an overal status check of the cluster.
+
+```bash
+$HBASE_HOME/bin/hbase shell
+```
+
+From the shell, the following commands are useful.
+
+```ruby
+status 'titan'
+status 'simple'
+status 'detailed'
+```
+
+The above commands identify if a region server has gone down. If so, it is possible to @ssh@ into those region serve machines and do the following:
+
+```bash
+sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
+sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
+```
+
+The use of "pssh":http://code.google.com/p/parallel-ssh/ can make this process easy as there is no need to log into each machine individually to run the commands. Put the IP addresses of the region servers into a @hosts.txt@ file and then execute the following.
+
+```bash
+pssh -h host.txt sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
+pssh -h host.txt sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start regionserver
+```
+
+Next, sometimes you need to restart the master server (e.g, connection refused exceptions), on the master execute the following:
+
+```bash
+sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop master
+sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start master
+```
+
+Finally, assume you have deployed your HBase cluster and you need to give more RAM to your region servers (or master). Simply edit the hbase-env.sh file in /usr/local/hbase-???/conf and up your -Xmx -Xms information. Then, once you have done that, stop/start the regionserver as described previous.
