@@ -186,7 +186,7 @@ sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
 ```
 
-The use of "pssh":http://code.google.com/p/parallel-ssh/ can make this process easy as there is no need to log into each machine individually to run the commands. Put the IP addresses of the region servers into a @hosts.txt@ file and then execute the following.
+The use of "pssh":http://code.google.com/p/parallel-ssh/ can make this process easy as there is no need to log into each machine individually to run the commands. Put the IP addresses of the regionservers into a @hosts.txt@ file and then execute the following.
 
 ```bash
 pssh -h host.txt sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
@@ -200,4 +200,4 @@ sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop master
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start master
 ```
 
-Finally, assume you have deployed your HBase cluster and you need to give more RAM to your region servers (or master). Simply edit the hbase-env.sh file in /usr/local/hbase-???/conf and up your -Xmx -Xms information. Then, once you have done that, stop/start the regionserver as described previous.
+Finally, if an HBase cluster has already been deployed and more memory is required of the master or regionservers, simply edit the @$HBASE_HOME/conf/hbase-env.sh@ files on the respective machines with requisite @-Xmx -Xms@ parameters. Once edited, stop/start the master and/or regionservers as described previous.
