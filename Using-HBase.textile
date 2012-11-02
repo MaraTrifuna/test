@@ -165,13 +165,13 @@ hadoop fs -ls /
 
 h2. Tips and Tricks for Managing an HBase Cluster
 
-The HBase shell on the master server can be used to get an overal status check of the cluster.
+The "HBase shell":http://wiki.apache.org/hadoop/Hbase/Shell on the master server can be used to get an overal status check of the cluster.
 
 ```bash
 $HBASE_HOME/bin/hbase shell
 ```
 
-From the shell, the following commands are useful.
+From the shell, the following commands are generally useful for understanding the status of the cluster.
 
 ```ruby
 status 'titan'
@@ -179,7 +179,7 @@ status 'simple'
 status 'detailed'
 ```
 
-The above commands identify if a region server has gone down. If so, it is possible to @ssh@ into those region serve machines and do the following:
+The above commands can identify if a region server has gone down. If so, it is possible to @ssh@ into the failed region server machines and do the following:
 
 ```bash
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
@@ -193,11 +193,11 @@ pssh -h host.txt sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserve
 pssh -h host.txt sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start regionserver
 ```
 
-Next, sometimes you need to restart the master server (e.g, connection refused exceptions), on the master execute the following:
+Next, sometimes you need to restart the master server (e.g. connection refused exceptions). To do so, on the master execute the following:
 
 ```bash
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop master
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start master
 ```
 
-Finally, if an HBase cluster has already been deployed and more memory is required of the master or regionservers, simply edit the @$HBASE_HOME/conf/hbase-env.sh@ files on the respective machines with requisite @-Xmx -Xms@ parameters. Once edited, stop/start the master and/or regionservers as described previous.
+Finally, if an HBase cluster has already been deployed and more memory is required of the master or region servers, simply edit the @$HBASE_HOME/conf/hbase-env.sh@ files on the respective machines with requisite @-Xmx -Xms@ parameters. Once edited, stop/start the master and/or region servers as described previous.
