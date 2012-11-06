@@ -183,7 +183,7 @@ The above commands can identify if a region server has gone down. If so, it is p
 
 ```bash
 sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
-sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh stop regionserver
+sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start regionserver
 ```
 
 The use of "pssh":http://code.google.com/p/parallel-ssh/ can make this process easy as there is no need to log into each machine individually to run the commands. Put the IP addresses of the regionservers into a @hosts.txt@ file and then execute the following.
