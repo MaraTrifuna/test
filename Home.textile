@@ -50,6 +50,7 @@ h2. Titan Manual
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
 * [[Upgrade Instructions]]
+* [[Related Third Party Projects]]
 * [[Release Notes]]
 * [[Acknowledgements]]
 
