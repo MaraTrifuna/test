@@ -50,7 +50,9 @@ h2. Titan Manual
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
 * [[Upgrade Instructions]]
-* [[Related Third Party Projects]]
+* Related Third Party Projects
+** "Blubflow":http://bulbflow.com/ (Python)
+** "Hermes":https://github.com/gameclosure/hermes (Clojure)
 * [[Release Notes]]
 * [[Acknowledgements]]
 
