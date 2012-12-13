@@ -17,7 +17,7 @@ The query above can be read:
   # @g@: for the current graph.
   # @V('name','hercules')@: get all vertices with name property "hercules" (there is only one).
   # @out('father')@: traverse outgoing father edge's from Hercules.
-  # @out('father')@: traverse outgoing father edge's from Hercule's father's vertex (i.e. Jupiter).
+  # @out('father')@: traverse outgoing father edge's from Hercules' father's vertex (i.e. Jupiter).
   # @name@: get the name property of the "hercules" vertex's grandfather.
 
 Each step can be decomposed and its results demonstrated. This style of building up a traversal/query is useful when constructing larger, complex query chains.
@@ -46,7 +46,7 @@ gremlin> g.V('name','hercules').out('father').out('father').name
 ==>saturn
 ```
 
-Note this more complex, related traversal that shows the entire father family tree branch of Hercules. This more complicated traversal is provided in order to demonstrate the flexibility and expressivity of the language. A competent grasp of Gremlin provides the Titan user the ability to fluently navigate the underlying graph structure.
+Note the related traversal that shows the entire father family tree branch of Hercules. This more complicated traversal is provided in order to demonstrate the flexibility and expressivity of the language. A competent grasp of Gremlin provides the Titan user the ability to fluently navigate the underlying graph structure.
 
 ```text
 gremlin> g.V('name','hercules').out('father').loop(1){true}{true}.name
@@ -59,14 +59,14 @@ Some more traversal examples are provided below.
 ```text
 gremlin> hercules = g.V('name','hercules').next() 
 ==>v[24]
-gremlin> hercules.out("father","mother").type
+gremlin> hercules.out('father','mother').type
 ==>god
 ==>human
-gremlin> hercules.out("battled").type
+gremlin> hercules.out('battled').type
 ==>monster
 ==>monster
 ==>monster
-gremlin> hercules.out("battled").map    
+gremlin> hercules.out('battled').map    
 ==>{name=nemean, type=monster}
 ==>{name=hydra, type=monster}
 ==>{name=cerberus, type=monster}
@@ -90,7 +90,7 @@ gremlin> hercules.out('battled').in('battled').except([hercules]).name
 ==>theseus
 ```
 
-The example above has 4 chained functions: @out@, @in@, @except@, and @property@ (i.e. @name@ is shorthand for @property('name')@). The function signatures of each are itemized below, where @V@ is vertex and @U@ is any object. 
+The example above has 4 chained functions: @out@, @in@, @except@, and @property@ (i.e. @name@ is shorthand for @property('name')@). The function signatures of each are itemized below, where @V@ is vertex and @U@ is any object, where @V@ is a subset of @U@.
 
   # @out: V -> V@
   # @in: V -> V@
