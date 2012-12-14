@@ -59,29 +59,14 @@ This section contains general configuration options to customize Titan's behavio
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Configuration for more details.  | _blueprints_ or _none_ | _blueprints_ | Yes |
 
-h2. Attribute and Serializer Configuration
-
-Titan supports a number of classes for attribute values on properties. Titan efficiently serializes numbers, primitive arrays, @Date@, @ArrayList@ and @HashMap@. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
-
-|_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| attributes.allow-all | If enabled, arbitrary objects can be used as attributes on properties otherwise only pre-configured and configured attributes are allowed | _true_ or _false_ | _true_ | No |
-
-To configure a custom attribute class with a custom serializer, follow these steps:
-
-# Implement a custom @AttributeSerializer@ for the custom attribute class
-# Add the following configuration options where [X] is the custom attribute id that must be larger than all attribute ids for already configured custom attributes:
-## @attributes.attribute[X] = [Full attribute class name]@
-## @attributes.serializer[X] = [Full serializer class name]@
-
-For example, suppose we want to register a special integer attribute class called @SpecialInt@ and have implemented a custom serializer @SpecialIntSerializer@ that implements @AttributeSerializer@. We already have 9 custom attributes configured in the configuration file, so we would add the following lines
-```
-attributes.attribute10 = com.example.SpecialInt
-attributes.serializer10 = com.example.SpecialIntSerializer
-```
-
 h2. Next Steps
 
-This page lists all the _common_ configuration options for Titan. Each storage backend has additional configuration options which are listed on the following pages:
+
+This page lists all the _common_ configuration options for Titan. Learn more about some special purpose configuration:
+
+* [[Datatype and Attribute Serializer Configuration]]
+
+Each storage backend has additional configuration options which are listed on the following pages:
 
 * [[Cassandra Configuration | Using Cassandra]]
 * [[HBase Configuration | Using HBase]]
