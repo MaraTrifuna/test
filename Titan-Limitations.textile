@@ -31,3 +31,9 @@ h3. Batch Loading Speed
 Titan provides a batch loading mode that can be enabled through the "configuration":Graph-Configuration. However, this batch mode only facilitates faster loading into the storage backend, it does not use storage backend specific batch loading techniques that prepare the data in memory for disk storage. As such, batch loading in Titan is currently slower than batch loading modes provided by single machine databases.
 
 Another limitation related to batch loading is the failure to load millions of edges into a single vertex at once or in a short time of period. Such _supernode loading_ can fail for some storage backends. This limitation also applies to dense index entries. For more information, please refer to "the ticket":https://github.com/thinkaurelius/titan/issues/11
+
+h2. Beware
+
+h3. Custom Class Datatype
+
+Titan supports arbitrary objects as attribute values on properties. However, if you do not configure a custom serializer you should ensure that the default serializer can successfully handle these objects. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
