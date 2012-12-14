@@ -45,6 +45,7 @@ h2. Titan Manual
 *** [[Type Definition Overview]] (*cheat sheet*)
 ** Configuration and Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
+*** [[Datatype and Attribute Serializer Configuration]]
 * Advanced Topics
 ** [[Building Titan]]
 * Titan Tutorials
