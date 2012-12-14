@@ -36,4 +36,4 @@ h2. Beware
 
 h3. Custom Class Datatype
 
-Titan supports arbitrary objects as attribute values on properties. However, if you do not configure a custom serializer you should ensure that the default serializer can successfully handle these objects. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
+Titan supports arbitrary objects as attribute values on properties. However, when using a custom class as data type it is important to either configure a custom serializer or ensure that the default serializer can successfully handle these objects. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
