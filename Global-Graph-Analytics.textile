@@ -8,9 +8,9 @@ Titan is designed to compute numerous, concurrent, short-lived, local graph trav
 
 h2. Faunus: Graph Analytics Engine
 
-Titan is a multi-client database in the classic sense. For performing global graph analytics, Titan relies on "Faunus":http://thinkaurelius.github.com/faunus/. Faunus is a batch processing framework that is optimized for computing a small number of concurrent, long running, global graph traversals. Please review Faunus documentation for instructions on how to connect "Titan to Faunus":https://github.com/thinkaurelius/faunus/wiki/Titan-Format.
+Titan is a multi-client database in the classic sense. For performing global graph analytics, Titan relies on "Faunus":http://thinkaurelius.github.com/faunus/. Faunus is a batch processing framework that is optimized for computing a small number of concurrent, long running, global graph traversals.
 
-With Faunus it is possible to connect to use Titan as the source of a "Hadoop":hadoop.apache.org MapReduce job chain. Like Titan, Faunus uses Gremlin as its traversal/query language. However, Faunus compiles its Gremlin statements down to MapReduce jobs. Assume the Titan/Cassandra maintains _The Graph of the Gods_. A Faunus/Gremlin shell can be used to create a @FaunusGraph@ which uses Titan/Cassandra as the source of the input data into the Hadoop job.
+Please review Faunus documentation for instructions on how to connect "Titan to Faunus":https://github.com/thinkaurelius/faunus/wiki/Titan-Format. However, a short example is provided below. With Faunus it is possible to use Titan as the source of a "Hadoop":hadoop.apache.org MapReduce job chain. Like Titan, Faunus uses Gremlin as its traversal language. However, Faunus compiles its Gremlin statements down to MapReduce jobs. Assume the Titan/Cassandra maintains _The Graph of the Gods_. The Faunus/Gremlin shell can be used to create a @FaunusGraph@. When the traversal is evaluated, Titan serves as the data source and Hadoop serves as the data processing system.
 
 ```text
 faunus$ bin/gremlin.sh 
