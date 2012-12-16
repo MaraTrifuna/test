@@ -8,4 +8,4 @@ Titan is designed to compute numerous, concurrent, short-lived, local graph trav
 
 h2. Faunus: Graph Analytics Engine
 
-Titan is a multi-client database in the classic sense. For performing global graph analytics, Titan relies on "Faunus":http://thinkaurelius.github.com/faunus/. Faunus is a batch processing framework that is optimized for computing a small number of concurrent, long running, global graph traversals. 
+Titan is a multi-client database in the classic sense. For performing global graph analytics, Titan relies on "Faunus":http://thinkaurelius.github.com/faunus/. Faunus is a batch processing framework that is optimized for computing a small number of concurrent, long running, global graph traversals. Please review Faunus documentation for instructions on how to connect "Titan to Faunus":https://github.com/thinkaurelius/faunus/wiki/Titan-Format.
