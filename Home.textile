@@ -47,6 +47,7 @@ h2. Titan Manual
 *** [[Graph Configuration]] (*cheat sheet*)
 *** [[Datatype and Attribute Serializer Configuration]]
 * Advanced Topics
+** [[Global Graph Analytics]]
 ** [[Building Titan]]
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
