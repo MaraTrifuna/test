@@ -18,7 +18,7 @@ The following is a list of the "benefits of using Rexster":https://github.com/ti
 
 h2. Downloading and Starting Rexster
 
-Before using Rexster with Titan, it must for be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
+Before using Rexster with Titan, it must for be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
 
 ```bash
 $ curl -L https://github.com/downloads/tinkerpop/rexster/rexster-server-x.y.z.zip > rexster-server-x.y.z.zip
@@ -32,11 +32,13 @@ $ cd rexster-server-x.y.z
 $ ./rexster-server.sh --start
 ```
 
-Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and working, it is necessary to configure Rexster to work with Titan (see Rexster's "Getting Started":https://github.com/tinkerpop/rexster/wiki/Getting-Started page).
+You can validate that it is working by opening a browser and navigating to @http://localhost:8182@ which should present a Rexster landing page with links to the root of the REST API and to the Dog House.
+
+Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and verified to be working, it is necessary to configure Rexster to work with Titan.
 
 h2. Configuring Rexster
 
-This section explains how to configure Rexster to use a Titan graph database. 
+This section explains how to configure Rexster to use a Titan graph database (see also Rexster's "Getting Started":https://github.com/tinkerpop/rexster/wiki/Getting-Started page). 
 
 _PREREQUISITE:_ These instructions assume that a graph has been created in Titan as described in the "Loading Data Into Titan" section of the [[Getting Started]] page. 
 
@@ -90,7 +92,7 @@ or, if using the Titan zipped distribution download:
 cp TITAN_HOME/lib/*.* REXSTER_HOME/ext/titan
 ```
 
-*NOTE*: Future releases (beyond the 0.1) will have a much more efficient/easier packaging model.
+*NOTE*: Future releases (beyond the 0.2) will have a much more efficient/easier packaging model.
 
 Start Rexster with:
 
@@ -108,6 +110,6 @@ h2. Limitations
 
 Rexster has a rich "API":https://github.com/tinkerpop/rexster/wiki/Basic-REST-API for working with Blueprints Graph implementations, but there are some limitations to consider when using Rexster with Titan:
 
-* Titan automatically assigns identifiers. Hence, the POST of an edge cannot be done with an identifier. In other words, do this: @http://localhost/graphs/titan/edges@ and _not_ this @http://localhost/graphs/titan/edges/1234@.
-* Titan uses vertex indexes and does not support manual indexes. Hence, all operations on the @indices@ resource are not supported. Use key indexes instead.
+* Titan automatically assigns identifiers. Hence, the POST of an edge cannot be done with an identifier. In other words, POST to this: @http://localhost/graphs/titan/edges@ and _not_ to this @http://localhost/graphs/titan/edges/1234@.
+* Titan uses key indices and does not support manual indices. Hence, all operations on the @indices@ resource are not supported. Use key indexes instead.
 * Depending on Titan's configured backend, there may be limitations in the usage of Dog House.  Titan does not support iterating edges and vertices (except when used with BerkleyDB) and therefore many functions will not be available that require those REST API calls.
