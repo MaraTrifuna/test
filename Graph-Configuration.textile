@@ -24,7 +24,6 @@ Titan leverages various storage backends for persistence. Use the following opti
 | storage.directory | Storage directory for those storage backends that require local storage | path | - | no |
 | storage.read-only | Specifies whether write operations are supported on the graph | _true_ or _false_ | _false_ | yes |
 | storage.batch-loading | Enables batch loading which improves write performance but assumes that only one thread is interacting with the graph and that vertices retrieved by id exist. Under these assumptions locking and some read operations can be avoided. Furthermore, the configured storage backend will make backend specific configurations that facilitate loading performance. *Be careful:* enabling batch loading when the assumptions are violated can result in an inconsistent or partially corrupt graph. | _true_ or _false_ | _false_ | yes |
-| storage.transactions | Enables transactions on storage backends that support them | _true_ or _false_ | _true_ | yes |
 
 h2. Persistence Configuration
 
