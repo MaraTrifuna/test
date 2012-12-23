@@ -47,7 +47,7 @@ h3. Remote Server Mode with Rexster
 
 !https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-rexster.png!
 
-Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
+Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
 
 ```text
 http://rexster.titan.machine1/mygraph/vertices/1
@@ -73,6 +73,17 @@ In this case, each Rexster server would be configured to connect to the Cassandr
       </extensions>
     </graph>
 ```
+
+h3. Titan Embedded Mode
+
+!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-embedded.png!
+
+Finally, Cassandra can be embedded in Titan, which means, that Titan and Cassandra run in the same JVM and communicate via in process calls rather than over the network. This removes the (de)serialization and network protocol overhead and can therefore lead to considerable performance improvements. In this deployment mode, Titan internally starts a cassandra daemon and Titan no longer connects to an existing cluster but is its own cluster.
+
+To use Titan in embedded mode, simply configure @embeddedcassandra@ as the storage backend. The configuration options listed below also apply to embedded Cassandra. In creating a Titan cluster, ensure that the individual nodes can discover each other via the Gossip protocol, so setup a Titan-with-Cassandra-embedded cluster much like you would a stand alone Cassandra cluster.
+
+When running a cluster with Titan and Cassandra embedded, it is advisable to expose Titan through the Rexster server so that applications can remotely connect to the Titan graph database and execute queries. To make this setup easy and simple, Titan comes packaged with [[Titan Server]].
+
 
 h2. Cassandra Specific Configuration
 
