@@ -2,6 +2,8 @@
 
 "Rexster":http://rexster.tinkerpop.com exposes any Titan graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
 
+Titan includes a light-weight version of Rexster as the [[Titan Server]] which is easier to setup and provides better performance than the full Rexster server. However, [[Titan Server]] only supports Gremlin queries and does not provide a REST interface.
+
 h2. The Benefits of Rexster
 
 <a href="https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png">[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-viz.png|width=434px]]</a><a href="https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png">[[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-dog-house-gremlin.png|width=450px]]</a>
