@@ -82,7 +82,8 @@ In addition to the general "Titan Graph Configuration":Graph-Configuration, ther
 | storage.keyspace | Name of the keyspace in which to store the Titan specific column families | String | titan | No |
 | storage.hostname | IP address or hostname of the Cassandra cluster node that this Titan instance connects to. Use a list of comma-separated hostnames or IP addresses to seed multiple multiple cassandra nodes. | IP address or hostname | - | Yes |
 | storage.port | Port on which to connect to Cassandra cluster node | Integer | 9160 | Yes |
-| storage.thrift-timeout | Default time out in milliseconds after which to fail a connection attempt with a Cassandra node | Integer | 10000 | Yes |
+| storage.connection-timeout | Default time out in milliseconds after which to fail a connection attempt with a Cassandra node | Integer | 10000 | Yes |
+| storage.connection-pool-size | Maximum size of the connection pool for connections to the Cassandra cluster | Integer | 32 | Yes |
 | storage.read-consistency-level | Cassandra consistency level for read operations | - | QUORUM | Yes |
 | storage.write-consistency-level | Cassandra consistency level for write operations | - | QUORUM | Yes |
 | storage.replication-factor | The replication factor to use. The higher the replication factor, the more robust the graph database is to machine failure at the expense of data duplication. *The default value should be overwritten for production system to ensure robustness. A value of 3 is recommended.* This replication factor can only be set when the keyspace is initially created. _On an existing keyspace, this value is ignored._ | Integer | 1 | No |
