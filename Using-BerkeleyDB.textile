@@ -12,7 +12,7 @@ Since BerkeleyDB runs in the same JVM as Titan, connecting the two only requires
 ```java
 Configuration conf = new BaseConfiguration();
 conf.setProperty("storage.directory", "/tmp/graph");
-conf.setProperty("storage.backend", "local");
+conf.setProperty("storage.backend", "berkeleyje");
 TitanGraph graph = TitanFactory.open(conf);
 ```
 
