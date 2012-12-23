@@ -1,1 +1,7 @@
 h2. Setup
+
+
+h2. Next Steps
+
+* Read the [[Storage Backend Overview]] for more information on choosing and configuring a storage backend for Titan.
+* Learn about the [[Rexster Graph Server]] that exposes any Titan graph as a REST endpoint.
