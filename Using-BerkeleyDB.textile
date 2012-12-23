@@ -31,9 +31,8 @@ h2. BerkeleyDB Specific Configuration
 In addition to the general "Titan Graph Configuration":Graph-Configuration, there are the following BerkeleyDB specific Titan configuration options:
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| storage.transactions | Whether concurrent transactions should be enabled | _true_ or _false_ | true | Yes |
-| storage.cache-percentage | The percentage of JVM heap space (configured via -Xmx) to be allocated to BerkeleyDB for its cache. Try to give BerkeleyDB as much space as possible without causing memory problems for Titan. For instance, if Titan only runs short transactions, use a value of 80 or higher. | 1-99 | 65 | Yes |
 | storage.transactions | Enables transactions and detects conflicting database operations. *CAUTION:* While disabling transactions can lead to better performance it can cause to inconsistencies and even corrupt the database if multiple Titan instances interact with the same instance of BerkeleyDB. | _true_ or _false_ | _true_ | yes |
+| storage.cache-percentage | The percentage of JVM heap space (configured via -Xmx) to be allocated to BerkeleyDB for its cache. Try to give BerkeleyDB as much space as possible without causing memory problems for Titan. For instance, if Titan only runs short transactions, use a value of 80 or higher. | 1-99 | 65 | Yes |
 
 
 h2. Ideal Use Case
