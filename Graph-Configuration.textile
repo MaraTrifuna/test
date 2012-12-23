@@ -32,7 +32,7 @@ Titan leverages various storage backends for persistence. Use the following opti
 
 h2. ID Management Configuration
 
-These configuration options modify the persistence behavior of Titan independent of the configured storage backend.
+These configuration settings how Titan allocates and assigns ids.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | ids.block-size | Size of the id block to be acquired. Larger block sizes require fewer block applications but also leave a larger fraction of the id pool occupied and potentially lost. For write heavy applications, larger block sizes should be chosen. | positive integer | 10,000 | No* |
