@@ -13,7 +13,7 @@ $ ./bin/titan.sh rexster-config.xml titan-config.properties
 
 The script expects two arguments:
 
-# A configuration file for the Rexpro server. Refer to the Rexpro section of the "Rexster configuration documentation":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration for more information on how to configure the Rexpro connection manager of Titan Server. This first argument is optional and can be omitted, in which case default configurations are used for Rexpro.
+# A configuration file for the RexPro server. Refer to the RexPro section of the "Rexster configuration documentation":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration for more information on how to configure the RexPro connection manager of Titan Server. This first argument is optional and can be omitted, in which case default configurations are used for RexPro.
 # A configuration file for the Titan graph database. Refer to the [[Graph Configuration]] documentation for more information.
 
 After starting the server it can be terminated pressing CTRL+C or sending the corresponding kill signal to the process.
@@ -33,10 +33,7 @@ result = client.query("g.V('name',name).in('father').map",paras);
 client.close();
 ```
 
-First, a connection to the Titan Server is established. 
-Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary.
-The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterTitanClient@ provides additional @query()@ methods where the signature of each query answer can be specified as a template.
-The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query.
+First, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary. The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterTitanClient@ provides additional @query()@ methods where the signature of each query answer can be specified as a template. The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query.
 
 Once all queries have been issued, the connection is closed.
 
