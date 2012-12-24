@@ -27,9 +27,9 @@ RexsterTitanClient client = new RexsterTitanClient("127.0.0.1");
 List<Map<String,Object>> result;
 result = client.query("g.V('name','saturn').in('father').map");
 
-Map<String,Object> paras = new HashMap<String,Object>();
-paras.put("name","saturn");
-result = client.query("g.V('name',name).in('father').map",paras);
+Map<String,Object> params = new HashMap<String,Object>();
+params.put("name","saturn");
+result = client.query("g.V('name',name).in('father').map",params);
 client.close();
 ```
 
@@ -39,7 +39,7 @@ Once all queries have been issued, the connection is closed.
 
 h3. Rexster Console
 
-@RexsterTitanClient@ is used to connect to Titan Server from within an application. Outside of an application, use the "Rexster Console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console to connect to a Titan Server and issue Gremlin queries. Rexster Console is command line REPL similar to the Gremlin REPL that is included in the Titan distribution. Download Rexster Console from the "Rexster project":https://github.com/tinkerpop/rexster.
+@RexsterTitanClient@ is used to connect to Titan Server from within an application. Outside of an application, use the "Rexster Console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console to connect to a Titan Server and issue Gremlin queries. Rexster Console provides access to a remote Gremlin REPL that is included in the Titan distribution. Download Rexster Console from the "Rexster project":http://rexster.tinkerpop.com
 
 Start Rexster Console from the command line. The following assumes that Titan Server is running locally on the default port. To configure an alternative hostname or port, refer to the "Rexster Console documentation":https://github.com/tinkerpop/rexster/wiki/Rexster-Console
 
@@ -61,7 +61,6 @@ opening session with Rexster [localhost:8185]--> ready
 rexster[groovy]> g.V('name','saturn').name
 ==>saturn
 ```
-
 
 h3. Titan Embedding
 
