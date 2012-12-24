@@ -60,7 +60,7 @@ h2. Titan Manual
 * [[Release Notes]]
 * [[Acknowledgements]]
 
-!https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan
+<!-- !https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan -->
 
 ==<hr/>==
 
