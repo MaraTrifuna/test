@@ -26,10 +26,18 @@ The client application can now connect to the Titan Server on the configured hos
 RexsterTitanClient client = new RexsterTitanClient("127.0.0.1");
 List<Map<String,Object>> result;
 result = client.query("g.V('name','saturn').in('father').map");
+
+Map<String,Object> paras = new HashMap<String,Object>();
+paras.put("name","saturn");
+result = client.query("g.V('name',name).in('father').map",paras);
 client.close();
 ```
 
-First, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary.
+First, a connection to the Titan Server is established. 
+Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary.
+The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterTitanClient@ provides additional @query()@ methods where the signature of each query answer can be specified as a template.
+The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query.
+
 Once all queries have been issued, the connection is closed.
 
 h3. Titan Embedding
