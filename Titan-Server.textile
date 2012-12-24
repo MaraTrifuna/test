@@ -26,6 +26,7 @@ The client application can now connect to the Titan Server on the configured hos
 RexsterTitanClient client = new RexsterTitanClient("127.0.0.1");
 List<Map<String,Object>> result;
 result = client.query("g.V('name','saturn').in('father').map");
+// answer: [{name="jupiter", type="god"}]
 
 Map<String,Object> params = new HashMap<String,Object>();
 params.put("name","saturn");
