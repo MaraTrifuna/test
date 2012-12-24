@@ -64,4 +64,7 @@ h2. Titan Manual
 
 ==<hr/>==
 
-The documentation in this wiki is respective of the current master branch, not the latest release. Please refer to the @doc@ directory of a release for release-specific documentation.
+The documentation in this wiki is respective of the current master branch, not the latest release.
+
+JavaDoc: "0.2.0":http://thinkaurelius.github.com/titan/javadoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/javadoc/0.1.0/
+WikiDoc: "0.2.0":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
