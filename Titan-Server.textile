@@ -1,11 +1,11 @@
 [[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-server-embedded.png
 |width=200px|align=right|float]]
 
-Titan Server is a [[Gremlin|Gremlin Query Language]] server for the Titan graph database. It manages remote connections to the Titan graph database and thereby allows applications to execute Gremlin queries against a Titan graph cluster. Titan Server builds on RexPro, a light-weight component of the Rexster Server which can efficiently handle hundreds of database connections.
+Titan Server is a light-weight server that manages remote connections to Titan and thereby allows applications to execute [[Gremlin|Gremlin Query Language]] queries against a Titan graph cluster. Titan Server builds on RexPro, a light-weight component of the "Rexster":http://rexster.tinkerpop.com Server which can efficiently handle hundreds of database connections.
 
 h3. Start Titan Server
 
-To start the Titan Server, execute the titan script in the bin folder of the Titan distribution.
+To start the Titan Server, execute the @titan.sh@ script in the @bin@ folder of the Titan distribution (use @.bat@ for Windows).
 
 ```bash
 $ ./bin/titan.sh rexster-config.xml titan-config.properties
@@ -16,17 +16,17 @@ The script expects two arguments:
 # A configuration file for the RexPro server. Refer to the RexPro section of the "Rexster configuration documentation":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration for more information on how to configure the RexPro connection manager of Titan Server. This first argument is optional and can be omitted, in which case default configurations are used for RexPro.
 # A configuration file for the Titan graph database. Refer to the [[Graph Configuration]] documentation for more information.
 
-After starting the server it can be terminated pressing CTRL+C or sending the corresponding kill signal to the process.
+Once the server has been started, it can be terminated by pressing CTRL+C or sending the corresponding kill signal to the process.
 
 h3. Connecting to Titan Server
 
-The client application can now connect to the Titan Server on the configured hostname and port to issue gremlin queries using @RexsterTitanClient@.
+The client application can now connect to the Titan Server on the configured hostname and port to issue Gremlin queries using @RexsterTitanClient@.
 
 ```java
 RexsterTitanClient client = new RexsterTitanClient("127.0.0.1");
 List<Map<String,Object>> result;
 result = client.query("g.V('name','saturn').in('father').map");
-// answer: [{name="jupiter", type="god"}]
+// result.toString(): [{name="jupiter", type="god"}]
 
 Map<String,Object> params = new HashMap<String,Object>();
 params.put("name","saturn");
@@ -34,9 +34,7 @@ result = client.query("g.V('name',name).in('father').map",params);
 client.close();
 ```
 
-First, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary. The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterTitanClient@ provides additional @query()@ methods where the signature of each query answer can be specified as a template. The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query.
-
-Once all queries have been issued, the connection is closed.
+First above, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterTitanClient.query()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary. The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterTitanClient@ provides additional @query()@ methods where the signature of each query answer can be specified as a template. The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query. Once all queries have been issued, the connection is closed.
 
 h3. Rexster Console
 
@@ -48,7 +46,7 @@ Start Rexster Console from the command line. The following assumes that Titan Se
 ./bin/rexster-console.sh
 ```
 
-Once the console has loaded, issue Gremlin queries against the Titan Server. Note, that Rexster Console does not manage transactions as RexsterTitanClient does.
+Once the console has loaded, issue Gremlin queries against the Titan Server. Note, that Rexster Console does not manage transactions as @RexsterTitanClient@ does.
 
 ```bash
         (l_(l
