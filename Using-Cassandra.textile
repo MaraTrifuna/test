@@ -168,7 +168,7 @@ h4. Example Titan Instance on Amazon Linux AMI
 
 * SSH into the newly created instance via @ssh -i [your-private-key].pem ec2-user[public-dns-name-of-the-instance]@. You may have to wait a little for the instance to launch.
 
-* "Download":https://github.com/thinkaurelius/titan/downloads the current Titan distribution with @wget@ and unpack the archive locally to the home directory. Start the gremlin shell to verify that Titan runs successfully. For more information on how to unpack Titan and start the gremlin shell, please refer to the "Getting Started guide":Getting-Started.
+* "Download":https://github.com/thinkaurelius/titan/wiki/Downloads the current Titan distribution with @wget@ and unpack the archive locally to the home directory. Start the gremlin shell to verify that Titan runs successfully. For more information on how to unpack Titan and start the gremlin shell, please refer to the "Getting Started guide":Getting-Started.
 
 * Create a configuration file with @vi titan.properties@ and add the following lines
 ```text
