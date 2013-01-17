@@ -18,7 +18,7 @@ faunus$ bin/gremlin.sh
          \,,,/
          (o o)
 -----oOOo-(_)-oOOo-----
-gremlin> g = FaunusFactory.open('bin/titan-cassandra.properties')
+gremlin> g = FaunusFactory.open('bin/titan-cassandra-input.properties')
 ==>faunusgraph[titancassandrainputformat]
 gremlin> g.V.count()
 12/12/15 23:58:38 INFO mapreduce.FaunusCompiler: Compiled to 1 MapReduce job(s)
