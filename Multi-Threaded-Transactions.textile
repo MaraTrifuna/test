@@ -17,6 +17,40 @@ The @startTransaction()@ method returns a new @TransactionalGraph@ object that r
 
 Titan relies on optimized concurrent data structures to support hundreds of concurrent threads running efficiently in a single transaction.
 
+h2. Concurrent Algorithms
+
+Thread independent transactions started through @startTransaction()@ are particularly useful when implementing concurrent graph algorithms. Most traversal or message-passing (ego-centric) like graph algorithms are "embarrassingly parallel":http://en.wikipedia.org/wiki/Embarrassingly_parallel which means they can be parallelized and executed through multiple threads with little effort. Each of these threads can operate on a single @TransactionalGraph@ object returned by @startTransaction@ without blocking each other.
+
+h2. Nested Transactions
+
+Another use case for thread independent transactions is nested transactions that ought to be independent from the surrounding transaction.
+
+For instance, assume a long running transactional job that has to create a new vertex with a unique name. Since enforcing unique names requires the acquisition of a lock (see [[Type Definition Overview]] for more detail) and since the transaction is running for a long time, lock congestion and expensive transactional failures are likely.
+
+```java
+Vertex v1 = g.addVertex(null);
+//Do many other things
+Vertex v2 = g.createVertex(null);
+v2.setProperty("uniqueName","foo");
+g.addEdge(null,v1,v2,"related");
+//Do many other things
+g.stopTransaction(Conclusion.SUCCESS); // Likely to fail due to lock congestion
+```
+
+One way around this is to create the vertex in a short, nested thread-independent transaction as demonstrated by the following pseudo code:
+
+```java
+Vertex v1 = g.addVertex(null);
+//Do many other things
+TransactionalGraph tx = g.startTransaction();
+Vertex v2 = tx.createVertex(null);
+v2.setProperty("uniqueName","foo");
+tx.stopTransaction(Conclusion.SUCCESS);
+g.addEdge(null,v1,g.getVertex(v2),"related"); //Need to load v2 into outer transaction
+//Do many other things
+g.stopTransaction(Conclusion.SUCCESS); // Likely to fail due to lock congestion
+```
+
 h2. Next steps
 
 * Read more about "Blueprint's ThreadedTransactionalGraph":https://github.com/tinkerpop/blueprints/wiki/Graph-Transactions.
