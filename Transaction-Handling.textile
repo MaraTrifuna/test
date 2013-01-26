@@ -49,6 +49,10 @@ Potentially temporary failures are those related to resource unavailability and 
 
 Permanent failures can be caused by complete connection loss, hardware failure or lock contention. To understand the cause of lock contention, consider the signup example above and suppose a user tries to signup with username "juno". That username may still be available at the beginning of the transaction but by the time the transaction is committed, another user might have concurrently registered with "juno" as well and that transaction holds the lock on the username therefore causing the other transaction to fail. It some cases one can recover from a lock contention failure by re-running the entire transaction.
 
+h2. Gotcha
+
+Transactions are started automatically with the first operation executed against the graph. One does NOT have to start a transaction manually. The method @startTransaction@ is used to start [[multi threaded transactions]] only.
+
 h2. Next Steps
 
 * Read more about "Blueprints Transactions":https://github.com/tinkerpop/blueprints/wiki/Graph-Transactions
