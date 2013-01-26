@@ -1,4 +1,4 @@
-Titan supports a number of classes for attribute values on properties. Titan efficiently serializes numbers, primitive arrays, @Date@, @ArrayList@ and @HashMap@. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
+Titan supports a number of classes for attribute values on properties. Titan efficiently serializes primitives, primitive arrays, @Date@, @ArrayList@ and @HashMap@. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | attributes.allow-all | If enabled, arbitrary objects can be used as attributes on properties otherwise only pre-configured and configured attributes are allowed | _true_ or _false_ | _true_ | No |
