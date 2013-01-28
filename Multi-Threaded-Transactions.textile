@@ -30,7 +30,7 @@ For instance, assume a long running transactional job that has to create a new v
 ```java
 Vertex v1 = g.addVertex(null);
 //Do many other things
-Vertex v2 = g.createVertex(null);
+Vertex v2 = g.addVertex(null);
 v2.setProperty("uniqueName","foo");
 g.addEdge(null,v1,v2,"related");
 //Do many other things
@@ -43,7 +43,7 @@ One way around this is to create the vertex in a short, nested thread-independen
 Vertex v1 = g.addVertex(null);
 //Do many other things
 TransactionalGraph tx = g.startTransaction();
-Vertex v2 = tx.createVertex(null);
+Vertex v2 = tx.addVertex(null);
 v2.setProperty("uniqueName","foo");
 tx.stopTransaction(Conclusion.SUCCESS);
 g.addEdge(null,v1,g.getVertex(v2),"related"); //Need to load v2 into outer transaction
