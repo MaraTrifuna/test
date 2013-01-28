@@ -46,7 +46,7 @@ Start Rexster Console from the command line. The following assumes that Titan Se
 ./bin/rexster-console.sh
 ```
 
-Once the console has loaded, issue Gremlin queries against the Titan Server. Note, that Rexster Console does not manage transactions as @RexsterTitanClient@ does.
+Once the console has loaded, issue Gremlin queries against the Titan Server. There will be only one graph configured for the @rexster@ context object and it is called "graph". Note, that Rexster Console does not manage transactions as @RexsterTitanClient@ does.
 
 ```bash
         (l_(l
@@ -57,6 +57,8 @@ l l,,   l l,,
 opening session with Rexster [localhost:8185]--> ready
 ?h for help
 
+rexster[groovy]> g = rexster.getGraph("graph")
+==>titangraph[cassandrathrift:127.0.0.1]
 rexster[groovy]> g.V('name','saturn').name
 ==>saturn
 ```
