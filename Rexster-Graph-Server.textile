@@ -58,7 +58,7 @@ Edit the @REXSTER_HOME/rexster.xml@ and include the Titan configuration portion 
       <graph-read-only>false</graph-read-only>
       <properties>
             <storage.backend>local</storage.backend>
-            <buffer-size>100</buffer-size>
+            <storage.buffer-size>100</buffer-size>
       </properties>
       <extensions>
         <allows>
