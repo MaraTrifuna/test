@@ -14,7 +14,7 @@ $ ./bin/titan.sh config/titan-server-rexster.xml config/titan-server-cassandra.p
 The script expects two arguments:
 
 # A configuration file for the RexPro server. Refer to the RexPro section of the "Rexster configuration documentation":https://github.com/tinkerpop/rexster/wiki/Rexster-Configuration for more information on how to configure the RexPro connection manager of Titan Server. This first argument is optional and can be omitted, in which case default configurations are used for RexPro.  Note that there is a sample Rexster configuration file in @config/titan-server-rexster.xml@.
-# A configuration file for the Titan graph database. Refer to the [[Graph Configuration]] documentation for more information, but note that there is a sample configuration for embedded Cassandra in @config/titan-server-cassandra.properties@.  This file points to the sample @config/cassandra.yaml@.  
+# A configuration file for the Titan graph database. Refer to the [[Graph Configuration]] documentation for more information, but note that there is a sample configuration for embedded Cassandra in @config/titan-server-cassandra.properties@.  This file points to the sample @config/cassandra.yaml@.  Note that this file places data in @/temp@ and therefore may be erased on reboot.  Please edit these files as necessary when running Titan Server.
 
 Once the server has been started, it can be terminated by pressing CTRL+C or sending the corresponding kill signal to the process.
 
