@@ -58,8 +58,8 @@ h2. Titan Manual
 ** "Blubflow":http://bulbflow.com/ (Python)
 ** "Hermes":https://github.com/gameclosure/hermes (Clojure)
 * [[Version Compatibility]]
-* [[Release Notes]]
 * [[Acknowledgements]]
+* [[Release Notes]]
 
 <!-- !https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan -->
 
