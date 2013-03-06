@@ -57,7 +57,7 @@ h2. Titan Manual
 * Related Third Party Projects
 ** "Blubflow":http://bulbflow.com/ (Python)
 ** "Hermes":https://github.com/gameclosure/hermes (Clojure)
-* [[Version Compatibility]]
+* [[Version Compatibility]] (*cheat sheet*)
 * [[Acknowledgements]]
 * [[Release Notes]]
 
