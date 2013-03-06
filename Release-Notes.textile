@@ -21,7 +21,7 @@ h3. Version 0.2.0 (December 24, 2012)
 * BerkeleyDB 5.0.58
 * TinkerPop (Blueprints, Gremlin, Rexster) 2.2.0
 
-* This version is incompatible with the previous version of Titan. Please follow the [[Upgrade Instructions]] to switch to the new version. *
+* This version is incompatible with the previous version of Titan. Please follow the [[Upgrade Instructions]] to switch to the new version.
 
 *Features:*
 
