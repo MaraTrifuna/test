@@ -3,6 +3,6 @@
 The Titan project is growing along with the rest of the Aurelius Graph Cluster technology and utilized storage and indexing backends. Below are version compatibilities between the various versions of components.
 
 | *Titan* | *Faunus* | *Cassandra* | *HBase* |
-| 0.1-alpha | NA | xxx | xxx |
+| 0.1-alpha | N/A | xxx | xxx |
 | 0.1.0| 0.1-alpha | xxx | 0.94.x |
 | 0.2.0 | 0.1.0 | 1.1.x | 0.94.x |
