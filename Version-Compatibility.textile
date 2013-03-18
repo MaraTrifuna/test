@@ -6,3 +6,4 @@ The Titan project is growing along with the rest of the Aurelius Graph Cluster t
 | 0.1-alpha | N/A | 1.1.x | 0.92.x |
 | 0.1.0| 0.1-alpha | 1.1.x | 0.94.x |
 | 0.2.0 | 0.1.0 | 1.1.x | 0.94.x |
+| 0.2.1 | 0.1.1 | 1.2.x | 0.94.x |
