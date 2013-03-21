@@ -16,6 +16,10 @@ h3. Transactional Scope
 
 Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
 
+h3. DataType Definitions
+
+When declaring the data type of a property key using @dataType(Class)@ Titan will enforce that all properties for that key have the declared type, unless that type is @Object.class@. This is an equality type check, meaning that sub-classes will not be allowed. For instance, one cannot declare the data type to be @Number.class@ and use @Integer@ or @Long@. For efficiency reasons, the type needs to match exactly. Hence, you @Object.class@ as the data type for type flexibility. In all other cases, declare the actual data type to benefit from increased performance and type safety.
+
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
