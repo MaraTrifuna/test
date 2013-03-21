@@ -2,6 +2,7 @@
 [[Release Notes]] for all versions
 ==<hr/>==
 * *Titan 0.x*
+  ** "Titan 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-0.2.1.zip
   ** "Titan 0.2.0":http://s3.thinkaurelius.com/downloads/titan/titan-0.2.0.zip
   ** "Titan 0.1.0":http://s3.thinkaurelius.com/downloads/titan/titan-0.1.0.zip
   ** "Titan 0.1-alpha":http://s3.thinkaurelius.com/downloads/titan/titan-0.1-alpha.zip
