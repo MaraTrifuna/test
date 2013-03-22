@@ -5,6 +5,47 @@ Titan: Distributed Graph Database
 
 h2. Titan 0.y.z
 
+h3. Version 0.2.1 (March 22, 2013)
+
+```xml
+<dependency>
+   <groupId>com.thinkaurelius.titan</groupId>
+   <artifactId>titan-core</artifactId>
+   <version>0.2.1</version>
+</dependency>
+```
+*Tested Compatibility:*
+
+* Cassandra 1.2.0
+* HBase 0.94
+* BerkeleyJE 5.0.58
+
+*Features:*
+
+* Refactored POM into multi-module project
+* Support for global vertex (g.V) and edge (g.E) iteration for cassandra and hbase backends
+* Compatible with Cassandra 1.2.0 for all three storage adapters: embedded, thrift, astyanax
+* Improved HBase adapter:
+** Automatic Master launch for testing
+** Refactored batch mutation and reading
+** Optimized HBase operations
+* Updated to Blueprints 2.3.0
+* Better integration with Rexster Rexpro
+* Automatic directory creation for local storage backends
+* Internal Titan version handling and compatibility checks
+* Added additional performance tests
+
+*Bugfixes:*
+
+* Resolved issues around Java 1.7
+* Shutdown error in astyanax adapter
+* Made thrift frame and message size configurable for cassandra adapters
+* see issue tracker for a full list
+
+*Special Thanks to:*
+
+* Pavel Yaskevich ("xedin":https://github.com/xedin)
+
 h3. Version 0.2.0 (December 24, 2012)
 
 ```xml
