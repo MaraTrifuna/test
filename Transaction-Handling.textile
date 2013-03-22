@@ -4,10 +4,10 @@ Every graph operation in Titan occurs within the context of a transaction. Accor
 TitanGraph g = TitanFactory.open("/tmp/titan");
 Vertex juno = g.addVertex(null); //Automatically opens a new transaction
 juno.setProperty("name", "juno");
-g.stopTransaction(Conclusion.SUCCESS); //Commits transaction
+g.commit(); //Commits transaction
 ```
 
-In this example, a local Titan graph database is opened. Adding the vertex "juno" is the first operation (in this thread) which automatically opens a new transaction. All subsequent operations occur in the context of that same transaction until the transaction is explicitly stopped or the graph database @shutdown()@ which stops all currently running transactions successfully.
+In this example, a local Titan graph database is opened. Adding the vertex "juno" is the first operation (in this thread) which automatically opens a new transaction. All subsequent operations occur in the context of that same transaction until the transaction is explicitly stopped or the graph database @shutdown()@ which commits all currently running transactions.
 
 h2. Transactional Scope
 
@@ -18,7 +18,7 @@ To re-active the "juno" vertex we need to refresh it in the currently running tr
 TitanGraph g = TitanFactory.open("/tmp/titan");
 Vertex juno = g.addVertex(null); //Automatically opens a new transaction
 juno.setProperty("name", "juno");
-g.stopTransaction(Conclusion.SUCCESS); //Commits transaction
+g.commit(); //Commits transaction
 Vertex jupiter = g.addVertex(null); //Automatically opens another transaction
 jupiter.setProperty("name", "jupiter");
 juno = g.getVertex(juno);
@@ -35,7 +35,7 @@ try {
         throw new IllegalArgumentException("Username already taken: " + name);
     Vertex user = g.addVertex(null);
     user.setProperty("name", name);
-    g.stopTransaction(Conclusion.SUCCESS);
+    g.commit();
 } catch (TitanException e) {
     //Recover, retry, or return error message
 }
@@ -51,7 +51,7 @@ Permanent failures can be caused by complete connection loss, hardware failure o
 
 h2. Gotcha
 
-Transactions are started automatically with the first operation executed against the graph. One does NOT have to start a transaction manually. The method @startTransaction@ is used to start [[multi threaded transactions]] only.
+Transactions are started automatically with the first operation executed against the graph. One does NOT have to start a transaction manually. The method @newTransaction@ is used to start [[multi threaded transactions]] only.
 
 h2. Next Steps
 
