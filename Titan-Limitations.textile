@@ -8,10 +8,6 @@ h3. Size Limitation
 
 Titan can store up to a quintillion edges (2^60) and half as many vertices. That limitation is imposed by Titan's id scheme.
 
-h3. Global Graph Operations
-
-Titan only supports iteration over all vertices and edges for local storage backends. For distributed storage backends, such iteration will likely cause @OutOfMemoryException@ and is therefore disabled. Use "Faunus":http://thinkaurelius.github.com/faunus/ to implement global graph operations on distributed Titan graphs.
-
 h3. Transactional Scope
 
 Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
@@ -46,6 +42,11 @@ h3. Custom Class Datatype
 
 Titan supports arbitrary objects as attribute values on properties. However, when using a custom class as data type it is important to either configure a custom serializer or ensure that the default serializer can successfully handle these objects. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
 
+h3. Global Graph Operations
+
+Since version 0.2.1, Titan supports global graph operations for all storage backends. However, beware that such operations will likely cause @OutOfMemoryException@ for large graphs since all vertices and/or edges can be loaded into memory by iterating through them.  Use "Faunus":http://thinkaurelius.github.com/faunus/ to implement global graph operations on large, distributed Titan graphs that do not fit into memory.
+
 h3. Snappy 1.4 does not work with Java 1.7
 
 Cassandra 1.2.x makes use of Snappy 1.4. Titan will not be able to connect to Cassandra if the server is running Java 1.7 and Cassandra 1.2.x (with Snappy 1.4). Be sure to remove the Snappy 1.4 jar in the @cassandra/lib@ directory and replace with a Snappy 1.5 jar version ("available here":http://code.google.com/p/snappy-java/downloads/list).
+
