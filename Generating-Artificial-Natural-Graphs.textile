@@ -27,7 +27,7 @@ size = 100000; ids = [g.addVertex().id]; rand = new Random();
   ids.add(u.id);
   ids.add(v.id);
   if(it % 1000 == 0) 
-    g.stopTransaction(SUCCESS)
+    g.commit()
 }
 ```
 
