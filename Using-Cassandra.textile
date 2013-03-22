@@ -101,6 +101,10 @@ In addition to the general "Titan Graph Configuration":Graph-Configuration, ther
 
 For more information on Cassandra consistency levels and acceptable values, please refer to the "Cassandra documentation":http://wiki.apache.org/cassandra/API. In general, higher levels are more consistent and robust but have higher latency.
 
+h2. Global Graph Operations
+
+Titan over Cassandra supports global vertex and edge iteration. However, note that all these vertices and/or edges will be loaded into memory which can cause @OutOfMemoryException@. Use "Faunus":http://thinkaurelius.github.com/faunus/ to iterate over all vertices or edges in large graphs.
+
 h2. Deploying on Amazon EC2
 
 !http://cdn001.practicalclouds.com/user-content/1_Dave%20McCormick//logos/Amazon%20AWS%20plus%20EC2%20logo_scaled.png!:http://aws.amazon.com/ec2/
