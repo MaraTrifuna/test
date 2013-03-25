@@ -11,9 +11,10 @@ For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a
 ```xml
 <dependency>
    <groupId>com.thinkaurelius.titan</groupId>
-   <artifactId>titan</artifactId>
+   <artifactId>titan-core</artifactId>
    <version>0.2.1</version>
 </dependency>
+<!-- core, all, cassandra, hbase, berkeleyje -->
 ```
 
 h2. Titan Manual
