@@ -85,7 +85,7 @@ rexster[groovy]> g = rexster.getGraph("graph")
 ==>titangraph[cassandrathrift:127.0.0.1]
 rexster[groovy]> g.V('name','saturn').name
 ==>saturn
-``` 
+```
 
 h3. Titan Embedding
 
