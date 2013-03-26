@@ -58,6 +58,8 @@ curl http://localhost:8182/graphs
 }
 ```
 
+It is also possible to deploy "Rexster Extensions":https://github.com/tinkerpop/rexster/wiki/Extensions in Titan Server.  "Create":https://github.com/tinkerpop/rexster/wiki/Creating-an-Extension an extension and put it in Titan Server's path (i.e. the @lib@ directory).  Since Titan Server only exposes a single graph, it assumes that all extensions should be automatically deployed and be made available, therefore no specific configuration is required to expose the extension.  If the extension requires specific "configuration":https://github.com/tinkerpop/rexster/wiki/Extension-Configuration for its operations, simple add the configuration to an @<extensions>@ element within the root of the Rexster configuration file.
+
 *Note* - Titan Server does not support "Dog House":https://github.com/tinkerpop/rexster/wiki/The-Dog-House.  It is always configured to be disabled.
 
 h3. Connecting to Titan via Rexster Console
