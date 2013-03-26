@@ -38,7 +38,7 @@ client.close();
 
 First above, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterClient.execute()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary. The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterClient@ provides additional @execute()@ methods where the signature of each query answer can be specified as a template. The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query. Once all queries have been issued, the connection is closed.
 
-h3. Connecting to Titan Via HTTP/REST
+h3. Connecting to Titan Server Via HTTP/REST
 
 Titan Server will expose the same [[REST API|https://github.com/tinkerpop/rexster/wiki/Basic-REST-API]] as Rexster.
 
