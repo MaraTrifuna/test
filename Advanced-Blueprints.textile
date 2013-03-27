@@ -1,1 +1,30 @@
-Blah.
+[[https://raw.github.com/tinkerpop/blueprints/master/doc/images/blueprints-character-3.png|width=100px]]
+
+"Blueprints":http://blueprints.tinkerpop.com provides a set of common property graph interfaces by which any vendor can implement and leverage the "TinkerPop":http://tinkerpop.com stack of technologies. Within Blueprints, there are other utilities that are generally useful like import/export formats as well graph wrappers.
+
+h2. Using IdGraph
+
+It is possible to use Blueprints' "IdGraph":https://github.com/tinkerpop/blueprints/wiki/Id-Implementation with Titan. However, if you want to use IdGraph for user specified ids on ~both~ vertices and edges, then it is important to declare the @__id@ index using @TitanGraph.makeType()@ first in Titan:
+
+```text
+gremlin> g
+==>titangraph[local:/tmp/test]
+gremlin> g.makeType().name('__id').unique(OUT).indexed(Vertex.class).indexed(Edge.class).dataType(String.class).makePropertyKey()
+==>v[36028797018964170]
+gremlin> g = new IdGraph(g)
+==>idgraph[titangraph[local:/tmp/test]]
+gremlin> g.addVertex("hercules")
+==>v[hercules]
+gremlin> g.v("hercules")
+==>v[hercules]
+
+```
+
+If only user defined ids on vertices (or edges) is needed, then simply use one of the overloaded @IdGraph@ constructors:
+
+```text
+gremlin> g = TitanFactory.open('/tmp/test')
+==>titangraph[local:/tmp/test]
+gremlin> g = new IdGraph(g,true,false) // where true is for vertices and false is for edges
+==>idgraph[titangraph[local:/tmp/test]]
+```
