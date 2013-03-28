@@ -4,7 +4,7 @@ bq. In the beginning, there existed two deities known as "Uranus":http://en.wiki
 
 h2. The Graph of the Gods
 
-The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon. _The Graph of the Gods_ "GraphML":http://graphml.graphdrawing.org/ file is available at "this location":https://github.com/thinkaurelius/titan/blob/master/data/graph-of-the-gods.xml.
+The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon.
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png|align=center]]
 
@@ -51,22 +51,21 @@ h2. Loading Data Into Titan
 "Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. The example below will load _The Graph of the Gods_ into Titan. @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local, single machine instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local mode is sufficient. Other pages in the documentation demonstrate distributing Titan across multiple machines, for instance [[using Cassandra]] or [[using HBase]]. Refer to the [[storage backend overview]] on how to choose the optimal persistence mode.
 
 ```text
-gremlin> g = TitanFactory.open('/tmp/titan')              
+gremlin> g = GraphOfTheGodsFactory.create('/tmp/titan')           
 ==>titangraph[local:/tmp/titan]
 ```
+@GraphOfTheGodsFactory.create()@ is provided with @titan-core@ and loads _The Graph of the Gods_ dataset into a local @TitanGraph@. The method does the following to the graph newly constructed graph prior to returning it:
 
-The created Titan database is empty and ready to be loaded with data. Before doing so, a "key index":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices is created over the property @name@. This will ensure that all vertices with the property @name@ are indexed by their respective name value. With a key index on @name@, looking up a vertex by its name takes @O(1)@ or @O(log(n))@ time depending on the [[storage backend | Storage Backend Overview]].
+  # Generate a collection of global and vertex-centric indices on the graph.
+  # Adds all the vertices to the graph along with their properties.
+  # Adds all the edges to the graph along with their properties.
+
+
+h2. Global Graph Indices
+
+A unique, graph indexed key is denoted by a bold (graph index) and a star (unique) in _The Graph of the Gods_ diagram above. Given that there is a unique index on @name@ property, the Saturn vertex can be retrieved.  The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules. This is a typical pattern when using a graph database: locate the entry point into the graph using a graph index and then traverse edges.
 
 ```text
-gremlin> g.createKeyIndex('name', Vertex.class)
-==>null
-```
-
-The following snippet loads _The Graph of the Gods_ dataset which comes packaged with Titan in the @data/@ directory. Given that there is an index on @name@ property, the Saturn vertex can be retrieved. The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules.
-
-```text
-gremlin> g.loadGraphML('data/graph-of-the-gods.xml')
-==>null
 gremlin> saturn = g.V('name','saturn').next()
 ==>v[20]
 gremlin> saturn.map()
@@ -74,6 +73,17 @@ gremlin> saturn.map()
 ==>type=titan
 gremlin> saturn.in('father').in('father').name
 ==>hercules
+```
+
+The property @place@ is also in a graph index. This means it is possible to query the graph for all events that have happened within 50 kilometers of Athens (lat:37.97, long:23.72). Then, given that information, which vertices were involved in the event.
+
+```
+gremlin> g.query().has('place',Geo.WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
+==>e[2T-o-2F0LaTPQBM][24-battled->40]
+==>e[2R-o-2F0LaTPQBM][24-battled->36]
+gremlin> g.query().has('place',Geo.WITHIN,Geoshape.circle(37.97,23.72,50)).edges().collect { it.bothV.name.next(2) }
+==>[hercules, hydra]
+==>[hercules, nemean]
 ```
 
 h2. Graph Traversal Examples
@@ -120,6 +130,12 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 ==>cerberus
 ==>hydra
 ```
+
+Because @time@ is a vertex-centric index, retrieving edges incident to Hercules according to a filter on @time@ is faster (typically @O(log n)@, where @n@ is the number incident edges) than doing a linear scan of all edges and filtering.
+
+
+
+
 
 h2. More Complex Graph Traversal Examples
 
