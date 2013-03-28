@@ -13,7 +13,6 @@ The examples in this section make extensive use of a toy graph distributed with 
   * +key+: a vertex-centric indexed key.
   * hollow head edge: a functional/unique edge (no duplicates).
   * tail crossed edge: a unidirectional edge (can only traverse in one direction).
-   
 
 h2. Downloading Titan and Running the Gremlin Shell
 
@@ -62,7 +61,7 @@ gremlin> g = GraphOfTheGodsFactory.create('/tmp/titan')
 ```
 The @GraphOfTheGodsFactory.create()@ method does the following to the newly constructed graph prior to returning it:
 
-  # Generate a collection of global and vertex-centric indices on the graph.
+  # Creates a collection of global and vertex-centric indices on the graph.
   # Adds all the vertices to the graph along with their properties.
   # Adds all the edges to the graph along with their properties.
 
@@ -193,9 +192,11 @@ gremlin> pluto.out('brother').as('god').out('lives').as('place').select{it.name}
 ==>[god:neptune, place:sea]
 ```
 
-Finally, Pluto's life in Tartarus is because he shows no concern for death. His brothers, on the other hand, chose their locations based upon their love for certain qualities of those locations.
+Finally, Pluto's lives in Tartarus because he shows no concern for death. His brothers, on the other hand, chose their locations based upon their love for certain qualities of those locations.
 
 ```text
+gremlin> pluto.outE('lives').reason
+==>no fear of death
 gremlin> g.query().has('reason',Text.CONTAINS,'love').edges()
 ==>e[2B-g-2F0LaTPQBU][16-lives->8]
 ==>e[2H-k-2F0LaTPQBU][20-lives->12]
