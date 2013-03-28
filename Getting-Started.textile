@@ -4,13 +4,13 @@ bq. In the beginning, there existed two deities known as "Uranus":http://en.wiki
 
 h2. The Graph of the Gods
 
-The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon.
+The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon. Moreover, special text and symbol modifiers (e.g. bold, underline, etc.) denote particular schematic/typing aspects of the graph.
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png|align=center]]
 
-  * @*key*@: a graph indexed key.
-  * @*key**@: a graph indexed key that must have a unique value.
-  * @+key+@: a vertex-centric indexed key.
+  * *key*: a graph indexed key.
+  * *key* *: a graph indexed key that must have a unique value.
+  * +key+: a vertex-centric indexed key.
   * hollow head edge: a functional/unique edge (no duplicates).
   * tail crossed edge: a unidirectional edge (can only traverse in one direction).
    
@@ -21,15 +21,12 @@ h2. Downloading Titan and Running the Gremlin Shell
 
 bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
 
-Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/wiki/Downloads section of the project repository. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. The Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. interactive shell) is distributed with Titan and differs slightly from the main Gremlin distribution in that is comes preloaded with Titan-specific @imports@ and helper methods. In the example below, @titan.zip@ is used, however, be sure to unzip the zip-file that was downloaded.
+Titan can be downloaded from the "Downloads":https://github.com/thinkaurelius/titan/wiki/Downloads section of the project repository. Once retrieved and unpacked, a "Gremlin":http://gremlin.tinkerpop.com terminal can be started. The Gremlin "REPL":http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop (i.e. interactive shell) is distributed with Titan and differs slightly from the main "TinkerPop":http://tinkerpop.com Gremlin distribution in that is comes preloaded with Titan-specific @imports@ and helper methods. In the example below, @titan.zip@ is used, however, be sure to unzip the zip-file that was downloaded.
 
 ```text
 $ unzip titan.zip
 Archive:  titan.zip
    creating: titan/
-  inflating: titan/pom.xml  
-   creating: titan/src/
-   creating: titan/src/assembly/
 ...
 $ cd titan
 $ bin/gremlin.sh 
@@ -40,7 +37,7 @@ $ bin/gremlin.sh
 gremlin>
 ```
 
-The Gremlin terminal is a "Groovy":http://groovy.codehaus.org/ shell. Groovy is a superset of Java that has various shorthand notations that make interactive programming easier. The basic examples below demonstrate handling numbers, strings, and maps.
+The Gremlin terminal is a "Groovy":http://groovy.codehaus.org/ shell. Groovy is a superset of Java that has various shorthand notations that make interactive programming easier. Likely-wise Gremlin is a superset of Groovy with various shorthand notations that make graph traversals easy to express. The basic examples below demonstrate handling numbers, strings, and maps. The remainder of the tutorial will discuss graph-specific constructs.
 
 ```text
 gremlin> 100-10
@@ -55,36 +52,36 @@ gremlin> [name:'aurelius',vocation:['philosopher','emperor']]
 h2. Loading Data Into Titan
 
 [[https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-running.png|width=125px|align=left|float]] 
-"Gremlin":http://gremlin.tinkerpop.com is a graph traversal language that can be used with any "Blueprints":http://blueprints.tinkerpop.com enabled graph database. The example below will load _The Graph of the Gods_ into Titan. @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local, single machine instance of Titan is created using the @TitanFactory.open(String directory)@ method. For the sake of understanding graphs, local mode is sufficient. Other pages in the documentation demonstrate distributing Titan across multiple machines, for instance [[using Cassandra]] or [[using HBase]]. Refer to the [[storage backend overview]] on how to choose the optimal persistence mode.
+The example below will load _The Graph of the Gods_ dataset diagrammed above into Titan. When working with a fresh graph (beyond this tutorial), @TitanFactory@ provides methods to create various Titan instances (e.g. local, distributed, etc.). A local, single machine instance of Titan is created using the @TitanFactory.open(String directory)@ method. Other pages in the documentation demonstrate distributing Titan across multiple machines, for instance [[using Cassandra]] or [[using HBase]]. Refer to the [[storage backend overview]] on how to choose the optimal persistence mode. For the purpose of this tutorial, a pre-constructed graph is provided.
 
 ```text
 gremlin> g = GraphOfTheGodsFactory.create('/tmp/titan')           
 ==>titangraph[local:/tmp/titan]
 ```
-@GraphOfTheGodsFactory.create()@ is provided with @titan-core@ and loads _The Graph of the Gods_ dataset into a local @TitanGraph@. The method does the following to the graph newly constructed graph prior to returning it:
+The @GraphOfTheGodsFactory.create()@ method does the following to the newly constructed graph prior to returning it:
 
   # Generate a collection of global and vertex-centric indices on the graph.
   # Adds all the vertices to the graph along with their properties.
   # Adds all the edges to the graph along with their properties.
 
-
 h2. Global Graph Indices
 
-A typical pattern for accessing data in a graph database is to first locate the entry point into the graph using a graph index and then, traverse from those elements to other elements in the graph via the explicit graph structure.
+A typical pattern for accessing data in a graph database is to first locate the entry point into the graph using a graph index and then, traverse from those elements (vertices/edge) to other elements in the graph via the explicit graph structure.
 
-A unique, graph indexed key is denoted by a bold (graph index) and a star (unique) in _The Graph of the Gods_ diagram above. Given that there is a unique index on @name@ property, the Saturn vertex can be retrieved.  The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules.
+Given that there is a unique index on @name@ property, the Saturn vertex can be retrieved.  The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn," an @age@ of 10000, and a @type@ of "titan." The grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules.
 
 ```text
 gremlin> saturn = g.V('name','saturn').next()
-==>v[20]
+==>v[4]
 gremlin> saturn.map()
 ==>name=saturn
+==>age=10000
 ==>type=titan
 gremlin> saturn.in('father').in('father').name
 ==>hercules
 ```
 
-The property @place@ is also in a graph index. This means it is possible to query the graph for all events that have happened within 50 kilometers of Athens (lat:37.97, long:23.72). Then, given that information, which vertices were involved in the event.
+The property @place@ is also in a graph index. The property @place@ is an edge property. Thus, Titan can index edges in a graph index. This means it is possible to query the graph for all events that have happened within 50 kilometers of "Athens":http://en.wikipedia.org/wiki/Athens (latitude:37.97 and long:23.72). Then, given that information, which vertices were involved in the event.
 
 ```text
 gremlin> g.query().has('place',Geo.WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
@@ -94,6 +91,8 @@ gremlin> g.query().has('place',Geo.WITHIN,Geoshape.circle(37.97,23.72,50)).edges
 ==>[hercules, hydra]
 ==>[hercules, nemean]
 ```
+
+Graph indices form on half of the indexing model of Titan. Graph indices are accessible via the @Graph.query()@ method. The other indexing model is vertex-centric indices which are described later. Vertex-centric indices are accessible via the @Vertex.query()@ method.
 
 h2. Graph Traversal Examples
 
@@ -124,7 +123,7 @@ gremlin> hercules.type
 ==>demigod
 ```
 
-The examples thus far have been with respect to the genetic lines of the various actors in the Roman pantheon. However, the "property graph data model":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model is expressive enough to represent multiple types of things and relationships. In this way, _The Graph of the Gods_ can also identify Hercules' various heroic exploits --- his famous 12 labors.
+The examples thus far have been with respect to the genetic lines of the various actors in the Roman pantheon. However, the "property graph data model":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model is expressive enough to represent multiple types of things and relationships. In this way, _The Graph of the Gods_ can also identify Hercules' various heroic exploits --- his famous 12 labors. In the previous section, it was discovered that Hercules was involved in two battles near Athens. It is possible to explore these events by traversing @battled@ edges out of the Hercules vertex.
 
 ```text
 gremlin> hercules.out('battled')
@@ -140,10 +139,7 @@ gremlin> hercules.outE('battled').has('time',T.gt,1).inV.name
 ==>hydra
 ```
 
-Because @time@ is a vertex-centric index, retrieving edges incident to Hercules according to a filter on @time@ is faster (typically @O(log n)@, where @n@ is the number incident edges) than doing a linear scan of all edges and filtering.
-
-
-
+Because @time@ is a vertex-centric index, retrieving edges incident to Hercules according to a contraint/filter on @time@ is faster (typically @O(log n)@, where @n@ is the number incident edges) than doing a linear scan of all edges and filtering.
 
 
 h2. More Complex Graph Traversal Examples
