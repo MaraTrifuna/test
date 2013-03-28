@@ -8,6 +8,13 @@ The examples in this section make extensive use of a toy graph distributed with 
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png|align=center]]
 
+  * @*key*@: a graph indexed key.
+  * @*key**@: a graph indexed key that must have a unique value.
+  * @+key+@: a vertex-centric indexed key.
+  * hollow head edge: a functional/unique edge (no duplicates).
+  * tail crossed edge: a unidirectional edge (can only traverse in one direction).
+   
+
 h2. Downloading Titan and Running the Gremlin Shell
 
 [[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|align=right|float|width=115px]]
@@ -63,7 +70,9 @@ gremlin> g = GraphOfTheGodsFactory.create('/tmp/titan')
 
 h2. Global Graph Indices
 
-A unique, graph indexed key is denoted by a bold (graph index) and a star (unique) in _The Graph of the Gods_ diagram above. Given that there is a unique index on @name@ property, the Saturn vertex can be retrieved.  The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules. This is a typical pattern when using a graph database: locate the entry point into the graph using a graph index and then traverse edges.
+A typical pattern for accessing data in a graph database is to first locate the entry point into the graph using a graph index and then, traverse from those elements to other elements in the graph via the explicit graph structure.
+
+A unique, graph indexed key is denoted by a bold (graph index) and a star (unique) in _The Graph of the Gods_ diagram above. Given that there is a unique index on @name@ property, the Saturn vertex can be retrieved.  The property map (i.e. the key/value pairs of Saturn) can then be examined. As demonstrated, the Saturn vertex has a @name@ of "saturn" and a @type@ of "titan." Finally, the grandchild of Saturn can be retrieved with a traversal that expresses: "Who is Saturns' childs' child?" (the inverse of "father" is "child"). The result is Hercules.
 
 ```text
 gremlin> saturn = g.V('name','saturn').next()
@@ -77,7 +86,7 @@ gremlin> saturn.in('father').in('father').name
 
 The property @place@ is also in a graph index. This means it is possible to query the graph for all events that have happened within 50 kilometers of Athens (lat:37.97, long:23.72). Then, given that information, which vertices were involved in the event.
 
-```
+```text
 gremlin> g.query().has('place',Geo.WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
 ==>e[2T-o-2F0LaTPQBM][24-battled->40]
 ==>e[2R-o-2F0LaTPQBM][24-battled->36]
