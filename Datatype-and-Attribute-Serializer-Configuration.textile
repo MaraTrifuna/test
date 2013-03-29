@@ -18,6 +18,9 @@ attributes.serializer10 = com.example.SpecialIntSerializer
 
 h2. Custom Object Serialization
 
-Titan supports arbitrary objects as property attributes and uses "Kryo's":http://code.google.com/p/kryo/ "default serializers":http://code.google.com/p/kryo/#Default_serializers to serialize such objects to disk. This default serializer may not work for your particular class, especially if it does not have a default constructor.
+Titan supports arbitrary objects as property attributes and uses "Kryo's":http://code.google.com/p/kryo/ "default serializers":http://code.google.com/p/kryo/#Default_serializers to serialize such objects to disk. For this default serializer to work for a custom class, the following two conditions must be fulfilled:
 
-Hence, we highly recommend that you *verify successful serialization and deserialization of all custom classes in Titan* prior to using that class. Should you encounter a (de)serialization failure, you can configure a custom serializer as explained above.
+* The class must have a no-argument constructor
+* The class must implement the @equals(Object)@ method
+
+The second requirement is Titan specific because Titan will test bot serialization and deserialization of a custom class before persisting data to disk.
