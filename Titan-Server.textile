@@ -22,7 +22,7 @@ Once the server has been started, it can be terminated by pressing CTRL+C or sen
 
 h3. Connecting to Titan Server Via RexPro
 
-The client application can now connect to the Titan Server on the configured hostname and port to issue Gremlin queries using [[RexsterClient|https://github.com/tinkerpop/rexster/wiki/RexPro-Java]]
+The client application can now connect to the Titan Server on the configured hostname and port to issue Gremlin queries using [[RexsterClient|https://github.com/tinkerpop/rexster/wiki/RexPro-Java]].
 
 ```java
 RexsterClient client = RexsterClientFactory.open("localhost", "graph");
