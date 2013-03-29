@@ -4,6 +4,8 @@ Titan interfaces with multiple indexing systems to provide support for geo, nume
 
 Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
 
+<br /><br /><br />
+
 h2. Configuration
 
 To configure an instance of an index backend with Titan, one has to give that instance a unique name. That name is important because it is used to identify the index in the initial configuration and when defining vertex and edge key indices in the graph. Once configured, this name cannot be changed.
