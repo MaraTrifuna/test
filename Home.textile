@@ -43,6 +43,10 @@ h2. Titan Manual
 *** [[Using BerkeleyDB]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
+** Indexing Backends
+*** [[Indexing Backend Overview]]
+*** [[Using Elastic Search]]
+*** [[Using Lucene]]
 ** Type Management
 *** [[Type Definition Overview]] (*cheat sheet*)
 ** Configuration and Tuning
