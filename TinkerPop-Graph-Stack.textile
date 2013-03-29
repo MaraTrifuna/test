@@ -5,6 +5,6 @@ Titan natively implements the [[Blueprints Interface]] which means that it suppo
   * "Blueprints":http://blueprints.tinkerpop.com - The property graph model interface implemented by Titan which provides various utilities to aid developers.
   * "Gremlin":http://gremlin.tinkerpop.com - A graph traversal language for expressing complex walks through a graph.
   * "Frames":http://frames.tinkerpop.com - An object-to-graph mapper for rendering Java objects from graph data.
-  * "Rexster":http://rexster.tinkerpop.com - A graph server for exposing the graph via REST along with various HTML-based GUI tools for managing the graph.
+  * "Rexster":http://rexster.tinkerpop.com - A graph server for exposing the graph via REST, a binary protocol, and HTML-based GUI tools.
 
 Being a native implementation means that Titan directly implements the Blueprints interface without an adapter. This makes Titan one of the most efficient Blueprints implementations which benefits the performance of all TinkerPop projects when running on Titan.
