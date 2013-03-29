@@ -13,7 +13,7 @@ For developing against the most current version of Titan, depend on Titan snapsh
 ```xml
 <dependency>
    <groupId>com.thinkaurelius.titan</groupId>
-   <artifactId>titan</artifactId>
+   <artifactId>titan-core</artifactId>
    <version>X.Y.Z-SNAPSHOT</version>
 </dependency>
 ```
