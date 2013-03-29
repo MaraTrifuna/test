@@ -5,6 +5,42 @@ Titan: Distributed Graph Database
 
 h2. Titan 0.y.z
 
+h3. Version 0.3.0 (March 29, 2013)
+
+```xml
+<dependency>
+   <groupId>com.thinkaurelius.titan</groupId>
+   <artifactId>titan-core</artifactId>
+   <version>0.3.0</version>
+</dependency>
+```
+*Tested Compatibility:*
+
+* Cassandra 1.2.2
+* HBase 0.94
+* BerkeleyJE 5.0.73
+
+*Features:*
+
+* Geo, numeric range, and full-text indexing supporting multiple index backends
+* Edge Indexing
+* Refactoring of Titan-core for enhanced performance due to selective de-serialization
+* New query optimizer for vertex-centric and graph queries
+* Vertex centric query caching for selective queries
+* InMemoryGraph implementation
+* IdGraph support
+* Relaxed transactional scope requirement for vertices
+* Edge now longer extends Vertex
+* Updated to Kryo 2
+
+*Bugfixes:*
+
+* Cassandra Thrift Max-Message-Size issue
+* JMX settings for Titan Server
+* Out-unique edges
+* Modified state in global graph operations
+* see issue tracker for a full list
+
 h3. Version 0.2.1 (March 22, 2013)
 
 ```xml
