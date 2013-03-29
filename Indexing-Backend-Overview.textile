@@ -1,1 +1,47 @@
 [[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left]]
+
+Titan interfaces with multiple indexing systems to provide support for geo, numeric range, and full-text search. Similar to storage backends, index backends are configured once initially and managed entirely by Titan. The choice of index backend determines which search features are supported, as well as the performance and scalability of the index.
+
+Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
+
+h2. Configuration
+
+To configure an instance of an index backend with Titan, one has to give that instance a unique name. That name is important because it is used to identify the index in the initial configuration and when defining vertex and edge key indices in the graph. Once configured, this name cannot be changed.
+
+All index configuration options start with @storage.index@ followed by the name of the index. For instance, to configure the index @search@ to use the elasticsearch index backend, one would add the following configuration option:
+
+```text
+storage.index.search.backend=elasticsearch
+```
+
+All other configuration options pertaining to that particular index instance would likewise start with @storage.index.search@. Please refer to the documentation pages of the respective index backends for individual configuration options.
+
+h2. Defining Key Indices
+
+Once an index instance has been configured, that instance can be used to index vertices and edges by their properties. To index properties of a particular key, the key has to be defined as _indexed_ when it is first created.
+
+```java
+graph.makeType().name("age").dataType(Integer.class).indexed("search", Vertex.class).unique(Direction.OUT).makePropertyKey();
+```
+
+In the example above, the property key _age_ is defined and all vertices are indexed by their _age_ property using the _search_ index instance configured previously. To index both vertices and edges by age we would define:
+
+```java
+graph.makeType().name("age").dataType(Integer.class).indexed("search", Vertex.class).indexed("search",Edge.class).unique(Direction.OUT).makePropertyKey();
+```
+
+h2. Using the Index
+
+Vertices and Edges are retrieved from the index using @GraphQuery@ by specifying a condition on the property key. For instance, the following example retrieves all vertices with an age greater than 50:
+
+```java
+g.query().has("age",GREATER_THAN,50).vertices()
+```
+
+To query for edges, only the last method changes:
+
+```java
+g.query().has("age",GREATER_THAN,50).edges()
+```
+
+One can combine multiple conditions to form complex queries. For more examples of global graph index queries, please refer to the [[Getting started]] page.
