@@ -1,0 +1,1 @@
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-lucene.png|width=175px|align=left]]
