@@ -59,7 +59,7 @@ h2. Index Configuration
 Titan can interface with multiple index system to provide support for geo, numeric range, and full-text search.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| storage.index.INDEX-NAME.backend | Implementation of the index provider configured for _INDEX-NAME_. Additional configuration options specific to this index are configured in the same configuration namespace. Please refer to the documentation page of the index provider for more information  | _elasticsearch_ or _lucene_ | none | No |
+| storage.index._INDEX-NAME_.backend | Implementation of the index backend configured for _INDEX-NAME_. Additional configuration options specific to this index are configured in the same configuration namespace. Please refer to the documentation page of the index backend for more information  | _elasticsearch_ or _lucene_ | none | No |
 
 h2. General Configuration
 
