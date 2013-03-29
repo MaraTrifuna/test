@@ -80,4 +80,8 @@ Each storage backend has additional configuration options which are listed on th
 * [[Cassandra Configuration | Using Cassandra]]
 * [[HBase Configuration | Using HBase]]
 * [[BerkeleyDB Configuration | Using BerkeleyDB]]
+
+Each index backend has additional configuration options which are listed on the following pages:
+* [[Elastic Search Configuration | Using Elastic Search]]
+* [[Lucene Configuration | Using Lucene]]
                                                                          
