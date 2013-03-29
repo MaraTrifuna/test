@@ -41,6 +41,8 @@ h3. Version 0.3.0 (March 29, 2013)
 * Modified state in global graph operations
 * see issue tracker for a full list
 
+==<hr/>==
+
 h3. Version 0.2.1 (March 22, 2013)
 
 ```xml
