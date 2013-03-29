@@ -100,10 +100,20 @@ juno = g.getVertices("name","juno").iterator().next();
 
 In the example above, we first create a vertex index for the property key @name@. Property indices have to be explicitly created, so that Titan knows what needs to be indexed. Next, we create the vertex "juno" and set its name as before. Since we set the property @name@, the juno vertex is now indexed. We can retrieve it from the index using the @getVertices(String,Object)@ method, which returns an iterable over all vertices that have a matching property.
 
-Read more about "Blueprints indices":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices and note the following [[Titan specific limitations|Titan Limitations]]: 
+Titan can also retrieve edges using property indices. Extending on the example above:
 
-* Key indices need to be created before the key is first used.
-* Titan does not support edge indices.
+```java
+g.createKeyIndex("time",Edge.class);
+Vertex jena = g.addVertex(null);
+jena.setProperty("name", "jena");
+Edge e = jena.addEdge("knows",juno);
+e.setProperty("time",99);
+g.getEdges("time",99).iterator().next();
+```
+
+As in the previous example, we first create an edge index for the property key @time@. After adding an edge with a time property, we can retrieve that edge using the index.
+
+Read more about "Blueprints indices":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices and note the following [[Titan specific limitations|Titan Limitations]]: Key indices need to be created before the key is first used.
 
 h2. Next steps
 
