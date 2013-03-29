@@ -8,10 +8,6 @@ h3. Size Limitation
 
 Titan can store up to a quintillion edges (2^60) and half as many vertices. That limitation is imposed by Titan's id scheme.
 
-h3. Transactional Scope
-
-Titan strictly enforces the transactional scope, which means that all elements associated with a transaction become unavailable when that transaction is stopped. To learn how to refresh elements, read more on [[Transaction Handling]].
-
 h3. DataType Definitions
 
 When declaring the data type of a property key using @dataType(Class)@ Titan will enforce that all properties for that key have the declared type, unless that type is @Object.class@. This is an equality type check, meaning that sub-classes will not be allowed. For instance, one cannot declare the data type to be @Number.class@ and use @Integer@ or @Long@. For efficiency reasons, the type needs to match exactly. Hence, you @Object.class@ as the data type for type flexibility. In all other cases, declare the actual data type to benefit from increased performance and type safety.
@@ -45,6 +41,10 @@ Titan supports arbitrary objects as attribute values on properties. To use a cus
 h3. Global Graph Operations
 
 Since version 0.2.1, Titan supports global graph operations for all storage backends. However, beware that such operations will likely cause @OutOfMemoryException@ for large graphs since all vertices and/or edges can be loaded into memory by iterating through them.  Use "Faunus":http://thinkaurelius.github.com/faunus/ to implement global graph operations on large, distributed Titan graphs that do not fit into memory.
+
+h3. Transactional Scope for Edges
+
+Edges should not be accessed outside the scope in which they were originally created or retrieved.
 
 h3. Snappy 1.4 does not work with Java 1.7
 
