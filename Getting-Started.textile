@@ -200,10 +200,10 @@ Finally, Pluto lives in Tartarus because he shows no concern for death. His brot
 ```text
 gremlin> pluto.outE('lives').reason
 ==>no fear of death
-gremlin> g.query().has('reason',Text.CONTAINS,'love').edges()
+gremlin> g.query().has('reason',Text.CONTAINS,'loves').edges()
 ==>e[2B-g-2F0LaTPQBU][16-lives->8]
 ==>e[2H-k-2F0LaTPQBU][20-lives->12]
-gremlin> g.query().has('reason',Text.CONTAINS,'love').edges().collect{
+gremlin> g.query().has('reason',Text.CONTAINS,'loves').edges().collect{
   [it.outV.name.next(),it.reason,it.inV.name.next()] 
 }
 ==>[jupiter, loves fresh breezes, sky]
