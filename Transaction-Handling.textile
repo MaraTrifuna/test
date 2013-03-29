@@ -11,18 +11,22 @@ In this example, a local Titan graph database is opened. Adding the vertex "juno
 
 h2. Transactional Scope
 
-All graph elements (vertices, edges, and types) are only available in the transactional scope in which they were originally created. After a transaction is stopped, all its associated elements become unavailable and can no longer be accessed. For example, after creating the vertex "juno" and stopping the transaction in the code snippet above, the "juno" vertex becomes unavailable and accessing it would result in an exception. The transactional scope is strictly enforced to avoid accessing "stale" elements. To illustrate this point, assume a multi-user environment for the code example above. After stopping the transaction, all (potentially) held locks on the "juno" vertex are released and another transaction running in a different thread (or on another machine) might mutate the vertex. The vertex reference "juno" would thus be stale and further access to the vertex could lead to inconsistencies.
-To re-active the "juno" vertex we need to refresh it in the currently running transaction as shown in the following example:
+All graph elements (vertices, edges, and types) are associated with the transactional scope in which they were retrieved or created. Under Blueprint's default transactional semantics, transactions are automatically created with the first operation on the graph and closed explicitly using @commit()@ or @rollback()@. Once the transaction is closed, all graph elements associated with that transaction become stale and unavailable. However, Titan will automatically transition vertices and types into the new transactional scope as shown in this example:
 
 ```java
 TitanGraph g = TitanFactory.open("/tmp/titan");
 Vertex juno = g.addVertex(null); //Automatically opens a new transaction
-juno.setProperty("name", "juno");
-g.commit(); //Commits transaction
-Vertex jupiter = g.addVertex(null); //Automatically opens another transaction
-jupiter.setProperty("name", "jupiter");
-juno = g.getVertex(juno);
-Edge married = g.addEdge(null, juno, jupiter, "married");
+g.commit(); //Ends transaction
+juno.setProperty("name", "juno"); //Vertex is automatically transitioned
+```
+
+Edges, on the other hand, are not automatically transitioned and cannot be accessed outside their original transaction. They must be explicitly transitioned.
+
+```java
+Edge e = juno.addEdge("knows",g.addVertex(null));
+g.commit(); //Ends transaction
+e = g.getEdge(e); //Need to refresh edge
+e.setProperty("time", 99);
 ```
 
 h2. Transaction Failures
