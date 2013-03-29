@@ -114,4 +114,3 @@ Rexster has a rich "API":https://github.com/tinkerpop/rexster/wiki/Basic-REST-AP
 
 * Titan automatically assigns identifiers. Hence, the POST of an edge cannot be done with an identifier. In other words, POST to this: @http://localhost/graphs/titan/edges@ and _not_ to this @http://localhost/graphs/titan/edges/1234@.
 * Titan uses key indices and does not support manual indices. Hence, all operations on the @indices@ resource are not supported. Use key indexes instead.
-* Depending on Titan's configured backend, there may be limitations in the usage of Dog House.  Titan does not support iterating edges and vertices (except when used with BerkleyDB) and therefore many functions will not be available that require those REST API calls.
