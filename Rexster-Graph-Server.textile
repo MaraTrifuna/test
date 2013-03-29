@@ -1,8 +1,6 @@
 !https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-logo.png!:http://rexster.tinkerpop.com
 
-"Rexster":http://rexster.tinkerpop.com exposes any Titan graph database via a JSON-based REST interface. In this way, the raw graph's vertices and edges can be referenced using REST endpoints. Moreover, provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.
-
-Titan includes a light-weight version of Rexster as the [[Titan Server]] which is easier to setup and provides better performance than the full Rexster server. However, [[Titan Server]] only supports Gremlin queries and does not provide a REST interface.
+"Rexster":http://rexster.tinkerpop.com exposes any Titan graph database via a JSON-based "REST":https://github.com/tinkerpop/rexster/wiki/Basic-REST-API interface and a binary protocol called "RexPro":https://github.com/tinkerpop/rexster/wiki/RexPro. Provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers. Titan packages Rexster in [[Titan Server]] which makes setup and deployment easy. Note that Titan Server does not provide any GUI interfaces.
 
 h2. The Benefits of Rexster
 
@@ -20,7 +18,7 @@ The following is a list of the "benefits of using Rexster":https://github.com/ti
 
 h2. Downloading and Starting Rexster
 
-Before using Rexster with Titan, it must for be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
+If not using [[Titan Server]], Rexster must first be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
 
 ```bash
 $ curl -O -L http://tinkerpop.com/downloads/rexster/rexster-server-x.y.z.zip > rexster-server-x.y.z.zip
@@ -34,7 +32,7 @@ $ cd rexster-server-x.y.z
 $ ./rexster-server.sh --start
 ```
 
-You can validate that it is working by opening a browser and navigating to @http://localhost:8182@ which should present a Rexster landing page with links to the root of the REST API and to the Dog House.
+Validate that it is working by opening a browser and navigating to @http://localhost:8182@ which should present a Rexster landing page with links to the root of the REST API and to the Dog House.
 
 Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and verified to be working, it is necessary to configure Rexster to work with Titan.
 
