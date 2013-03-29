@@ -14,8 +14,13 @@ For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a
    <artifactId>titan-core</artifactId>
    <version>0.3.0</version>
 </dependency>
-<!-- core, all, cassandra, hbase, berkeleyje -->
+<!-- core, all, cassandra, hbase, berkeleyje, es, lucene -->
 ```
+
+*Version Numbers*
+* Titan 0.1.z is deprecated and will no longer be supported.
+* Titan 0.2.z is still active and updates will continue.
+* Titan 0.3.z is new with experimental features.
 
 h2. Titan Manual
 
