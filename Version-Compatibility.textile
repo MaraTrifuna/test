@@ -7,6 +7,6 @@ The Titan project is growing along with the rest of the Aurelius Graph Cluster t
 | 0.1.0| 0.1-alpha | 1.1.z | 0.94.z | N/A |
 | 0.2.0 | 0.1.0 | 1.1.z | 0.94.z | N/A |
 | 0.2.1 | 0.1.1 | 1.2.z | 0.94.z | N/A |
-| 0.3.0 | 0.1.1 | 1.2.z | 0.94.z | 0.20.5 |
+| 0.3.0 | N/A | 1.2.z | 0.94.z | 0.20.5 |
 
 *NOTE*: Faunus 0.1.1 does not support the new geo property values in Titan 0.3.0. Faunus simply ignores them as if they don't exist. 
