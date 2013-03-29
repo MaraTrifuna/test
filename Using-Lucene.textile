@@ -1,5 +1,28 @@
-!http://lucene.apache.org/images/lucene_logo_green_300.png!
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-lucene.png|width=175px|align=right|float]]
 
 bq. Apache Lucene is a high-performance, full-featured text search engine library written entirely in Java. It is a technology suitable for nearly any application that requires full-text search, especially cross-platform. Apache Lucene is an open source project available for free download. -- "Apache Lucene Homepage":http://lucene.apache.org/
 
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-lucene.png|width=175px|align=left]]
+
+
+Titan supports "Lucene":http://lucene.apache.org/ as a single-machine, embedded index backend.
+
+<br /><br /><br />
+
+h2. Feature Support
+
+h3. Full-Text
+
+Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
+
+h3. Geo
+
+Supports the @Geo.WITHIN@ condition to search for points that fall within a given geographic shape. Only supports points for indexing and circles and boxes for querying.
+
+h3. Numeric Range
+
+Supports all numeric comparisons in @Compare@.
+
+h2. Configuration Options
+
+|_. Option |_. Description |_. Value |_. Default |_. Modifiable |
+| directory | Directory to store Lucene data. | string | - | yes |
