@@ -25,8 +25,8 @@ Labels and keys are automatically created when their name is first used. However
 
 |_. Method |_. Description |_. Applies to |_. Default |_. Inspection Method |
 | @name(String)@ | Defines the name of the type. *Must be unique across all types. Required.* | Label and Key | - | @TitanType.getName()@ |
-| @unique(Direction)@ | Configures the type to be unique in the given direction and acquires locks to ensure consistency | Label and Key | not functional | @TitanType.isUnique(Direction)@ |
-| @unique(Direction, lock)@ | Configures the type to be unique in the given direction with the specified consistency guarantee (either @LOCK@ or @NO_LOCK@). | Label and Key | not functional | @TitanType.isUnique(Direction)@ |
+| @unique(Direction)@ | Configures the type to be unique in the given direction and acquires locks to ensure consistency | Label and Key | not unique | @TitanType.isUnique(Direction)@ |
+| @unique(Direction, lock)@ | Configures the type to be unique in the given direction with the specified consistency guarantee (either @LOCK@ or @NO_LOCK@). | Label and Key | not unique | @TitanType.isUnique(Direction)@ |
 | @group(TypeGroup)@ | Assigns the type to the specified @TypeGroup@ which allows grouping of edges for efficient retrieval. | Label and Key | @DEFAULT_GROUP@ | @TitanType.getGroup()@ |
 | @directed()@ | Configures the type for directed edges, i.e. from out-vertex to in-vertex. | Label | directed | @TitanLabel.isDirected()@ |
 | @unidirected()@ | Configures the type for unidirected edges, i.e. edges that can only be traversed from out-vertex to in-vertex. Unidirected edges can be stored more efficiently | Label | directed | @TitanLabel.isUnidirected()@ |
@@ -41,13 +41,14 @@ is stored with the attribute value. See "Graph Configuration":Graph-Configuratio
 
 Below are some examples of creating labels and keys using @TypeMaker@.
 
-h3. Functional Types
+h3. Unique Types
  
-A type is functional, if there is at most one edge or property of this type per vertex. Specifically, this means:
-* A property key is functional, if a vertex has at most one value associated with the key. _name_ is an example of a functional property key since each god has one name.
-* An edge lable is functional, if a vertex has at most one outgoing edge for that label. _father_ is an exmaple of a functional edge label, since each god has at most one father.
+A type is unique, if there is at most one edge or property of this type per vertex in the given direction. Specifically, this means:
+* A property key is out-unique, if a vertex has at most one value associated with the key. _name_ is an example of an out-unique property key since each god has one name.
+* An edge lable is out-unique, if a vertex has at most one outgoing edge for that label. _father_ is an exmaple of an out-unique edge label, since each god has at most one father.
+* A property key is in-unique, if there is at most one vertex which has any given attribute as its property value. _ssn_ is an example of a in-unique property key since each social security number is uniquely associated with one person.
 
-Since edges and properties of functional labels and keys must be unique per vertex, inconsistencies could arise when two @TitanGraph@ instances try to update the same functional edge or property concurrently, since one may overwrite the change of the other. To avoid such inconsistencies, Titan will acquire locks on functional edges and properties by default. Acquiring locks, however, can be very expensive depending on the storage backend. In cases where concurrent modifications can be excluded or blind overwrites are acceptable, a functional @TitanType@ can be configured to _not_ acquire locks using @TypeMaker.functional(false)@. This configuration options should be used with care and only if the extra performance gain is needed.
+Since edges and properties of unique labels and keys must be unique per vertex, inconsistencies could arise when two @TitanGraph@ instances try to update the same unique edge or property concurrently, since one may overwrite the change of the other. To avoid such inconsistencies, Titan will acquire locks on unique edges and properties by default. Acquiring locks, however, can be very expensive depending on the storage backend. In cases where concurrent modifications can be excluded or blind overwrites are acceptable, a unique @TitanType@ can be configured to _not_ acquire locks by passing in @UniquenessConsistency.NO_LOCK@ as a second argument to @TypeMaker.unique()@. This configuration option should be used with care and only if the extra performance gain is needed.
 
 h3. Type Groups
 
@@ -78,31 +79,31 @@ h3. Primary Keys and Signatures
 Specifying the primary key of a labels allows edges with this label to be efficiently retrieved in the order of the key. Titan builds vertex-centric indexes for each label according to the primary key definition which can significantly speed up queries.
 
 ```java
-TitanKey time = g.makeType().name("time").dataType(Integer.class).functional().makePropertyKey();
+TitanKey time = g.makeType().name("time").dataType(Integer.class).unique(OUT).makePropertyKey();
 TitanLabel battled = g.makeType().name("battled").primaryKey(time).makeEdgeLabel();
 ```
 
-In this example, the functional property key time is defined with data type @Integer@. This property key is then used as the primary key for the _battled_ edge label. Hence, _battled_ edges will be sorted by time in ascending order and battles that happened in a certain time range can be queried for more efficiently. Moreover, _battled_ edges are stored more compactly on disk.
+In this example, the out-unique property key time is defined with data type @Integer@. This property key is then used as the primary key for the _battled_ edge label. Hence, _battled_ edges will be sorted by time in ascending order and battles that happened in a certain time range can be queried for more efficiently. Moreover, _battled_ edges are stored more compactly on disk.
 
-Note, that @TitanTypes@ used in the primary key must be either functional property keys or functional, simple, unidirected edge lables.
+Note, that @TitanTypes@ used in the primary key must be out-unique property keys or out-unique, unidirected edge labels.
 
 If one is not interested in configuring the order of edges but only wants to benefit from the storage efficiencies introduced by primary keys, one can alternatively configure the signature of a label. Specifying the signature of a label tells the graph database to _expect_ that edges with this label always have or are likely to have an incident property or unidirected edge of the type included in the signature. This allows the graph database to store such edges more compactly and retrieve them more quickly.
 
 ```java
-TitanKey time = g.makeType().name("time").dataType(Integer.class).functional().makePropertyKey();
+TitanKey time = g.makeType().name("time").dataType(Integer.class).unique(OUT).makePropertyKey();
 TitanLabel battled = g.makeType().name("battled").signature(time).makeEdgeLabel();
 ```
 
 This example is almost identical to the primary key example above with the only difference that _time_ is configured to be part of the signature.
 
 If a type is used in the primary key, it cannot be part of the signature.
-As before, @TitanTypes@ used in the signature must be either functional property keys or functional, simple, unidirected edge lables.
+As before, @TitanTypes@ used in the signature must be either out-unique property keys or out-unique, unidirected edge lables.
 
 h2. Default Type Creation
 
 Titan will create edge labels and property keys the first time they are referenced by name using a default configuration unless they have been previously configured using @TypeMaker@ as discussed above.
 
-By default, property keys are configured to be functional but non-locking with @Object.class@ as the data type. Note, that it is more efficient to define an appropriate data type via @TypeMaker@. Hence, property keys don't have an index by default. To create an indexed key with this default configuration, invoke @Graph.createKeyIndex("name",Vertex.class)@ before the property key is being used.
+By default, property keys are configured to be out-unique but non-locking with @Object.class@ as the data type. Note, that it is more efficient to define an appropriate data type via @TypeMaker@. Hence, property keys don't have an index by default. To create an indexed key with this default configuration, invoke @Graph.createKeyIndex("name",Vertex.class)@ before the property key is being used.
 
 Edge labels are created according to the default configuration shown in the table above.
 
