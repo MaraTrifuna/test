@@ -6,7 +6,7 @@ h2. General Titan Benefits
 
 * Support for very large graphs. Titan graphs scale with the number of machines in the cluster.
 * Support for very many concurrent transactions. Titan's transactional capacity scale with the number of machines in the cluster. 
-* Support for geo, numeric range, and full text search on very large graphs.
+* Support for geo, numeric range, and full text search for vertices and edges on very large graphs.
 * Native support for the popular property graph data model exposed by "Blueprints":http://blueprints.tinkerpop.com.
 * Native support for the graph traversal language "Gremlin":http://gremlin.tinkerpop.com.
 * Easy integration with the "Rexster":http://rexster.tinkerpop.com graph server for programming language agnostic connectivity.
