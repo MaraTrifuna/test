@@ -6,7 +6,7 @@ h2. The Graph of the Gods
 
 The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon. Moreover, special text and symbol modifiers (e.g. bold, underline, etc.) denote particular schematic/typing aspects of the graph.
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods.png|align=center]]
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods-2.png|width=700px|align=center]]
 
   * *key*: a graph indexed key.
   * *key* *: a graph indexed key that must have a unique value.
