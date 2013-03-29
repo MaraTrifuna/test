@@ -1,4 +1,4 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left]]
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left|float]]
 
 Titan interfaces with multiple indexing systems to provide support for geo, numeric range, and full-text search. Similar to storage backends, index backends are configured once initially and managed entirely by Titan. The choice of index backend determines which search features are supported, as well as the performance and scalability of the index.
 
@@ -45,3 +45,10 @@ g.query().has("age",GREATER_THAN,50).edges()
 ```
 
 One can combine multiple conditions to form complex queries. For more examples of global graph index queries, please refer to the [[Getting started]] page.
+
+h2. Next Steps
+
+Read more about the supported index backends:
+
+* [[Using Elastic Search]]
+* [[Using Lucene]]
