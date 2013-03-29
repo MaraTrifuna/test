@@ -2,6 +2,10 @@
 [[Release Notes]] for all versions
 ==<hr/>==
 * *Titan 0.x*
+  ** Titan 0.3.0 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.0.zip)
+  *** "Titan/Cassandra0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.0.zip
+  *** "Titan/HBase 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.0.zip
+  *** "Titan/BerkeleyJE 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.0.zip
   ** Titan 0.2.1 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.2.1.zip)
   *** "Titan/Cassandra 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.2.1.zip
   *** "Titan/HBase 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.2.1.zip
