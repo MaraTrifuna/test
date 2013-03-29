@@ -1,0 +1,1 @@
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left]]
