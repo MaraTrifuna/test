@@ -4,7 +4,7 @@
 
 h2. Using IdGraph
 
-It is possible to use Blueprints' "IdGraph":https://github.com/tinkerpop/blueprints/wiki/Id-Implementation with Titan. However, if you want to use IdGraph for user specified ids on ~both~ vertices and edges, then it is important to declare the @__id@ index using @TitanGraph.makeType()@ first in Titan:
+It is possible to use Blueprints' "IdGraph":https://github.com/tinkerpop/blueprints/wiki/Id-Implementation with Titan. However, if you want to use IdGraph for user specified ids on _both_ vertices and edges, then it is important to declare the @__id@ index using @TitanGraph.makeType()@ first in Titan:
 
 ```text
 gremlin> g
