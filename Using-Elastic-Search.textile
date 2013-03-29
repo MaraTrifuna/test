@@ -1,1 +1,5 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=200px|align=left]]
+<a href="http://www.elasticsearch.org/"><img src="http://www.elasticsearch.org/content/uploads/2013/02/bonsai1.png" width="100"/></a>
+
+bq. "elasticsearch is a flexible and powerful open source, distributed real-time search and analytics engine for the cloud."
+
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=175px|align=left]]
