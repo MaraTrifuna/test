@@ -2,7 +2,7 @@
 
 bq. Elasticsearch is a flexible and powerful open source, distributed real-time search and analytics engine for the cloud. Elasticsearch allows you to start small, but will grow with your business. It is built to scale horizontally out of the box. As you need more capacity, just add more nodes, and let the cluster reorganize itself to take advantage of the extra hardware. Elasticsearch clusters are resilient – they will detect and remove failed nodes, and reorganize themselves to ensure that your data is safe and accessible. --  "Elasticsearch Homepage":http://elasticsearch.org/
 
-Titan supports "Elasticearch":http://elasticsearch.org as an embedded or remote index backend. In embedded mode, Elasticsearch runs in the same JVM as Titan and stores data on the local machine. In remote mode, Titan connects to a running Elasticsearch cluster as a client.
+Titan supports "Elasticearch":http://elasticsearch.org as an embedded or remote index backend. In embedded mode, Elasticsearch runs in the same JVM as Titan and stores data on the local machine. In remote mode, Titan connects to a running Elasticsearch cluster as a client. If not in embedded mode, be sure to have the Elasticsearch running and accessible.
 
 <br />
 
@@ -30,6 +30,10 @@ h2. Configuration Options
 | local-mode | Whether Titan should run Elasticsearch embedded | boolean | _false_ | no |
 | directory | Directory to store Elasticsearch data in. _Only applicable when running Elasticsearch embedded_ | string | - | yes |
 | config-file | Filename of the Elasticsearch yaml file used to configure this instance. _Only applicable when running Elasticsearch embedded_ | boolean | _false_ | no |
+
+h2. Configuration File
+
+Note that each backend distribution has a @bin/*-es.local@ file that provides out of the box local configuration for Elasticsearch. For example, @bin/cassandra-es.local@.
 
 h2. Next Steps
 
