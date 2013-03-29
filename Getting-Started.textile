@@ -68,6 +68,15 @@ The @GraphOfTheGodsFactory.create()@ method does the following to the newly cons
 Please see the class source code:
   "https://github.com/thinkaurelius/titan/blob/master/titan-core/src/main/java/com/thinkaurelius/titan/example/GraphOfTheGodsFactory.java":https://github.com/thinkaurelius/titan/blob/master/titan-core/src/main/java/com/thinkaurelius/titan/example/GraphOfTheGodsFactory.java
 
+For those using Titan/Cassandra (or Titan/HBase), be sure to make use of @bin/cassandra-es.local@ (or @bin/hbase-es.local@) and @GraphOfTheGodsFactory.load()@.
+
+```text
+gremlin> g = TitanFactory.open('bin/cassandra-es.local')
+==>titangraph[cassandrathrift:127.0.0.1]
+gremlin> GraphOfTheGodsFactory.load(g)
+==>null
+```
+
 h2. Global Graph Indices
 
 The typical pattern for accessing data in a graph database is to first locate the entry point into the graph using a graph index. That entry point is an element (or set of elements) -- i.e. a vertex or edge. From the entry elements, a Gremlin path description describes how to traverse to other elements in the graph via the explicit graph structure.
