@@ -51,6 +51,10 @@ g.addEdge(null,v1,g.getVertex(v2),"related"); //Need to load v2 into outer trans
 g.commit(); // Likely to fail due to lock congestion
 ```
 
+h2. Gotcha
+
+When using multi-threaded transactions via @newTransaction@ all vertices and edges retrieved or created in the scope of that transaction are *not* available outside the scope of that transaction. Accessing such elements after the transaction has been closed will result in an exception. As demonstrated in the example above, such elements have to be explicitly refreshed in the new transaction using @g.getVertex(existingVertex)@ or @g.getEdge(existingEdge)@.
+
 h2. Next steps
 
 * Read more about "Blueprint's ThreadedTransactionalGraph":https://github.com/tinkerpop/blueprints/wiki/Graph-Transactions.
