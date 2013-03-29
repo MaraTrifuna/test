@@ -20,6 +20,8 @@ Once the server has been started, it can be terminated by pressing CTRL+C or sen
 
 *Note* - Rexster expects a graph name when connecting.  While this is a configurable option in Rexster it is not so in Titan Server.  The name of the graph will always be @graph@ and must be referenced as such.  This name may not be overridden.
 
+*Note* - When running Titan Server on Windows, the example @titan-server-cassandra.properties@ file expects a the path to a @cassandra.yaml@ file to be a full URL as in: @file:///c:/titan-cassandra-0.3.0/config/cassandra.yaml@.
+
 h3. Connecting to Titan Server Via RexPro
 
 The client application can now connect to the Titan Server on the configured hostname and port to issue Gremlin queries using [[RexsterClient|https://github.com/tinkerpop/rexster/wiki/RexPro-Java]].
