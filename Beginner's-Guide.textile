@@ -11,6 +11,6 @@ The Beginner's Guide is a list of recommended pages to help Titan newcomers navi
 # [[Gremlin Query Language]]: How to query a Titan graph database
 # [[Rexster Graph Server]]: How to expose a Titan graph as REST endpoint
 # [[Transaction Handling]]: How to handle transactions and concurrent users
-# [[Titan Storage Backends|Storage Backend Overview]]: How to choose and deploy the optimal storage backend
-# [[Titan Indexing Backends|Indexing Backend Overview]]: How to choose and deploy indexing backends to provide geo, full-text, and numeric range search
+# [[Titan Storage Backends|Storage Backend Overview]]: How to choose the optimal storage backend
+# [[Titan Indexing Backends|Indexing Backend Overview]]: How to choose indexing backends to provide geo, full-text, and numeric range search
 # "Big Graph Data Presentation":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data: Big picture presentation on large-scale graph processing of which Titan is one part.
