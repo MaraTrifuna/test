@@ -30,7 +30,7 @@ h2. Configuration Options
 | local-mode | Whether Titan should run Elasticsearch embedded | boolean | _false_ | no |
 | directory | Directory to store Elasticsearch data in. _Only applicable when running Elasticsearch embedded_ | string | - | yes |
 | config-file | Filename of the Elasticsearch yaml file used to configure this instance. _Only applicable when running Elasticsearch embedded_ | boolean | _false_ | no |
-| client-only | Whether this node is a client node with no data | boolean | true | false |
+| client-only | Whether this node is a client node with no data | boolean | _true_ | no |
 
 h2. Configuration File
 
