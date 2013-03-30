@@ -9,7 +9,7 @@ The Beginner's Guide is a list of recommended pages to help Titan newcomers navi
 # [[The Benefits of Titan]]: Why you should consider using the Titan graph database
 # [[Titan's Core Interface|Blueprints Interface]]: How to manipulate and navigate a Titan graph
 # [[Gremlin Query Language]]: How to query a Titan graph database
-# [[Rexster Graph Server]]: How to expose a Titan graph as REST endpoint
+# [[Rexster Graph Server]]: How to expose a Titan graph as REST/binary endpoint
 # [[Transaction Handling]]: How to handle transactions and concurrent users
 # [[Titan Storage Backends|Storage Backend Overview]]: How to choose the optimal storage backend
 # [[Titan Indexing Backends|Indexing Backend Overview]]: How to choose indexing backends to provide geo, full-text, and numeric range search
