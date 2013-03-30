@@ -67,7 +67,7 @@ h2. Titan Manual
 * [[Upgrade Instructions]]
 * Related Third Party Projects
 ** "Blubflow":http://bulbflow.com/ (Python)
-** "Hermes":https://github.com/gameclosure/hermes (Clojure)
+** "Titanium":https://github.com/clojurewerkz/titanium (Clojure)
 * [[Version Compatibility]] (*cheat sheet*)
 * [[Acknowledgements]]
 * [[Release Notes]]
