@@ -32,7 +32,7 @@ h3. Remote Server Mode
 
 When the graph needs to scale beyond the confines of a single machine, then Cassandra and Titan are logically separated into different machines. In this model, the Cassandra cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the Cassandra cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
 
-For example, suppose we have a running Cassandra cluster where one of the machines has the IP address 77.77.77.77 (comma separate to add more machines to the connection options), then connecting Titan with the cluster is accomplished as follows:
+For example, suppose we have a running Cassandra cluster where one of the machines has the IP address 77.77.77.77, then connecting Titan with the cluster is accomplished as follows (comma separate IP addresses to reference more than one machine):
 
 ```java
 Configuration conf = new BaseConfiguration();
