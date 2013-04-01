@@ -8,11 +8,18 @@ h3. Version 0.3.0 (March 29, 2013)
 
 Titan 0.3.0 is incompatible with prior version of Titan. The upgrade process is in development and not yet available.
 
+When upgrading to Titan 0.3.0, please note the following interface changes:
+
+* In @TypeMaker@, @functional()@ has been replaced by @unique(Direction.OUT)@. Likewise, @functional(boolean)@ has been replaced by @unique(Direction.OUT, UniquenessConsistency)@, where the argument @true@ corresponds to @UniquenessConsistency.LOCK@ and @false@ corresponds to @UniquenessConsistency.NO_LOCK@.
+* In @TypeMaker@, @unique()@ for property keys has been replaced by @unique(Direction.IN)@.
+* In @TypeMaker@, @simple()@ is no longer available. Simply remove it.
+* In @TitanFactory@, @openInMemoryGraph()@ is no longer available. Instead, use @open(Configuration)@ where the configuration sets @storage.backend=inmemory@.
+
 h3. Version 0.2.1 (March 22, 2013)
 
 *From Version 0.2.0*
 
-No special upgrade necessary.
+No special upgrade necessary. Since 0.2.1 has upgraded to Blueprints 2.3.0, there are some incompatible interface changes. In particular, @Graph.startTransaction()@ has been renamed to @Graph.newTransaction()@. Please refer to the "Blueprints documentation":https://github.com/tinkerpop/blueprints/wiki for more information.
 
 *From prior versions*
 
