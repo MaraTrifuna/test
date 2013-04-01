@@ -14,6 +14,7 @@ When upgrading to Titan 0.3.0, please note the following interface changes:
 * In @TypeMaker@, @unique()@ for property keys has been replaced by @unique(Direction.IN)@.
 * In @TypeMaker@, @simple()@ is no longer available. Simply remove it.
 * In @TitanFactory@, @openInMemoryGraph()@ is no longer available. Instead, use @open(Configuration)@ where the configuration sets @storage.backend=inmemory@.
+* In @AttributeSerializer@, @writeObjectData()@ now uses @DataOutput@ to write elements instead of @ByteBuffer@. A simple replace in any particular implementation of @AttributeSerializer@ should do the trick.
 
 h3. Version 0.2.1 (March 22, 2013)
 
