@@ -12,6 +12,7 @@ When upgrading to Titan 0.3.0, please note the following interface changes:
 
 * In @TypeMaker@, @functional()@ has been replaced by @unique(Direction.OUT)@. Likewise, @functional(boolean)@ has been replaced by @unique(Direction.OUT, UniquenessConsistency)@, where the argument @true@ corresponds to @UniquenessConsistency.LOCK@ and @false@ corresponds to @UniquenessConsistency.NO_LOCK@.
 * In @TypeMaker@, @unique()@ for property keys has been replaced by @unique(Direction.IN)@.
+* In @TypeMaker@, @indexed()@ takes additional arguments because Titan now supports vertex _and_ edge indexing. Use @indexed(Class<? extends Element>) to create a standard index for the key. Use @indexed(String,Class<? extends Element>) to create an external index for the key.
 * In @TypeMaker@, @simple()@ is no longer available. Simply remove it.
 * In @TitanFactory@, @openInMemoryGraph()@ is no longer available. Instead, use @open(Configuration)@ where the configuration sets @storage.backend=inmemory@.
 * In @AttributeSerializer@, @writeObjectData()@ now uses @DataOutput@ to write elements instead of @ByteBuffer@. A simple replace in any particular implementation of @AttributeSerializer@ should do the trick.
