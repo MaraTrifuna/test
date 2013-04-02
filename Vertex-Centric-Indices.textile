@@ -6,6 +6,7 @@ Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each ed
 
 ```groovy
 g = TitanFactory.open(conf)
+// graph schema construction
 g.makeType().name('name').unique(OUT).dataType(String.class).indexed(Vertex.class).makePropertyKey()
 time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
 if(useVertexCentricIndices) {
@@ -15,6 +16,7 @@ if(useVertexCentricIndices) {
 }
 g.commit()
 
+// graph instance construction
 g.addVertex([name:'v1000']);
 g.addVertex([name:'v10000']);
 g.addVertex([name:'v100000']);
@@ -29,7 +31,7 @@ for(i=1000; i<1000001; i=i*10) {
 }
 ```
 
-Next, a query for the top 10 most recently tweeted adjacent vertices is enacted, where recency is defined by the @long@ timestamp on the adjoining edge. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size. The micro-benchmark below is using [[Titan Server]] (Cassandra embedded).
+Next, a query for the top 10 most recently tweeted adjacent vertices is enacted, where recency is defined by the @long@ timestamp on the adjoining edge. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size. The micro-benchmark results below are using [[Titan Server]] (Cassandra embedded) and the concluding code fragment.
 
 |_. incident edge size |_. no vertex-centric indices |_. vertex-centric indices |
 | 1000 | 0.82 | 0.50 |
