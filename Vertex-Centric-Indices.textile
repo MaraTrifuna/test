@@ -2,7 +2,7 @@
 
 h2. Real-World Benefits
 
-Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge represents a person tweeting a particular tweet vertex. Moreover, each edges has a @Long.class@ timestamp property on it. The Gremlin/Groovy code to create the 4 vertices and their respective edge sets is provided below.
+Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge represents a person tweeting a particular tweet vertex. Moreover, each edge has a @long@ timestamp property on it. The "Gremlin":http://gremlin.tinkerpop.com Groovy code to create the 4 vertices and their respective edge sets is provided below, where the distinction between an index or not is the declaration of a @primaryKey(time)@ on an edge label.
 
 ```groovy
 g = TitanFactory.open(conf)
@@ -20,16 +20,16 @@ g.addVertex([name:'v10000']);
 g.addVertex([name:'v100000']);
 g.addVertex([name:'v1000000']);
 
-for(i=1000; i<1000001; i = i * 10) {
+for(i=1000; i<1000001; i=i*10) {
   v = g.V('name','v' + i).next();
   (1..i).each {
-    v.addEdge("tweets",g.addVertex(),[time:it])
+    v.addEdge('tweets',g.addVertex(),[time:it])
     if(it % 10000 == 0) g.commit()
   }; g.commit()
 }
 ```
 
-Next, a query for the top 10 most recently tweeted adjacent vertices is enacted. Again, note that edges have a @long@ timestamp property. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size.
+Next, a query for the top 10 most recently tweeted adjacent vertices is enacted, where recency is defined by the @long@ timestamp on the adjoining edge. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size. The micro-benchmark below is using [[Titan Server]] (Cassandra embedded).
 
 |_. incident edge size |_. no vertex-centric indices |_. vertex-centric indices |
 | 1000 | 0.82 | 0.50 |
@@ -39,7 +39,7 @@ Next, a query for the top 10 most recently tweeted adjacent vertices is enacted.
 
 ```groovy
 totalRuns = 50
-for(i=1000; i<1000001; i = i * 10) {
+for(i=1000; i<1000001; i=i*10) {
   v = g.V('name','v' + i).next();
   totalTime = 0
   (1..totalRuns).each {
