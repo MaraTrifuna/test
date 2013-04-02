@@ -54,6 +54,7 @@ h2. Titan Manual
 *** [[Using Lucene]]
 ** Type Management
 *** [[Type Definition Overview]] (*cheat sheet*)
+**** [[Vertex-Centric Indices]]
 ** Configuration and Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
 *** [[Datatype and Attribute Serializer Configuration]]
