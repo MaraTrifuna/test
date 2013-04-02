@@ -1,21 +1,19 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/vertex-centric-index.png|align=left|float]] Vertex-centric are indices that are specific to a particular vertex, not to the graph as a whole. The purpose of these indices is to sort and index the incident edges (and thus, adjacent vertices) of a vertex according to the edge labels and properties. By configuring a "vertex query":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query, these indices are queried and, in doing so, remove the need for linear scans of edge sets.
+[[https://raw.github.com/thinkaurelius/titan/master/doc/images/vertex-centric-index.png|align=left|float]] Vertex-centric are indices that are specific to a particular vertex. These indices are contrary to "graph indices":https://github.com/tinkerpop/blueprints/wiki/Graph-Indices which are global to the graph. The purpose of vertex-centric indices is to sort and index the incident edges (and thus, adjacent vertices) of a vertex according to the edges' labels and properties. Given a "vertex query":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query, these indices are leveraged and, in doing so, linear scans of incident edges can be avoided and faster graph traversals ensue. For more information on setting up vertex-centric indices, please see @primaryKey()@ in [[Type Definition Overview]]. Finally, note that vertex-centric indices overcome the infamous "super node problem":http://thinkaurelius.com/2012/10/25/a-solution-to-the-supernode-problem/ found in graph databases.
 
 h2. Real-World Benefits
 
-Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge has a @Long.class@ timestamp property on it.
+Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge represents a person tweeting a particular tweet vertex. Moreover, each edges has a @Long.class@ timestamp property on it. The Gremlin/Groovy code to create the 4 vertices and their respective edge sets is provided below.
 
 ```groovy
 g = TitanFactory.open(conf)
 g.makeType().name('name').unique(OUT).dataType(String.class).indexed(Vertex.class).makePropertyKey()
+time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
 if(useVertexCentricIndices) {
-  time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
   g.makeType().name('tweets').primaryKey(time).makeEdgeLabel()
-  g.commit()
 } else 
-  time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
   g.makeType().name('tweets').makeEdgeLabel()
-  g.commit()
 }
+g.commit()
 
 g.addVertex([name:'v1000']);
 g.addVertex([name:'v10000']);
@@ -31,8 +29,7 @@ for(i=1000; i<1000001; i = i * 10) {
 }
 ```
 
-
-Next, query for the top 10 most recent adjacent vertices by edge timestamp. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size.
+Next, a query for the top 10 most recently tweeted adjacent vertices is enacted. Again, note that edges have a @long@ timestamp property. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size.
 
 |_. incident edge size |_. no vertex-centric indices |_. vertex-centric indices |
 | 1000 | 0.82 | 0.50 |
