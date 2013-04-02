@@ -1,13 +1,57 @@
 [[https://raw.github.com/thinkaurelius/titan/master/doc/images/vertex-centric-index.png|align=left|float]] Vertex-centric are indices that are specific to a particular vertex, not to the graph as a whole. The purpose of these indices is to sort and index the incident edges (and thus, adjacent vertices) of a vertex according to the edge labels and properties. By configuring a "vertex query":https://github.com/tinkerpop/blueprints/wiki/Vertex-Query, these indices are queried and, in doing so, remove the need for linear scans of edge sets.
 
-h2. Explanation via Real-World Example
+h2. Real-World Benefits
 
-created 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge has a Long.class timestamp property on it.
+Assume 4 vertices each with 1k, 10k, 100k, and 1 million incident edges. Each edge has a @Long.class@ timestamp property on it.
 
-Next, I query for the top 10 more recent adjacent vertices by edge timestamp. If I don't have vertex centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- nearly perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size.
+```groovy
+g = TitanFactory.open(conf)
+g.makeType().name('name').unique(OUT).dataType(String.class).indexed(Vertex.class).makePropertyKey()
+if(useVertexCentricIndices) {
+  time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
+  g.makeType().name('tweets').primaryKey(time).makeEdgeLabel()
+  g.commit()
+} else 
+  time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
+  g.makeType().name('tweets').makeEdgeLabel()
+  g.commit()
+}
 
+g.addVertex([name:'v1000']);
+g.addVertex([name:'v10000']);
+g.addVertex([name:'v100000']);
+g.addVertex([name:'v1000000']);
+
+for(i=1000; i<1000001; i = i * 10) {
+  v = g.V('name','v' + i).next();
+  (1..i).each {
+    v.addEdge("tweets",g.addVertex(),[time:it])
+    if(it % 10000 == 0) g.commit()
+  }; g.commit()
+}
+```
+
+
+Next, query for the top 10 most recent adjacent vertices by edge timestamp. If the vertices don't have vertex-centric indices, the query time grows by an order of magnitude to an order of magnitude increase in data size -- a near perfect relationship. With vertex-centric indices, runtimes are unaffected by the growth of the data size.
+
+```text
 		no vertex-index		vertex-index
 1000		0.82			0.50		
 10000		7.06			0.52
 100000		70.90			0.46
 1000000		778.94			0.46
+```
+
+```groovy
+totalRuns = 50
+for(i=1000; i<1000001; i = i * 10) {
+  v = g.V('name','v' + i).next();
+  totalTime = 0
+  (1..totalRuns).each {
+    t = System.currentTimeMillis();
+    v.outE('tweets').has('time',T.gt,i-10).inV.iterate()
+    totalTime += System.currentTimeMillis() - t;
+  }; null
+  System.out.println(i + ':' + totalTime / totalRuns);
+}
+```
