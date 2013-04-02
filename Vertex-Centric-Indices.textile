@@ -9,11 +9,10 @@ g = TitanFactory.open(conf)
 // graph schema construction
 g.makeType().name('name').unique(OUT).dataType(String.class).indexed(Vertex.class).makePropertyKey()
 time = g.makeType().name('time').unique(OUT).dataType(Long.class).makePropertyKey()
-if(useVertexCentricIndices) {
+if(useVertexCentricIndices)
   g.makeType().name('tweets').primaryKey(time).makeEdgeLabel()
-} else 
+else 
   g.makeType().name('tweets').makeEdgeLabel()
-}
 g.commit()
 
 // graph instance construction
