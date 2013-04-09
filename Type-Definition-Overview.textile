@@ -45,7 +45,7 @@ h3. Unique Types
  
 A type is unique, if there is at most one edge or property of this type per vertex in the given direction. Specifically, this means:
 * A property key is out-unique, if a vertex has at most one value associated with the key. _name_ is an example of an out-unique property key since each god has one name.
-* An edge lable is out-unique, if a vertex has at most one outgoing edge for that label. _father_ is an exmaple of an out-unique edge label, since each god has at most one father.
+* An edge label is out-unique, if a vertex has at most one outgoing edge for that label. _father_ is an exmaple of an out-unique edge label, since each god has at most one father.
 * A property key is in-unique, if there is at most one vertex which has any given attribute as its property value. _ssn_ is an example of a in-unique property key since each social security number is uniquely associated with one person.
 
 Since edges and properties of unique labels and keys must be unique per vertex, inconsistencies could arise when two @TitanGraph@ instances try to update the same unique edge or property concurrently, since one may overwrite the change of the other. To avoid such inconsistencies, Titan will acquire locks on unique edges and properties by default. Acquiring locks, however, can be very expensive depending on the storage backend. In cases where concurrent modifications can be excluded or blind overwrites are acceptable, a unique @TitanType@ can be configured to _not_ acquire locks by passing in @UniquenessConsistency.NO_LOCK@ as a second argument to @TypeMaker.unique()@. This configuration option should be used with care and only if the extra performance gain is needed.
