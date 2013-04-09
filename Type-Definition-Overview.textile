@@ -58,7 +58,7 @@ Titan allows types to be grouped and to retrieve all edges or properties for a t
 v.getVertices(OUT,"father","mother","brother")
 ```
 
-However, this becomes cumbersome as more family labels like _sister_, _uncle_, etc are added. Moreover, each edge label requires and independent index retrieval. In the example above, the database index is accessed three times. Instead, a family type group can group all these labels together.
+However, this becomes cumbersome as more family labels like _sister_, _uncle_, etc are added. Moreover, each edge label requires an independent index retrieval. In the example above, the database index is accessed three times. Instead, a family type group can group all these labels together.
 
 ```java
 TypeGroup family = TypeGroup.of(2,"family");
