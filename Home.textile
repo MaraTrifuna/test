@@ -18,8 +18,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 *Version Numbers*
 * Titan 0.1.z is deprecated and will no longer be supported.
-* Titan 0.2.z is still active and updates will continue.
-* Titan 0.3.z is new with experimental features.
+* Titan 0.2.z is still active and updates will continue. (*stable*)
+* Titan 0.3.z is new with experimental features. (*experimental*)
 
 h2. Titan Manual
 
