@@ -66,9 +66,10 @@ h2. Titan Manual
 ** [[Titan Presentations]]
 * [[Upgrade Instructions]]
 * Related Third Party Projects
-** "Blubflow":http://bulbflow.com/ (Python)
-** "Titanium":https://github.com/clojurewerkz/titanium (Clojure)
-** "Thunderdome":https://github.com/StartTheShift/thunderdome (Python)
+** "Blubflow":http://bulbflow.com/ (Python client)
+** "Titanium":https://github.com/clojurewerkz/titanium (Clojure client)
+** "Thunderdome":https://github.com/StartTheShift/thunderdome (Python client)
+** "Titan Tools":https://github.com/StartTheShift/titan-tools (Collection of management tools for Titan)
 * [[Version Compatibility]] (*cheat sheet*)
 * [[Acknowledgements]]
 * [[Release Notes]]
