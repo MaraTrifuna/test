@@ -68,7 +68,16 @@ v.bothE
 v.bothE
 >> still returns nothing because the transactional state from the beginning is maintained
 ```
-Such unexpected behavior is likely to occur in client-server applications where the server maintains multiple threads to answer client requests. It is therefore important to terminate the transaction after a unit of work (e.g. code snippet, query, etc). For instance, [[Rexster Graph Server]] manages the transactional boundary for each gremlin query.
+Such unexpected behavior is likely to occur in client-server applications where the server maintains multiple threads to answer client requests. It is therefore important to terminate the transaction after a unit of work (e.g. code snippet, query, etc). For instance, [[Rexster Graph Server]] manages the transactional boundary for each gremlin query. So, the example above should be:
+```java
+v = g.v(4) //Retrieve vertex, first action automatically starts transaction
+v.bothE
+g.commit()
+//thread is idle for a few seconds, another thread adds edges to v
+v.bothE
+>> returns the newly added edge
+g.commit()
+```
 
 h2. Next Steps
 
