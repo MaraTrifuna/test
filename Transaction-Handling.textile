@@ -53,9 +53,22 @@ Potentially temporary failures are those related to resource unavailability and 
 
 Permanent failures can be caused by complete connection loss, hardware failure or lock contention. To understand the cause of lock contention, consider the signup example above and suppose a user tries to signup with username "juno". That username may still be available at the beginning of the transaction but by the time the transaction is committed, another user might have concurrently registered with "juno" as well and that transaction holds the lock on the username therefore causing the other transaction to fail. It some cases one can recover from a lock contention failure by re-running the entire transaction.
 
-h2. Gotcha
+h2. Gotchas
 
-Transactions are started automatically with the first operation executed against the graph. One does NOT have to start a transaction manually. The method @newTransaction@ is used to start [[multi threaded transactions]] only.
+* Transactions are started automatically with the first operation executed against the graph. One does NOT have to start a transaction manually. The method @newTransaction@ is used to start [[multi threaded transactions]] only.
+
+* Transactions are automatically started under the Blueprints semantics but *not* automatically terminated. Transactions have to be terminated manually with @g.commit()@ if successful or @g.rollback()@ if not. Manual termination of transactions is necessary because only the user knows the transactional boundary. 
+A transaction will attempt to maintain its state from the beginning of the transaction. This might lead to unexpected behavior in multi-threaded applications as illustrated in the following artificial example:
+
+```java
+v = g.v(4) //Retrieve vertex, first action automatically starts transaction
+v.bothE
+>> returns nothing, v has no edges
+//thread is idle for a few seconds, another thread adds edges to v
+v.bothE
+>> still returns nothing because the transactional state from the beginning is maintained
+```
+Such unexpected behavior is likely to occur in client-server applications where the server maintains multiple threads to answer client requests. It is therefore important to terminate the transaction after a unit of work (e.g. code snippet, query, etc). For instance, [[Rexster Graph Server]] manages the transactional boundary for each gremlin query.
 
 h2. Next Steps
 
