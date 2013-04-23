@@ -3,6 +3,10 @@
 
 Titan Server is a light-weight server that manages remote connections to Titan and thereby allows applications to execute [[Gremlin|Gremlin Query Language]] queries against a Titan graph cluster. Titan Server embeds Rexster's [[HTTP/REST|https://github.com/tinkerpop/rexster/wiki/Basic-REST-API]] Server and [[RexPro|https://github.com/tinkerpop/rexster/wiki/RexPro]] Server, a light-weight component of the "Rexster":http://rexster.tinkerpop.com Server which can efficiently handle hundreds of database connections.
 
+Titan Server is most useful when Titan runs embedded with the storage backend of choice. Under such a deployment scenario, Titan, Rexster, and the storage backend run in the same JVM. This makes calls between the components very efficient and leads to the best performing setup. Refer to the documentation of the respective [[storage backends|Storage Backend Overview]] for information on how to run Titan embedded.
+
+Running Titan Server with a non-embedded backend (e.g. separate Cassandra cluster) removes the benefits that Titan Server bestows, as it then simply acts as host for Rexster processes only.  While this configuration is possible, it is not recommended.
+
 h3. Start Titan Server
 
 To start the Titan Server, execute the @titan.sh@ script in the @bin@ folder of the Titan distribution (use @.bat@ for Windows).
@@ -90,11 +94,6 @@ rexster[groovy]> g = rexster.getGraph("graph")
 rexster[groovy]> g.V('name','saturn').name
 ==>saturn
 ```
-
-h3. Titan Embedding
-
-Titan Server is most useful when Titan runs embedded with the storage backend of choice. Under such a deployment scenario, Titan, Rexster, and the storage backend run in the same JVM. This makes calls between the components very efficient and leads to the best performing setup. Refer to the documentation of the respective [[storage backends|Storage Backend Overview]] for information on how to run Titan embedded.
-
 
 h2. Next Steps
 
