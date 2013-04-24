@@ -1,4 +1,4 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|float|align=left]] There are various limitations and "gotchas" that one should be aware of when using Titan. Some of these limitations are necessary design choices and others are issues that will be rectified as Titan development continues.
+[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|float|align=left]] There are various limitations and "gotchas" that one should be aware of when using Titan. Some of these limitations are necessary design choices and others are issues that will be rectified as Titan development continues. Finally, the last section provides solutions to common issues.
 
 <br/><br/><br/><br/>
 
@@ -62,6 +62,6 @@ When launching Titan with embedded Cassandra, the following warnings may be disp
 
 Cassandra uses a Java agent called @MemoryMeter@ which allows it to measure the actual memory use of an object, including JVM overhead.  To use "JAMM":https://github.com/jbellis/jamm (Java Agent for Memory Measurements), the path to the JAMM jar must be specific in the Java javaagent parameter when launching the JVM (e.g. @-javaagent:path/to/jamm.jar@). Rather than modifying @titan.sh@ and adding the javaagent parameter, I prefer to set the @JAVA_OPTIONS@ environment variable with the proper javaagent setting:
 
-```
+```text
 export JAVA_OPTIONS=-javaagent:$TITAN_HOME/lib/jamm-0.2.5.jar
 ```
