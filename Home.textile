@@ -31,12 +31,13 @@ h2. Titan Manual
 ** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data _(external)_
 * Using Titan
 ** Titan Interfaces ("JavaDoc":http://thinkaurelius.github.com/titan/javadoc/current)
+*** [[TinkerPop Graph Stack]]
 *** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 *** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 **** "GremlinDocs":http://gremlindocs.com/ (*cheat sheet*)
 *** [[Titan Server]]
 *** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
-*** [[TinkerPop Graph Stack]]
+*** "Hadoop Connectivity":http://faunus.thinkaurelius.com
 ** Transactions
 *** [[Transaction Handling]]
 *** [[Multi-Threaded Transactions]]
