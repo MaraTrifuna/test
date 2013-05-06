@@ -34,6 +34,10 @@ Another limitation related to batch loading is the failure to load millions of e
 
 h2. Beware
 
+h3. Multiple Titan instances on one machine
+
+Running multiple Titan instances on one machine backed by the _same_ storage backend (distributed or local) requires that each of these instances has a unique configuration for @storage.machine-id-appendix@. Otherwise, these instances might overwrite each other leading to data corruption. See [[Graph Configuration]] for more information.
+
 h3. Custom Class Datatype
 
 Titan supports arbitrary objects as attribute values on properties. To use a custom class as data type in Titan, either register a custom serializer or ensure that the class has a no-argument constructor and implements the @equals@ method because Titan will verify that it can successfully de-/serialize objects of that class. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
