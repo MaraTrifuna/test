@@ -69,3 +69,7 @@ Cassandra uses a Java agent called @MemoryMeter@ which allows it to measure the 
 ```text
 export JAVA_OPTIONS=-javaagent:$TITAN_HOME/lib/jamm-0.2.5.jar
 ```
+
+h3. ElasticSearch OutOfMemoryException
+
+When numerous clients are connecting to ElasticSearch, it is likely that an @OutOfMemoryException@ occurs. This is not due to a memory issue, but to the OS not allowing more threads to be spawned by the user (the user running ElasticSearch). To circumvent this issue, increase the number of allowed processes to the user running ElasticSearch. For example, increase the @ulimit -u@ from the default 1024 to 10024.
