@@ -59,6 +59,7 @@ h2. Titan Manual
 *** [[Graph Configuration]] (*cheat sheet*)
 *** [[Datatype and Attribute Serializer Configuration]]
 * Advanced Topics
+** [[Batch Loading]]
 ** [[Global Graph Analytics]]
 ** [[Advanced Blueprints]]
 ** [[Building Titan]]
