@@ -61,3 +61,8 @@ During bulk loading, the load on the cluster typically increases making it more 
 @storage.read-attempts@ and @storage.write-attempts@ configure how many times Titan will attempt to execute a read or write operation against the storage backend before giving up. If it is expected that there is a high load on the backend during bulk loading, it is generally advisable to increase these configuration options.
 
 @storage.attempt-wait@ specifies the number of milliseconds that Titan will wait before re-attempting a failed backend operation. A higher value can ensure that operation re-tries do not further increase the load on the backend.
+
+h2. Tools
+
+
+h2. Strategies
