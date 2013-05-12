@@ -1,0 +1,18 @@
+There are a number of configuration options and tools that make ingesting large amounts of graph data into Titan more efficient. Such ingestion is referred to as _bulk loading_ in contrast to the default _transactional loading_ where small amounts of data are added through individual transactions.
+There are a number of use cases for bulk loading data into Titan, including:
+
+* Introducing Titan into an existing environment with existing data and migrating or duplicating this data into a new Titan cluster.
+* Using Titan as an end point of an "ETL":http://en.wikipedia.org/wiki/Extract,_transform,_load process.
+* Adding an existing or external graph datasets (e.g. publicly available "RDF datasets":http://linkeddata.org/) to a running Titan cluster
+* Updating a Titan graph with results from a graph analytics job.
+
+This page describes configuration options and tools that make bulk loading more efficient in Titan. Please observe the limitations and assumptions for each option carefully before proceeding to avoid data loss or data corruption.
+
+h2. Optimizing ID Allocation
+
+h3. ids.block-size
+
+Each newly added vertex or edge is assigned a unique id. Titan's id pool manager acquires ids in blocks for a particular Titan instance. The id block acquisition process is expensive because it needs carefully guarantee unique assignment of blocks. Increasing @ids.block-size@ reduces the number of acquisitions but potentially leaves many ids unassigned and hence wasted. For transactional workloads the default block size is reasonable, but during bulk loading vertices and edges are added much more frequently and in rapid succession. Hence, it is generally advisable to increase the block size by a factor of 10 or more depending on the number of vertices to be added per machine.
+_Rule of thumb_: Set @ids.block-size@ to the number of vertices you expect to add per Titan instance per hour.
+
+*Important:* All Titan instances MUST be configured with the same value for @ids.block-size@ to ensure proper id allocation. Hence, be careful to shut down all Titan instances prior to changing this value.
