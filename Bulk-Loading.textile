@@ -84,13 +84,11 @@ If Faunus cannot be used for parallelizing the bulk loading process, here are so
 
 * In some cases, the graph data can be decomposed into multiple disconnected subgraphs. Those subgraphs can be loaded independently in parallel across multiple machines (for instance, using BatchGraph as described above).
 * If the graph cannot be decomposed, it is often beneficial to load in multiple steps where the last two steps can be parallelized across multiple machines:
-# Make sure the vertex and edge data sets are de-duplicated and consistent.
-# Set @batch.loading=true@. Possibly optimize additional configuration settings described above.
-# Add all the vertices with their properties to the graph (but no edges). Maintain a (distributed) map from vertex id (as defined by the loaded data) to Titan's internal vertex id (i.e. @vertex.getId()@) which is a 64 bit long id.
-# Add all the edges using the map to look-up Titan's vertex id and retrieving the vertices using that id.
+ ## Make sure the vertex and edge data sets are de-duplicated and consistent.
+ ## Set @batch.loading=true@. Possibly optimize additional configuration settings described above.
+ ## Add all the vertices with their properties to the graph (but no edges). Maintain a (distributed) map from vertex id (as defined by the loaded data) to Titan's internal vertex id (i.e. @vertex.getId()@) which is a 64 bit long id.
+ ## Add all the edges using the map to look-up Titan's vertex id and retrieving the vertices using that id.
 
-* Using Faunus and Hadoop as described above
-* 
 
 h3. Data Sorting
 
