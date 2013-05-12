@@ -64,5 +64,22 @@ During bulk loading, the load on the cluster typically increases making it more 
 
 h2. Tools
 
+h3. Faunus
+
+"Faunus":http://thinkaurelius.github.io/faunus/ is a Hadoop-based graph analytics engine that can operate on a Titan cluster. As such, it can be used to pre-process and bulk load data into Titan. Faunus effectively parallelizes the loading process across multiple mappers. Since Faunus can use Titan as a "sink and source":https://github.com/thinkaurelius/faunus/wiki/Titan-Format it is a useful tool for incremental data loading into Titan. 
+
+h3. BatchGraph
+
+For medium size graph datasets (up to 100s million edges), Blueprints' "BatchGraph":https://github.com/tinkerpop/blueprints/wiki/Batch-Implementation is a useful tool for bulk loading data into Titan from a single machine through Titan's native Blueprints interface. BatchGraph effectively caches externally provided vertex ids to eliminate reads against Titan. This allows bulk loading with minimal read load.
+
+BatchGraph is limited to single machine bulk loading use cases and requires enough local RAM to hold the entire vertex id cache in memory. BatchGraph supports id compression to reduce the memory requirements. Please refer to the "BatchGraph documentation":https://github.com/tinkerpop/blueprints/wiki/Batch-Implementation for more information on how to use BatchGraph most effectively.
 
 h2. Strategies
+
+h3. Parallelizing the Load
+
+
+
+h3. Data Sorting
+
+Presorting the data to be bulk loaded can significantly increase the loading performance through BatchGraph.  The "BatchGraph":https://github.com/tinkerpop/blueprints/wiki/Batch-Implementation documentation describes this strategy in more detail. It has been reported that loading times were decreased by a factor of 2 or more when presorting the bulk loaded data.
