@@ -22,14 +22,20 @@ h3. ID Acquisition process
 
 When id blocks are frequently allocated by many Titan instances in parallel, allocation conflicts between instances will inevitably arise and slow down the allocation process. In addition, the increased write load due to bulk loading may further slow down the process to the point where Titan considers it failed and throws an exception. There are three configuration options that can be tuned to avoid this.
 
+***
+
 @storage.idauthority-wait-time@ configures the time in milliseconds the id pool manager waits for an id block application to be acknowledged by the storage backend. The shorter this time, the more likely it is that an application will fail on a congested storage cluster.
 
 *Rule of thumb*: Set this to the sum of the 95th percentile read and write times measured on the storage backend cluster under load.
 *Important*: This value should be the same across all Titan instances.
 
+***
+
 @storage.idauthority-retries@ configures the number of times the id pool manager attempts to acquire an id block before giving up and throwing an exception.
 
 *Rule of thumb*: Increase this value. The only downside of increasing it is that Titan will try for a long time on an unavailable storage backend cluster.
+
+***
 
 @ids.renew-timeout@ configures the number of milliseconds Titan’s id pool manager will wait in total while attempting to acquire a new id block before failing.
 
