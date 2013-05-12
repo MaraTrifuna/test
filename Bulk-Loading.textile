@@ -8,9 +8,11 @@ There are a number of use cases for bulk loading data into Titan, including:
 
 This page describes configuration options and tools that make bulk loading more efficient in Titan. Please observe the limitations and assumptions for each option carefully before proceeding to avoid data loss or data corruption.
 
-h2. Optimizing ID Allocation
+h2. Configuration Options
 
-h3. ID Block Size
+h3. Optimizing ID Allocation
+
+h4. ID Block Size
 
 Each newly added vertex or edge is assigned a unique id. Titan's id pool manager acquires ids in blocks for a particular Titan instance. The id block acquisition process is expensive because it needs carefully guarantee unique assignment of blocks. Increasing @ids.block-size@ reduces the number of acquisitions but potentially leaves many ids unassigned and hence wasted. For transactional workloads the default block size is reasonable, but during bulk loading vertices and edges are added much more frequently and in rapid succession. Hence, it is generally advisable to increase the block size by a factor of 10 or more depending on the number of vertices to be added per machine.
 
@@ -18,7 +20,7 @@ Each newly added vertex or edge is assigned a unique id. Titan's id pool manager
 
 *Important:* All Titan instances MUST be configured with the same value for @ids.block-size@ to ensure proper id allocation. Hence, be careful to shut down all Titan instances prior to changing this value.
 
-h3. ID Acquisition process
+h4. ID Acquisition process
 
 When id blocks are frequently allocated by many Titan instances in parallel, allocation conflicts between instances will inevitably arise and slow down the allocation process. In addition, the increased write load due to bulk loading may further slow down the process to the point where Titan considers it failed and throws an exception. There are three configuration options that can be tuned to avoid this.
 
