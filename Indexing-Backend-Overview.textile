@@ -45,6 +45,24 @@ _Note, this section assumes that an index backend named @search@ has been define
 
 h2. Querying an Index
 
+After the property keys have been registered with the index backends and vertices or edges have been added to the graph with corresponding property values, those elements can be queried for using index retrievals. @Graph.query()@ constructs and index query through method chaining and calling @vertices()@ or @edges()@ retrieves the vertices or edges matching the query using index retrievals.
+Continuing with the Graph of the Gods, the following are index query examples:
+
+```java
+// 1) Find vertices with the name "hercules"
+g.query().has("name",Cmp.EQUAL,"hercules").vertices()
+// 2) Find all vertices with an age greater than 50
+g.query().has("age",Cmp.GREATER_THAN,50).vertices()
+// or find all vertices between 1000 (inclusive) and 5000 (exclusive) years of age
+g.query().has("age",Cmp.GREATER_THAN_EQUAL,1000).has("age",Cmp.LESS_THAN,5000).vertices()
+// which is equivalent to
+g.query().interval("age",1000,5000).vertices()
+// 3) Find all edges where the place is at most 50 kilometers from the given latitude-longitude pair
+g.query().has("place",WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
+// 4) Find all edges where reason contains the word "loves"
+g.query().has("reason",CONTAINS,'loves').edges()
+```
+
 h2. Choosing an Index
 
 h2. Next Steps: Configuring an Index Backend
