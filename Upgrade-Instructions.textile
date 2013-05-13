@@ -17,7 +17,7 @@ Note, that these instructions apply to the Elasticsearch cluster only and not th
 
 *From prior versions*
 
-Titan 0.3.1 is incompatible with earlier versions of Titan.
+Titan 0.3.1 is incompatible with earlier versions of Titan. Read below for more information.
 
 h3. Version 0.3.0 (March 29, 2013)
 
