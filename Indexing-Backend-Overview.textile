@@ -93,6 +93,12 @@ Here are some guidelines for choosing the best indexing strategy for a particula
 ## Use [[Elasticsearch|Using Elastic Search]] when there is an expectation that Titan will be distributed across multiple machines.
 ## [[Lucene|Using Lucene]] performs better in small scale, single machine applications. It performs better in unit tests, for instance.
 
+h2. Indexing Gotchas
+
+h4. Result Scoring
+
+Titan currently only supports discrete index queries, that is, an element either matches a query or it does not. The index backends that Titan supports additionally provide result scoring, that is, they return the elements score highest against a particular query. This feature is often used in text search, but not yet supported by Titan.
+
 h2. Next Steps: Configuring an Index Backend
 
 In order to use an external indexing system with Titan, an index backend has to be configured. Titan currently supports two indexing systems:
