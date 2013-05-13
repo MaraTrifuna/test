@@ -25,11 +25,19 @@ graph.makeType().name("place").dataType(Geoshape.class).indexed("search", Edge.c
 graph.makeType().name("reason").dataType(String.class).indexed("search",Vertex.class).indexed("search",Edge.class).unique(Direction.OUT).makePropertyKey();
 ```
 
-When using Titan's standard index, the name argument to the @indexed()@ method is optional. An equivalent definition of the _name_ property key, which identifies the standard index by its name, would be:
+# The @name@ property key is indexed for vertices using Titan's standard index. The standard index only supports exact match index retrievals but is very fast. When no index name is specified, the standard index is used.
+# The @age@ property key is indexed for vertices using the configured external index backend with the name "search". Since the data type of @age@ is a number, property values are indexed as numbers and can be retrieved via numeric range search.
+# The @place@ property key is indexed for edges using the external index backend named "search". Since the data type of @place@ is @Geoshape@, property values are indexed as geo-location and can be retrieved via geo-searches such as circular region or bounding box search (depending on what the index backed supports).
+# The @reason@ property key is indexed for vertices _and_ edges using the external index backend named "search". Since the data type of @reason@ is @String@, property values are indexed as text and be retrieved via full-text search such as string-containment search.
+
+***
+
+When using Titan's standard index, the name argument to the @indexed()@ method is optional. An equivalent definition of the @name@ property key, which identifies the standard index by its name, would be:
 
 ```java
 graph.makeType().name("name").dataType(String.class).indexed("standard",Vertex.class).unique(Direction.BOTH).makePropertyKey();
 ```
+
 The name "standard" is always reserved for Titan's standard index backend. External indexing backends may not be configured with this name.
 
 
