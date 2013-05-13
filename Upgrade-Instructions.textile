@@ -15,6 +15,10 @@ If you are using Elasticsearch, please follow the "upgrade instructions for Elas
 
 Note, that these instructions apply to the Elasticsearch cluster only and not the Titan cluster or the Titan storage cluster.
 
+*From prior versions*
+
+Titan 0.3.1 is incompatible with earlier versions of Titan.
+
 h3. Version 0.3.0 (March 29, 2013)
 
 *From prior versions*
