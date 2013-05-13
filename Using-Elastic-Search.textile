@@ -4,8 +4,6 @@ bq. Elasticsearch is a flexible and powerful open source, distributed real-time 
 
 Titan supports "Elasticsearch":http://elasticsearch.org as an embedded or remote index backend. In embedded mode, Elasticsearch runs in the same JVM as Titan and stores data on the local machine. In remote mode, Titan connects to a running Elasticsearch cluster as a client. If not in embedded mode, be sure to have the Elasticsearch running and accessible.
 
-<br />
-
 h2. Feature Support
 
 * *Full-Text*: Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
