@@ -1,0 +1,50 @@
+This page illustrates a number of common graph configurations. Please refer to the [[Graph Configuration]] documentation and the pages of the respective [[storage backend|Storage Backend Overview]] and [[index backend|Indexing Backend Overview]] for more information.
+
+h3. BerkeleyDB
+
+```properties
+storage.backend=berkeleyje
+storage.directory=/tmp/graph
+
+storage.index.search.backend=elasticsearch
+storage.index.search.directory=/tmp/searchindex
+storage.index.search.client-only=false
+storage.index.search.local-mode=true
+```
+
+This configuration file configures Titan to use [[BerkeleyDB|Using BerkeleyDB]] as an embedded storage backend, meaning, Titan will start BerkeleyDB internally. The primary data will be stored in the directory @/tmp/graph@.
+
+In addition, this configures an embedded [[Elasticsearch|Using Elastic Search]] index backend with the name @search@. Titan will start Elasticsearch internally and it will not be externally accessible since @local-mode@ is enabled. Elasticsearch stores all data for the @search@ index in @/tmp/searchindex@. Configuring an index backend is optional.
+
+h3. Cassandra
+
+h4. Cassandra Remote
+
+```properties
+storage.backend=cassandra
+storage.hostname=100.100.100.1,100.100.100.2
+
+storage.index.search.backend=elasticsearch
+storage.index.search.hostname=100.100.101.1,100.100.101.2
+storage.index.search.client-only=true
+```
+
+This configuration file configures Titan to use [[Cassandra|Using Cassandra]] as a remote storage backend. It assumes that a Cassandra cluster is running and accessible at the given IP addresses. If Cassandra is running locally, use the IP address @127.0.0.1@.
+
+In addition, this configures a remote [[Elasticsearch|Using Elastic Search]] index backend with the name @search@. It assumes that an Elasticsearch cluster is running and accessible at the given IP addresses. Enabling @client-only@ ensures that the local instance does not join the existing Elasticsearch cluster as another node but only connects to it. Configuring an index backend is optional.
+
+h4. Embedded Cassandra
+
+```properties
+storage.backend=embeddedcassandra
+storage.cassandra-config-dir=config/cassandra.yaml
+
+storage.index.search.backend=elasticsearch
+storage.index.search.directory=/tmp/searchindex
+storage.index.search.client-only=false
+storage.index.search.local-mode=true
+```
+
+This configuration file configures Titan to start [[Cassandra|Using Cassandra]] internally embedded in Titan and specifies the yaml configuration file for Cassandra. Cassandra is still accessible externally and can connect to other available Cassandra nodes to form a cluster as configured in the yaml file.
+
+The optional index backend configuration is identical to the one described above.
