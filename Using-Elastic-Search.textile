@@ -27,9 +27,11 @@ Titan can connect to an external Elasticsearch cluster running remote on a separ
 
 To connect Titan to an external Elasticsearch cluster, add the following configuration options to the graph configuration file where @hostname@ lists the IP addresses of the instances in the Elasticsearch cluster:
 
+```properties
 storage.index.search.backend=elasticsearch
 storage.index.search.hostname=100.100.101.1,100.100.101.2
 storage.index.search.client-only=true
+```
 
 Make sure that the Elasticsearch cluster is running prior to starting a Titan instance attempting to connect to it. Also ensure that the machine running Titan can connect to the Elasticsearch instances over the network if the machines are physically separated. This might require setting additional configuration options which are summarized below.
 
