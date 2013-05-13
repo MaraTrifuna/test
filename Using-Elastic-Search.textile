@@ -59,6 +59,12 @@ This is the full list of configuration options for Elasticsearch. Note, that eac
 | config-file | Filename of the Elasticsearch yaml file used to configure this instance. _Only applicable when running Elasticsearch embedded_ | boolean | _false_ | no |
 | client-only | Whether this node is a client node with no data | boolean | _true_ | no |
 
+h2. Optimizing Elasticsearch
+
+h3. Write Optimization
+
+For [[bulk loading]] or other write-intense applications, consider increasing Elasticsearch's refresh interval. Refer to "this discussion":https://groups.google.com/d/topic/elasticsearch/yp6bTiP2JYE/discussion on how to increase the refresh interval and its impact on write performance. Note, that a higher refresh interval means that it takes a longer time for graph mutations to be available in the index.
+
 h2. Next Steps
 
 * Please refer to the "Elasticsearch homepage":http://elasticsearch.org and available documentation for more information on Elasticsearch and how to setup an Elasticsearch cluster.
