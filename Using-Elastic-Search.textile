@@ -8,17 +8,11 @@ Titan supports "Elasticsearch":http://elasticsearch.org as an embedded or remote
 
 h2. Feature Support
 
-h3. Full-Text
+* *Full-Text*: Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
 
-Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
+* *Geo*: Supports the @Geo.WITHIN@ condition to search for points that fall within a given circle. Only supports points for indexing and circles for querying.
 
-h3. Geo
-
-Supports the @Geo.WITHIN@ condition to search for points that fall within a given circle. Only supports points for indexing and circles for querying.
-
-h3. Numeric Range
-
-Supports all numeric comparisons in @Compare@.
+* *Numeric Range*: Supports all numeric comparisons in @Compare@.
 
 h2. Configuration Options
 
