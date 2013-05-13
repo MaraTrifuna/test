@@ -50,18 +50,35 @@ Continuing with the Graph of the Gods, the following are index query examples:
 
 ```java
 // 1) Find vertices with the name "hercules"
-g.query().has("name",Cmp.EQUAL,"hercules").vertices()
+g.query().has("name",EQUAL,"hercules").vertices()
 // 2) Find all vertices with an age greater than 50
-g.query().has("age",Cmp.GREATER_THAN,50).vertices()
+g.query().has("age",GREATER_THAN,50).vertices()
 // or find all vertices between 1000 (inclusive) and 5000 (exclusive) years of age
-g.query().has("age",Cmp.GREATER_THAN_EQUAL,1000).has("age",Cmp.LESS_THAN,5000).vertices()
+g.query().has("age",GREATER_THAN_EQUAL,1000).has("age",LESS_THAN,5000).vertices()
 // which is equivalent to
 g.query().interval("age",1000,5000).vertices()
 // 3) Find all edges where the place is at most 50 kilometers from the given latitude-longitude pair
 g.query().has("place",WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
 // 4) Find all edges where reason contains the word "loves"
-g.query().has("reason",CONTAINS,'loves').edges()
+g.query().has("reason",CONTAINS,"loves").edges()
+// or all edges which contain two words
+g.query().has("reason",CONTAINS,"loves").has("reason",CONTAINS,"breezes").edges()
 ```
+
+# The standard index registered for @name@ supports equality searches. In this case, we retrieve all vertices where the name matches "hercules" exactly (i.e. case sensitive).
+# The external index registered for @age@ supports numeric range search since the data type for @age@ is numeric. Hence, querying for vertices whose age falls into a given range is supported.
+# The geo-index registered for @place@ supports retrieving edges by specifying a circular shape as the search region. The circular region is defined by the latitude and longitude of its center (first two arguments) and the radius of the circle in kilometers (third argument).
+# The full-text index registered for @reason@ supports retrieval by string containment. A property matches if it contains the given word (case insensitive). Note, that the text is tokenized when indexed and stop words are removed. Two query for properties that contain two or more words, split them up into two separate @has()@ clauses.
+
+The @Query.Compare@ enum specifies the comparison operators used for index query construction and used in the examples above:
+* EQUAL
+* NOT_EQUAL
+* GREATER_THAN
+* GREATER_THAN_EQUAL
+* LESS_THAN
+* LESS_THAN_EQUAL
+
+In addition, the @Text.CONTAINS@ operator is supported for full-text search and @Geo.CONTAINS@ for geo-location search.
 
 h2. Choosing an Index
 
