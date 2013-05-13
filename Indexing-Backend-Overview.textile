@@ -4,7 +4,7 @@ Titan provides two types of index systems: The _standard_ index and the _externa
 
 The standard index is very fast and always available without any further configuration, but only supports exact index matches. In other words, the standard index can only retrieve vertices and edges by matching one of their properties exactly. 
 
-The external index interface is more flexible and supports retrieving vertices and edges by bounding their geo-location, properties that fall into a numeric range or matching tokens in full text. The external index interface connects to separate systems as index backends for indexing and retrieval similarly to how storage backends are used for persistence. Those storage backends need to be configured before they can be used.
+The external index interface is more flexible and supports retrieving vertices and edges by bounding their geo-location, properties that fall into a numeric range or matching tokens in full text. The external index interface connects to separate systems as index backends for indexing and retrieval similarly to how storage backends are used for persistence. Index backends need to be configured in the graph configuration before they can be used.
 
 The choice of index backend determines which search features are supported, as well as the performance and scalability of the index. Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
 
