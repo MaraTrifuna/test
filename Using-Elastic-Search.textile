@@ -26,10 +26,7 @@ This is the full list of configuration options for Elasticsearch. Note, that eac
 | config-file | Filename of the Elasticsearch yaml file used to configure this instance. _Only applicable when running Elasticsearch embedded_ | boolean | _false_ | no |
 | client-only | Whether this node is a client node with no data | boolean | _true_ | no |
 
-h2. Configuration File
-
-Note that each backend distribution has a @bin/*-es.local@ file that provides out of the box local configuration for Elasticsearch. For example, @bin/cassandra-es.local@.
-
 h2. Next Steps
 
-Please refer to the "Elasticsearch homepage":http://elasticsearch.org and available documentation for more information on Elasticsearch and how to setup an Elasticsearch cluster.
+* Please refer to the "Elasticsearch homepage":http://elasticsearch.org and available documentation for more information on Elasticsearch and how to setup an Elasticsearch cluster.
+* Check out [[example graph configurations|Example Graph Configuration]] for complete configurations including the storage backend.
