@@ -47,4 +47,20 @@ storage.index.search.local-mode=true
 
 This configuration file configures Titan to start [[Cassandra|Using Cassandra]] internally embedded in Titan and specifies the yaml configuration file for Cassandra. Cassandra is still accessible externally and can connect to other available Cassandra nodes to form a cluster as configured in the yaml file.
 
-The optional index backend configuration is identical to the one described above.
+The optional index backend configuration is identical to embedded index configuration described above.
+
+h3. HBase
+
+```properties
+storage.backend=hbase
+storage.hostname=127.0.0.1
+storage.port=2181
+
+storage.index.search.backend=elasticsearch
+storage.index.search.hostname=127.0.0.1
+storage.index.search.client-only=true
+```
+
+This configuration file configures Titan to use [[HBase|Using HBase]] as a remote storage backend. It assumes that an HBase cluster is running and accessible at the given IP addresses through the configured port. If HBase is running locally, use the IP address @127.0.0.1@.
+
+The optional index backend configuration is identical to remote index configuration described above.
