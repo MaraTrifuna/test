@@ -1,8 +1,12 @@
 [[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left|float]]
 
-Titan interfaces with multiple indexing systems to provide support for geo, numeric range, and full-text search. Similar to storage backends, index backends are configured once initially and managed entirely by Titan. The choice of index backend determines which search features are supported, as well as the performance and scalability of the index.
+Titan provides two types of index systems: The _standard_ index and the _external index_ interface which supports an arbitrary number of external indexing backends to provide support for geo, numeric range, and full-text search. 
 
-Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
+The standard index is very fast and always available without any further configuration, but only supports exact index matches. In other words, the standard index can only retrieve vertices and edges by matching one of their properties exactly. 
+
+The external index interface is more flexible and supports retrieving vertices and edges by bounding their geo-location, properties that fall into a numeric range or matching tokens in full text. The external index interface connects to separate systems as index backends for indexing and retrieval similarly to how storage backends are used for persistence. Those storage backends need to be configured before they can be used.
+
+The choice of index backend determines which search features are supported, as well as the performance and scalability of the index. Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
 
 <br /><br /><br />
 
