@@ -30,7 +30,7 @@ Each newly added vertex or edge is assigned a unique id. Titan's id pool manager
 
 *Important:* All Titan instances MUST be configured with the same value for @ids.block-size@ to ensure proper id allocation. Hence, be careful to shut down all Titan instances prior to changing this value.
 
-h4. ID Acquisition process
+h4. ID Acquisition Process
 
 When id blocks are frequently allocated by many Titan instances in parallel, allocation conflicts between instances will inevitably arise and slow down the allocation process. In addition, the increased write load due to bulk loading may further slow down the process to the point where Titan considers it failed and throws an exception. There are three configuration options that can be tuned to avoid this.
 
