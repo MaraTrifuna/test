@@ -8,6 +8,26 @@ The external index interface is more flexible and supports retrieving vertices a
 
 The choice of index backend determines which search features are supported, as well as the performance and scalability of the index. Titan currently supports two index backends: [[Elastic Search | Using Elastic Search]] and [[Lucene | Using Lucene]].
 
+h2. Indexing Vertices and Edges
+
+
+_Note, this section assumes that an index backend named @search@ has been defined in the graph configuration. Read "Next Steps" to find out how to configure an index backend._
+
+h2. Querying an Index
+
+h2. Choosing an Index
+
+h2. Next Steps: Configuring an Index Backend
+
+In order to use an external indexing system with Titan, an index backend has to be configured. Titan currently supports two indexing systems:
+
+* [[Lucene|Using Lucene]]: The popular Apache Lucene indexing system
+* [[Elasticsearch| Using Elastic Search]]: A distributed indexing system based on Apache Lucene
+
+Refer to the respective documentation pages on how to configure these index backends.
+
+Configuring the index: Lucene, ElasticSearch
+
 h2. Configuration
 
 To configure an instance of an index backend with Titan, one has to give that instance a unique name. That name is important because it is used to identify the index in the initial configuration and when defining vertex and edge key indices in the graph. Once configured, this name cannot be changed.
