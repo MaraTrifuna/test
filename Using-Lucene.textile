@@ -6,7 +6,7 @@ bq. Apache Lucene is a high-performance, full-featured text search engine librar
 
 Titan supports "Lucene":http://lucene.apache.org/ as a single-machine, embedded index backend. Lucene has a slightly extended feature set and performs better in small-scale applications compared to [[Elasticsearch|Using Elastic Search]], but is limited to single-machine deployments.
 
-<br /><br /><br /><br /><br />
+<br /><br /><br /><br />
 
 h2. Elasticsearch Embedded Configuration
 
