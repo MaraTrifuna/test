@@ -53,7 +53,7 @@ h2. Titan Manual
 *** [[Using Elastic Search]]
 *** [[Using Lucene]]
 ** Type Management
-*** [[Type Definition]]
+<!-- *** [[Type Definition]] -->
 *** [[Type Definition Overview]] (*cheat sheet*)
 *** [[Vertex-Centric Indices]]
 ** Configuration and Tuning
