@@ -4,25 +4,39 @@ bq. Apache Lucene is a high-performance, full-featured text search engine librar
 
 
 
-Titan supports "Lucene":http://lucene.apache.org/ as a single-machine, embedded index backend.
+Titan supports "Lucene":http://lucene.apache.org/ as a single-machine, embedded index backend. Lucene has a slightly extended feature set and performs better in small-scale applications compared to [[Elasticsearch|Using Elastic Search]], but is limited to single-machine deployments.
 
 <br /><br /><br /><br /><br />
 
+h2. Elasticsearch Embedded Configuration
+
+For single machine deployments, Lucene runs embedded with Titan. Titan starts and interfaces with Lucene internally.
+
+To run Lucene embedded, add the following configuration options to the graph configuration file where @/tmp/searchindex/@ specifies the directory where Lucene should store the index data:
+
+```properties
+storage.index.search.backend=lucene
+storage.index.search.directory=/tmp/searchindex
+```
+
+In the above configuration, the index backend is named @search@. Replace @search@ by a different name to change the name of the index.
+
+
 h2. Feature Support
 
-h3. Full-Text
+* *Full-Text*: Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
 
-Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
+* *Geo*: Supports the @Geo.WITHIN@ condition to search for points that fall within a given geographic shape. Only supports points for indexing and circles and boxes for querying.
 
-h3. Geo
-
-Supports the @Geo.WITHIN@ condition to search for points that fall within a given geographic shape. Only supports points for indexing and circles and boxes for querying.
-
-h3. Numeric Range
-
-Supports all numeric comparisons in @Compare@.
+* *Numeric Range*: Supports all numeric comparisons in @Compare@.
 
 h2. Configuration Options
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
+| backend | Index backend implementation name | _elasticsearch_ | - | - |
 | directory | Directory to store Lucene data. | string | - | yes |
+
+h2. Next Steps
+
+* Please refer to the "Elasticsearch homepage":http://elasticsearch.org and available documentation for more information on Elasticsearch and how to setup an Elasticsearch cluster.
+* Check out [[example graph configurations|Example Graph Configuration]] for complete configurations including the storage backend.
