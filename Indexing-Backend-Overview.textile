@@ -85,7 +85,13 @@ In addition, the @Text.CONTAINS@ operator is supported for full-text search and 
 
 h2. Choosing an Index
 
-Here are some guidelines for choosing 
+Here are some guidelines for choosing the best indexing strategy for a particular use case:
+
+# Use the standard index for exact match index retrievals. The standard index does not require configuring or operating an external index system and is often significantly faster than external index backends.
+## As an exception, use an external index for exact matches when number of distinct values for the property key is relatively small or if you expect one value to be associated with many elements in the graph (i.e. in case of low selectivity).
+# Use an external index for numeric range, full-text or geo-spatial indexing.
+## Use [[Elasticsearch|Using Elastic Search]] when there is an expectation that Titan will be distributed across multiple machines.
+## [[Lucene|Using Lucene]] performs better in small scale, single machine applications. It performs better in unit tests, for instance.
 
 h2. Next Steps: Configuring an Index Backend
 
