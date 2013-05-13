@@ -29,11 +29,23 @@ h3. Version 0.3.1 (May 13, 2013)
 * Storage backend compression enabled by default where applicable
 * Removed RexsterTitanClient since all the functionality has been rolled into RexsterClient
 * Automatic type-casting of most primitive types and Geoshape where possible
+* Refactored to using immutable data structures for storage backend communication
+* Re-implemented InMemory storage backend for better performance
 
 *Bugfixes:*
 
 * Launching multiple Titan servers in one cluster with RF>1
 * Updated and improved the Astyanax adapter for Cassandra
+* Improved robustness of ID allocation
+* Vertex iteration in embedded Cassandra with BoP
+* Updated Titan server scripts and configuration files
+* Fixed issues around automatic transaction migration of vertices and edges
+* Fixed BerkeleyJE concurrency clean-up issue
+* Cleaned up and trimmed storage backend interfaces
+* Fixed ghost vertex issue when iterating over vertices
+* Fixed datatype conversion issues
+
+Check the issue tracker for a full list of fixed issues.
 
 
 
