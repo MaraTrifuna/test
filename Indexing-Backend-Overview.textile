@@ -63,12 +63,15 @@ g.query().has("place",WITHIN,Geoshape.circle(37.97,23.72,50)).edges()
 g.query().has("reason",CONTAINS,"loves").edges()
 // or all edges which contain two words
 g.query().has("reason",CONTAINS,"loves").has("reason",CONTAINS,"breezes").edges()
+// 5) Find all vertices older than a thousand years and named "saturn"
+g.query().has("age",GREATER_THAN,1000).has("name",EQUAL,"saturn").vertices()
 ```
 
 # The standard index registered for @name@ supports equality searches. In this case, we retrieve all vertices where the name matches "hercules" exactly (i.e. case sensitive).
 # The external index registered for @age@ supports numeric range search since the data type for @age@ is numeric. Hence, querying for vertices whose age falls into a given range is supported.
 # The geo-index registered for @place@ supports retrieving edges by specifying a circular shape as the search region. The circular region is defined by the latitude and longitude of its center (first two arguments) and the radius of the circle in kilometers (third argument).
 # The full-text index registered for @reason@ supports retrieval by string containment. A property matches if it contains the given word (case insensitive). Note, that the text is tokenized when indexed and stop words are removed. Two query for properties that contain two or more words, split them up into two separate @has()@ clauses.
+# Multiple has clauses can be combined into a _composite_ index retrieval potentially spread across multiple index backends. In this example, the query contains a @name@ and @age@ constraint. Titan will optimize the query to find the optimal index retrieval plan.
 
 The @Query.Compare@ enum specifies the comparison operators used for index query construction and used in the examples above:
 * EQUAL
@@ -81,6 +84,8 @@ The @Query.Compare@ enum specifies the comparison operators used for index query
 In addition, the @Text.CONTAINS@ operator is supported for full-text search and @Geo.CONTAINS@ for geo-location search.
 
 h2. Choosing an Index
+
+Here are some guidelines for choosing 
 
 h2. Next Steps: Configuring an Index Backend
 
@@ -104,4 +109,3 @@ storage.index.search.backend=elasticsearch
 ```
 
 All other configuration options pertaining to that particular index instance would likewise start with @storage.index.search@. Please refer to the documentation pages of the respective index backends for individual configuration options.
-
