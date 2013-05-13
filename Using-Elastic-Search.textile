@@ -22,6 +22,8 @@ Supports all numeric comparisons in @Compare@.
 
 h2. Configuration Options
 
+This is the full list of configuration options for Elasticsearch. Note, that each of these options needs to be prefixed with @storage.index.[INDEX-NAME].@ where @[INDEX-NAME]@ stands for the name of the index backend. For instance, if the index backend is named _search_ then these configuration options need to be prefixed with @storage.index.search.@
+
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | backend | Index backend implementation name | _elasticsearch_ | - | - |
 | hostname | Comma-separated list of IP addresses or hostnames of the instances in the Elasticsearch cluster | IPs | - | yes |
