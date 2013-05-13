@@ -2,6 +2,15 @@ Please follow these instructions when upgrading from an older Titan release.
 
 h2. Titan 0.y.z
 
+h3. Version 0.3.1 (May 13, 2013)
+
+*From 0.3.0*
+
+Titan 0.3.1 is compatible with 0.3.0 and no special upgrade is necessary unless Elasticsearch is used as a storage backend. Titan 0.3.1 uses Elasticsearch 0.90.0 whereas Titan 0.3.0 uses Elasticsearch 0.20.6. Please follow the "upgrade instructions for Elasticsearch":http://www.elasticsearch.org/download/ which are summarized as follows:
+* This is the first stable release based on Lucene 4. We recommend testing the upgrade before doing it in production.
+* Upgrading from 0.20 requires a full cluster restart.
+* In order to be able to downgrade, stop indexing new data, issue a flush request, do the upgrade and only enable indexing of new data once you are certain that you no longer need to downgrade.  Once new data has been indexed, downgrading is no longer possible. To be extra safe, back up your data before upgrading.
+
 h3. Version 0.3.0 (March 29, 2013)
 
 *From prior versions*
