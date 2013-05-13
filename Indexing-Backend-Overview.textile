@@ -10,6 +10,22 @@ The choice of index backend determines which search features are supported, as w
 
 h2. Indexing Vertices and Edges
 
+To retrieve vertices and edges by their property values through an index lookup, the property key must be registered with the index when it is defined, that is, _before_ its first use. The index is registered through the [[TypeMaker|Type Definition Overview]] when the type is constructed.
+
+For example, the following property key definitions register all the indexed properties from the [[Graph of the Gods example|Getting Started]] with the respective index backends.
+
+```java
+// 1) Index vertices by their unique name property
+graph.makeType().name("name").dataType(String.class).indexed(Vertex.class).unique(Direction.BOTH).makePropertyKey();
+// 2) Index vertices by their age property
+graph.makeType().name("age").dataType(Integer.class).indexed("search", Vertex.class).unique(Direction.OUT).makePropertyKey();
+// 3) Index edges by their geo-location 
+graph.makeType().name("place").dataType(Geoshape.class).indexed("search", Edge.class).unique(Direction.OUT).makePropertyKey();
+// 4)
+graph.makeType().name("reason").dataType(String.class).indexed("search",Vertex.class).indexed("search",Edge.class).unique(Direction.OUT).makePropertyKey();
+```
+
+
 
 _Note, this section assumes that an index backend named @search@ has been defined in the graph configuration. Read "Next Steps" to find out how to configure an index backend._
 
