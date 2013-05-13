@@ -50,6 +50,10 @@ h3. Transactional Scope for Edges
 
 Edges should not be accessed outside the scope in which they were originally created or retrieved.
 
+h3. Ghost Vertices
+
+When the same vertex is concurrently removed in one transaction and modified in another, both transactions will successfully commit on eventually consistent storage backends and the vertex will still exist with only the modified properties or edges. This is referred to as a ghost vertex. It is possible to guard against ghost vertices on eventually consistent backends using key [[out-uniqueness|Type Definition Overview]] but this is prohibitively expensive in most cases. A more scalable approach is to allow ghost vertices temporarily and clearing them out in regular time intervals, for instance using "Titan tools":https://github.com/StartTheShift/titan-tools.
+
 h3. Snappy 1.4 does not work with Java 1.7
 
 Cassandra 1.2.x makes use of Snappy 1.4. Titan will not be able to connect to Cassandra if the server is running Java 1.7 and Cassandra 1.2.x (with Snappy 1.4). Be sure to remove the Snappy 1.4 jar in the @cassandra/lib@ directory and replace with a Snappy 1.5 jar version ("available here":http://code.google.com/p/snappy-java/downloads/list).
