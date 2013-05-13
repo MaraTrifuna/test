@@ -101,17 +101,3 @@ In order to use an external indexing system with Titan, an index backend has to 
 * [[Elasticsearch| Using Elastic Search]]: A distributed indexing system based on Apache Lucene
 
 Refer to the respective documentation pages on how to configure these index backends.
-
-Configuring the index: Lucene, ElasticSearch
-
-h2. Configuration
-
-To configure an instance of an index backend with Titan, one has to give that instance a unique name. That name is important because it is used to identify the index in the initial configuration and when defining vertex and edge key indices in the graph. Once configured, this name cannot be changed.
-
-All index configuration options start with @storage.index@ followed by the name of the index. For instance, to configure the index @search@ to use the elasticsearch index backend, one would add the following configuration option:
-
-```text
-storage.index.search.backend=elasticsearch
-```
-
-All other configuration options pertaining to that particular index instance would likewise start with @storage.index.search@. Please refer to the documentation pages of the respective index backends for individual configuration options.
