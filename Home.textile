@@ -62,6 +62,7 @@ h2. Titan Manual
 *** [[Example Graph Configuration]]
 * Advanced Topics
 ** [[Bulk Loading]]
+** [[Advanced Indexing]]
 ** [[Global Graph Analytics]]
 ** [[Advanced Blueprints]]
 ** [[Building Titan]]
