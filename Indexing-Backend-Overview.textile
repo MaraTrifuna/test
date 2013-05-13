@@ -28,7 +28,7 @@ graph.makeType().name("reason").dataType(String.class).indexed("search",Vertex.c
 # The @name@ property key is indexed for vertices using Titan's standard index. The standard index only supports exact match index retrievals but is very fast. When no index name is specified, the standard index is used.
 # The @age@ property key is indexed for vertices using the configured external index backend with the name "search". Since the data type of @age@ is a number, property values are indexed as numbers and can be retrieved via numeric range search.
 # The @place@ property key is indexed for edges using the external index backend named "search". Since the data type of @place@ is @Geoshape@, property values are indexed as geo-location and can be retrieved via geo-searches such as circular region or bounding box search (depending on what the index backed supports).
-# The @reason@ property key is indexed for vertices _and_ edges using the external index backend named "search". Since the data type of @reason@ is @String@, property values are indexed as text and be retrieved via full-text search such as string-containment search.
+# The @reason@ property key is indexed for vertices _and_ edges using the external index backend named "search". Since the data type of @reason@ is @String@, property values are indexed as text and be retrieved via full-text search such as string-containment search. When the string is indexed, it is tokenized.
 
 ***
 
@@ -70,7 +70,7 @@ g.query().has("age",GREATER_THAN,1000).has("name",EQUAL,"saturn").vertices()
 # The standard index registered for @name@ supports equality searches. In this case, we retrieve all vertices where the name matches "hercules" exactly (i.e. case sensitive).
 # The external index registered for @age@ supports numeric range search since the data type for @age@ is numeric. Hence, querying for vertices whose age falls into a given range is supported.
 # The geo-index registered for @place@ supports retrieving edges by specifying a circular shape as the search region. The circular region is defined by the latitude and longitude of its center (first two arguments) and the radius of the circle in kilometers (third argument).
-# The full-text index registered for @reason@ supports retrieval by string containment. A property matches if it contains the given word (case insensitive). Note, that the text is tokenized when indexed and stop words are removed. Two query for properties that contain two or more words, split them up into two separate @has()@ clauses.
+# The full-text index registered for @reason@ supports retrieval by string containment. A property matches if it contains the given word (case insensitive). Note, that the text is tokenized when indexed and stop words as well as punctuation are removed. Two query for properties that contain two or more words, split them up into two separate @has()@ clauses.
 # Multiple has clauses can be combined into a _composite_ index retrieval potentially spread across multiple index backends. In this example, the query contains a @name@ and @age@ constraint. Titan will optimize the query to find the optimal index retrieval plan.
 
 The @Query.Compare@ enum specifies the comparison operators used for index query construction and used in the examples above:
