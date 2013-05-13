@@ -1,0 +1,12 @@
+This page discusses a number of advanced indexing topics. Be sure to read about [[Titan's indexing system| Indexing Backend Overview]] first.
+
+h2. Dual Indexing
+
+For some use cases, it can be beneficial to register a property key with multiple index backends. This is supported by Titan.
+
+For instance, consider the scenario where user vertices have the property key @name@ which stores the full name of the user - first, middle, and last name. Defining registering the @name@ key with the standard index _and_ an external full-text index has the following advantages:
+
+* Quick querying for users by their entire name using the standard index: @g.query().has("name",EQUAL,"John Doe").vertices()@
+* Using the full-text index to search for user's by any part of their name: @g.query().has("name",CONTAINS,"John").vertices()@
+
+Titan will automatically route the index request to the correct index backend.
