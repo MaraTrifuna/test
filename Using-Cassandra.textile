@@ -188,3 +188,13 @@ gremlin> g = TitanFactory.open('titan.properties')
 ==>titangraph[cassandra:[IP-address-of-one-Cassandra-EC2-instance]]
 ```
 You have successfully connected this Titan instance to the Cassandra cluster and can start to operate on the graph.
+
+h3. Connect to Cassandra cluster in EC2 from outside EC2
+
+Opening the usual Cassandra ports (9160, 7000, 7199) in the security group is not enough, because the Cassandra nodes by default broadcast their ec2-internal IPs, and not their public-facing IPs.
+
+The resulting behavior is that you can open a Titan graph on the cluster by connecting to port 9160 on any Cassandra node, but all requests to that graph time out.  This is because Cassandra is telling the client to connect to an unreachable IP.
+
+To fix this, set the "broadcast-address" property for each instance in /etc/cassandra/cassandra.yaml to its public-facing IP, and restart the instance.  Do this for all nodes in the cluster.  Once the cluster comes back, nodetool reports the correct public-facing IPs to which connections from the local machine are allowed.
+
+Changing the "broadcast-address" property allows you to connect to the cluster from outside ec2, but it might also mean that traffic originating within ec2 will have to round-trip to the internet and back before it gets to the cluster.  So, this approach is only useful for development and testing.
