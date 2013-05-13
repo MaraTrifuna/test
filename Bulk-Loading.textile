@@ -8,6 +8,8 @@ There are a number of use cases for bulk loading data into Titan, including:
 
 This page describes configuration options and tools that make bulk loading more efficient in Titan. Please observe the limitations and assumptions for each option carefully before proceeding to avoid data loss or data corruption.
 
+This documentation focuses on Titan specific optimization. In addition, consider improving the chosen storage backend and (optional) index backend for high write performance. Please refer to the documentation of the respective backend for more information.
+
 h2. Configuration Options
 
 h3. Batch Loading
