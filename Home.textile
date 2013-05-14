@@ -18,8 +18,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 *Version Numbers*
 * Titan 0.1.z is deprecated and will no longer be supported.
-* Titan 0.2.z is still active and updates will continue. (*stable*)
-* Titan 0.3.z is new with experimental features. (*experimental*)
+* Titan 0.2.z is still active but will be phased out soon. (*stable*)
+* Titan 0.3.z is new with experimental features. (*stable*)
 
 h2. Titan Manual
 
@@ -85,5 +85,7 @@ h2. Titan Manual
 
 The documentation in this wiki is respective of the current master branch, not the latest release.
 
-JavaDoc: "0.3.0":http://thinkaurelius.github.com/titan/javadoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/javadoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/javadoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/javadoc/0.1.0/
-WikiDoc: "0.3.0":http://thinkaurelius.github.com/titan/wikidoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/wikidoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
+JavaDoc: "0.3.1":http://thinkaurelius.github.com/titan/javadoc/0.3.1/ -- 
+"0.3.0":http://thinkaurelius.github.com/titan/javadoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/javadoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/javadoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/javadoc/0.1.0/
+WikiDoc: "0.3.1":http://thinkaurelius.github.com/titan/wikidoc/0.3.1/ -- 
+"0.3.0":http://thinkaurelius.github.com/titan/wikidoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/wikidoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
