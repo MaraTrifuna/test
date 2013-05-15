@@ -50,6 +50,14 @@ h3. Transactional Scope for Edges
 
 Edges should not be accessed outside the scope in which they were originally created or retrieved.
 
+h3. Locking Exceptions
+
+When defining unique [[Titan types|Type Definition Overview]] with locking enabled (i.e. requesting that Titan ensures uniqueness) it is likely to encounter locking exceptions under concurrent modifications to the graph. 
+```text
+com.thinkaurelius.titan.diskstorage.locking.PermanentLockingException: Updated state: lock acquired but value has changed since read
+```
+Such exceptions are to be expected, since Titan cannot know how to recover from a transactional state where an earlier read value has been modified by another transaction since this may invalidate the state of the transaction. It most cases it is sufficient to simply re-run the transaction. If locking exceptions are very frequent, try to analyze and remove the source of congestion.
+
 h3. Double and Float Data Types
 
 Titan internally represents @Double@ and @Float@ data types as fixed decimal numbers. Doubles are stored with up to 6 decimal digits and floats with up to 3. This representation enables range retrievals in vertex centric queries. However, it significantly limits the precision and range of doubles and floats. 
