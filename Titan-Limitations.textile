@@ -50,6 +50,11 @@ h3. Transactional Scope for Edges
 
 Edges should not be accessed outside the scope in which they were originally created or retrieved.
 
+h3. Double and Float Data Types
+
+Titan internally represents @Double@ and @Float@ data types as fixed decimal numbers. Doubles are stored with up to 6 decimal digits and floats with up to 3. This representation enables range retrievals in vertex centric queries. However, it significantly limits the precision and range of doubles and floats. 
+Use @FullDouble@ and @FullFloat@ as data type to get the full precision of floating point numbers. However, note that these data types cannot be used in range-constrained vertex centric queries.
+
 h3. Ghost Vertices
 
 When the same vertex is concurrently removed in one transaction and modified in another, both transactions will successfully commit on eventually consistent storage backends and the vertex will still exist with only the modified properties or edges. This is referred to as a ghost vertex. It is possible to guard against ghost vertices on eventually consistent backends using key [[out-uniqueness|Type Definition Overview]] but this is prohibitively expensive in most cases. A more scalable approach is to allow ghost vertices temporarily and clearing them out in regular time intervals, for instance using "Titan tools":https://github.com/StartTheShift/titan-tools.
