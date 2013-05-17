@@ -106,6 +106,8 @@ Access the Titan graph at the following URI:
 http://localhost:8182/graphs/titanexample
 ```
 
+_NOTE_ - For those using ElasticSearch, Rexster includes lucene-core-3.5.0.jar (a neo4j dependency).  Assuming Neo4j is not being utilized in the Rexster instance, simply delete that file from the rexster @lib@ directory.  Removing it will eliminate a conflict with Titan and allow ElasticSearch to start.  
+
 h2. Limitations
 
 Rexster has a rich "API":https://github.com/tinkerpop/rexster/wiki/Basic-REST-API for working with Blueprints Graph implementations, but there are some limitations to consider when using Rexster with Titan:
