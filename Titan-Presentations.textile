@@ -9,3 +9,5 @@
 * "Big Graph Data: Understanding a Complex World":http://www.slideshare.net/knowfrominfo/big-graph-data (*presentation*): Solving 21st century problems with graphs and an overview of Titan and Faunus. _(November 2012, presented at "Bay Area Graph Geeks":http://www.meetup.com/Bay-Area-Graph-Geeks/events/85936692/)_
 
 * "Data - Information - Knowledge: Adding Value through Graph Analysis":http://www.slideshare.net/knowfrominfo/titan-talk-ebaymarch2013 (*presentation*): Discusses how graph analysis can add value to information and new advancements in Titan and Faunus. _(March 2013, presented at Ebay)_
+
+* "Educating the Planet with Pearson Education":http://thinkaurelius.com/2013/05/13/educating-the-planet-with-pearson/ (*article*): Presents a large-scale benchmark of Titan with a 121 billion edge graph. _(May 2013, in collaboration with Pearson Education)_
