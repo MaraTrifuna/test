@@ -96,3 +96,8 @@ If Faunus cannot be used for parallelizing the bulk loading process, here are so
 h3. Data Sorting
 
 Presorting the data to be bulk loaded can significantly increase the loading performance through BatchGraph.  The "BatchGraph":https://github.com/tinkerpop/blueprints/wiki/Batch-Implementation documentation describes this strategy in more detail. It has been reported that loading times were decreased by a factor of 2 or more when presorting the bulk loaded data.
+
+h2. Q&A
+
+ * *What should I do to avoid the following exception during batch-loading:* @java.io.IOException: ID renewal thread on partition [X] did not complete in time.@?
+This exception is mostly likely caused by repeated time-outs during the id allocation phase due to highly stressed storage backend. Refer to the section on _ID Allocation Optimization_ above.
