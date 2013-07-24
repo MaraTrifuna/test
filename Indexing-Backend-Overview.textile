@@ -1,4 +1,4 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-elasticsearch.png|width=150px|align=left|float]]
+[[images/titan-elasticsearch.png|width=150px|align=left|float]]
 
 Titan provides two types of index systems: The _standard_ index and the _external index_ interface which supports an arbitrary number of external indexing backends to provide support for geo, numeric range, and full-text search. 
 

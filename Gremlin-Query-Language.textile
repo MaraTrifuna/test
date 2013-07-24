@@ -6,7 +6,7 @@ This section of documentation will only briefly overview Gremlin. For more compl
 
 h2. Introductory Traversals
 
-When working with Gremlin, it is important to realize the query as a chain of operations/functions that are read from left to right. A simple grandfather query is provided below over the _Graph of the Gods_ "dataset":https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods-2.png.
+When working with Gremlin, it is important to realize the query as a chain of operations/functions that are read from left to right. A simple grandfather query is provided below over the _Graph of the Gods_ "dataset":images/graph-of-the-gods-2.png.
 
 ```text
 gremlin> g.V('name','hercules').out('father').out('father').name

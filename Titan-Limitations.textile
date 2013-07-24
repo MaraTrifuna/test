@@ -1,4 +1,4 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|float|align=left]] There are various limitations and "gotchas" that one should be aware of when using Titan. Some of these limitations are necessary design choices and others are issues that will be rectified as Titan development continues. Finally, the last section provides solutions to common issues.
+[[images/titan-head.png|float|align=left]] There are various limitations and "gotchas" that one should be aware of when using Titan. Some of these limitations are necessary design choices and others are issues that will be rectified as Titan development continues. Finally, the last section provides solutions to common issues.
 
 <br/><br/><br/><br/>
 

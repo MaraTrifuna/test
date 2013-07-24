@@ -1,7 +1,7 @@
 Titan: Distributed Graph Database
 "http://titan.thinkaurelius.com":http://titan.thinkaurelius.com
 
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-globe.png|width=100px]]
+[[images/titan-globe.png|width=100px]]
 
 h2. Titan 0.y.z
 

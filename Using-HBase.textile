@@ -8,7 +8,7 @@ The following sections outline the various ways in which Titan can be used in co
 
 h3. Local Server Mode
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-local.png!
+!images/titan-modes-local.png!
 
 HBase can be run as a standalone database on the same local host as Titan and the end-user application. In this model, Titan and HBase communicate with one another via a @localhost@ socket. Running Titan over HBase requires the following setup steps:
 
@@ -32,7 +32,7 @@ Note, that you do not need to specify a hostname since a localhost connection is
 
 h3. Remote Server Mode
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-distributed.png!
+!images/titan-modes-distributed.png!
 
 When the graph needs to scale beyond the confines of a single machine, then HBase and Titan are logically separated into different machines. In this model, the HBase cluster maintains the graph representation and any number of Titan instances maintain socket-based read/write access to the HBase cluster. The end-user application can directly interact with Titan within the same JVM as Titan.
 
@@ -49,7 +49,7 @@ _storage.hostname_ accepts a comma separated list of IP addresses and hostname f
 
 h3. Remote Server Mode with Rexster
 
-!https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-modes-rexster.png!
+!images/titan-modes-rexster.png!
 
 Finally, Rexster can be wrapped around each Titan instance defined in the previous subsection. In this way, the end-user application need not be a Java-based application as it can communicate with Rexster over REST. This type of deployment is great for polyglot architectures where various components written in different languages need to reference and compute on the graph.
 

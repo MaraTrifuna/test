@@ -6,7 +6,7 @@ h2. The Graph of the Gods
 
 The examples in this section make extensive use of a toy graph distributed with Titan called _The Graph of the Gods_. This graph is diagrammed below. The abstract data model is known as a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model and this particular instance describes the relationships between the beings and places of the Roman pantheon. Moreover, special text and symbol modifiers in the diagram (e.g. bold, underline, etc.) denote different schematics/typings in the graph.
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/graph-of-the-gods-2.png|width=700px|align=center]]
+[[images/graph-of-the-gods-2.png|width=700px|align=center]]
 
   * *key*: a graph indexed key.
   * *key* *: a graph indexed key that must have a unique value.
@@ -16,7 +16,7 @@ The examples in this section make extensive use of a toy graph distributed with 
 
 h2. Downloading Titan and Running the Gremlin Shell
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-head.png|align=right|float|width=115px]]
+[[images/titan-head.png|align=right|float|width=115px]]
 
 bq. Unbeknownst to the Gods, there still lived one Titan. This Titan can not be seen, has no name, and is only apparent in the fact that reality exists. Upon the shoulders of this lost Titan, all of reality hangs together in an undulating web of relations.
 

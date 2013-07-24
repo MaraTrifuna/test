@@ -1,4 +1,4 @@
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-logo.png|width=375px]]
+[[images/titan-logo.png|width=375px]]
 [[Release Notes]] for all versions
 ==<hr/>==
 

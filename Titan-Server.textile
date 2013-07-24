@@ -1,4 +1,4 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-server-embedded.png
+[[images/titan-server-embedded.png
 |width=200px|align=right|float]]
 
 Titan Server is a light-weight server that manages remote connections to Titan and thereby allows applications to execute [[Gremlin|Gremlin Query Language]] queries against a Titan graph cluster. Titan Server embeds Rexster's [[HTTP/REST|https://github.com/tinkerpop/rexster/wiki/Basic-REST-API]] Server and [[RexPro|https://github.com/tinkerpop/rexster/wiki/RexPro]] Server, a light-weight component of the "Rexster":http://rexster.tinkerpop.com Server which can efficiently handle hundreds of database connections. Titan Server bundles all the features and benefits of Rexster with Titan.

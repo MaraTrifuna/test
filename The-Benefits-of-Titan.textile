@@ -2,7 +2,7 @@ Titan is designed to support the processing of graphs so large that they require
 
 h2. General Titan Benefits
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-kneeling.png|width=150px|align=right|float]] 
+[[images/titan-kneeling.png|width=150px|align=right|float]] 
 
 * Support for very large graphs. Titan graphs scale with the number of machines in the cluster.
 * Support for very many concurrent transactions. Titan's transactional capacity scale with the number of machines in the cluster. 
@@ -45,7 +45,7 @@ h2. Titan and the CAP Theorem
 
 When using a database, the "CAP theorem":http://en.wikipedia.org/wiki/CAP_theorem should be thoroughly considered (C=Consistency, A=Availability, P=Partitionability). Titan is distributed with 3 supporting backends: "Cassandra":http://cassandra.apache.org/, "HBase":http://hbase.apache.org/, and "BerkeleyDB":http://www.oracle.com/technetwork/products/berkeleydb/. Their tradeoffs with respect to the CAP theorem are represented in the diagram below. Note that BerkeleyDB is a non-distributed database and as such, is typically only used with Titan for testing and exploration purposes.
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-captheorem.png|align=center]]
+[[images/titan-captheorem.png|align=center]]
 <br>
 
 bq. "Despite your best efforts, your system will experience enough faults that it will have to make a choice between reducing yield (i.e., stop answering requests) and reducing harvest (i.e., giving answers based on incomplete data). This decision should be based on business requirements." - "Coda Hale":http://codahale.com/you-cant-sacrifice-partition-tolerance

@@ -4,7 +4,7 @@ However, the "CAP theorem":http://en.wikipedia.org/wiki/CAP_theorem stipulates t
 
 Titan currently supports 3 storage backends covering all 3 edges of the CAP theorem triangle as shown in the figure below.
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/titan-captheorem.png|align=center]]
+[[images/titan-captheorem.png|align=center]]
 <br>
 
 h2. Storage Backend Comparison

@@ -7,7 +7,7 @@ Titan natively implements the Blueprints API which means that Blueprints is the 
 
 h2. Introduction to TitanGraph
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/juno-married.png|align=center]]
+[[images/juno-married.png|align=center]]
 
 ```java
 TitanGraph g = TitanFactory.open("/tmp/titan");
@@ -26,7 +26,7 @@ h2. Vertex Queries
 
 Continuing with the example above, more vertices are created that are connected to by Juno.
 
-[[https://github.com/thinkaurelius/titan/raw/master/doc/images/super-node.png|align=center]]
+[[images/super-node.png|align=center]]
 
 ```java
 Vertex turnus = g.addVertex(null);

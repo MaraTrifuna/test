@@ -1,4 +1,4 @@
-[[https://raw.github.com/thinkaurelius/titan/master/doc/images/titan-kneeling.png
+[[images/titan-kneeling.png
 |width=150px|align=right|float]]
 
 The Beginner's Guide is a list of recommended pages to help Titan newcomers navigate the [[Titan manual|Home]].
