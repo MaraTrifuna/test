@@ -2,6 +2,21 @@ Please follow these instructions when upgrading from an older Titan release.
 
 h2. Titan 0.y.z
 
+
+h3. Version 0.3.2 (July 27, 2013)
+
+*From 0.3.1*
+
+Titan 0.3.2 is compatible with 0.3.1 and no special upgrade is necessary.
+
+*From 0.3.0*
+
+Titan 0.3.2 is compatible with 0.3.0 and no special upgrade is necessary unless Elasticsearch is used.  If you are using Elasticsearch, please see the notes on upgrading to 0.3.1 from 0.3.0 below.
+
+*From prior versions*
+
+Titan 0.3.2 is incompatible with earlier versions of Titan.  Read below for more information.
+
 h3. Version 0.3.1 (May 14, 2013)
 
 *From 0.3.0*

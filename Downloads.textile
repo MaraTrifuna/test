@@ -5,6 +5,12 @@
 <h2>Titan 0.y.z</h2>
 
 <h3>Titan 0.3.z</h3>
+
+ * Titan 0.3.2 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip)
+ ** "Titan/Cassandra 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip
+ ** "Titan/HBase 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip
+ ** "Titan/BerkeleyJE 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip
+
  * Titan 0.3.1 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.1.zip)
  ** "Titan/Cassandra 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
  ** "Titan/HBase 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.1.zip

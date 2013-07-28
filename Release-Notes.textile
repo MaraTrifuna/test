@@ -5,6 +5,41 @@ Titan: Distributed Graph Database
 
 h2. Titan 0.y.z
 
+h3. Version 0.3.2 (July 27, 2013)
+
+```xml
+<dependency>
+   <groupId>com.thinkaurelius.titan</groupId>
+   <artifactId>titan-core</artifactId>
+   <version>0.3.2</version>
+</dependency>
+```
+*Tested Compatibility:*
+
+* Cassandra 1.2.2
+* HBase 0.94.1
+* BerkeleyJE 5.0.73
+* Elasticsearch 0.90.0
+* Lucene 4.1.0
+* Java 1.6+
+
+*Features:*
+
+* Support for multiple standard index conditions in queries
+
+*Bugfixes:*
+
+* Fixed potential transaction leak when using thread-bound transactions
+* Let vertex.removeProperty(...) kill multivalued properties as the javadoc says
+* Avoided two spurious cases of "timestamp mismatch" exception
+* Removed unchecked cast in AbstractElement.equals(...)
+* Adjusted default Astyanax exponential backoff settings to avoid integer overflow against a dead peer
+* Fixed Astyanax config regression that caused node discovery and connection pool type to be ignored
+* Fixed double-checked locking on StandardVertex's added relations
+
+Check the issue tracker for a full list of fixed issues.
+
+
 h3. Version 0.3.1 (May 14, 2013)
 
 ```xml
