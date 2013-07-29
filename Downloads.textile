@@ -6,23 +6,23 @@
 
 <h3>Titan 0.3.z</h3>
 
- * Titan 0.3.2 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip)
- ** "Titan/Cassandra 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip
- ** "Titan/HBase 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip
- ** "Titan/BerkeleyJE 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip
+ * "Titan 0.3.2 Complete":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip.asc)
+ ** "Titan/Cassandra 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip.asc)
+ ** "Titan/HBase 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip.asc)
+ ** "Titan/BerkeleyJE 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip.asc)
 
- * Titan 0.3.1 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.1.zip)
+ * "Titan 0.3.1 Complete":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.1.zip
  ** "Titan/Cassandra 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
  ** "Titan/HBase 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.1.zip
  ** "Titan/BerkeleyJE 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.1.zip
 
- * Titan 0.3.0 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.0.zip)
+ * "Titan 0.3.0 Complete":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.0.zip
  ** "Titan/Cassandra 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.0.zip
  ** "Titan/HBase 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.0.zip
  ** "Titan/BerkeleyJE 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.0.zip
 
 <h3>Titan 0.2.z</h3> 
- * Titan 0.2.1 ("All":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.2.1.zip)
+ * "Titan 0.2.1 Complete":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.2.1.zip
  ** "Titan/Cassandra 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.2.1.zip
  ** "Titan/HBase 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.2.1.zip
  ** "Titan/BerkeleyJE 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.2.1.zip
