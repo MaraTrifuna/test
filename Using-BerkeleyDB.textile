@@ -45,4 +45,4 @@ h2. Global Graph Operations
 
 Titan backed by BerkeleyDB supports global graph operations such as iterating over all vertices or edges. However, note that such operations need to scan the entire database which can require a significant amount of time for larger graphs. 
 
-In order to not run out of memory, it is advised to [[disable transactions|Graph-Configuration]] when iterating over large graphs. Having transactions enabled requires BerkeleyDB to acquire read locks on the data it is reading. When iterating over the entire graph, these read locks can easily require more memory than is available.
+In order to not run out of memory, it is advised to disable transactions (@storage.transactions=false@) when iterating over large graphs. Having transactions enabled requires BerkeleyDB to acquire read locks on the data it is reading. When iterating over the entire graph, these read locks can easily require more memory than is available.
