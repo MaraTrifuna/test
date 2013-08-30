@@ -79,7 +79,7 @@ h2. General Configuration
 This section contains general configuration options to customize Titan's behavior.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Configuration for more details.  | _blueprints_ or _none_ | _blueprints_ | Yes |
+| autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Definition-Overview#default-type-creation for more details.  | _blueprints_ or _none_ | _blueprints_ | Yes |
 
 h2. Next Steps
 
