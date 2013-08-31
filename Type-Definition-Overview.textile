@@ -96,8 +96,9 @@ TitanLabel battled = g.makeType().name("battled").signature(time).makeEdgeLabel(
 
 This example is almost identical to the primary key example above with the only difference that _time_ is configured to be part of the signature.
 
-If a type is used in the primary key, it cannot be part of the signature.
-As before, @TitanTypes@ used in the signature must be either out-unique property keys or out-unique, unidirected edge labels.
+If a type is used in the primary key, it cannot be part of the signature. As before, @TitanTypes@ used in the signature must be either out-unique property keys or out-unique, unidirected edge labels.
+
+*NOTE* - Unlike standard edges, unidirected edge won't be deleted when its target vertex gets deleted.  They must be removed manually from the source vertex.
 
 h2. Default Type Creation
 
