@@ -1,0 +1,1 @@
+Explanation of KCVS, (Ordered) KVS, CacheStore and how the data is mapped
