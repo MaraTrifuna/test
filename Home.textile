@@ -1,9 +1,9 @@
 [[images/titan-logo.png|width=420px|align=left|float]] 
-Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Through its Fulgora extension, Titan can also operate on in-memory data grids like "Hazelcast":http://www.hazelcast.com for low latency applications. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
 
 <a href="https://github.com/thinkaurelius/titan/wiki/Downloads">[[images/download-button.png|align=right|float]]</a>
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/><br/>
 
 <a href="https://twitter.com/aureliusgraphs">[[http://www.queensu.ca/sustainability/index/twitterbutton.png|width=60px|align=right|float]]</a> Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users. For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph experts at "Aurelius":http://thinkaurelius.com and follow them on Twitter "@aureliusgraphs":https://twitter.com/aureliusgraphs.
 
@@ -19,7 +19,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 *Version Numbers*
 * Titan 0.1.z is deprecated and will no longer be supported.
 * Titan 0.2.z is still active but will be phased out soon. (*stable*)
-* Titan 0.3.z is new with experimental features. (*stable*)
+* Titan 0.3.z is active. (*stable*)
+* Titan 0.4.z is new with experimental features. (*experimental*)
 
 h2. Titan Manual
 
@@ -41,6 +42,7 @@ h2. Titan Manual
 ** Transactions
 *** [[Transaction Handling]]
 *** [[Multi-Threaded Transactions]]
+*** [[Transaction Configuration]]
 ** [[Titan Gotchas and Limitations | Titan Limitations]]
 * Managing Titan
 ** Storage Backends
@@ -48,12 +50,13 @@ h2. Titan Manual
 *** [[Using BerkeleyDB]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
+*** [[Using Hazelcast]]
 ** Indexing Backends
 *** [[Indexing Backend Overview]]
 *** [[Using Elastic Search]]
 *** [[Using Lucene]]
 ** Type Management
-<!-- *** [[Type Definition]] -->
+*** [[Type Definition]]
 *** [[Type Definition Overview]] (*cheat sheet*)
 *** [[Vertex-Centric Indices]]
 ** Configuration and Tuning
@@ -62,10 +65,14 @@ h2. Titan Manual
 *** [[Example Graph Configuration]]
 * Advanced Topics
 ** [[Bulk Loading]]
+** [[Faster deep traversals]]
 ** [[Advanced Indexing]]
 ** [[Global Graph Analytics]]
 ** [[Advanced Blueprints]]
 ** [[Building Titan]]
+** [[Titan Performance and Monitoring]]
+** [[Titan Data Model]]
+** [[Titan Consistency and Locking]]
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
