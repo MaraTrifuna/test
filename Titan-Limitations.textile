@@ -71,6 +71,10 @@ h3. Snappy 1.4 does not work with Java 1.7
 
 Cassandra 1.2.x makes use of Snappy 1.4. Titan will not be able to connect to Cassandra if the server is running Java 1.7 and Cassandra 1.2.x (with Snappy 1.4). Be sure to remove the Snappy 1.4 jar in the @cassandra/lib@ directory and replace with a Snappy 1.5 jar version ("available here":http://code.google.com/p/snappy-java/downloads/list).
 
+h3. Debug-level Logging
+
+When the log level is set to @debug@ Titan produces *a lot* of logging output which is useful to understand how particular queries get compiled, optimized, and executed. However, the output is so large that it will impact the query performance noticeably. Hence, you @info@ or above for production systems or benchmarking.
+
 h2. Useful Tips
 
 h3. Removing JAMM Warning Messages
