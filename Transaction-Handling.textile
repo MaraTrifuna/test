@@ -55,7 +55,11 @@ Permanent failures can be caused by complete connection loss, hardware failure o
 
 Permanent exceptions that can fail a transaction include:
 
-* PermanentLockingException(*Local lock contention*) : Another local thread has already been granted a conflicting lock.
+* PermanentLockingException(*Local lock contention*)</br>
+Another local thread has already been granted a conflicting lock.
+
+* PermanentLockingException(*Expected value mismatch for X: expected=Y vs actual=Z*)</br>
+The verification that the value read in this transaction is the same as the one in the datastore after applying for the lock failed. In other words, another transaction modified the value after it had been read and modified.
 
 h2. Gotchas
 
