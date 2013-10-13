@@ -157,7 +157,7 @@ h4. Launch DataStax Cassandra AMI
 
 h4. Verify Successful Instance Launch
 
-* SSH into any Cassandra instance node: @ssh -i [your-private-key].pem ubuntu@[public-dns-name-of-any-cassandra-instance]@
+* SSH into any Cassandra instance node: <code>ssh -i [your-private-key].pem ubuntu@[public-dns-name-of-any-cassandra-instance]</code>
 
 * Run the Cassandra nodetool @nodetool -h 127.0.0.1 ring@ to inspect the state of the Cassandra token ring.  You should see as many nodes in this command's output as instances launched in the previous steps.
 
@@ -171,7 +171,7 @@ h4. Example Titan Instance on Amazon Linux AMI
 
 * Launch the "Amazon Linux AMI":http://aws.amazon.com/amazon-linux-ami in the same zone of the Cassandra cluster. Choose your desired EC2 instance type depending on the amount of resources you need. Use the default configuration options and select the same Key Pair and Security Group as for the Cassandra cluster configured in the previous step.
 
-* SSH into the newly created instance via @ssh -i [your-private-key].pem ec2-user[public-dns-name-of-the-instance]@. You may have to wait a little for the instance to launch.
+* SSH into the newly created instance via <code>ssh -i [your-private-key].pem ec2-user@[public-dns-name-of-the-instance]</code>. You may have to wait a little for the instance to launch.
 
 * "Download":https://github.com/thinkaurelius/titan/wiki/Downloads the current Titan distribution with @wget@ and unpack the archive locally to the home directory. Start the gremlin shell to verify that Titan runs successfully. For more information on how to unpack Titan and start the gremlin shell, please refer to the "Getting Started guide":Getting-Started.
 
