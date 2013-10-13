@@ -12,11 +12,15 @@ h3. DataType Definitions
 
 When declaring the data type of a property key using @dataType(Class)@ Titan will enforce that all properties for that key have the declared type, unless that type is @Object.class@. This is an equality type check, meaning that sub-classes will not be allowed. For instance, one cannot declare the data type to be @Number.class@ and use @Integer@ or @Long@. For efficiency reasons, the type needs to match exactly. Hence, you @Object.class@ as the data type for type flexibility. In all other cases, declare the actual data type to benefit from increased performance and type safety.
 
+h3. Edge Retrievals are not O(1)
+
+Retrieving an edge by id, e.g @tx.getEdge(edge.getId())@, is not a constant time operation. Titan will retrieve an adjacent vertex of the edge to be retrieved and then execute a vertex query to identify the edge. The former is constant time but the latter is potentially linear in the number of edges incident on the vertex with the same edge label.
+
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
 
-To index vertices by key, the respective key index must be created before the key is first used in a vertex property. Read more about creating [[vertex indexes|Blueprints Interface]].
+To index vertices or edges by key, the respective key index must be created before the key is first used in a vertex or edge property. Read more about creating [[vertex indexes|Blueprints Interface]].
 
 h3. Unable to Drop Key Indices
 
@@ -38,13 +42,13 @@ h3. Multiple Titan instances on one machine
 
 Running multiple Titan instances on one machine backed by the _same_ storage backend (distributed or local) requires that each of these instances has a unique configuration for @storage.machine-id-appendix@. Otherwise, these instances might overwrite each other leading to data corruption. See [[Graph Configuration]] for more information.
 
+h3. Accidental type creation
+
+By default, Titan will automatically create property keys and edge labels when a new type is encountered. It is strongly encouraged that users explicitly [[define types|Type-Definition-Overview]] and disable automatic type creation by setting the [[graph configuration|Graph-Configuration]] option @autotype = none@.
+
 h3. Custom Class Datatype
 
 Titan supports arbitrary objects as attribute values on properties. To use a custom class as data type in Titan, either register a custom serializer or ensure that the class has a no-argument constructor and implements the @equals@ method because Titan will verify that it can successfully de-/serialize objects of that class. Please read [[Datatype and Attribute Serializer Configuration]] for more information.
-
-h3. Global Graph Operations
-
-Since version 0.2.1, Titan supports global graph operations for all storage backends. However, beware that such operations will likely cause @OutOfMemoryException@ for large graphs since all vertices and/or edges can be loaded into memory by iterating through them.  Use "Faunus":http://thinkaurelius.github.com/faunus/ to implement global graph operations on large, distributed Titan graphs that do not fit into memory.
 
 h3. Transactional Scope for Edges
 
@@ -52,9 +56,7 @@ Edges should not be accessed outside the scope in which they were originally cre
 
 h3. Locking Exceptions
 
-When defining unique [[Titan types|Type Definition Overview]] with locking enabled (i.e. requesting that Titan ensures uniqueness) it is likely to encounter locking exceptions under concurrent modifications to the graph. 
-
-bq. com.thinkaurelius.titan.diskstorage.locking.PermanentLockingException: Updated state: lock acquired but value has changed since read
+When defining unique [[Titan types|Type Definition Overview]] with locking enabled (i.e. requesting that Titan ensures uniqueness) it is likely to encounter locking exceptions of the type @PermanentLockingException@ under concurrent modifications to the graph.
 
 Such exceptions are to be expected, since Titan cannot know how to recover from a transactional state where an earlier read value has been modified by another transaction since this may invalidate the state of the transaction. It most cases it is sufficient to simply re-run the transaction. If locking exceptions are very frequent, try to analyze and remove the source of congestion.
 
@@ -66,6 +68,8 @@ Use @FullDouble@ and @FullFloat@ as data type to get the full precision of float
 h3. Ghost Vertices
 
 When the same vertex is concurrently removed in one transaction and modified in another, both transactions will successfully commit on eventually consistent storage backends and the vertex will still exist with only the modified properties or edges. This is referred to as a ghost vertex. It is possible to guard against ghost vertices on eventually consistent backends using key [[out-uniqueness|Type Definition Overview]] but this is prohibitively expensive in most cases. A more scalable approach is to allow ghost vertices temporarily and clearing them out in regular time intervals, for instance using "Titan tools":https://github.com/StartTheShift/titan-tools.
+
+Another option is to detect them at read-time using the [[transaction configuration|Transaction-Configuration]] option @ checkInternalVertexExistence()@
 
 h3. Snappy 1.4 does not work with Java 1.7
 
