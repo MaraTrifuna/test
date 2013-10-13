@@ -55,7 +55,7 @@ Permanent failures can be caused by complete connection loss, hardware failure o
 
 Permanent exceptions that can fail a transaction include:
 
-* PermanentLockingException _Local lock contention_ : Another local thread has already been granted a conflicting lock.
+* PermanentLockingException(*Local lock contention*) : Another local thread has already been granted a conflicting lock.
 
 h2. Gotchas
 
