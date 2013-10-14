@@ -39,7 +39,7 @@ In the above configuration, the index backend is named @search@. Replace @search
 
 h2. Feature Support
 
-* *Full-Text*: Supports the @Text.CONTAINS@ condition to search for text properties that contain a given word.
+* *Full-Text*: Supports all @Text@ predicates to search for text properties that matches a given word, prefix or regular expression.
 
 * *Geo*: Supports the @Geo.WITHIN@ condition to search for points that fall within a given circle. Only supports points for indexing and circles for querying.
 
@@ -58,6 +58,9 @@ This is the full list of configuration options for Elasticsearch. Note, that eac
 | directory | Directory to store Elasticsearch data in. _Only applicable when running Elasticsearch embedded_ | string | - | yes |
 | config-file | Filename of the Elasticsearch yaml file used to configure this instance. _Only applicable when running Elasticsearch embedded_ | boolean | _false_ | no |
 | client-only | Whether this node is a client node with no data | boolean | _true_ | no |
+| max-result-set-size | The default maximum result set size for any query if the query does not explicitly specify a limit | integer | _true_ | yes |
+| sniff | Whether client transport sniffing is enabled. When encountering connection problems, in particular on AWS, disable this option | boolean | _true_ | yes |
+
 
 h2. Optimizing Elasticsearch
 
