@@ -36,7 +36,6 @@ h2. Titan Manual
 *** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
 *** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
 **** "GremlinDocs":http://gremlindocs.com/ (*cheat sheet*)
-*** [[Titan Server]]
 *** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
 *** "Hadoop Connectivity":http://faunus.thinkaurelius.com
 ** Transactions
