@@ -17,7 +17,7 @@ storage.index.search.client-only=false
 storage.index.search.local-mode=true
 ```
 
-Note, that Elasticsearch will not be accessible from outside of this particular Titan instance, i.e., remote connections will not be possible.
+Note, that Elasticsearch will not be accessible from outside of this particular Titan instance, i.e., remote connections will not be possible. Also, it might be advisable to run Elasticsearch in a separate jvm even for single machine deployments to achieve more predictable GC behavior.
 
 In the above configuration, the index backend is named @search@. Replace @search@ by a different name to change the name of the index.
 
