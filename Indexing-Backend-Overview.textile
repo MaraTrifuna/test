@@ -10,19 +10,19 @@ The choice of index backend determines which search features are supported, as w
 
 h2. Indexing Vertices and Edges
 
-To retrieve vertices and edges by their property values through an index lookup, the property key must be registered with the index when it is defined, that is, _before_ its first use. The index is registered through the [[TypeMaker|Type Definition Overview]] when the type is constructed.
+To retrieve vertices and edges by their property values through an index lookup, the property key must be registered with the index when it is defined, that is, _before_ its first use. The index is registered through the [[KeyMaker|Type Definition Overview]] when the key is defined.
 
 For example, the following property key definitions register all four indexed properties from the [[Graph of the Gods example|Getting Started]] with the respective index backends.
 
 ```java
 // 1) Index vertices by their unique name property
-graph.makeType().name("name").dataType(String.class).indexed(Vertex.class).unique(Direction.BOTH).makePropertyKey();
+graph.makeKey("name").dataType(String.class).indexed(Vertex.class).unique().make();
 // 2) Index vertices by their age property
-graph.makeType().name("age").dataType(Integer.class).indexed("search", Vertex.class).unique(Direction.OUT).makePropertyKey();
+graph.makeKey("age").dataType(Integer.class).indexed("search", Vertex.class).make();
 // 3) Index edges by their geo-location 
-graph.makeType().name("place").dataType(Geoshape.class).indexed("search", Edge.class).unique(Direction.OUT).makePropertyKey();
+graph.makeKey("place").dataType(Geoshape.class).indexed("search", Edge.class).make();
 // 4) Index vertices and edges by their full-text reason property
-graph.makeType().name("reason").dataType(String.class).indexed("search",Vertex.class).indexed("search",Edge.class).unique(Direction.OUT).makePropertyKey();
+graph.makeKey("reason").dataType(String.class).indexed("search",Vertex.class).indexed("search", Edge.class).make();
 ```
 
 # The @name@ property key is indexed for vertices using Titan's standard index. The standard index only supports exact match index retrievals but is very fast. When no index name is specified, the standard index is used.
@@ -35,7 +35,7 @@ graph.makeType().name("reason").dataType(String.class).indexed("search",Vertex.c
 When using Titan's standard index, the name argument to the @indexed()@ method is optional. An equivalent definition of the @name@ property key, which identifies the standard index by its name, would be:
 
 ```java
-graph.makeType().name("name").dataType(String.class).indexed("standard",Vertex.class).unique(Direction.BOTH).makePropertyKey();
+graph.makeKey("name").dataType(String.class).indexed("standard",Vertex.class).unique().make();
 ```
 
 The name "standard" is always reserved for Titan's standard index backend. External indexing backends may not be configured with this name.
