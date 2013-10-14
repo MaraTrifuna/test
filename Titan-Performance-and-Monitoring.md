@@ -110,3 +110,15 @@ This histograms the number of column-value entries returned per `getSlice` call.
 ### Per-Store Names
 
 When `metrics.merge-basic-metrics = false` is set in Titan's properties file, the `stores` string in the metric names above is replaced by `idStore`, `edgeStore`, `vertexIndexStore`, or `edegIndexStore` according to the role of the backend instance handling the method call.
+
+# JUnitBenchmarks in Titan
+
+Starting in version 0.4.0, several of Titan's JUnit tests have been converted to [JUnitBenchmarks](http://labs.carrotsearch.com/junit-benchmarks.html).  To execute these tests in a clone of the Titan repository, invoke the following command:
+
+```
+mvn -Pperformance-test,memory-test clean install
+```
+
+This can be issued in the repository root to test all storage backends, or in a particular storage backend module, such as `titan-cassandra` or `titan-berkeleyje`, to test only that backend.  The results are written to console and to a series of files named `jub.<nanotime>.xml`, one file per test.
+
+These tests are executed weekly on an AWS EC2 m1.medium instance and pushed to [Ducksboard](https://public.ducksboard.com/xWvWuJp2J0uMHm7TC_BM/).
