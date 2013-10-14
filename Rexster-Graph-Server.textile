@@ -16,9 +16,29 @@ The following is a list of the "benefits of using Rexster":https://github.com/ti
 * Remote Gremlin traversals via the "Gremlin extensions":https://github.com/tinkerpop/rexster/wiki/Gremlin-Extension and the "Rexster console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console.
 * "Security support":https://github.com/tinkerpop/rexster/wiki/Rexster-Security via user authentification.
 
-h2. Downloading and Starting Rexster
+h2. Downloading and Starting Rexster with TItan
 
-If not using [[Titan Server]], Rexster must first be downloaded. Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
+There are two ways to download and install Rexster with Titan.
+
+To get started with Rexster and Titan quickly, consider the titan-server zip distribution.  This contains Rexster, Titan, Cassandra, and Elasticsearch in a single download, preconfigured to work together.  It also contains the convenience script <code>bin/titan.sh</code> to start and stop the Cassandra and Rexster services (ES runs embedded in the Titan + Rexster VM and doesn't use a separate process).
+
+To use Titan backends besides Cassandra and ES, or to run graph engines besides Titan within a shared Rexster server, download Rexster and Titan separately and then install Titan as a Rexster extension.
+
+Each of these approaches is described below.
+
+h3. Getting started quickly with titan-server.zip
+
+* Download a copy of the current <code>titan-server-$VERSION.zip</code> file from the [[Downloads]] page.
+* Unzip it and enter the <code>titan-server-$VERSION</code> directory
+* Run <code>bin/titan.sh start</code> to start a Rexster server with Titan
+* Connect to Rexster using <code>bin/rexster-console.sh</code>, the REST API, or an application using RexsterClient (each method is described below in the "Connecting to Rexster" section)
+* Run <code>bin/titan.sh status</code> to check on the forked processes and <code>bin/titan.sh stop</code> to kill them
+
+h3. Downloading Rexster and Titan separately
+
+This section describes the process of downloading a stock Rexster distribution, testing it in its default configuration, and then installing and configuring Titan as an extension.
+
+Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
 
 ```bash
 $ curl -O -L http://tinkerpop.com/downloads/rexster/rexster-server-x.y.z.zip > rexster-server-x.y.z.zip
@@ -36,7 +56,7 @@ Validate that it is working by opening a browser and navigating to @http://local
 
 Use @CTRL-C@ to kill the server. Now that Rexster is downloaded and verified to be working, it is necessary to configure Rexster to work with Titan.
 
-h2. Configuring Rexster
+h4. Configuring Rexster to use Titan
 
 This section explains how to configure Rexster to use a Titan graph database (see also Rexster's "Getting Started":https://github.com/tinkerpop/rexster/wiki/Getting-Started page). 
 
@@ -92,8 +112,6 @@ or, if using the Titan zipped distribution download:
 cp TITAN_HOME/lib/*.* REXSTER_HOME/ext/titan
 ```
 
-*NOTE*: Future releases (beyond the 0.2) will have a much more efficient/easier packaging model.
-
 Start Rexster with:
 
 ```text
@@ -107,6 +125,69 @@ http://localhost:8182/graphs/titanexample
 ```
 
 *NOTE* - For those using ElasticSearch, Rexster includes lucene-core-3.5.0.jar (a neo4j dependency).  Assuming Neo4j is not being utilized in the Rexster instance, simply delete that file from the rexster @lib@ directory.  Removing it will eliminate a conflict with Titan and allow ElasticSearch to start.  
+
+h2. Connecting to Rexster
+
+Regardless of the download and installation method chosen above, Rexster accepts connections through either RexPro or the REST API once started.
+
+h3. Connect via rexster-console.sh
+
+Start "Rexster Console":https://github.com/tinkerpop/rexster/wiki/Rexster-Console with the default settings (127.0.0.0:8184) and then call <code>rexster.getGraph("graph")</code> to retrieve a Titan graph instance reference.
+
+<pre><code>$  bin/rexster-console.sh 
+        (l_(l
+(_______( 0 0
+(        (-Y-) <woof>
+l l-----l l
+l l,,   l l,,
+opening session [127.0.0.1:8184]
+[INFO] EngineController - ScriptEngineManager has factory for: ECMAScript
+[INFO] EngineController - ScriptEngineManager has factory for: Groovy
+[INFO] EngineController - ScriptEngineManager has factory for: gremlin-groovy
+[INFO] EngineController - Registered ScriptEngine for: gremlin-groovy
+[INFO] EngineHolder - Initializing gremlin-groovy engine with additional imports.
+[INFO] RexProSessions - RexPro Session created: 06885b49-71c4-49e6-9cc5-bd42b8c59740
+?h for help
+
+rexster[groovy]> g = rexster.getGraph("graph")
+==>titangraph[cassandra:null]
+rexster[groovy]> g.getClass()
+==>class com.thinkaurelius.titan.graphdb.database.StandardTitanGraph
+rexster[groovy]> </code></pre>
+
+h3. Connecting to the [[REST API|https://github.com/tinkerpop/rexster/wiki/Basic-REST-API]]
+
+<pre><code>curl http://localhost:8182/graphs</code></pre>
+
+```js
+{
+    "version": "x.y.z",
+    "name": "Rexster: A Graph Server",
+    "graphs": [
+        "graph"
+    ],
+    "queryTime": 0.217059,
+    "upTime": "0[d]:00[h]:00[m]:05[s]"
+}
+```
+
+h3. Connecting using RexsterClient
+
+[[RexsterClient|https://github.com/tinkerpop/rexster/wiki/RexPro-Java]] uses RexPro to talk to the Rexster server.  Here's sample code that uses RexsterClient to issue a query over a [[Graph of the Gods|https://github.com/thinkaurelius/titan/wiki/Getting-Started]].
+
+```java
+RexsterClient client = RexsterClientFactory.open("localhost", "graph");
+List<Map<String,Object>> result;
+result = client.execute("g.V('name','saturn').in('father').map");
+// result.toString(): [{name="jupiter", type="god"}]
+
+Map<String,Object> params = new HashMap<String,Object>();
+params.put("name","saturn");
+result = client.execute("g.V('name',name).in('father').map",params);
+client.close();
+```
+
+First above, a connection to the Titan Server is established. Gremlin queries are issued as strings using the @RexsterClient.execute()@ methods. Each query is executed in its own transaction. Explicit transaction handling is not necessary. The result set is a list of query answers, where each query answer is represented as a map of key-value pairs. @RexsterClient@ provides additional @execute()@ methods where the signature of each query answer can be specified as a template. The second query is semantically identical to the first, but in this case we are passing in the name as a variable binding for the corresponding variable used in the query. Once all queries have been issued, the connection is closed.
 
 h2. Limitations
 
