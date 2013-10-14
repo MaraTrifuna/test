@@ -7,6 +7,10 @@ Titan currently supports 3 storage backends covering all 3 edges of the CAP theo
 [[images/titan-captheorem.png|align=center]]
 <br>
 
+All of the storage backends shown above persist the data durably to disk. For very large graphs, it is beneficial to use relatively inexpensive disk storage for old or stale data. However, disk access has high latencies and limits throughput.
+
+For low latency applications, Titan additionally supports in-memory storage backends. Those hold all data in-memory and thereby avoid the additional complexities and access cost of disks.
+
 h2. Storage Backend Comparison
 
 |_. Name |_. @storage.option@ |_. Consistency |_. Availability |_. Scalability |_. Replication | Persistence |
@@ -15,3 +19,10 @@ h2. Storage Backend Comparison
 | [[Hazelcast|Using Hazelcast]] | _hazelcastcache_ | transactional consistency | failover recovery | linear scalability | yes | in-memory |
 | [[BerkeleyDB|Using BerkeleyDB]] | _berkeleyje_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | HA mode available | disk |
 | [[Persistit|Using Persistit]] | _persisit_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | none | disk |
+
+h2. Choosing a Storage Backend
+
+# Decide between disk-backed and in-memory storage backends
+** Disks/SSDs are significantly less expensive than RAM. For large graphs, cost can therefore determine this decision
+** In-memory storage backends can provide lower latency answers to queries. This greatly depends on the queries, however. If only a small subset of the graph is queried, disk-backed storage backends will cache that part of the data in-memory as well. It is only once disk access becomes inevitable that latencies will significantly increase.
+# Decide between the availability, consistency and partitionability characteristics of the storage backend based on your application requirements.
