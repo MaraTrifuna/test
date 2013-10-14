@@ -23,7 +23,7 @@ Titan leverages various storage backends for persistence. Use the following opti
 | storage.backend | Full class name of the @StorageManager@ implementation defining the storage backend to be used for persistence or one of the following pre-defined storage backends: *cassandra*, *hbase*, *local* | Class name or pre-defined short-hand | *local* | no |
 | storage.directory | Storage directory for those storage backends that require local storage | path | - | no |
 | storage.read-only | Specifies whether write operations are supported on the graph | _true_ or _false_ | _false_ | yes |
-| storage.batch-loading | Enables batch loading which improves write performance but assumes that only one thread is interacting with the graph and that vertices retrieved by id exist. Under these assumptions locking and some read operations can be avoided. Furthermore, the configured storage backend will make backend specific configurations that facilitate loading performance. *Be careful:* enabling batch loading when the assumptions are violated can result in an inconsistent or partially corrupt graph. | _true_ or _false_ | _false_ | yes |
+| storage.batch-loading | Enables batch loading which improves write performance but assumes that only one thread is interacting with the graph and that vertices retrieved by id exist. Under these assumptions locking and some read operations can be avoided. Furthermore, the configured storage backend will make backend specific configurations that facilitate loading performance. </br> *Careful:* enabling batch loading when the assumptions are violated can result in an inconsistent or partially corrupt graph. We strongly suggest to disable automatic type creation. | _true_ or _false_ | _false_ | yes |
 | storage.buffer-size | Buffers graph mutations locally up to the specified number before persisting them against the storage backend. Set to 0 to disable buffering. Buffering is disabled automatically if the storage backend does not support buffered mutations. | >0 | 1024 | yes |
 | storage.write-attempts | Number of times the database attempts to persist the transactional state to the storage layer. | >0 | 5 | yes |
 | storage.read-attempts | Number of times the database attempts to execute a read operation against the storage layer in the current transaction. | >0 | 3 | yes |
@@ -79,7 +79,7 @@ h2. General Configuration
 This section contains general configuration options to customize Titan's behavior.
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Definition-Overview#default-type-creation for more details.  | _blueprints_ or _none_ | _blueprints_ | Yes |
+| autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Definition-Overview#default-type-creation for more details. Set to _none_ to disable automatic type creation | _blueprints_ or _none_ | _blueprints_ | Yes |
 
 h2. Next Steps
 
