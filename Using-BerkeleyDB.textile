@@ -41,6 +41,8 @@ The BerkeleyDB storage backend is best suited for small to medium size graphs wi
 
 Since BerkeleyDB runs in the same JVM as Titan, this storage backend is ideally suited for unit testing of application code using Titan.
 
+Note, that BerkeleyDB has a more restrictive license than Titan. Please review BerkleyDB's license to determine if it can accommodate your use case.
+
 h2. Global Graph Operations
 
 Titan backed by BerkeleyDB supports global graph operations such as iterating over all vertices or edges. However, note that such operations need to scan the entire database which can require a significant amount of time for larger graphs. 
