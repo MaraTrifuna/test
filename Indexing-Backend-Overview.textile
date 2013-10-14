@@ -90,7 +90,7 @@ The @Text@ enum specifies the full-text predicates used to query for text that c
 * PREFIX: matches the beginning of the word
 * REGEX: the given regular expression matches the entire word
 
-The @Geo@ enum specifies the geo-location predicate @Geo.CONTAINS@ which holds true if one geometric object contains the other.
+The @Geo@ enum specifies the geo-location predicate @Geo.WITHIN@ which holds true if one geometric object contains the other.
 
 h2. Choosing an Index
 
