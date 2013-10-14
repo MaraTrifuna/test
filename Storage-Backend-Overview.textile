@@ -9,7 +9,9 @@ Titan currently supports 3 storage backends covering all 3 edges of the CAP theo
 
 h2. Storage Backend Comparison
 
-|_. Name |_. @storage.option@ |_. Consistency |_. Availability |_. Scalability |_. Replication |
-| [[Cassandra|Using Cassandra]] | _cassandra_ | "eventually consistent":http://en.wikipedia.org/wiki/Eventual_consistency | highly available | linear scalability | yes |
-| [[HBase|Using HBase]] | _hbase_ | vertex consistent | single point of failure | linear scalability | yes |
-| [[BerkeleyDB|Using BerkeleyDB]] | _berkeleyje_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | HA mode available |
+|_. Name |_. @storage.option@ |_. Consistency |_. Availability |_. Scalability |_. Replication | Persistence |
+| [[Cassandra|Using Cassandra]] | _cassandra_ | "eventually consistent":http://en.wikipedia.org/wiki/Eventual_consistency | highly available | linear scalability | yes | disk |
+| [[HBase|Using HBase]] | _hbase_ | vertex consistent | failover recovery | linear scalability | yes | disk |
+| [[Hazelcast|Using Hazelcast]] | _hazelcastcache_ | transactional consistency | failover recovery | linear scalability | yes | in-memory |
+| [[BerkeleyDB|Using BerkeleyDB]] | _berkeleyje_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | HA mode available | disk |
+| [[Persistit|Using Persisit]] | _persisit_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | none | disk |
