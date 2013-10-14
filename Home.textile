@@ -47,10 +47,11 @@ h2. Titan Manual
 * Managing Titan
 ** Storage Backends
 *** [[Storage Backend Overview]]
-*** [[Using BerkeleyDB]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
 *** [[Using Hazelcast]]
+*** [[Using Persistit]]
+*** [[Using BerkeleyDB]]
 ** Indexing Backends
 *** [[Indexing Backend Overview]]
 *** [[Using Elastic Search]]
@@ -73,6 +74,7 @@ h2. Titan Manual
 ** [[Titan Performance and Monitoring]]
 ** [[Titan Data Model]]
 ** [[Titan Consistency and Locking]]
+** [[Fulgora]]
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
