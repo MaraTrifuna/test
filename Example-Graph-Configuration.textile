@@ -1,6 +1,6 @@
 This page illustrates a number of common graph configurations. Please refer to the [[Graph Configuration]] documentation and the pages of the respective [[storage backend|Storage Backend Overview]] and [[index backend|Indexing Backend Overview]] for more information.
 
-Also, note that the Titan distribution includes local configuration files in the @bin/@ directory.
+Also, note that the Titan distribution includes local configuration files in the @conf/@ directory.
 
 h3. BerkeleyDB
 
