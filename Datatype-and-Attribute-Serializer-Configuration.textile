@@ -23,4 +23,4 @@ Titan supports arbitrary objects as property attributes and uses "Kryo's":http:/
 * The class must have a no-argument constructor
 * The class must implement the @equals(Object)@ method
 
-The second requirement is Titan specific because Titan will test bot serialization and deserialization of a custom class before persisting data to disk.
+The second requirement is Titan specific because Titan will test both serialization and deserialization of a custom class before persisting data to disk.
