@@ -36,6 +36,32 @@ When adding this dependency, be sure to add the following repository to the @pom
 </repository>
 ```
 
+h2. Building Distributions without Gollum
+
+# Build and install code artifacts
+
+```bash
+cd titan # or whatever your clone directory is named
+mvn clean install -DskipTests=true
+```
+
+# Install a fake titan-site in the local Maven repository
+
+```bash
+touch emptyfile ; zip empty.zip emptyfile
+mvn install:install-file -DgroupId=com.thinkaurelius.titan -DartifactId=titan-site -Dversion=0.4.0-SNAPSHOT -Dclassifier=htdocs -Dpackaging=zip -Dfile=empty.zip
+rm empty.zip
+```
+
+# Build distributions *without documentation* -- not suitable for release
+
+```bash
+cd titan-dist
+mvn clean install -Paurelius-release -DskipTests=true -Dgpg.skip=true
+```
+
+It's preferable to install gollum-site through rubygems, if possible, before building the release distributions, but this should work if you don't want to install gollum-site.
+
 h2. FAQs
 
 1. *Maven build causes dozens of "[WARNING] We have a duplicate..." errors*
