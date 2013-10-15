@@ -16,13 +16,13 @@ Use 'makeKey' and 'makeLabel' to define keys and labels respectively instead of 
 of the type as the argument. Furthermore, primaryKey() has been renamed to sortKey() and uniqueness has been renamed:
 
 * For Titan keys:
-** unique() replaces unique(Direction.IN)
-** single() replaces unique(Direction.OUT)
-** use list() to allow multiple properties for the key
+** @unique()@ replaces @unique(Direction.IN)@
+** @single()@ replaces @unique(Direction.OUT)@
+** use @list()@ to allow multiple properties for the key
 * For Titan labels:
-** oneToMany() replaces unique(Direction.IN)
-** manyToOne() replaces unique(Direction.OUT)
-** oneToOne() replaces unique(Direction.IN).unique(Direction.OUT)
+** @oneToMany()@ replaces @unique(Direction.IN)@
+** @manyToOne()@ replaces @unique(Direction.OUT)@
+** @oneToOne()@ replaces @unique(Direction.IN).unique(Direction.OUT)@
 
 h4. Rexster Server
 
