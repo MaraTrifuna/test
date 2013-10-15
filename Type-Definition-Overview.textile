@@ -109,7 +109,7 @@ By default, labels are configures as manyToMany().
 
 h3. sortKey(TitanType…) and signature(TitanType…)
 
-Specifying the sort key of a label allows edges with this label to be efficiently retrieved in the specified sort-order. Titan builds [[vertex-centric indexes | ??]] for each label according to the sort key definition which can significantly speed up queries.
+Specifying the sort key of a label allows edges with this label to be efficiently retrieved in the specified sort-order. Titan builds [[vertex-centric indices]] for each label according to the sort key definition which can significantly speed up queries.
 
 ```java
 TitanKey time = g.makeKey("time").dataType(Integer.class).make();
