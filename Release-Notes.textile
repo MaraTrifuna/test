@@ -56,8 +56,17 @@ h3. Version 0.4.0 (October 15, 2013)
 * Correct handling of hybrid GraphQuery
 * Better handling of data degradation issues
 
-
 Check the issue tracker for a full list of fixed issues.
+
+*Special Thanks to:*
+
+* Blake Eggleston ("bdeggleston":https://github.com/bdeggleston)
+* Erick Tryzelaar ("erickt":https://github.com/erickt)
+* Zach Kinstner ("zachkinstner":https://github.com/zachkinstner)
+* "jkschneider":https://github.com/jkschneider
+* "gwhitehawk":https://github.com/gwhitehawk
+* "mamccr":https://github.com/mamccr
+* "akeffalas":https://github.com/akeffalas
 
 h3. Version 0.3.2 (July 29, 2013)
 
