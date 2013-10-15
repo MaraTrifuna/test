@@ -51,3 +51,9 @@ When using a database, the "CAP theorem":http://en.wikipedia.org/wiki/CAP_theore
 bq. "Despite your best efforts, your system will experience enough faults that it will have to make a choice between reducing yield (i.e., stop answering requests) and reducing harvest (i.e., giving answers based on incomplete data). This decision should be based on business requirements." - "Coda Hale":http://codahale.com/you-cant-sacrifice-partition-tolerance
 
 HBase gives preference to consistency at the expense of yield, i.e. the probability of completing a request. Cassandra gives preference to availability at the expense of harvest, i.e. the completeness of the answer to the query (data available/complete data).
+
+h2. Titan In-Memory
+
+Through the [[Fulgora]] extension Titan can also be used as an in-memory graph database for low latency applications. The Fulgora extension provides support for in-memory storage backends and currently supports the [[Hazelcast | Using Hazelcast]] distributed in-memory data grid.
+
+!https://db56fe3126-custmedia.vresp.com/36365bb450/hazelcast%20logo.jpg!:http://www.hazelcast.com
