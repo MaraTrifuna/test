@@ -2,6 +2,8 @@
 
 "Hazelcast":http://www.hazelcast.com is a distributed in-memory data-grid that provides fast access to large amounts of data distributed across a cluster of machines. The Hazelcast storage backend for Titan is a low latency optimized alternative that excels at read-mostly workloads that uniformly access a graph. Note, that Hazelcast does not provide durable persistence. For production deployments, Hazelcast is operated as a data-grid where data is replicated to multiple machine for safety. Hazelcast runs in the same JVM as Titan.
 
+Note, that the Hazelcast storage backend was first included in Titan 0.4.0 and is considered experimental for now.
+
 bq. Hazelcast is the leading open source in-memory data grid it provides java developers an easy-to-use and powerful solution for data distribution that can be used as a clustering solution, a distributed cache and a NoSQL key-value store. -- "Hazelcast Homepage":http://www.hazelcast.com
 
 h2. Hazelcast Setup
