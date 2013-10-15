@@ -64,7 +64,7 @@ h2. Titan Manual
 *** [[Example Graph Configuration]]
 * Advanced Topics
 ** [[Bulk Loading]]
-** [[Faster Deep traversals]]
+** [[Faster Deep Traversals]]
 ** [[Advanced Indexing]]
 ** [[Global Graph Analytics]]
 ** [[Advanced Blueprints]]
