@@ -71,7 +71,7 @@ h2. Titan Manual
 ** [[Building Titan]]
 ** [[Titan Performance and Monitoring]]
 ** [[Titan Data Model]]
-** [[Titan Consistency and Locking]]
+** [[Eventually Consistent Storage Backends]]
 ** [[Fulgora]]
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
