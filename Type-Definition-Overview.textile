@@ -46,15 +46,15 @@ There is no default setting for the data type and every property key must have i
 
 Titan supports arbitrary classes as data types for properties. Those must be serializable. If default serialization is not applicable a custom serializer must be implemented and registered with Titan. See "Graph Configuration":Graph-Configuration for more information on how to define custom attribute data types and handlers. 
 
-Also, note some of the [[limitations and gotchas | Gotchas and Limitations ]] when it comes to data types.
+Also, note some of the [[limitations and gotchas | Titan Limitations ]] when it comes to data types.
 
 The data type of an existing property can be retrieved as @TitanKey.getDataType()@.
 
 h3. indexed(Element,index)
 
-Registers the property key with the given index for the provided element type, i.e. vertex or edge. Depending on the specified element type, all vertices or edges with a property of this key are indexed against the given index by their property value. This allows vertices and/or edges to be retrieved by property value using @GraphQuery@ as described in [[Index Backend Overview]].
+Registers the property key with the given index for the provided element type, i.e. vertex or edge. Depending on the specified element type, all vertices or edges with a property of this key are indexed against the given index by their property value. This allows vertices and/or edges to be retrieved by property value using @GraphQuery@ as described in [[Indexing Backend Overview]].
 
-The name of the index must match one of the registered external indexing backends. External indexing backends are registered by name in the Titan configuration as described in [[Index Backend Overview]].
+The name of the index must match one of the registered external indexing backends. External indexing backends are registered by name in the Titan configuration as described in [[Indexing Backend Overview]].
 If no name is provided, i.e. @indexed(Element)@ is called, the standard index is used.
 
 Note, that a property can be indexed for both element types (vertices & edges) at the same time and can be indexed against multiple indices. 
@@ -121,7 +121,7 @@ In this example, the property key time is defined with data type @Integer@. This
 Note, that @TitanTypes@ used in the primary key must be single-valued property keys or many-to-one, uni-directed edge labels.
 The sort-key can be composite, that is comprised of multiple types. For composite sort keys, edges are sorted by the first type, then the second and so forth.
 
-See [[Vertex Centric Indices]] for more information on the benefits of sort-keys.
+See [[Vertex-Centric Indices]] for more information on the benefits of sort-keys.
 
 If one is not interested in configuring the sort-order of edges but only wants to benefit from the storage efficiencies introduced by sort keys, one can alternatively configure the signature of a label. Specifying the signature of a label tells the graph database to _expect_ that edges with this label always have or are likely to have an incident property or unidirected edge of the type included in the signature. This allows the graph database to store such edges more compactly and retrieve them more quickly.
 
