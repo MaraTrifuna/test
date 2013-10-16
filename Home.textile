@@ -13,7 +13,7 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
    <artifactId>titan-core</artifactId>
    <version>0.4.0</version>
 </dependency>
-<!-- core, all, cassandra, hbase, berkeleyje, es, lucene -->
+<!-- core, all, cassandra, hbase, berkeleyje, es, lucene, hazelcast, persistit -->
 ```
 
 *Version Numbers*
