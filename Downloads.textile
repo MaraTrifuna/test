@@ -10,7 +10,7 @@
 
  * "Titan/All 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip.asc).  Contains all supported indexing and storage backends.  Recommended.
  * "Titan Server 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip (Titan/Cassandra/Rexster/ES) ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip.asc)
- * Minimal distributions.  Each contains one storage backend.  Use only if you need just a single storage backend and no index providers.
+ * Minimal distributions.  Each contains one storage backend.
  ** "Titan/Cassandra 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip.asc)
  ** "Titan/HBase 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip.asc)
  ** "Titan/BerkeleyJE 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip.asc)
