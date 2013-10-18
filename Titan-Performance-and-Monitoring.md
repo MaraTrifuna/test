@@ -18,6 +18,7 @@ Titan supports the following Metrics reporters:
 * Ganglia
 * JMX
 * Slf4j
+* User-provided/Custom
 
 Each reporter type is independent of and can coexist with the others.  For example, it's possible to configure Ganglia, JMX, and Slf4j Metrics reporters to operate simultaneously.  Just set all their respective configuration keys in titan.properties (and enable metrics as directed above).
 
@@ -116,6 +117,16 @@ metrics.slf4j.interval = 60000
 # Optional; uses Metrics default when unset
 metrics.slf4j.logger = foo
 ```
+
+### User-Provided/Custom Reporter Configuration
+
+In case the Metrics reporter configuration options presented above don't meet your needs, Titan provides a utility method to access the single `MetricRegistry` instance which holds all of its Metrics.
+
+```java
+MetricRegistry titanRegistry = com.thinkaurelius.titan.util.stats.MetricManager.INSTANCE.getRegistry();
+```
+
+You can attach arbitrary reporters to `titanRegistry`, including non-standard reporter types or standard reporter types with exotic configurations.  This approach is also useful if you need multiple differently-configured instances of one of Titan's supported reporter types.  For instance, you could use the `titanRegistry` to setup multiple unicast Graphite reporters whereas Titan only natively supports a single Graphite reporter configuration.
 
 ## What's Measured
 
