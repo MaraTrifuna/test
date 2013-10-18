@@ -127,7 +127,7 @@ com.codahale.metrics.MetricRegistry titanRegistry =
     com.thinkaurelius.titan.util.stats.MetricManager.INSTANCE.getRegistry();
 ```
 
-You can attach arbitrary reporters to `titanRegistry`, including non-standard reporter types or standard reporter types with exotic configurations.  This approach is also useful if you need multiple differently-configured instances of one of Titan's supported reporter types.  For instance, you could use the `titanRegistry` to setup multiple unicast Graphite reporters whereas Titan only natively supports a single Graphite reporter configuration.
+You can attach arbitrary reporters to `titanRegistry`, including non-standard reporter types or standard reporter types with exotic configurations.  This approach is also useful if you need multiple differently-configured instances of one of Titan's supported reporter types.  For instance, you could use this approach to setup multiple unicast Graphite reporters whereas Titan only natively supports a single Graphite reporter configuration.
 
 ## What's Measured
 
