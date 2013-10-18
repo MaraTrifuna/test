@@ -11,46 +11,105 @@ To enable Metrics, set the following in Titan's properties file:
 metrics.enable-basic-metrics = true
 ```
 
-Titan's currently supported Metrics reporters and template configurations for each one follow.
+Titan's currently supported Metrics reporters, their configuration options, and sample configuration snippets for each reporter are listed in the following subsections.
 
-* JMX
+Each reporter type is independent of and can coexist with the others.  For example, it's possible to configure Ganglia, JMX, and Slf4j Metrics reporters to operate simultaneously.  Just set all their respective configuration keys in titan.properties (and enable metrics as directed above).
 
-  To enable JMX, set the following in Titan's properties file:
-  ```
-  # Required
-  metrics.jmx.enabled = true
-  # Optional; if omitted, then Metrics uses its default values
-  metrics.jmx.domain = foo
-  metrics.jmx.agentid = baz
-  ```
+### JMX Reporter Configuration
 
-  `metrics.jmx.domain` and `.agentid` are strings that override Metrics' internal defaults for the JMX reporting domain and JMX reporting agent ID, respectively.
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.jmx.enabled | yes | Boolean | false |
+| metrics.jmx.domain | no | Metrics will appear in this JMX domain | Metrics's own default |
+| metrics.jmx.agentid | no | Metrics will be reported with this JMX agent ID | Metrics's own default |
 
-* Slf4j
+Example titan.properties snippet:
 
-  ```
-  # Required; specify logging interval in milliseconds
-  metrics.slf4j.interval = 60000
-  # Optional; uses Metrics default when unset
-  metrics.slf4j.logger = foo
-  ```
+```
+# Required
+metrics.jmx.enabled = true
+# Optional; if omitted, then Metrics uses its default values
+metrics.jmx.domain = foo
+metrics.jmx.agentid = baz
+```
 
-* Console
+### Slf4j Reporter Configuration
 
-  ```
-  # Required; specify logging interval in milliseconds
-  metrics.console.interval = 60000
-  ```
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.slf4j.interval | yes | Milliseconds to wait between dumping metrics to the logger | null |
+| metrics.slf4j.logger | no | Slf4j logger name to use | "metrics" |
 
-* CSV (writes one comma-separated values file per metric to a configurable directory)
+Example titan.properties snippet that logs metrics once a minute to the logger named `foo`:
 
-  ```
-  # Required; specify logging interval in milliseconds
-  metrics.csv.interval = 60000
-  metrics.csv.dir = foo/bar
-  ```
+```
+# Required; specify logging interval in milliseconds
+metrics.slf4j.interval = 60000
+# Optional; uses Metrics default when unset
+metrics.slf4j.logger = foo
+```
 
-  The output directory for CSV files will be created if it doesn't already exist.
+### Console Reporter Configuration
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.console.interval | yes | Milliseconds to wait between dumping metrics to the console | null |
+
+Example titan.properties snippet that prints metrics to the console once a minute:
+
+```
+# Required; specify logging interval in milliseconds
+metrics.console.interval = 60000
+```
+
+### CSV (writes one comma-separated values file per metric to a configurable directory)
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.csv.interval | yes | Milliseconds to wait between writing CSV lines | null |
+| metrics.csv.dir | yes | Directory in which CSV files are written (will be created if it does not exist) | null |
+
+Example titan.properties snippet that writes files once a minute to `./foo/bar`:
+
+```
+# Required; specify logging interval in milliseconds
+metrics.csv.interval = 60000
+metrics.csv.dir = foo/bar
+```
+
+### Ganglia Reporter Configuration
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.ganglia.host | yes | Unicast host or multicast group to which our Metrics are sent | null |
+| metrics.ganglia.interval | yes | Milliseconds to wait between sending datagrams | null |
+| metrics.ganglia.port | no | UDP port to which we send Metrics datagrams | 8649 |
+| metrics.ganglia.addressing-mode | no | Must be "unicast" or "multicast" | unicast |
+| metrics.ganglia.ttl | no | Multicast datagram TTL; ignore for unicast | 1 |
+| metrics.ganglia.protocol-31 | no | Boolean; true to use Ganglia protocol 3.1, false to use 3.0 | true |
+| metrics.ganglia.uuid | no | [Host UUID to report instead of IP:hostname](https://github.com/ganglia/monitor-core/wiki/UUIDSources) | null |
+| metrics.ganglia.spoof | no | [Override IP:hostname reported to Ganglia](http://sourceforge.net/apps/trac/ganglia/wiki/gmetric_spoofing) | null |
+
+Example titan.properties snippet that sends unicast UDP datagrams to localhost on the default port once every 30 seconds:
+
+```
+# Required; IP or hostname string
+metrics.ganglia.host = 127.0.0.1 
+# Required; specify logging interval in milliseconds
+metrics.ganglia.interval = 30000
+```
+
+Example titan.properties snippet that sends unicast UDP datagrams to a non-default destination port and which also spoofs the IP and hostname reported to Ganglia:
+
+```
+# Required; IP or hostname string
+metrics.ganglia.host = 1.2.3.4 
+# Required; specify logging interval in milliseconds
+metrics.ganglia.interval = 60000
+# Optional
+metrics.ganglia.port = 6789
+metrics.ganglia.spoof = 10.0.0.1:zombo.com
+```
 
 ## What's Measured
 
