@@ -120,7 +120,7 @@ metrics.slf4j.logger = foo
 
 ### User-Provided/Custom Reporter Configuration
 
-In case the Metrics reporter configuration options presented above don't meet your needs, Titan provides a utility method to access the single `MetricRegistry` instance which holds all of its Metrics.
+In case the Metrics reporter configuration options presented above don't meet your needs, Titan provides a utility method to access the single `MetricRegistry` instance which holds all of its measurements.
 
 ```java
 com.codahale.metrics.MetricRegistry titanRegistry =
