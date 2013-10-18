@@ -4,18 +4,21 @@ Starting in version 0.4.0, Titan supports [Metrics](http://metrics.codahale.com/
 
 ## Configuration
 
-To enable Metrics, set the following in Titan's properties file:
+To enable Metrics collection, set the following in Titan's properties file:
 
 ```
 # Required
 metrics.enable-basic-metrics = true
 ```
 
+This setting makes Titan generate runtime measurements using Metrics classes like Timer, Counter, Histogram, etc.  To access these measurements, one or more reporters must be configured.
+
 Titan supports the following Metrics reporters:
 
 * Console
 * CSV
 * Ganglia
+* Graphite
 * JMX
 * Slf4j
 * User-provided/Custom
@@ -70,7 +73,7 @@ Example titan.properties snippet that sends unicast UDP datagrams to localhost o
 ```
 metrics.enable-basic-metrics = true
 # Required; IP or hostname string
-metrics.ganglia.host = 127.0.0.1 
+metrics.ganglia.hostname = 127.0.0.1 
 # Required; specify logging interval in milliseconds
 metrics.ganglia.interval = 30000
 ```
@@ -80,12 +83,31 @@ Example titan.properties snippet that sends unicast UDP datagrams to a non-defau
 ```
 metrics.enable-basic-metrics = true
 # Required; IP or hostname string
-metrics.ganglia.host = 1.2.3.4 
+metrics.ganglia.hostname = 1.2.3.4 
 # Required; specify logging interval in milliseconds
 metrics.ganglia.interval = 60000
 # Optional
 metrics.ganglia.port = 6789
 metrics.ganglia.spoof = 10.0.0.1:zombo.com
+```
+
+### Graphite Reporter Configuration
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.graphite.hostname | yes | IP address or hostname to which [Graphite plaintext protocol](https://graphite.readthedocs.org/en/latest/feeding-carbon.html#the-plaintext-protocol) data are sent | null |
+| metrics.graphite.interval | yes | Milliseconds to wait between pushing data to Graphite | null |
+| metrics.graphite.port | no | Port to which Graphite plaintext protocol reports are sent | 2003 |
+| metrics.graphite.prefix | no | Arbitrary string prepended to all metric names sent to Graphite | null |
+
+Example titan.properties snippet that sends metrics to a Graphite server on 192.168.0.1 every minute:
+
+```
+metrics.enable-basic-metrics = true
+# Required; IP or hostname string
+metrics.graphite.hostname = 192.168.0.1
+# Required; specify logging interval in milliseconds
+metrics.graphite.interval = 60000
 ```
 
 ### JMX Reporter Configuration
