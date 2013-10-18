@@ -43,7 +43,7 @@ metrics.console.interval = 60000
 | metrics.csv.interval | yes | Milliseconds to wait between writing CSV lines | null |
 | metrics.csv.dir | yes | Directory in which CSV files are written (will be created if it does not exist) | null |
 
-Example titan.properties snippet that writes CSV files once a minute to the directory `./foo/bar/`:
+Example titan.properties snippet that writes CSV files once a minute to the directory `./foo/bar/` (relative to the process's working directory):
 
 ```
 metrics.enable-basic-metrics = true
