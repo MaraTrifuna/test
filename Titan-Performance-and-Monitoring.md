@@ -11,43 +11,15 @@ To enable Metrics, set the following in Titan's properties file:
 metrics.enable-basic-metrics = true
 ```
 
-Titan's currently supported Metrics reporters, their configuration options, and sample configuration snippets for each reporter are listed in the following subsections.
+Titan supports the following Metrics reporters:
+
+* Console
+* CSV
+* Ganglia
+* JMX
+* Slf4j
 
 Each reporter type is independent of and can coexist with the others.  For example, it's possible to configure Ganglia, JMX, and Slf4j Metrics reporters to operate simultaneously.  Just set all their respective configuration keys in titan.properties (and enable metrics as directed above).
-
-### JMX Reporter Configuration
-
-| Config Key | Required? | Value | Default |
-| ---------- | --------- | ----- | ------- |
-| metrics.jmx.enabled | yes | Boolean | false |
-| metrics.jmx.domain | no | Metrics will appear in this JMX domain | Metrics's own default |
-| metrics.jmx.agentid | no | Metrics will be reported with this JMX agent ID | Metrics's own default |
-
-Example titan.properties snippet:
-
-```
-# Required
-metrics.jmx.enabled = true
-# Optional; if omitted, then Metrics uses its default values
-metrics.jmx.domain = foo
-metrics.jmx.agentid = baz
-```
-
-### Slf4j Reporter Configuration
-
-| Config Key | Required? | Value | Default |
-| ---------- | --------- | ----- | ------- |
-| metrics.slf4j.interval | yes | Milliseconds to wait between dumping metrics to the logger | null |
-| metrics.slf4j.logger | no | Slf4j logger name to use | "metrics" |
-
-Example titan.properties snippet that logs metrics once a minute to the logger named `foo`:
-
-```
-# Required; specify logging interval in milliseconds
-metrics.slf4j.interval = 60000
-# Optional; uses Metrics default when unset
-metrics.slf4j.logger = foo
-```
 
 ### Console Reporter Configuration
 
@@ -109,6 +81,40 @@ metrics.ganglia.interval = 60000
 # Optional
 metrics.ganglia.port = 6789
 metrics.ganglia.spoof = 10.0.0.1:zombo.com
+```
+
+### JMX Reporter Configuration
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.jmx.enabled | yes | Boolean | false |
+| metrics.jmx.domain | no | Metrics will appear in this JMX domain | Metrics's own default |
+| metrics.jmx.agentid | no | Metrics will be reported with this JMX agent ID | Metrics's own default |
+
+Example titan.properties snippet:
+
+```
+# Required
+metrics.jmx.enabled = true
+# Optional; if omitted, then Metrics uses its default values
+metrics.jmx.domain = foo
+metrics.jmx.agentid = baz
+```
+
+### Slf4j Reporter Configuration
+
+| Config Key | Required? | Value | Default |
+| ---------- | --------- | ----- | ------- |
+| metrics.slf4j.interval | yes | Milliseconds to wait between dumping metrics to the logger | null |
+| metrics.slf4j.logger | no | Slf4j logger name to use | "metrics" |
+
+Example titan.properties snippet that logs metrics once a minute to the logger named `foo`:
+
+```
+# Required; specify logging interval in milliseconds
+metrics.slf4j.interval = 60000
+# Optional; uses Metrics default when unset
+metrics.slf4j.logger = foo
 ```
 
 ## What's Measured
