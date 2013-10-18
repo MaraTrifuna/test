@@ -56,7 +56,7 @@ metrics.csv.dir = foo/bar
 
 | Config Key | Required? | Value | Default |
 | ---------- | --------- | ----- | ------- |
-| metrics.ganglia.host | yes | Unicast host or multicast group to which our Metrics are sent | null |
+| metrics.ganglia.hostname | yes | Unicast host or multicast group to which our Metrics are sent | null |
 | metrics.ganglia.interval | yes | Milliseconds to wait between sending datagrams | null |
 | metrics.ganglia.port | no | UDP port to which we send Metrics datagrams | 8649 |
 | metrics.ganglia.addressing-mode | no | Must be "unicast" or "multicast" | unicast |
