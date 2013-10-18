@@ -31,6 +31,7 @@ Each reporter type is independent of and can coexist with the others.  For examp
 Example titan.properties snippet that prints metrics to the console once a minute:
 
 ```
+metrics.enable-basic-metrics = true
 # Required; specify logging interval in milliseconds
 metrics.console.interval = 60000
 ```
@@ -45,6 +46,7 @@ metrics.console.interval = 60000
 Example titan.properties snippet that writes files once a minute to `./foo/bar`:
 
 ```
+metrics.enable-basic-metrics = true
 # Required; specify logging interval in milliseconds
 metrics.csv.interval = 60000
 metrics.csv.dir = foo/bar
@@ -66,6 +68,7 @@ metrics.csv.dir = foo/bar
 Example titan.properties snippet that sends unicast UDP datagrams to localhost on the default port once every 30 seconds:
 
 ```
+metrics.enable-basic-metrics = true
 # Required; IP or hostname string
 metrics.ganglia.host = 127.0.0.1 
 # Required; specify logging interval in milliseconds
@@ -75,6 +78,7 @@ metrics.ganglia.interval = 30000
 Example titan.properties snippet that sends unicast UDP datagrams to a non-default destination port and which also spoofs the IP and hostname reported to Ganglia:
 
 ```
+metrics.enable-basic-metrics = true
 # Required; IP or hostname string
 metrics.ganglia.host = 1.2.3.4 
 # Required; specify logging interval in milliseconds
@@ -95,6 +99,7 @@ metrics.ganglia.spoof = 10.0.0.1:zombo.com
 Example titan.properties snippet:
 
 ```
+metrics.enable-basic-metrics = true
 # Required
 metrics.jmx.enabled = true
 # Optional; if omitted, then Metrics uses its default values
@@ -112,6 +117,7 @@ metrics.jmx.agentid = baz
 Example titan.properties snippet that logs metrics once a minute to the logger named `foo`:
 
 ```
+metrics.enable-basic-metrics = true
 # Required; specify logging interval in milliseconds
 metrics.slf4j.interval = 60000
 # Optional; uses Metrics default when unset
