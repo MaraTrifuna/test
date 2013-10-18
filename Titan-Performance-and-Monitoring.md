@@ -148,14 +148,14 @@ metrics.slf4j.logger = foo
 
 ### User-Provided/Custom Reporter Configuration
 
-In case the Metrics reporter configuration options presented above don't meet your needs, Titan provides a utility method to access the single `MetricRegistry` instance which holds all of its measurements.
+In case the Metrics reporter configuration options listed above are insufficient, Titan provides a utility method to access the single `MetricRegistry` instance which holds all of its measurements.
 
 ```java
 com.codahale.metrics.MetricRegistry titanRegistry =
     com.thinkaurelius.titan.util.stats.MetricManager.INSTANCE.getRegistry();
 ```
 
-You can attach arbitrary reporters to `titanRegistry`, including non-standard reporter types or standard reporter types with exotic configurations.  This approach is also useful if you need multiple differently-configured instances of one of Titan's supported reporter types.  For instance, you could use this approach to setup multiple unicast Graphite reporters whereas Titan only natively supports a single Graphite reporter configuration.
+Code that accesses `titanRegistry` this way can then attach non-standard reporter types or standard reporter types with exotic configurations to `titanRegistry`.  This approach is also useful if the surrounding application already has a framework for Metrics configuration, or if the application needs multiple differently-configured instances of one of Titan's supported reporter types.  For instance, one could use this approach to setup multiple unicast Graphite reporters whereas Titan's properties configuration is limited to just one Graphite reporter.
 
 ## What's Measured
 
