@@ -62,7 +62,7 @@ Example titan.properties snippet that prints metrics to the console once a minut
 metrics.console.interval = 60000
 ```
 
-### CSV (writes one comma-separated values file per metric to a configurable directory)
+### CSV File Reporter Configuration
 
 | Config Key | Required? | Value | Default |
 | ---------- | --------- | ----- | ------- |
