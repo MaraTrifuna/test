@@ -7,7 +7,7 @@ juno.setProperty("name", "juno");
 g.commit(); //Commits transaction
 ```
 
-In this example, a local Titan graph database is opened. Adding the vertex "juno" is the first operation (in this thread) which automatically opens a new transaction. All subsequent operations occur in the context of that same transaction until the transaction is explicitly stopped or the graph database @shutdown()@ which commits all currently running transactions.
+In this example, a local Titan graph database is opened. Adding the vertex "juno" is the first operation (in this thread) which automatically opens a new transaction. All subsequent operations occur in the context of that same transaction until the transaction is explicitly stopped or the graph database @shutdown()@ which commits all currently running transactions. Note, that both read and write operations occur within the context of a transaction.
 
 h2. Transactional Scope
 
