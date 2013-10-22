@@ -19,7 +19,7 @@ This setting makes Titan record measurements at runtime using Metrics classes li
 
 ### Customizing the Default Metric Names
 
-Titan prefixes all metric names with "com.thinkaurelius.titan".  This prefix can be changed through the `metrics.prefix` configuration property.  For example, to shorten the default "com.thinkaurelius.titan" prefix to just "titan":
+Titan prefixes all metric names with "com.thinkaurelius.titan".  This prefix can be overridden through the `metrics.prefix` configuration property.  For example, to shorten the default "com.thinkaurelius.titan" prefix to just "titan":
 
 ```
 # Optional
