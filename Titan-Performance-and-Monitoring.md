@@ -11,7 +11,7 @@ Starting in version 0.4.0, Titan supports [Metrics](http://metrics.codahale.com/
 To enable Metrics collection, set the following in Titan's properties file:
 
 ```
-# Required
+# Required to enable Metrics in Titan
 metrics.enable-basic-metrics = true
 ```
 
