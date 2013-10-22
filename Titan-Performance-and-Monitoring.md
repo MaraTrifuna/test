@@ -30,7 +30,7 @@ metrics.prefix = titan
 
 Each Titan transaction may optionally specify its own Metrics name prefix, overridding both the default Metrics name prefix and the `metrics.prefix` configuration property.  For example, the prefix could be changed to the name of the frontend application that opened the Titan transaction.  Note that Metrics maintains a ConcurrentHashMap of metric names and their associated objects in memory, so it's probably a good idea to keep the number of distinct metric prefixes small.
 
-A custom Transaction-level Metrics prefix is set via `TransactionBuilder.setMetricsPrefix(String)`:
+To do this, call `TransactionBuilder.setMetricsPrefix(String)`:
 
 ```java
 TitanGraph graph = ...;
