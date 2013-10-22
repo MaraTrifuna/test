@@ -1,8 +1,12 @@
 # Metrics in Titan
 
-Starting in version 0.4.0, Titan supports [Metrics](http://metrics.codahale.com/).  Titan records histograms of time spent satisfying storage backend requests.  These histograms form a coarse-grained measure of the response time of the storage engine underlying Titan.
+Starting in version 0.4.0, Titan supports [Metrics](http://metrics.codahale.com/).  Titan can measure the following:
 
-## Configuration
+* The number of transactions begun, comitted, and rolled back
+* The number of attempts and failures of each storage backend operation type
+* The response time distribution of each storage backend operation type
+
+## Configuring Metrics Collection
 
 To enable Metrics collection, set the following in Titan's properties file:
 
@@ -11,7 +15,34 @@ To enable Metrics collection, set the following in Titan's properties file:
 metrics.enable-basic-metrics = true
 ```
 
-This setting makes Titan generate runtime measurements using Metrics classes like Timer, Counter, Histogram, etc.  To access these measurements, one or more reporters must be configured.
+This setting makes Titan record measurements at runtime using Metrics classes like Timer, Counter, Histogram, etc.  To access these measurements, one or more Metrics reporters must be configured as described in the section "Configuring Metrics Reporting".
+
+### Customizing the Default Metric Names
+
+Titan prefixes all metric names with "com.thinkaurelius.titan".  This prefix can be changed through the `metrics.prefix` configuration property.  For example, to shorten the default "com.thinkaurelius.titan" prefix to just "titan":
+
+```
+# Optional
+metrics.prefix = titan
+```
+
+### Transaction-Specific Metrics Names
+
+Each Titan transaction can override the default Metrics name prefix with a custom value.  For example, the prefix could be changed to the name of the frontend application that opened the Titan transaction.  Note that Metrics maintains a ConcurrentHashMap of metric names and their associated objects in memory, so it's probably a good idea to keep the number of distinct metric prefixes small.
+
+The method is `StandardTransactionBuilder.setMetricsPrefix(String)`:
+
+```java
+TitanGraph graph = ...;
+TransactionBuilder tbuilder = graph.buildTransaction();
+TitanTransaction tx = tbuilder.setMetricsPrefix("foobar").start();
+```
+
+### Merging Metrics for Backend Stores
+
+Titan combines the Metrics for its various internal storage backend handles by default.  All Metrics appear under the name "stores", regardless of whether they come from the ID store, edge store, etc.  When `metrics.merge-basic-metrics = false` is set in Titan's properties file, the `stores` string in the metric names above is replaced by `idStore`, `edgeStore`, `vertexIndexStore`, or `edegIndexStore` according to the role of the backend instance triggering the Metric collection.
+
+## Configuring Metrics Reporting
 
 Titan supports the following Metrics reporters:
 
@@ -156,65 +187,6 @@ com.codahale.metrics.MetricRegistry titanRegistry =
 ```
 
 Code that accesses `titanRegistry` this way can then attach non-standard reporter types or standard reporter types with exotic configurations to `titanRegistry`.  This approach is also useful if the surrounding application already has a framework for Metrics reporter configuration, or if the application needs multiple differently-configured instances of one of Titan's supported reporter types.  For instance, one could use this approach to setup multiple unicast Graphite reporters whereas Titan's properties configuration is limited to just one Graphite reporter.
-
-## What's Measured
-
-Titan times, counts, and histograms its method calls against the storage backend.  These measurements are organized by method name.  By default, measurements for the edge store, ID store, vertex index store, and edge index store are combined.  However, the configuration setting `metrics.merge-basic-metrics = false` splits the metrics for four different stores into separate datapoints instead of combining them.  The default metric names follow.
-
-Index stores and caches are not yet covered by metrics.
-
-### Default Names
-
-These metric names are in effect when `metrics.merge-basic-metrics` is either absent from Titan's properties file or is set to true.
-
-#### Counters
-
-```
-com.thinkaurelius.titan.stores.acquireLock.calls
-com.thinkaurelius.titan.stores.acquireLock.exceptions
-com.thinkaurelius.titan.stores.close.calls
-com.thinkaurelius.titan.stores.close.exceptions
-com.thinkaurelius.titan.stores.containsKey.calls
-com.thinkaurelius.titan.stores.containsKey.exceptions
-com.thinkaurelius.titan.stores.getKeys.calls
-com.thinkaurelius.titan.stores.getKeys.exceptions
-com.thinkaurelius.titan.stores.getLocalKeyPartition.calls
-com.thinkaurelius.titan.stores.getLocalKeyPartition.exceptions
-com.thinkaurelius.titan.stores.getName.calls
-com.thinkaurelius.titan.stores.getName.exceptions
-com.thinkaurelius.titan.stores.getSlice.calls
-com.thinkaurelius.titan.stores.getSlice.entries-returned
-com.thinkaurelius.titan.stores.getSlice.exceptions
-com.thinkaurelius.titan.stores.mutate.calls
-com.thinkaurelius.titan.stores.mutate.exceptions
-```
-
-Though most of the Metrics above follow the method-calls and method-exceptions pattern, there is one exception in `getSlice.entries-returned`.  This counts the aggregate number of column-value pairs processed by calls to the `getSlice` method in storage backends.  One method call may return one or very many such pairs, which is why those counters are separated.
-
-#### Timers
-
-```
-com.thinkaurelius.titan.stores.acquireLock.time
-com.thinkaurelius.titan.stores.close.time
-com.thinkaurelius.titan.stores.containsKey.time
-com.thinkaurelius.titan.stores.getKeys.time
-com.thinkaurelius.titan.stores.getLocalKeyPartition.time
-com.thinkaurelius.titan.stores.getName.time
-com.thinkaurelius.titan.stores.getSlice.time
-com.thinkaurelius.titan.stores.mutate.time
-```
-
-#### Histograms
-
-```
-com.thinkaurelius.titan.stores.getSlice.entries-histogram
-```
-
-This histograms the number of column-value entries returned per `getSlice` call.
-
-### Per-Store Names
-
-When `metrics.merge-basic-metrics = false` is set in Titan's properties file, the `stores` string in the metric names above is replaced by `idStore`, `edgeStore`, `vertexIndexStore`, or `edegIndexStore` according to the role of the backend instance handling the method call.
 
 # JUnitBenchmarks in Titan
 
