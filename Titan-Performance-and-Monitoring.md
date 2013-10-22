@@ -19,7 +19,7 @@ This setting makes Titan record measurements at runtime using Metrics classes li
 
 ### Customizing the Default Metric Names
 
-Titan prefixes all metric names with "com.thinkaurelius.titan".  This prefix can be overridden through the `metrics.prefix` configuration property.  For example, to shorten the default "com.thinkaurelius.titan" prefix to just "titan":
+Titan prefixes all metric names with "com.thinkaurelius.titan" by default.  This prefix can be set through the `metrics.prefix` configuration property.  For example, to shorten the default "com.thinkaurelius.titan" prefix to just "titan":
 
 ```
 # Optional
@@ -28,9 +28,9 @@ metrics.prefix = titan
 
 ### Transaction-Specific Metrics Names
 
-Each Titan transaction can override the default Metrics name prefix with a custom value.  For example, the prefix could be changed to the name of the frontend application that opened the Titan transaction.  Note that Metrics maintains a ConcurrentHashMap of metric names and their associated objects in memory, so it's probably a good idea to keep the number of distinct metric prefixes small.
+Each Titan transaction may optionally specify its own Metrics name prefix, overridding both the default Metrics name prefix and the `metrics.prefix` configuration property.  For example, the prefix could be changed to the name of the frontend application that opened the Titan transaction.  Note that Metrics maintains a ConcurrentHashMap of metric names and their associated objects in memory, so it's probably a good idea to keep the number of distinct metric prefixes small.
 
-The method is `TransactionBuilder.setMetricsPrefix(String)`:
+A custom Transaction-level Metrics prefix is set via `TransactionBuilder.setMetricsPrefix(String)`:
 
 ```java
 TitanGraph graph = ...;
