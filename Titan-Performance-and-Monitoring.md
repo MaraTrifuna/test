@@ -46,13 +46,13 @@ Titan combines the Metrics for its various internal storage backend handles by d
 
 Titan supports the following Metrics reporters:
 
-* Console
-* CSV
-* Ganglia
-* Graphite
-* JMX
-* Slf4j
-* User-provided/Custom
+* [Console](Titan-Performance-and-Monitoring#console-reporter-configuration)
+* [CSV](Titan-Performance-and-Monitoring#csv-file-reporter-configuration)
+* [Ganglia](Titan-Performance-and-Monitoring#ganglia-reporter-configuration)
+* [Graphite](Titan-Performance-and-Monitoring#graphite-reporter-configuration)
+* [JMX](Titan-Performance-and-Monitoring#jmx-reporter-configuration)
+* [Slf4j](Titan-Performance-and-Monitoring#slf4j-reporter-configuration)
+* [User-provided/Custom](Titan-Performance-and-Monitoring#user-providedcustom-reporter-configuration)
 
 Each reporter type is independent of and can coexist with the others.  For example, it's possible to configure Ganglia, JMX, and Slf4j Metrics reporters to operate simultaneously.  Just set all their respective configuration keys in titan.properties (and enable metrics as directed above).
 
