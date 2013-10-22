@@ -40,7 +40,7 @@ TitanTransaction tx = tbuilder.setMetricsPrefix("foobar").start();
 
 ### Separating Metrics by Backend Store
 
-Titan combines the Metrics for its various internal storage backend handles by default.  All Metrics appear under the name "stores", regardless of whether they come from the ID store, edge store, etc.  When `metrics.merge-basic-metrics = false` is set in Titan's properties file, the `stores` string in the metric names above is replaced by `idStore`, `edgeStore`, `vertexIndexStore`, or `edegIndexStore` according to the role of the backend instance triggering the Metric collection.
+Titan combines the Metrics for its various internal storage backend handles by default.  All Metrics for storage backend interactions appear start with the name "stores", regardless of whether they come from the ID store, edge store, etc.  When `metrics.merge-basic-metrics = false` is set in Titan's properties file, the "stores" string in metric names is replaced by "idStore", "edgeStore", "vertexIndexStore", or "edgeIndexStore".
 
 ## Configuring Metrics Reporting
 
