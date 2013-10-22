@@ -8,15 +8,6 @@
 
 <h4>Titan 0.4.0 (experimental release)</h4>
 
-<h5>Download Links</h5>
- * "Titan/All 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip.asc).  Contains all supported indexing and storage backends.  Recommended.
- * "Titan Server 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip (Titan/Cassandra/Rexster/ES) ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip.asc)
- * Minimal distributions.  Each contains one storage backend.
- ** "Titan/Cassandra 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip.asc)
- ** "Titan/HBase 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip.asc)
- ** "Titan/BerkeleyJE 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip.asc)
- ** "Titan/Hazelcast 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip.asc)
- ** "Titan/Persistit 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip.asc)
 
 <h5>Feature Matrix</h5>
 |/2. <center>→&nbsp;Features&nbsp;→</center><br><center>↓&nbsp;Editions&nbsp;↓</center> |/2. Core |\5. <center>Storage Backend Support</center> |\2. <center>External Index Support</center> |/2. Rexster |
@@ -29,6 +20,16 @@
 | "Titan/Persistit":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip | <center>!images/Green_check.png!</center> | | | | | <center>!images/Green_check.png!</center> | | | |
 | "Titan&nbsp;Server &#40;All&nbsp;+&nbsp;Rexster&#41;":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> |
 
+
+<h5>Download Links</h5>
+ * "Titan/All 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip.asc).  Contains all supported indexing backends, storage backends, and the Gremlin REPL.
+ * "Titan Server 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip (Titan/Cassandra/Rexster/ES) ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip.asc).  Contains all supported indexing backends, storage backends, the Gremlin REPL, and Rexster.
+ * Minimal distributions.  Each contains one storage backend.
+ ** "Titan/Cassandra 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.4.0.zip.asc)
+ ** "Titan/HBase 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.4.0.zip.asc)
+ ** "Titan/BerkeleyJE 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip.asc)
+ ** "Titan/Hazelcast 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip.asc)
+ ** "Titan/Persistit 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip.asc)
 
 <h3>Titan 0.3.z</h3>
 
