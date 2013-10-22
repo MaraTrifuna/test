@@ -15,7 +15,7 @@ To enable Metrics collection, set the following in Titan's properties file:
 metrics.enable-basic-metrics = true
 ```
 
-This setting makes Titan record measurements at runtime using Metrics classes like Timer, Counter, Histogram, etc.  To access these measurements, one or more Metrics reporters must be configured as described in the section "Configuring Metrics Reporting".
+This setting makes Titan record measurements at runtime using Metrics classes like Timer, Counter, Histogram, etc.  To access these measurements, one or more Metrics reporters must be configured as described in the section [Configuring Metrics Reporting](Titan-Performance-and-Monitoring#configuring-metrics-reporting).
 
 ### Customizing the Default Metric Names
 
