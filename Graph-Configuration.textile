@@ -81,7 +81,7 @@ This section contains general configuration options to customize Titan's behavio
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | autotype | Specifies the factory to use when automatically creating types. See "Default Type Creation":Type-Definition-Overview#default-type-creation for more details. Set to _none_ to disable automatic type creation | _blueprints_ or _none_ | _blueprints_ | Yes |
 | tx-cache-size| The maximum number of vertices to hold in the transaction local cache. Each transaction maintains a cache of up to this size. Larger cache size means possibly faster transactions while consuming more memory | integer | 20000 | yes |
-| fast-property | Whether all properties should be pre-fetched for a vertex with the first property lookup on that vertex. Significantly speeds up multiple property retrievals. Disable on graphs with vertices that have lots of properties.  | boolean | _true_ | yes |
+| fast-property | Whether all properties should be pre-fetched for a vertex with the first property lookup on that vertex. Significantly speeds up multiple property retrievals. Disable on graphs with vertices that have lots of properties.  | boolean | _true_ if storage backend is distributed else _false_ | yes |
 
 h2. Next Steps
 
