@@ -68,10 +68,10 @@ The @GraphOfTheGodsFactory.create()@ method does the following to the newly cons
 Please see the class source code:
   "https://github.com/thinkaurelius/titan/blob/master/titan-core/src/main/java/com/thinkaurelius/titan/example/GraphOfTheGodsFactory.java":https://github.com/thinkaurelius/titan/blob/master/titan-core/src/main/java/com/thinkaurelius/titan/example/GraphOfTheGodsFactory.java
 
-For those using Titan/Cassandra (or Titan/HBase), be sure to make use of @bin/cassandra-es.local@ (or @bin/hbase-es.local@) and @GraphOfTheGodsFactory.load()@.
+For those using Titan/Cassandra (or Titan/HBase), be sure to make use of @conf/titan-cassandra-es.properties@ (or @conf/titan-hbase-es.properties@) and @GraphOfTheGodsFactory.load()@.
 
 ```text
-gremlin> g = TitanFactory.open('bin/cassandra-es.local')
+gremlin> g = TitanFactory.open('conf/titan-cassandra-es.properties')
 ==>titangraph[cassandrathrift:127.0.0.1]
 gremlin> GraphOfTheGodsFactory.load(g)
 ==>null
