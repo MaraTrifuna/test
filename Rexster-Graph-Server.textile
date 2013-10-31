@@ -30,7 +30,7 @@ h3. Getting started quickly with titan-server.zip
 
 * Download a copy of the current <code>titan-server-$VERSION.zip</code> file from the [[Downloads]] page.
 * Unzip it and enter the <code>titan-server-$VERSION</code> directory
-* Run <code>bin/titan.sh start</code> to start a Rexster server with Titan
+* Run <code>bin/titan.sh start</code> to start a Rexster server with Titan + Cassandra, or run <code>bin/titan.sh -c cassandra-es start</code> to start a Rexster server with Titan + Cassandra + Elasticsearch.
 * Connect to Rexster using <code>bin/rexster-console.sh</code>, the REST API, or an application using RexsterClient (each method is described below in the "Connecting to Rexster" section)
 * Run <code>bin/titan.sh status</code> to check on the forked processes and <code>bin/titan.sh stop</code> to kill them
 
