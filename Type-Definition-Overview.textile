@@ -50,7 +50,7 @@ Also, note some of the [[limitations and gotchas | Titan Limitations ]] when it 
 
 The data type of an existing property can be retrieved as @TitanKey.getDataType()@.
 
-h3. indexed(Element,index)
+h3. indexed(index,Element)
 
 Registers the property key with the given index for the provided element type, i.e. vertex or edge. Depending on the specified element type, all vertices or edges with a property of this key are indexed against the given index by their property value. This allows vertices and/or edges to be retrieved by property value using @GraphQuery@ as described in [[Indexing Backend Overview]].
 
@@ -61,7 +61,7 @@ Note, that a property can be indexed for both element types (vertices & edges) a
 For instance, one can the property key name to be indexed for both vertices and edges against the standard and registered _search_ index as follows:
 
 ```java
-g.makeKey("name").dataType(String.class).indexed(Vertex.class).indexed(Edge.class).indexed(Vertex.class,"search").indexed(Edge.class,"search").make()
+g.makeKey("name").dataType(String.class).indexed(Vertex.class).indexed(Edge.class).indexed("search",Vertex.class).indexed("search",Edge.class).make()
 ```
 
 To inspect all indexes for a particular key, use @TitanKey.getIndexes(Element)@ or @TitanKey.hasIndex(index,Element)@ to verify that a particular index is active.
