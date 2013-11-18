@@ -48,7 +48,6 @@ h2. Titan Manual
 *** [[Storage Backend Overview]]
 *** [[Using Cassandra]]
 *** [[Using HBase]]
-*** [[Using Hazelcast]]
 *** [[Using Persistit]]
 *** [[Using BerkeleyDB]]
 ** Indexing Backends
