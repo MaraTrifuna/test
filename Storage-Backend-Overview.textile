@@ -7,16 +7,11 @@ Titan currently supports 3 storage backends covering all 3 edges of the CAP theo
 [[images/titan-captheorem.png|align=center]]
 <br>
 
-All of the storage backends shown above persist the data durably to disk. For very large graphs, it is beneficial to use relatively inexpensive disk storage for old or stale data. However, disk access has high latencies and limits throughput.
-
-For low latency applications, Titan additionally supports in-memory storage backends. Those hold all data in-memory and thereby avoid the additional complexities and access cost of disks.
-
 h2. Storage Backend Comparison
 
 |_. Name |_. @storage.option@ |_. Consistency |_. Availability |_. Scalability |_. Replication | Persistence |
 | [[Cassandra|Using Cassandra]] | _cassandra_ | "eventually consistent":http://en.wikipedia.org/wiki/Eventual_consistency | highly available | linear scalability | yes | disk |
 | [[HBase|Using HBase]] | _hbase_ | vertex consistent | failover recovery | linear scalability | yes | disk |
-| [[Hazelcast|Using Hazelcast]] | _hazelcastcache_ | transactional consistency | highly available | linear scalability | yes | in-memory |
 | [[BerkeleyDB|Using BerkeleyDB]] | _berkeleyje_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | HA mode available | disk |
 | [[Persistit|Using Persistit]] | _persisit_ | "ACID":http://en.wikipedia.org/wiki/ACID | single point of failure | single machine | none | disk |
 
