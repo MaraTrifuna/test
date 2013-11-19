@@ -42,7 +42,7 @@ h3. Version 0.4.1 (October 25, 2013)
 *Bugfixes:*
 
 * Fixed multiQuery() for specific has() conditions. Added support for multiQuery(Collection).
-* Fixed limit adjustment issue for unconstrainted IN/OUT queries
+* Fixed limit adjustment issue for unconstraint IN/OUT queries
 * Fixed packaging issues
 * Fixed cache misses due to wrong limit interpretation
 
