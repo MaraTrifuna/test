@@ -118,6 +118,13 @@ TitanLabel battled = g.makeLabel("battled").sortKey(time).make();
 
 In this example, the property key time is defined with data type @Integer@. This property key is then used as the sort key for the _battled_ edge label. Hence, _battled_ edges will be sorted by time in ascending order and battles that happened in a certain time range can be queried for more efficiently using an appropriate @VertexQuery@. Moreover, _battled_ edges are stored more compactly on disk.
 
+The default sort order is ascending. To specify that _battled_ should be sorted in decreasing order to be able to efficiently retrieve the most recent battles, the label definition would be extended by a @sortOrder()@:
+
+```java
+TitanKey time = g.makeKey("time").dataType(Integer.class).make();
+TitanLabel battled = g.makeLabel("battled").sortKey(time).sortOrder(Order.DESC).make();
+```
+
 Note, that @TitanTypes@ used in the sort key must be single-valued property keys or many-to-one, uni-directed edge labels.
 The sort-key can be composite, that is comprised of multiple types. For composite sort keys, edges are sorted by the first type, then the second and so forth.
 
