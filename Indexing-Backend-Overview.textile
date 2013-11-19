@@ -127,9 +127,7 @@ Here are some guidelines for choosing the best indexing strategy for a particula
 ## Use [[Elasticsearch|Using Elastic Search]] when there is an expectation that Titan will be distributed across multiple machines.
 ## [[Lucene|Using Lucene]] performs better in small scale, single machine applications. It performs better in unit tests, for instance.
 
-h2. Indexing Gotchas
-
-h4. Result Scoring
+h2. Result Scoring
 
 Titan's @Graph.query()@ currently only supports discrete index queries, that is, an element either matches a query or it does not. In other words, this graph query mechanism does not support result scoring where a "match-goodness" score is associated with each result (so called "fuzzy search").
 
