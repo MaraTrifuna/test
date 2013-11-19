@@ -32,6 +32,16 @@ Titan leverages various storage backends for persistence. Use the following opti
 | storage.username | Username to authenticate access to the storage backend (if necessary) | String | - | yes |
 | storage.password | Password to authenticate access to the storage backend (if necessary) | String | - | yes |
 
+h2. Cache Configuration
+
+Titan contains a database level cache that is shared amongst all transactions and can significantly speed up traversal times - in particular on read heavy work loads.
+
+|_. Option |_. Description |_. Value |_. Default |_. Modifiable |
+| cache.db-cache | Enables the database level cache | _true_ or _false | _false_ | yes |
+| cache.db-cache-size | The size of the database level cache. If this value is >0.0 and <1.0 then it is interpreted as a percentage of the total heap space available to the JVM Titan is running in. If this value is bigger than 1.0 it is interpreted as an absolute size in bytes. | number | 0.3 | yes |
+| cache.db-cache-time | The default expiration time in milliseconds for elements held in the database level cache. This is the time period before Titan will check against storage backend for a newer results. Setting this value to 0 will cache elements forever (unless they get evicted due to space constraints or modifications). | >=0 | 10000 | yes |
+| cache.db-cache-clean-wait | How long (in milliseconds) the database level cache will keep keys expired while the mutations that triggered the expiration are being persisted. This value should be larger than the time it takes for persisted mutations to become visible. This setting only ever makes sense for distributed storage backends where writes may be accepted but are not immediately readable. | >=0 | 50 | yes |
+
 h2. ID Management Configuration
 
 These configuration settings how Titan allocates and assigns ids.
