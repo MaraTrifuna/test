@@ -143,3 +143,5 @@ In order to use an external indexing system with Titan, an index backend has to 
 * [[Elasticsearch| Using Elastic Search]]: A distributed indexing system based on Apache Lucene
 
 Refer to the respective documentation pages on how to configure these index backends.
+
+Also, read more about how to configure [[full-text and string search | String Search]] and how to [[directly query an indexing backend | direct index query]] for more search functionality and result scoring support.
