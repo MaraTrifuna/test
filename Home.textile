@@ -54,6 +54,8 @@ h2. Titan Manual
 *** [[Indexing Backend Overview]]
 *** [[Using Elastic Search]]
 *** [[Using Lucene]]
+*** [[Full Text and String Search]]
+*** [[Direct Index Query]]
 ** Type Management
 *** [[Type Definition Overview]] (*cheat sheet*)
 *** [[Vertex-Centric Indices]]
