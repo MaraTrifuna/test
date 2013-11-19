@@ -15,9 +15,7 @@ that you can have mixed Titan 0.4.0 and 0.4.1 instances reading from the cluster
 
 h4. API Text Search Changes
 
-Titan 0.4.1 provides some new features that have extended the API, however, those do not break the existing API. There is one change to
-the API that requires updating. We changed the Text.PREFIX/REGEX to Text.CONTAINS_PREFIX/REGEX to make is obvious what the semantics
-of those predicates is.
+Titan 0.4.1 provides some new features that have extended the API, however, those do not break the existing API. There is one change to the API that requires updating. We changed the Text.PREFIX/REGEX to Text.CONTAINS_PREFIX/REGEX to make is obvious what the semantics of those predicates is.
 
 If you are using either of those predicate, rename:
 
@@ -26,10 +24,9 @@ If you are using either of those predicate, rename:
 
 h4. Version compatibility check
 
-In Titan 0.4.1 we are storing all Titan flag in the storage backend (i.e. no more local properties files in the data directory).
+In Titan 0.4.1 we are storing all Titan flags in the storage backend (i.e. no more local properties file in the data directory).
 This means, that Titan 0.4.1 will rewrite this flag and ignore its current value. This disables the version compatibility check.
-Hence, make sure that you are running Titan 0.4.1 against a 0.4.0 or newer database. Running it against older versions of Titan
-will not cause an immediate exception but undetermined behavior down the road.
+Hence, make sure that you are running Titan 0.4.1 against a 0.4.0 or newer database. Running it against older versions of Titan will not cause an immediate exception but undetermined behavior down the road.
 
 h3. Version 0.4.0 (October 16, 2013)
 
