@@ -97,11 +97,25 @@ The @Text@ enum specifies the [[full-text predicates| String Search]] used to qu
 ** PREFIX: if the string value starts with the given query string
 ** REGEX: if the string value matches the given regular expression in its entirety
 
-Read more about [[full-text and string search| String Search]]
+Read more about [[full-text and string search| String Search]] and how to specify whether to use full-text or string search.
 
 h3. Geo Predicate
 
 The @Geo@ enum specifies the geo-location predicate @Geo.WITHIN@ which holds true if one geometric object contains the other.
+
+h3. Ordering
+
+The order in which the results are returned can be defined using the @orderBy()@ method of graph query constructor returned by @Graph.query()@. This method expects to parameters:
+
+* The name of the property key by which to order the results. The results will be ordered by the value of the vertices or edges for this property key. 
+* The sort order: either increasing @Order.ASC@ or decreasing @Order.DESC@
+
+For example, the query @graph.query().has("name",CONTAINS,"john").orderBy("age",Order.DESC).limit(10).vertices()@ retrieves the ten oldest users who have the word "john" in their name.
+
+When using @orderBy()@ it is important to note that:
+
+* Titan's standard indexes do not natively support ordering search results. All results will be retrieved and then sorted in-memory. For large result sets, this can be very expensive.
+* Most external indexing backends support ordering natively and efficiently. However, the property key used in the orderBy method must be configured to be indexed in this indexing backend for native result ordering support. This is important in cases where the orderBy key is different from the query keys. If the property key is not indexed, then sorting requires loading all results into memory.
 
 h2. Choosing an Index
 
@@ -117,15 +131,9 @@ h2. Indexing Gotchas
 
 h4. Result Scoring
 
-Titan currently only supports discrete index queries, that is, an element either matches a query or it does not. The index backends that Titan supports additionally provide result scoring, that is, they return the elements score highest against a particular query. This feature is often used in text search, but not yet supported by Titan.
+Titan's @Graph.query()@ currently only supports discrete index queries, that is, an element either matches a query or it does not. In other words, this graph query mechanism does not support result scoring where a "match-goodness" score is associated with each result (so called "fuzzy search").
 
-h4. Full-text search is tokenized
-
-Full-text search operates on individual words and hence the query must be tokenized as well. Querying for multiple words requires adding multiple has clauses.
-
-h4. OrderBy keys must be indexed
-
-Queries which contain an orderBy clause can only be executed efficiently against an external indexing backend if the orderBy key is indexed as well. This is important in cases where the orderBy key is different from the query keys.
+Some indexing backends support result scoring which may be accessible through Titan's [[direct index query]] functionality.
 
 h2. Next Steps: Configuring an Index Backend
 
