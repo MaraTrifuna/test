@@ -29,6 +29,8 @@ Titan leverages various storage backends for persistence. Use the following opti
 | storage.read-attempts | Number of times the database attempts to execute a read operation against the storage layer in the current transaction. | >0 | 3 | yes |
 | storage.attempt-wait | Time in milliseconds that Titan waits after an unsuccessful storage attempt before retrying. | >=0 | 250 | yes |
 | storage.page-size | Number of results to pull over the wire when iterating over a distributed storage backend. | >=0 | 100 | yes |
+| storage.username | Username to authenticate access to the storage backend (if necessary) | String | - | yes |
+| storage.password | Password to authenticate access to the storage backend (if necessary) | String | - | yes |
 
 h2. ID Management Configuration
 
