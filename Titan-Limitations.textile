@@ -83,8 +83,7 @@ h2. Useful Tips
 
 h3. Titan OutOfMemoryException or excessive Garbage Collection
 
-If you experience memory issues or excessive garbage collection while running Titan it is likely that the caches are configured incorrectly. If the caches are too large, the heap may fill up with cache entries. Try reducing the size of the transaction level cache before tuning the database level cache, in particular if you have many concurrent transactions.
-Read more about [[Titan's caching layers | Data Caching]]
+If you experience memory issues or excessive garbage collection while running Titan it is likely that the caches are configured incorrectly. If the caches are too large, the heap may fill up with cache entries. Try reducing the size of the transaction level cache before tuning the database level cache, in particular if you have many concurrent transactions. Read more about [[Titan's caching layers | Data Caching]].
 
 h3. Removing JAMM Warning Messages
 
