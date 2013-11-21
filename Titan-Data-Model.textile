@@ -1,1 +1,5 @@
+[[images/bigtablemodel.png|width=420px|align=left|float]] 
+
+
+
 Explanation of KCVS, (Ordered) KVS, CacheStore and how the data is mapped. Coming soon...
