@@ -22,7 +22,7 @@ The cache size can be configured as a percentage (expressed as a decimal between
 
 Note, that the cache size refers to the amount of heap space that is exclusively occupied by the cache. Titan's other data structures and each open transaction will occupy additional heap space. If additional software layers are running in the same JVM, those may occupy a significant amount of heap space as well (e.g. Rexster, embedded Cassandra, etc). Be conservative in your heap memory estimation. Configuring a cache that is too large can lead to out-of-memory exceptions and excessive GC.
 
-h2. Clean up wait time
+h2. Clean Up Wait Time
 
 When a vertex is locally modified (e.g. an edge is added) all of the vertex's related database level cache entries are marked as expired and eventually evicted. This will cause Titan to refresh the vertex's data from the storage backend on the next access and re-populate the cache.
 
