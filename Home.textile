@@ -62,8 +62,10 @@ h2. Titan Manual
 ** Configuration and Tuning
 *** [[Graph Configuration]] (*cheat sheet*)
 *** [[Datatype and Attribute Serializer Configuration]]
-*** [[Database Cache]]
 *** [[Example Graph Configuration]]
+** [[Data Caching]]
+*** [[Database Cache]]
+*** [[Transaction Cache]]
 * Advanced Topics
 ** [[Bulk Loading]]
 ** [[Faster Deep Traversals]]
