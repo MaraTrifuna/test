@@ -206,3 +206,40 @@ sudo -u hadoop $HBASE_HOME/bin/hbase-daemon.sh start master
 ```
 
 Finally, if an HBase cluster has already been deployed and more memory is required of the master or region servers, simply edit the @$HBASE_HOME/conf/hbase-env.sh@ files on the respective machines with requisite @-Xmx -Xms@ parameters. Once edited, stop/start the master and/or region servers as described previous.
+
+
+h2. Targeting Hadoop 2
+
+Titan's HBase storage backend depends on the Apache HBase 0.94 Maven artifact.  This in turn depends on Hadoop 1.0.  However, "HBase supports multiple Hadoop versions and recommends Hadoop 2":http://hbase.apache.org/book/configuration.html#hadoop.
+
+Titan is supported with its released version of HBase and the associated default Hadoop version (see the "version compatibility matrix":https://github.com/thinkaurelius/titan/wiki/Version-Compatibility).  Due to the sheer number of interoperable HBase and Hadoop versions, Titan does not support every possible combination.  However, Titan attempts to maintain as wide a version compatibility range as possible by using only a minimal set of HBase API classes and methods.  Titan does not depend on Hadoop directly and is only exposed to it indirectly through HBase.  Furthermore, since version 0.4.1, Titan includes Maven build options to make targeting Hadoop 2.0 or 2.2 easier.  It should be possible to target any recent Hadoop version and compatible HBase version without modifying Titan's source code, though targeting Hadoop versions besides 1.0, 2.0, or 2.2 may require tweaking dependency versions in <code>titan-hbase/pom.xml</code>.
+
+Broadly, targeting Titan for Hadoop 2 is a two step process:
+
+# Build the HBase Maven artifact with a newer Hadoop version and install it in the local Maven repository
+# Build the titan-hbase artifact using the HBase artifact from step #1
+
+These steps are described in the following two subsections.
+
+h3. Rebuilding HBase with Hadoop 2
+
+In this subsection, we download an HBase 0.94.12 release tarball and compile it against Hadoop 2.2.0.
+
+# Download HBase 0.94.12 from the closest mirror on this page: "http://www.apache.org/dyn/closer.cgi/hbase/hbase-0.94.12/hbase-0.94.12.tar.gz":http://www.apache.org/dyn/closer.cgi/hbase/hbase-0.94.12/hbase-0.94.12.tar.gz
+# Extract the tarball and change directory: <code>tar -xzf hbase-0.94.12.tar.gz && cd hbase-0.94.12</code>
+# Invoke <code>mvn clean install -Dhadoop.profile=2.0 -Dhadoop.version=2.2.0 -DskipTests=true</code>
+
+The last command builds HBase using Hadoop 2.2.0 and installs the resulting Maven artifact into the local repository, which is an elaborate way of saying it copies the HBase jar into <code>~/.m2/repository/</code>.  This is necessary for the next step to work.
+
+h3. Rebuilding Titan-HBase
+
+In this subsection, we clone the Titan repository from GitHub and rebuild the titan-hbase artifact.  These commands should be run on the same machine as the commands in the "Rebuilding HBase with Hadoop 2" section preceding this one, or at least two machines that share a single <code>~/.m2/repository/</code> filesystem.
+
+# Clone the repo and change directory: <code>git clone https://github.com/thinkaurelius/titan.git && cd titan</code>
+# Optional: to build against a specific release, check out the associated tag.  For instance, to use 0.4.1, run <code>git checkout refs/tags/0.4.1</code>.  These instructions are only supported in Titan 0.4.1 and later.  Git checks out the master by default.  Titan's master branch usually corresponds to the latest release plus bugfixes and optimizations that have yet to be released.
+# Rebuild Titan-Core and Titan-Test
+## <code>pushd titan-core; mvn clean install -DskipTests=true; popd</code>
+## <code>pushd titan-test; mvn clean install -DskipTests=true; popd</code>
+# Build Titan-HBase: <code>pushd titan-hbase; mvn clean install -Dhadoop.profile=2.0 -Dhadoop.version=2.2.0; popd</code>
+
+The final step writes a titan-hbase-$VERSION.jar file to <code>titan-hbase/target/</code> and installs it in the local Maven repository.
