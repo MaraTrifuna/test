@@ -18,7 +18,7 @@ h3. Version 0.4.1 (November 24, 2013)
 *Tested Compatibility:*
 
 * Cassandra 1.2.2
-* HBase 0.94.7
+* HBase 0.94.12
 * BerkeleyJE 5.0.73
 * Elasticsearch 0.90.5
 * Lucene 4.4.0

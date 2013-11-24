@@ -63,6 +63,10 @@ h4. Type Groups
 
 Type Groups have been removed. Use sortKey instead to group under one label or key.
 
+h4. HBase Bugfix Version Increment
+
+Titan's tested version of HBase has been updated from 0.94.7 in Titan 0.4.0 to 0.94.12 in Titan 0.4.1.  "These HBase versions are binary compatible":http://hbase.apache.org/book.html#hbase.binary.compatibility.  According to HBase's versioning policy, code and data using .7 should interoperate seamlessly with .12.  Furthermore, HBase supports rolling upgrades between these versions.  HBase's changelog lists all of the intervening releases as "bugfix releases":https://issues.apache.org/jira/browse/HBASE?report=com.atlassian.jira.plugin.system.project:changelog-panel.
+
 h3. Version 0.3.2 (July 29, 2013)
 
 *From 0.3.1*
