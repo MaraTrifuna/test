@@ -76,7 +76,6 @@ h2. Titan Manual
 ** [[Titan Performance and Monitoring]]
 ** [[Titan Data Model]]
 ** [[Eventually Consistent Storage Backends]]
-** [[Fulgora]]
 * Titan Tutorials
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
