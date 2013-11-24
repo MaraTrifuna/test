@@ -1,5 +1,5 @@
 [[images/titan-logo.png|width=420px|align=left|float]] 
-Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Through its Fulgora extension, Titan can also operate on in-memory data grids like "Hazelcast":http://www.hazelcast.com for low latency applications. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
 
 <a href="https://github.com/thinkaurelius/titan/wiki/Downloads">[[images/download-button.png|align=right|float]]</a>
 
@@ -11,9 +11,9 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 <dependency>
    <groupId>com.thinkaurelius.titan</groupId>
    <artifactId>titan-core</artifactId>
-   <version>0.4.0</version>
+   <version>0.4.1</version>
 </dependency>
-<!-- core, all, cassandra, hbase, berkeleyje, es, lucene, hazelcast, persistit -->
+<!-- core, all, cassandra, hbase, berkeleyje, es, lucene, persistit -->
 ```
 
 *Version Numbers*
@@ -97,5 +97,5 @@ h2. Titan Manual
 
 The documentation in this wiki is respective of the current master branch, not the latest release.
 
-JavaDoc: "0.4.0":http://thinkaurelius.github.com/titan/javadoc/0.4.0/ -- "0.3.2":http://thinkaurelius.github.com/titan/javadoc/0.3.2/ -- "0.3.1":http://thinkaurelius.github.com/titan/javadoc/0.3.1/ -- "0.3.0":http://thinkaurelius.github.com/titan/javadoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/javadoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/javadoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/javadoc/0.1.0/
-WikiDoc: "0.4.0":http://thinkaurelius.github.com/titan/wikidoc/0.4.0/ -- "0.3.2":http://thinkaurelius.github.com/titan/wikidoc/0.3.2/ -- "0.3.1":http://thinkaurelius.github.com/titan/wikidoc/0.3.1/ -- "0.3.0":http://thinkaurelius.github.com/titan/wikidoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/wikidoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
+JavaDoc: "0.4.1":http://thinkaurelius.github.com/titan/javadoc/0.4.1/ -- "0.4.0":http://thinkaurelius.github.com/titan/javadoc/0.4.0/ -- "0.3.2":http://thinkaurelius.github.com/titan/javadoc/0.3.2/ -- "0.3.1":http://thinkaurelius.github.com/titan/javadoc/0.3.1/ -- "0.3.0":http://thinkaurelius.github.com/titan/javadoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/javadoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/javadoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/javadoc/0.1.0/
+WikiDoc: "0.4.1":http://thinkaurelius.github.com/titan/wikidoc/0.4.1/ -- "0.4.0":http://thinkaurelius.github.com/titan/wikidoc/0.4.0/ -- "0.3.2":http://thinkaurelius.github.com/titan/wikidoc/0.3.2/ -- "0.3.1":http://thinkaurelius.github.com/titan/wikidoc/0.3.1/ -- "0.3.0":http://thinkaurelius.github.com/titan/wikidoc/0.3.0/ -- "0.2.1":http://thinkaurelius.github.com/titan/wikidoc/0.2.1/ -- "0.2.0":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/ -- "0.1.0":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
