@@ -27,6 +27,11 @@
  ** "Titan/BerkeleyJE 0.4.1":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.1.zip.asc)
  ** "Titan/Persistit 0.4.1":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.1.zip.asc)
 
+<h5>Download Links for Java 6</h5>
+
+* "Titan/All 0.4.1 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.1.zip.asc)
+* "Titan Server 0.4.1 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.1.zip.asc)
+
 <h4>Titan 0.4.0 (experimental release)</h4>
 
 <h5>Download Links</h5>
