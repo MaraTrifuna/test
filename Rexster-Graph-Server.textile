@@ -126,6 +126,8 @@ http://localhost:8182/graphs/titanexample
 
 *NOTE* - For those using ElasticSearch, Rexster includes lucene-core-3.5.0.jar (a neo4j dependency).  Assuming Neo4j is not being utilized in the Rexster instance, simply delete that file from the rexster @lib@ directory.  Removing it will eliminate a conflict with Titan and allow ElasticSearch to start.  
 
+*NOTE* - It is important to ensure that the @titan-rexster.jar@ is in the @ext@ directory as it is not available in all Titan distributions.  
+
 h2. Connecting to Rexster
 
 Regardless of the download and installation method chosen above, Rexster accepts connections through either RexPro or the REST API once started.
