@@ -106,7 +106,7 @@ Then, if building Titan from source:
 cp TITAN_HOME/target/titan-x.y.z-standalone/lib/*.* REXSTER_HOME/ext/titan
 ```
 
-or, if using the Titan zipped distribution download:
+or, if using the Titan zipped distribution download (use the titan-server distribution -- it contains necessary classes for Titan-Rexster integration):
 
 ```text
 cp TITAN_HOME/lib/*.* REXSTER_HOME/ext/titan
