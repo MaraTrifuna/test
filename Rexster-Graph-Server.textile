@@ -34,6 +34,8 @@ h3. Getting started quickly with titan-server.zip
 * Connect to Rexster using <code>bin/rexster-console.sh</code>, the REST API, or an application using RexsterClient (each method is described below in the "Connecting to Rexster" section)
 * Run <code>bin/titan.sh status</code> to check on the forked processes and <code>bin/titan.sh stop</code> to kill them
 
+*NOTE* - The Rexster working directory is in @TITAN_HOME/rexhome@.  Server-side Gremlin scripts should be defined in @rexster.xml@ with a path starting from there.
+
 h3. Downloading Rexster and Titan separately
 
 This section describes the process of downloading a stock Rexster distribution, testing it in its default configuration, and then installing and configuring Titan as an extension.
