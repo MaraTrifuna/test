@@ -10,7 +10,7 @@ Titan can store up to a quintillion edges (2^60) and half as many vertices. That
 
 h3. DataType Definitions
 
-When declaring the data type of a property key using @dataType(Class)@ Titan will enforce that all properties for that key have the declared type, unless that type is @Object.class@. This is an equality type check, meaning that sub-classes will not be allowed. For instance, one cannot declare the data type to be @Number.class@ and use @Integer@ or @Long@. For efficiency reasons, the type needs to match exactly. Hence, you @Object.class@ as the data type for type flexibility. In all other cases, declare the actual data type to benefit from increased performance and type safety.
+When declaring the data type of a property key using @dataType(Class)@ Titan will enforce that all properties for that key have the declared type, unless that type is @Object.class@. This is an equality type check, meaning that sub-classes will not be allowed. For instance, one cannot declare the data type to be @Number.class@ and use @Integer@ or @Long@. For efficiency reasons, the type needs to match exactly. Hence, use @Object.class@ as the data type for type flexibility. In all other cases, declare the actual data type to benefit from increased performance and type safety.
 
 h3. Edge Retrievals are not O(1)
 
