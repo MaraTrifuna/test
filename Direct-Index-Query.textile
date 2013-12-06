@@ -32,3 +32,11 @@ graph.indexQuery("search","v.text:(farm uncle berry)").vertices()
 ```
 
 This query matches all vertices where the text contains any of the three words (grouped by parentheses) and score matches higher the more words are matched in the text.
+
+h2. Gotchas
+
+When you have property keys that contain non-alphabetic characters, you have to escape the entire property key name with quotation marks, as in:
+
+```java
+graph.indexQuery("search","v.\"first_name\":john").vertices()
+```
