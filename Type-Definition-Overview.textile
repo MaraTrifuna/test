@@ -134,7 +134,7 @@ If one is not interested in configuring the sort-order of edges but only wants t
 
 ```java
 TitanKey time = g.makeKey("time").dataType(Integer.class).make();
-TitanLabel battled = g.makeLabel("battled"). signature(time).make();
+TitanLabel battled = g.makeLabel("battled").signature(time).make();
 ```
 
 This example is almost identical to the sort key example above with the only difference that _time_ is configured to be part of the signature.
