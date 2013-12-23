@@ -48,9 +48,11 @@ cd titan-cassandra
 mvn clean install -Paurelius-release -Dgpg.skip=true -DskipTests=true
 cd ..
 
+# Set the current target version to a variable (make this match pom.xml's <version> tag)
+TITAN_VERSION=0.4.2-SNAPSHOT
 # Install a fake titan-site in the local Maven repository
 touch emptyfile ; zip empty.zip emptyfile
-mvn install:install-file -DgroupId=com.thinkaurelius.titan -DartifactId=titan-site -Dversion=0.4.0-SNAPSHOT -Dclassifier=htdocs -Dpackaging=zip -Dfile=empty.zip
+mvn install:install-file -DgroupId=com.thinkaurelius.titan -DartifactId=titan-site -Dversion=$TITAN_VERSION -Dclassifier=htdocs -Dpackaging=zip -Dfile=empty.zip
 rm empty.zip
 
 # Build distributions *without documentation* -- not suitable for release
