@@ -112,7 +112,7 @@ h3. Version 0.3.0 (March 29, 2013)
 
 h4. From prior versions
 
-Titan 0.3.0 is incompatible with prior version of Titan. The upgrade process is in development and not yet available.
+Titan 0.3.0 is incompatible with prior versions of Titan. The upgrade process is in development and not yet available.
 
 When upgrading to Titan 0.3.0, please note the following interface changes:
 
