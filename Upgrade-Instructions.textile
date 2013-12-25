@@ -2,6 +2,18 @@ Please follow these instructions when upgrading from an older Titan release.
 
 h2. Titan 0.y.z
 
+h3. Version 0.4.2 (December 30, 2013)
+
+*From 0.4.1*
+
+h4. Data Upgrade
+
+Titan 0.4.2 is compatible with 0.4.1 and no special upgrade is necessary.
+
+*From 0.4.0*
+
+Titan 0.4.2 can read and write databases created by 0.4.0, but 0.4.0 can't necessarily read new types created by 0.4.2.  When carrying out a rolling upgrade from 0.4.0 to 0.4.2, the 0.4.2 instances must not create new types.
+
 h3. Version 0.4.1 (November 24, 2013)
 
 *From 0.4.0*
