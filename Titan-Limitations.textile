@@ -16,6 +16,8 @@ h3. Edge Retrievals are not O(1)
 
 Retrieving an edge by id, e.g @tx.getEdge(edge.getId())@, is not a constant time operation. Titan will retrieve an adjacent vertex of the edge to be retrieved and then execute a vertex query to identify the edge. The former is constant time but the latter is potentially linear in the number of edges incident on the vertex with the same edge label.
 
+This also applies to index retrievals for edges via a standard or external index.
+
 h2. Temporary Limitations
 
 h3. Key Index Must Be Created Prior to Key Being Used
