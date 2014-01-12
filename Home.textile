@@ -85,6 +85,7 @@ h2. Titan Manual
 ** "Thunderdome":https://github.com/StartTheShift/thunderdome (Python client)
 ** "Titan Tools":https://github.com/StartTheShift/titan-tools (Collection of management tools for Titan)
 ** "Titan Chef Cookbook":https://github.com/bcajes/titan-cookbook (Chef cookbook)
+** "KeyLines Graph Visualization":http://keylines.com/titan (GUI interface)
 * [[Version Compatibility]] (*cheat sheet*)
 * [[Release Notes]]
 * [[Upgrade Instructions]]
