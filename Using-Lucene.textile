@@ -8,7 +8,7 @@ Titan supports "Lucene":http://lucene.apache.org/ as a single-machine, embedded 
 
 <br />
 
-h2. Elasticsearch Embedded Configuration
+h2. Lucene Embedded Configuration
 
 For single machine deployments, Lucene runs embedded with Titan. Titan starts and interfaces with Lucene internally.
 
@@ -33,7 +33,7 @@ h2. Feature Support
 h2. Configuration Options
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
-| backend | Index backend implementation name | _elasticsearch_ | - | - |
+| backend | Index backend implementation name | _lucene_ | - | - |
 | directory | Directory to store Lucene data. | string | - | yes |
 
 h2. Next Steps
