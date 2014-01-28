@@ -51,7 +51,7 @@ Archive:  rexster-server-x.y.z.zip
    creating: rexster-server-x.y.z/
 ...
 $ cd rexster-server-x.y.z
-$ ./rexster-server.sh --start
+$ ./bin/rexster.sh --start
 ```
 
 Validate that it is working by opening a browser and navigating to @http://localhost:8182@ which should present a Rexster landing page with links to the root of the REST API and to the Dog House.
