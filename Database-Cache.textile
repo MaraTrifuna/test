@@ -2,7 +2,7 @@ Titan provides a database level cache that caches parts of the graph for faster 
 
 The [[Graph Configuration]] page lists all of the configuration options that pertain to Titan's database level cache. This page attempts to explain their usage.
 
-Most importantly, the database level cache is disabled by default in the current release version of Titan. To enable it, set @storage.db-cache=true@. 
+Most importantly, the database level cache is disabled by default in the current release version of Titan. To enable it, set @cache.db-cache=true@. 
 
 h2. Cache Expiration Time
 
