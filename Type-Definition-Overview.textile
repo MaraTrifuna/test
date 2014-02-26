@@ -92,7 +92,7 @@ h2. Creating Edge Labels
 
 The @makeLabel(String name)@ method on a  graph or transaction returns a @LabelMaker@ constructor to define a new edge label. The method expects the name of the label which must be unique.
 
-The @LabelMaker@ allows the following aspects of an edge label to be configured. Once all desired aspects have been configured, calling @ LabelMaker()@ creates the new edge label.
+The @LabelMaker@ allows the following aspects of an edge label to be configured. Once all desired aspects have been configured, calling @LabelMaker.make()@ creates the new edge label.
 
 h3. Cardinality Constraints
 
