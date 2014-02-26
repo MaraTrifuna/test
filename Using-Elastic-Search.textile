@@ -4,7 +4,7 @@ bq. Elasticsearch is a flexible and powerful open source, distributed real-time 
 
 Titan supports "Elasticsearch":http://elasticsearch.org as an embedded or remote index backend. In embedded mode, Elasticsearch runs in the same JVM as Titan and stores data on the local machine. In remote mode, Titan connects to a running Elasticsearch cluster as a client. If not in embedded mode, be sure to have the Elasticsearch running and accessible.  
 
-Please see the [Version Compatibility] chart for details on what versions of ES will work with Titan.
+Please see the [[Version Compatibility]] chart for details on what versions of ES will work with Titan.
 
 h2. Elasticsearch Embedded Configuration
 
