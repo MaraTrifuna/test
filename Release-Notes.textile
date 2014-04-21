@@ -5,7 +5,41 @@ Titan: Distributed Graph Database
 
 h2. Titan 0.y.z
 
-h3. Version 0.4.2 (January 9, 2014)
+h3. Version 0.4.3 (April 21, 2014)
+
+```xml
+<dependency>
+   <groupId>com.thinkaurelius.titan</groupId>
+   <artifactId>titan-core</artifactId>
+   <version>0.4.3</version>
+</dependency>
+```
+
+*Tested Compatibility:*
+
+* Cassandra 1.2.2
+* HBase 0.94.12
+* BerkeleyJE 5.0.73
+* Elasticsearch 0.90.5
+* Lucene 4.4.0
+* Persistit 3.3.0
+* Java 1.7+ (partially compatible with Java 1.6)
+
+*Features:*
+
+* Can configure the serializer for strings to get better string compression. ONLY ENABLE THIS IF STRINGS ARE NOT USED AS SORT KEYS since the sort order is no longer guaranteed.
+* Added Blueprints RDF dependency
+
+*Bugfixes:*
+
+* Use all hosts for establishing thrift connection to Cassandra
+* A number of bug fixes and improvements for the Cassandra adapter
+* A number of bug fixes and improvements for the HBase adapter
+* Fixed background pool thread size
+* Improved ID Allocation
+
+
+h3. Version 0.4.2 (December 30, 2013)
 
 ```xml
 <dependency>
@@ -137,6 +171,7 @@ h3. Version 0.4.0 (October 16, 2013)
 * Correct handling of hybrid GraphQuery
 * Better handling of data degradation issues
 
+
 Check the issue tracker for a full list of fixed issues.
 
 *Special Thanks to:*
@@ -182,7 +217,6 @@ h3. Version 0.3.2 (July 29, 2013)
 * Fixed double-checked locking on StandardVertex's added relations
 
 Check the issue tracker for a full list of fixed issues.
-
 
 h3. Version 0.3.1 (May 14, 2013)
 
