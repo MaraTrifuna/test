@@ -63,6 +63,19 @@ This is the full list of configuration options for Elasticsearch. Note, that eac
 | max-result-set-size | The default maximum result set size for any query if the query does not explicitly specify a limit | integer | 100000 | yes |
 | sniff | Whether client transport sniffing is enabled. When encountering connection problems, in particular on AWS, disable this option | boolean | _true_ | yes |
 
+h2. Troubleshooting
+
+h3. Connection Issues to remote Elasticsearch cluster
+
+First, make sure that you have Elasticsearch configured for remote usage: Set @client-only@ to true and @local-mode@ to false. Second, try if you can connect to Elasticsearch through the http interface from the given machine. Thirdly, try disabling @sniff@.
+
+h3. Classpath or Field errors
+
+When you see exception referring to lucene implementation details, make sure you don't have a conflicting version of Lucene on the classpath. Exception may look like this:
+
+```text
+java.lang.NoSuchFieldError: LUCENE_41
+```
 
 h2. Optimizing Elasticsearch
 
