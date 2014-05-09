@@ -18,6 +18,8 @@
 | "Titan/Persistit":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.4.zip | <center>!images/Green_check.png!</center> | | | | <center>!images/Green_check.png!</center> | | | |
 | "Titan&nbsp;Server &#40;All&nbsp;+&nbsp;Rexster&#41;":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.4.zip | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> | <center>!images/Green_check.png!</center> |
 
+See also [[Version Compatibility]].
+
 <h5>Download Links</h5>
  * "Titan/All 0.4.4":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.4.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.4.zip.asc).  Contains all supported indexing backends, storage backends, and the Gremlin REPL.
  * "Titan Server 0.4.4":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.4.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.4.zip.asc).  Contains all supported indexing backends, storage backends, the Gremlin REPL, and Rexster.  Comes with a convenience script to start and stop Cassandra + ES + Titan + Rexster.
