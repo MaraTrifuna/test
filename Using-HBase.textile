@@ -84,7 +84,7 @@ In addition to the general "Titan Graph Configuration":Graph-Configuration, ther
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |
 | storage.tablename | Name of the HBase table in which to store the Titan specific column families | String | titan | No |
-| storage.hostname | Comma separated list of IP addresses or hostnames of the HBase cluster nodes that this Titan instance connects to | IP addresses or hostnames. Leave empty to connect to localhost. | - | Yes |
+| storage.hostname | Comma separated list of IP addresses or hostnames of the HBase ZooKeeper/Quorum nodes that fronts the HBase cluster this Titan instance connects to | IP addresses or hostnames. Leave empty to connect to localhost. | - | Yes |
 | storage.port | Port on which to connect to HBase cluster nodes. Leave empty to use default port. | Integer | - | Yes |
 | storage.short&#8209;cf&#8209;names | True to replace Titan's conventional column family names by single character mnemonics.  "Short CF names save space because HBase stores the CF in every KeyValue.":http://hbase.apache.org/book/rowkey.design.html#keysize.cf | Boolean | false in 0.4.x, true in 0.5.x | No |
 
