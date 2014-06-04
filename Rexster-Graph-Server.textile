@@ -40,7 +40,7 @@ h3. Downloading Rexster and Titan separately
 
 This section describes the process of downloading a stock Rexster distribution, testing it in its default configuration, and then installing and configuring Titan as an extension.
 
-Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.
+Rexster can be downloaded at "this location":https://github.com/tinkerpop/rexster/wiki/Downloads. Below is a snippet of shell commands that demonstrate the process for getting Rexster downloaded and started using a default configuration.  Be sure to check the TinkerPop [[Version Compatibility]] for the Titan version you are using prior to download.
 
 ```bash
 $ curl -O -L http://tinkerpop.com/downloads/rexster/rexster-server-x.y.z.zip > rexster-server-x.y.z.zip
