@@ -78,7 +78,7 @@ h2. Titan Manual
 ** [[Generating Artificial Natural Graphs]]
 ** [[Titan Presentations]]
 * Related Third Party Projects
-** "Blubflow":http://bulbflow.com/ (Python client)
+** "Bulbflow":http://bulbflow.com/ (Python client)
 ** "Titanium":https://github.com/clojurewerkz/titanium (Clojure client)
 ** "Thunderdome":https://github.com/StartTheShift/thunderdome (Python client)
 ** "Titan Tools":https://github.com/StartTheShift/titan-tools (Collection of management tools for Titan)
