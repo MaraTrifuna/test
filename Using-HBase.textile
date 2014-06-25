@@ -22,10 +22,20 @@ starting master, logging to ../logs/hbase-master-machine-name.local.out
 
 Now, you can create an HBase TitanGraph using the following Gremlin snippet:
 
-```java
+```groovy
+// Gremlin
 conf = new BaseConfiguration();
 conf.setProperty("storage.backend","hbase");
 g = TitanFactory.open(conf);
+```
+
+or the following Java snippet:
+
+```java
+// Java
+Configuration conf = new BaseConfiguration();
+conf.setProperty("storage.backend","hbase");
+TitanGraph g = TitanFactory.open(conf);
 ```
 
 Note, that you do not need to specify a hostname since a localhost connection is attempted by default.
