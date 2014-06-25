@@ -20,15 +20,15 @@ $ ./bin/start-hbase.sh
 starting master, logging to ../logs/hbase-master-machine-name.local.out
 ```
 
-Now, you can create an HBase TitanGraph as follows:
+Now, you can create an HBase TitanGraph using the following Gremlin snippet:
 
 ```java
-Configuration conf = new BaseConfiguration();
+conf = new BaseConfiguration();
 conf.setProperty("storage.backend","hbase");
-TitanGraph g = TitanFactory.open(conf);
+g = TitanFactory.open(conf);
 ```
 
-Note, that you do not need to specify a hostname since a localhost connection is attempted by default. Also, in the Gremlin shell, you can not define the type of the variables @conf@ and @g@. Therefore, simply leave off the type declaration.
+Note, that you do not need to specify a hostname since a localhost connection is attempted by default.
 
 h3. Remote Server Mode
 
