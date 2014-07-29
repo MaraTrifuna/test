@@ -3,7 +3,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 
 <a href="Downloads">[[images/download-button.png|align=right|float]]</a>
 
-<a href="https://twitter.com/aureliusgraphs">[[http://www.queensu.ca/sustainability/index/twitterbutton.png|width=60px|align=right|float]]</a> Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users. For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph experts at "Aurelius":http://thinkaurelius.com and follow them on Twitter "@aureliusgraphs":https://twitter.com/aureliusgraphs.
+<a href="https://twitter.com/aureliusgraphs">[[http://www.queensu.ca/sustainability/index/twitterbutton.png|width=60px|align=right|float]]</a> 
+Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users. For "commercial Titan support":http://thinkaurelius.com/subscription/, please <a href="mailto:info@thinkaurelius.com">contact</a> the graph experts at "Aurelius":http://thinkaurelius.com and follow them on Twitter "@aureliusgraphs":https://twitter.com/aureliusgraphs.
 
 ```xml
 <dependency>
