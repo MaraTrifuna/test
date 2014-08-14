@@ -12,7 +12,7 @@ Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aur
    <artifactId>titan-core</artifactId>
    <version>0.5.0</version>
 </dependency>
-<!-- core, all, cassandra, hbase, berkeleyje, es, lucene -->
+<!-- core, all, cassandra, hbase, berkeleyje, es, lucene, hadoop -->
 ```
 
 *Version Numbers*
