@@ -1,5 +1,5 @@
 [[images/titan-logo.png|width=420px|align=left|float]] 
-Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan supports global graph analytics, reporting and ETL through integration with "Apache Hadoop":http://hadoop.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
 
 <a href="Downloads">[[images/download-button.png|align=right|float]]</a>
 
@@ -12,91 +12,18 @@ Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aur
    <artifactId>titan-core</artifactId>
    <version>0.5.0</version>
 </dependency>
-<!-- core, all, cassandra, hbase, berkeleyje, es, lucene, hadoop -->
+<!-- core, all, cassandra, hbase, berkeleyje, es, lucene -->
 ```
 
 *Version Numbers*
-
-| Titan Version | Status | Comments |
-| *0.5.X* | *Active* | Broader feature set than any previous release.  0.5.z is also the first release that intends to maintain disk-format compatibility/upgradeability with future releases. |
-| *0.4.X* | *Maintenance* | 0.4.z is stable and supported. |
-| *0.3.X* | *Maintenance* | 0.3.z is currently supported, but for new installations, either 0.4.X or 0.5.X is recommended. |
-| 0.2.X&nbsp;and&nbsp;earlier | Unsupported | These are deprecated and unsupported. |
-
-Note: Titan uses the "Semantic Versioning (semver.org) version numbering convention":http://semver.org/.  There is no stability difference between even and odd numbered versions.
-
-h2. Titan 0.4.X Manual
-
-* Introduction
-** [[Beginner's Guide]]
-** [[The Benefits of Titan]]
-** [[Getting Started]]
-** "Introduction to Titan Video":http://www.youtube.com/watch?v=ZkAYA4Kd8JE _(external)_
-** "Comprehensive Presentation on Titan":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data _(external)_
-* Using Titan
-** Titan Interfaces ("JavaDoc":http://thinkaurelius.github.com/titan/javadoc/current)
-*** [[TinkerPop Graph Stack]]
-*** [[Blueprints Interface]] (*"full documentation":http://blueprints.tinkerpop.com*)
-*** [[Gremlin Query Language]] (*"full documentation":http://gremlin.tinkerpop.com*)
-**** "GremlinDocs":http://gremlindocs.com/ (*cheat sheet*)
-*** [[Rexster Graph Server]] (*"full documentation":http://rexster.tinkerpop.com*)
-*** "Hadoop Connectivity":http://faunus.thinkaurelius.com
-** Transactions
-*** [[Transaction Handling]]
-*** [[Multi-Threaded Transactions]]
-*** [[Transaction Configuration]]
-** [[Titan Gotchas and Limitations | Titan Limitations]]
-* Managing Titan
-** Storage Backends
-*** [[Storage Backend Overview]]
-*** [[Using Cassandra]]
-*** [[Using HBase]]
-*** [[Using Persistit]]
-*** [[Using BerkeleyDB]]
-** Indexing Backends
-*** [[Indexing Backend Overview]]
-*** [[Using Elastic Search]]
-*** [[Using Lucene]]
-*** [[Full Text and String Search]]
-*** [[Direct Index Query]]
-** Type Management
-*** [[Type Definition Overview]] (*cheat sheet*)
-*** [[Vertex-Centric Indices]]
-** Configuration and Tuning
-*** [[Graph Configuration]] (*cheat sheet*)
-*** [[Datatype and Attribute Serializer Configuration]]
-*** [[Example Graph Configuration]]
-** [[Data Caching]]
-*** [[Database Cache]]
-*** [[Transaction Cache]]
-* Advanced Topics
-** [[Bulk Loading]]
-** [[Faster Deep Traversals]]
-** [[Advanced Indexing]]
-** [[Global Graph Analytics]]
-** [[Advanced Blueprints]]
-** [[Building Titan]]
-** [[Titan Performance and Monitoring]]
-** [[Titan Data Model]]
-** [[Eventually Consistent Storage Backends]]
-* Titan Tutorials
-** [[Generating Artificial Natural Graphs]]
-** [[Titan Presentations]]
-* Related Third Party Projects
-** "Bulbflow":http://bulbflow.com/ (Python client)
-** "Titanium":https://github.com/clojurewerkz/titanium (Clojure client)
-** "Thunderdome":https://github.com/StartTheShift/thunderdome (Python client)
-** "Titan Tools":https://github.com/StartTheShift/titan-tools (Collection of management tools for Titan)
-** "Titan Chef Cookbook":https://github.com/bcajes/titan-cookbook (Chef cookbook)
-** "KeyLines Graph Visualization":http://keylines.com/titan (GUI interface)
-* [[Version Compatibility]] (*cheat sheet*)
-* [[Release Notes]]
-* [[Upgrade Instructions]]
-* [[Acknowledgements]]
-
-<!-- !https://secure.travis-ci.org/thinkaurelius/titan.png!:http://travis-ci.org/thinkaurelius/titan -->
+* Titan 0.1.z is deprecated and will no longer be supported.
+* Titan 0.2.z is deprecated and will no longer be supported.
+* Titan 0.3.z is active. (*stable*)
+* Titan 0.4.z is active. (*stable*)
+* Titan 0.5.z is under active development.
 
 ==<hr/>==
+
 
 The documentation in this wiki is respective of the current master branch, not the latest release.
 
