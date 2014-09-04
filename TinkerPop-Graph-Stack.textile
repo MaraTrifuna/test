@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 [[https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-system-arch.png|width=350px|height=375px|align=right|float]]
 
 Titan natively implements the [[Blueprints Interface]] which means that it supports all of the open-source technologies in the "TinkerPop graph stack":http://www.tinkerpop.com:

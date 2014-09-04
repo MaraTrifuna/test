@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan maintains two caches within each open transaction: a vertex cache and an index cache. The size of both of those is determined by the _transaction cache size_. The transaction cache size can be configured via @tx-cache-size@ or on a per transaction basis by opening a transaction via the transaction builder @graph.buildTransction()@ and using the @setCacheSize(int)@ method.
 
 h2. Vertex Cache

@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 [[https://raw.github.com/tinkerpop/blueprints/master/doc/images/blueprints-character-3.png|width=100px]]
 
 "Blueprints":http://blueprints.tinkerpop.com provides a set of common property graph interfaces by which any vendor can implement and leverage the "TinkerPop":http://tinkerpop.com stack of technologies. Within Blueprints, there are other utilities that are generally useful like import/export formats as well graph wrappers.

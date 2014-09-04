@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan's @TitanGraph.buildTransaction()@ method gives the user the ability to configure and start a new [[thread-independent transaction|Multi-Threaded-Transactions]] against a @TitanGraph@. Hence, it is identical to @TitanGraph.newTransaction()@ with additional configuration options.
 
 @buildTransaction()@ returns a @TransactionBuilder@ which allows the following aspects of a transaction to be configured:

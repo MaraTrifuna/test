@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 !https://github.com/tinkerpop/gremlin/raw/master/doc/images/gremlin-logo.png!:http://gremlin.tinkerpop.com
 
 Titan supports the standard "Gremlin":http://gremlin.tinkerpop.com graph query language for complex graph traversal and mutation operations. Gremlin is a "functional language":http://en.wikipedia.org/wiki/Functional_programming whereby traversal operators are chained together to form path-like expressions. For example, "from Hercules, traverse to his father and then his father's father and return the grandfather's name." 

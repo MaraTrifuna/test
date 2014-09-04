@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 !https://github.com/tinkerpop/blueprints/raw/master/doc/images/blueprints-logo.png!:http://blueprints.tinkerpop.com
 
 Titan natively implements the Blueprints API which means that Blueprints is the core interface for Titan. "Blueprints":http://blueprints.tinkerpop.com is an open source, community developed Java interface for graph databases that expose a "property graph":https://github.com/tinkerpop/blueprints/wiki/Property-Graph-Model data model. By implementing Blueprints natively, Titan delivers two benefits: 

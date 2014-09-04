@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Deep traversals on a graph often require executing identical vertex queries on sets of vertices. For instance, retrieving all siblings of friends of some user vertex @v@ executes an identical vertex centric query for each of @v@ 's friends:
 
 ```java

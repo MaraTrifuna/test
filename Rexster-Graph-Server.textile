@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 !https://github.com/tinkerpop/rexster/raw/master/doc/images/rexster-logo.png!:http://rexster.tinkerpop.com
 
 "Rexster":http://rexster.tinkerpop.com exposes any Titan graph database via a JSON-based "REST":https://github.com/tinkerpop/rexster/wiki/Basic-REST-API interface and a binary protocol called "RexPro":https://github.com/tinkerpop/rexster/wiki/RexPro. Provided and custom algorithms (called "Kibbles":https://github.com/tinkerpop/rexster/wiki/Rexster-Kibbles) can be stored on the server, triggered via HTTP, and their results returned via JSON. Finally, Rexster provides an administration and visualization interface that can be accessed from most major web browsers.  Rexster and Titan can be separately downloaded and configured to work together, or they can be downloaded together through the <code>titan-server</code> distribution on the [[Downloads]] page.

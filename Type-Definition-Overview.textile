@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 [[images/titan-configuration.png|width=200px|align=left|float]]
 
 In Titan, edge labels and property keys are *types* which can be individually configured to provide data verification, better storage efficiency, and higher performance. Types are uniquely identified by their name and are themselves vertices in the graph. Type vertices can be retrieved by their name.

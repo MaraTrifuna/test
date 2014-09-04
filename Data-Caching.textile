@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan employs multiple layers of data caching to facilitate fast graph traversals. The caching layers are listed here in the order they are accessed from within a Titan transaction. The closer the cache is to the transaction, the faster the cache access and the higher the memory footprint and maintenance overhead.
 
 h3. Transaction Level Caching

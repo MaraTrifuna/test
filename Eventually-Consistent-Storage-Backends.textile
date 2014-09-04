@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 This page summarizes some of the aspects to consider when running Titan on top of an eventually consistent storage backend like Apache Cassandra or Apache HBase.
 
 h2. Data Degradation

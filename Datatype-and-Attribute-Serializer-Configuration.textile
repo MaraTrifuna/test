@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan supports a number of classes for attribute values on properties. Titan efficiently serializes primitives, primitive arrays, @Date@, @ArrayList@ and @HashMap@. By default, Titan allows arbitrary objects as attribute values on properties, but those use default serializer which have significant overhead and may not be as efficient.  
 
 |_. Option |_. Description |_. Value |_. Default |_. Modifiable |

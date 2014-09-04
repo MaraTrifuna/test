@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan stores graphs in "adjacency list format":http://en.wikipedia.org/wiki/Adjacency_list which means that a graph is stored as a collection of vertices with their adjacency list. The adjacency list of a vertex contains all of the vertex's incident edges (and properties). 
 
 By storing a graph in adjacency list format Titan ensures that all of a vertex's incident edges and properties are stored compactly in the storage backend which speeds up traversals. The downside is that each edge has to be stored twice - once for each end vertex of the edge.

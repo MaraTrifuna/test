@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan supports multi-threaded transactions through Blueprint's @ThreadedTransactionalGraph@ interface. Hence, to speed up transaction processing and utilize multi-core architectures multiple threads can run concurrently in a single transaction.
 
 With Blueprints' default [[transaction handling]] each thread automatically opens its own transaction against the graph database. To open a thread-independent transaction, use the @newTransaction()@ method.

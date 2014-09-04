@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Titan provides a database level cache that caches parts of the graph for faster subsequent access. In contrast to the transaction level caches, the database level caches do not expire immediately after closing a transaction. Hence, the database level cache significantly speeds up graph traversals for read heavy workloads across transactions.
 
 The [[Graph Configuration]] page lists all of the configuration options that pertain to Titan's database level cache. This page attempts to explain their usage.

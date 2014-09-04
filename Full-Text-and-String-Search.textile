@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 When indexing string values, that is property keys with @String.class@ data type, one has the choice to either index those as text or character strings.
 
 When the value is indexed as text, the string is tokenized into a bag of words which allows the user to efficiently query for all matches that contain one or multiple words. This is commonly referred to as *full-text search*.<br />

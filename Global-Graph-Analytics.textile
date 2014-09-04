@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 !images/faunus-diagram.png!
 
 Titan is designed to compute numerous, concurrent, short-lived, local graph traversals. Titan is _not_ designed for global graph analysis. In order to understand the difference, a itemization of each term above is defined below.

@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 [[images/titan-elasticsearch.png|width=150px|align=left|float]]
 
 Titan provides two types of index systems: The _standard_ index and the _external index_ interface which supports an arbitrary number of external indexing backends to provide support for geo, numeric range, and full-text search. Indexes are needed to retrieve vertices or edges by their properties and are very often used as the starting point for a traversal.

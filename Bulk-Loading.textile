@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 [[images/titan-seated.png|width=300px|align=left|float]] There are a number of configuration options and tools that make ingesting large amounts of graph data into Titan more efficient. Such ingestion is referred to as _bulk loading_ in contrast to the default _transactional loading_ where small amounts of data are added through individual transactions.
 There are a number of use cases for bulk loading data into Titan, including:
 

@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Every graph operation in Titan occurs within the context of a transaction. According to the Blueprints' specification, each thread opens its own transaction against the graph database with the first operation (i.e. retrieval or mutation) on the graph.
 
 ```java

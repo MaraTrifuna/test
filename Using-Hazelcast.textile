@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 <a href="http://www.hazelcast.com">[[https://db56fe3126-custmedia.vresp.com/36365bb450/hazelcast%20logo.jpg|width=300px|align=left|float]]</a>
 
 "Hazelcast":http://www.hazelcast.com is a distributed in-memory data-grid that provides fast access to large amounts of data distributed across a cluster of machines. The Hazelcast storage backend for Titan is a low latency optimized alternative that excels at read-mostly workloads that uniformly access a graph. Note, that Hazelcast does not provide durable persistence. For production deployments, Hazelcast is operated as a data-grid where data is replicated to multiple machine for safety. Hazelcast runs in the same JVM as Titan.

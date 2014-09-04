@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 * "Titan: The Rise of Big Graph Data":http://www.slideshare.net/slidarko/titan-the-rise-of-big-graph-data (*presentation*): An Introduction to graphs, graph algorithms, and the Titan graph database. Also includes an overview of the graph database landscape. _(June 2012, hosted by "Jive Software":http://www.jivesoftware.com/)_
 
 * "Titan: A Highly Scalable, Distributed Graph Database":http://thinkaurelius.github.com/titan/doc/titan-stress-poster.pdf (*poster*): A presentation of an initial stress test evaluation of Titan using real Twitter network data. _(July 2012, presented at "GraphLab 2012 conference":http://graphlab.org/workshop2012/agenda/)_

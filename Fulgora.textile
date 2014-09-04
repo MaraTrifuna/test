@@ -1,3 +1,5 @@
+h5. This is the documentation for Titan 0.4. <br> Documentation for the latest Titan version is available at "http://s3.thinkaurelius.com/docs/titan/current":http://s3.thinkaurelius.com/docs/titan/current.
+
 Fulgora is a set of extensions to Titan with the purpose of making Titan capable of in-memory data processing for low latency query answering of both OLTP (real-time) and OLAP (batch) queries.
 
 To make integration with Titan seamless, Fulgora is not a separate project or release but part of the Titan project. Fulgora encompasses a number of features and modules inside Titan geared toward optimized in-memory processing.
