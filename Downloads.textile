@@ -6,38 +6,38 @@
 
 <h4>Titan 0.5.4</h4>
 
-<h5>Download Links</h5>
-
  * "Titan 0.5.4 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.4 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2, and without Solr.
+ * "Titan 0.5.4 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.4/index.html
+ * "Titan 0.5.4 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.4/
 
 <h4>Titan 0.5.3</h4>
 
-<h5>Download Links</h5>
-
  * "Titan 0.5.3 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.3 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.3-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2, and without Solr.
+ * "Titan 0.5.3 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.3/index.html
+ * "Titan 0.5.3 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.3/
 
 <h4>Titan 0.5.2</h4>
 
-<h5>Download Links</h5>
-
  * "Titan 0.5.2 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.2-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.2-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.2 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.2-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.2-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2, and without Solr.
+ * "Titan 0.5.2 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.2/index.html
+ * "Titan 0.5.2 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.2/
 
 <h4>Titan 0.5.1</h4>
 
-<h5>Download Links</h5>
-
  * "Titan 0.5.1 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.1-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.1-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.1 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.1-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.1-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2, and without Solr.
+ * "Titan 0.5.1 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.1/index.html
+ * "Titan 0.5.1 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.1/
 
 <h4>Titan 0.5.0</h4>
 
-<h5>Download Links</h5>
-
  * "Titan 0.5.0 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.0-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.0-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.0 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.0-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.0-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2.
+ * "Titan 0.5.0 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.0/index.html
+ * "Titan 0.5.0 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.0/
 
 Note: The project formerly named Faunus is now named Titan-Hadoop.  It is part of Titan as of release 0.5.0 and it comes with in Titan zipfile.
 
@@ -71,13 +71,17 @@ See also [[Version Compatibility]].
 * "Titan/All 0.4.4 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.4.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.4.zip.asc)
 * "Titan Server 0.4.4 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.4.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.4.zip.asc)
 
+<h5>Documentation Links</h5>
+
+* "Titan 0.4.4 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.4.4/
+* "Titan 0.4.4 Javadocs":http://titan.thinkaurelius.com/javadoc/0.4.4/
+
 <h4>Titan 0.4.3</h4>
 
-Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a compatibility string fix.
+Please see 0.4.4, which is identical to 0.4.3 except for a compatibility string fix.
 
 <h4>Titan 0.4.2</h4>
 
-<h5>Download Links</h5>
  * "Titan/All 0.4.2":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.2.zip.asc).  Contains all supported indexing backends, storage backends, and the Gremlin REPL.
  * "Titan Server 0.4.2":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.2.zip.asc).  Contains all supported indexing backends, storage backends, the Gremlin REPL, and Rexster.  Comes with a convenience script to start and stop Cassandra + ES + Titan + Rexster.
  * Minimal distributions.  Each contains one storage backend.
@@ -90,6 +94,11 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
 
 * "Titan/All 0.4.2 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.2.zip.asc)
 * "Titan Server 0.4.2 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.2.zip.asc)
+
+<h5>Documentation Links</h5>
+
+* "Titan 0.4.2 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.4.2/
+* "Titan 0.4.2 Javadocs":http://titan.thinkaurelius.com/javadoc/0.4.2/
 
 <h4>Titan 0.4.1</h4>
 
@@ -107,9 +116,13 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
 * "Titan/All 0.4.1 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-jre6-0.4.1.zip.asc)
 * "Titan Server 0.4.1 for JRE 1.6":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-jre6-0.4.1.zip.asc)
 
+<h5>Documentation Links</h5>
+
+* "Titan 0.4.1 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.4.1/
+* "Titan 0.4.1 Javadocs":http://titan.thinkaurelius.com/javadoc/0.4.1/
+
 <h4>Titan 0.4.0 (experimental release)</h4>
 
-<h5>Download Links</h5>
  * "Titan/All 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.4.0.zip.asc).  Contains all supported indexing backends, storage backends, and the Gremlin REPL.
  * "Titan Server 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.0.zip.asc).  Contains all supported indexing backends, storage backends, the Gremlin REPL, and Rexster.  Comes with a convenience script to start and stop Cassandra + ES + Titan + Rexster.
  * Minimal distributions.  Each contains one storage backend.
@@ -118,6 +131,9 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
  ** "Titan/BerkeleyJE 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleydb-0.4.0.zip.asc)
  ** "Titan/Hazelcast 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hazelcast-0.4.0.zip.asc)
  ** "Titan/Persistit 0.4.0":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-persistit-0.4.0.zip.asc)
+ * "Titan 0.4.0 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.4.0/
+ * "Titan 0.4.0 Javadocs":http://titan.thinkaurelius.com/javadoc/0.4.0/
+
 
 <h3>Titan 0.3.z</h3>
 
@@ -128,6 +144,8 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
  ** "Titan/Cassandra 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.2.zip.asc)
  ** "Titan/HBase 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.2.zip.asc)
  ** "Titan/BerkeleyJE 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.2.zip.asc)
+ * "Titan 0.3.2 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.3.2/
+ * "Titan 0.3.2 Javadocs":http://titan.thinkaurelius.com/javadoc/0.3.2/
 
 <h4>Titan 0.3.1</h4>
 
@@ -136,6 +154,8 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
  ** "Titan/Cassandra 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.1.zip
  ** "Titan/HBase 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.1.zip
  ** "Titan/BerkeleyJE 0.3.1":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.1.zip
+ * "Titan 0.3.1 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.3.1/
+ * "Titan 0.3.1 Javadocs":http://titan.thinkaurelius.com/javadoc/0.3.1/
 
 <h4>Titan 0.3.0</h4>
 
@@ -144,6 +164,8 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
  ** "Titan/Cassandra 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-cassandra-0.3.0.zip
  ** "Titan/HBase 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.3.0.zip
  ** "Titan/BerkeleyJE 0.3.0":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.3.0.zip
+ * "Titan 0.3.0 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.3.0/
+ * "Titan 0.3.0 Javadocs":http://titan.thinkaurelius.com/javadoc/0.3.0/
 
 <h3>Titan 0.2.z</h3> 
  * "Titan 0.2.1 Complete":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.2.1.zip
@@ -151,7 +173,11 @@ Please see upgrade links for 0.4.4, which is identical to 0.4.3 except for a com
  ** "Titan/HBase 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-hbase-0.2.1.zip
  ** "Titan/BerkeleyJE 0.2.1":http://s3.thinkaurelius.com/downloads/titan/titan-berkeleyje-0.2.1.zip
  * "Titan 0.2.0":http://s3.thinkaurelius.com/downloads/titan/titan-0.2.0.zip
+ * "Titan 0.2.0 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.2.0/
+ * "Titan 0.2.0 Javadocs":http://titan.thinkaurelius.com/javadoc/0.2.0/
 
 <h3>Titan 0.1.z</h3>
  * "Titan 0.1.0":http://s3.thinkaurelius.com/downloads/titan/titan-0.1.0.zip
  * "Titan 0.1-alpha":http://s3.thinkaurelius.com/downloads/titan/titan-0.1-alpha.zip
+ * "Titan 0.1.0 Documentation":http://thinkaurelius.github.com/titan/wikidoc/0.1.0/
+ * "Titan 0.1.0 Javadocs":http://titan.thinkaurelius.com/javadoc/0.1.0/
