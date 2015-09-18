@@ -8,7 +8,8 @@ Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_datab
 <dependency>
    <groupId>com.thinkaurelius.titan</groupId>
    <artifactId>titan-all</artifactId>
-   <!-- Other artifactId suffixes: core, cassandra, hbase, berkeleyje, es, lucene, solr, hadoop -->
+   <!-- Other artifactId suffixes: core, cassandra,
+        hbase, berkeleyje, es, lucene, solr, hadoop -->
    <version>0.5.4</version>
 </dependency>
 ```
