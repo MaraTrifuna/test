@@ -8,6 +8,6 @@ Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aur
 *Version Numbers*
 * Titan 0.1.z - 0.4.z is deprecated and will no longer be supported.
 * Titan 0.5.z is maintained but no longer extended. (*stable*)
-<!-- * Titan 1.0.z is under active development. (*recommended*) -->
+* Titan 1.0.z is under active development. (*not yet released*)
 
 [[Documentation (including Javadoc)|Downloads]] for each Titan release is listed on the [[Downloads]] page. Please refer to the "project homepage":http://titandb.io for more information.
