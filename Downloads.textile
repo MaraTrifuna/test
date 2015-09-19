@@ -7,7 +7,7 @@
 
  * "Titan 0.5.4 with Hadoop 2":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop2.zip.asc).  Contains all supported indexing backends, storage backends, Rexster, Hadoop 2, and the Gremlin REPL.  Subsumes functionality offered by 0.4.z's "Titan Server" zipfile.
  * "Titan 0.5.4 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-0.5.4-hadoop1.zip.asc).  Same as above, except with Hadoop 1 instead of 2, and without Solr.
- * "Titan 0.5.4 Documentation (incl. release and upgrade notes)":http://s3.thinkaurelius.com/docs/titan/0.5.4/index.html
+ * "Titan 0.5.4 Documentation":http://s3.thinkaurelius.com/docs/titan/0.5.4/index.html  (incl. release and upgrade notes)
  * "Titan 0.5.4 Javadocs":http://titan.thinkaurelius.com/javadoc/0.5.4/
 
 <h4>Titan 0.5.3</h4>
