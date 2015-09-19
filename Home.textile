@@ -1,26 +1,13 @@
 [[images/titan-logo.png|width=420px|align=left|float]]
-Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan supports global graph analytics, reporting and ETL through integration with "Apache Hadoop":http://hadoop.apache.org/. Titan is a native "Blueprints":http://blueprints.tinkerpop.com enabled graph database and as such, it supports the full "TinkerPop":http://tinkerpop.com stack of technologies.
+Titan is a distributed "graph database":http://en.wikipedia.org/wiki/Graph_database optimized for storing and querying "graphs":http://en.wikipedia.org/wiki/Graph_(mathematics) represented over a cluster of machines. The cluster can elastically scale to support a growing dataset and user base. Titan has a pluggable storage architecture which allows it to build on proven database technology such as "Apache Cassandra":http://cassandra.apache.org/, "Apache HBase":http://hbase.apache.org/, or "Oracle BerkeleyDB":http://www.oracle.com/technetwork/database/berkeleydb/. Furthermore, the pluggable indexing architecture supports "ElasticSearch":http://elasticsearch.com/ and "Lucene":http://lucene.apache.org/. Titan supports global graph analytics, reporting and ETL through integration with "Apache Spark":http://spark.apache.org/, "Apache Giraph":http://giraph.apache.org/, and "Apache Hadoop":http://hadoop.apache.org/. Titan natively implements the "Apache TinkerPop graph stack":http://tinkerpop.incubator.apache.org/ including the graph query language Gremlin.
 
 <a href="Downloads">[[images/download-button.png|align=right|float]]</a>
 
-```xml
-<!-- Titan dependency snippet for Maven's pom.xml -->
-<dependency>
-   <groupId>com.thinkaurelius.titan</groupId>
-   <artifactId>titan-all</artifactId>
-   <!-- Other artifactId suffixes: core, cassandra,
-        hbase, berkeleyje, es, lucene, solr, hadoop -->
-   <version>0.5.4</version>
-</dependency>
-```
-
-Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users.  Follow <a href="https://twitter.com/aureliusgraphs">@aureliusgraphs on Twitter</a> for news about Titan.
+Please use Aurelius's "mailing list":https://groups.google.com/forum/#!forum/aureliusgraphs for all Titan related questions. For TinkerPop and Gremlin related discussions, use the Gremlin-Users "mailing list":https://groups.google.com/forum/#!forum/gremlin-users.
 
 *Version Numbers*
-* Titan 0.1.z is deprecated and will no longer be supported.
-* Titan 0.2.z is deprecated and will no longer be supported.
-* Titan 0.3.z is active. (*stable*)
-* Titan 0.4.z is active. (*stable*)
-* Titan 0.5.z is under active development.
+* Titan 0.1.z - 0.4.z is deprecated and will no longer be supported.
+* Titan 0.5.z is maintained but no longer extended. (*stable*)
+<!-- * Titan 1.0.z is under active development. (*recommended*) -->
 
-[[Documentation (including Javadoc)|Downloads]] for each Titan release is listed on the [[Downloads]] page.
+[[Documentation (including Javadoc)|Downloads]] for each Titan release is listed on the [[Downloads]] page. Please refer to the "project homepage":http://titandb.io for more information.
