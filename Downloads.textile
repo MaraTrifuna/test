@@ -1,6 +1,12 @@
 [[images/titan-logo.png|width=375px]]
 ==<hr/>==
 
+<h3>Titan 1.0.0</h3>
+
+ * "Titan 1.0.0 with Hadoop 1":http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip.asc)
+ * "Titan 1.0.0 Documentation":http://s3.thinkaurelius.com/docs/titan/1.0.0/index.html  (incl. release and upgrade notes)
+ * "Titan 1.0.0 Javadocs":http://titan.thinkaurelius.com/javadoc/1.0.0/
+
 <h3>Titan 0.5.z</h3>
 
 <h4>Titan 0.5.4</h4>
