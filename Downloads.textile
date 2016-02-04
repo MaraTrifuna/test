@@ -155,7 +155,7 @@ Please see 0.4.4, which is identical to 0.4.3 except for a compatibility string 
 
 <h3>Titan 0.3.z</h3>
 
-<h4>Titan 0.3.2 (current stable release)</h4>
+<h4>Titan 0.3.2</h4>
 
  * "Titan/All 0.3.2":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip ("signature":http://s3.thinkaurelius.com/downloads/titan/titan-all-0.3.2.zip.asc).  Contains all supported indexing and storage backends.  Recommended.
  * Minimal distributions.  Each contains one storage backend and the ElasticSearch indexing backend:
